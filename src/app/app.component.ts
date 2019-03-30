@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import { AuthService } from './auth/auth.service';
 
 /**
  * The app component. This component is the base of s2_bicicletas-Front
@@ -21,19 +20,15 @@ export class AppComponent implements OnInit {
      */
     ngOnInit(): void {
         this.title = "s2_bicicletas-Front";
-        this.authService.start();
     }
 
        /**
      * @ignore
      */
-    constructor(private authService: AuthService) { }
+    constructor() { }
 
-    logout(): void {
-        this.authService.logout()
+    
     }
-
-}
 
 
 

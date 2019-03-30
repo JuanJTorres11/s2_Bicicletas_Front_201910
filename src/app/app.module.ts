@@ -12,7 +12,6 @@ import { ModalDialogModule } from 'ngx-modal-dialog';
 
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
-import {AuthModule} from './auth/auth.module';
 import {BicicletaModule} from './bicicleta/bicicleta.module';
 
 
@@ -30,7 +29,6 @@ import {BicicletaModule} from './bicicleta/bicicleta.module';
         HttpClientModule,
         BrowserAnimationsModule,
         ModalDialogModule.forRoot(),
-        AuthModule,
         FormsModule,
         ToastrModule.forRoot({
             timeOut: 10000,
