@@ -44,6 +44,17 @@ const routes: Routes = [
     {
         path: '**',
         redirectTo: 'home',
+    },
+    
+     {
+        path: 'bicicletas',
+        children: [
+            {
+                path: 'list',
+                component: BicicletaListComponent
+            }
+              
+        ]
     }
 ];
 

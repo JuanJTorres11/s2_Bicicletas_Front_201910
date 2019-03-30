@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { AppModule } from './app.module';
 import { AppComponent } from './app.component';
+import {BicicletaListComponent} from './bicicleta/bicicleta-list/bicicleta-list.component';
 
 describe('AppComponent', () => {
     let component: AppComponent;
