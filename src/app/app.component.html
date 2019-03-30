@@ -1,7 +1,17 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 	
-    <a class="navbar-brand" href="#">Navbar</a>
-    
+    <a class="navbar-brand" href="#">
+        <img src="https://cdn.dribbble.com/users/5339/screenshots/2131431/fox_logo_temp.png" height="30" alt="mdb logo">
+    </a>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01"> 
      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
     aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -10,37 +20,47 @@
      <div class="collapse navbar-collapse" id="basicExampleNav">
 
     <!-- Links -->
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        
+        <li class="nav-item active">
         <a class="nav-link" href="#">Home
           <span class="sr-only">(current)</span>
         </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
-      </li>
       
-       <!-- Dropdown -->
+        <!-- Dropdown -->
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="false">Dropdown</a>
+          aria-expanded="false">Catalogo</a>
         <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
+           <a class="dropdown-item" href="#">Marca</a>
+          <a class="dropdown-item" href="#">Categoria</a>
         </div>
       </li>
       
-     </ul>
+      
+      <li class="nav-item">
+        <a class="nav-link" href="#">Carrito</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Lista de deseos</a>
+      </li>
+      
+    </ul>     
+       <form class="form-inline my-2 my-lg-0">
+  	<a class="btn btn-primary my-2 my-sm-0" href="#" role="button">Login</a>
+        
+        <a class="btn btn-outline-primary my-2 my-sm-0" href="#" role="button">Sign Up</a>
+       
+      </form>
+      
     
+    </div>
     <!-- Links -->
 
     <form class="form-inline">
       <div class="md-form my-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+       
       </div>
     </form>
   </div>
@@ -53,3 +73,6 @@
 
 
 <router-outlet></router-outlet>
+
+</body>
+</html>
