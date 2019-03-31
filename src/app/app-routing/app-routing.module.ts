@@ -5,15 +5,14 @@ import {RouterModule, Routes} from '@angular/router';
 import {NgxPermissionsGuard} from 'ngx-permissions';
 
 import {BicicletaListComponent} from '../bicicleta/bicicleta-list/bicicleta-list.component';
-
+import {HomeComponent} from '../Home/home-main/home.component';
 
 const routes: Routes = [
 
     {
-        
         path: 'home',
-        redirectTo: '/bicicletas/list', pathMatch: 'full'
-    }
+        component: HomeComponent
+    },
     
     {
         path: '**',
