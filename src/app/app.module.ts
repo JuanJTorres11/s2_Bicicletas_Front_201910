@@ -13,6 +13,7 @@ import { ModalDialogModule } from 'ngx-modal-dialog';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {BicicletaModule} from './bicicleta/bicicleta.module';
+import {HomeModule} from './Home/home.module';
 
 
 
@@ -38,7 +39,8 @@ import {BicicletaModule} from './bicicleta/bicicleta.module';
         NgxPaginationModule,
         NgxPermissionsModule.forRoot(),
         NgbModule,
-        BicicletaModule
+        BicicletaModule,
+        HomeModule
     ],
     bootstrap: [AppComponent],
     providers: [
