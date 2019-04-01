@@ -14,7 +14,8 @@ import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {BicicletaModule} from './bicicleta/bicicleta.module';
 import {HomeModule} from './Home/home.module';
-
+import {MarcaModule} from './marca/marca.module'
+import {OrdenModule} from './orden/orden.module'
 
 
 
@@ -40,7 +41,9 @@ import {HomeModule} from './Home/home.module';
         NgxPermissionsModule.forRoot(),
         NgbModule,
         BicicletaModule,
-        HomeModule
+        HomeModule,
+        MarcaModule,
+        OrdenModule
     ],
     bootstrap: [AppComponent],
     providers: [
