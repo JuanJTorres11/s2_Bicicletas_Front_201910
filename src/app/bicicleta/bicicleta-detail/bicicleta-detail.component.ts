@@ -3,11 +3,11 @@ import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 
 
 import { BicicletaService } from '../bicicleta.service';
-import { Book } from '../book';
+import { Bicicleta } from '../bicicleta';
 import { BicicletaDetail } from '../bicicleta-detail';
 
 @Component({
-    selector: 'app-book-detail',
+    selector: 'app-bicicleta-detail',
     templateUrl: './bicicleta-detail.component.html',
     styleUrls: ['./bicicleta-detail.component.css']
 })
@@ -47,7 +47,7 @@ export class BicicletaDetailComponent implements OnInit, OnDestroy {
     /**
     * The other books shown in the sidebar
     */
-    other_bikes: Bicicleta[];
+    other_bicicletas: Bicicleta[];
 
     /**
     * The suscription which helps to know when a new bike
@@ -86,7 +86,7 @@ export class BicicletaDetailComponent implements OnInit, OnDestroy {
         this.bicicleta_id = + this.route.snapshot.paramMap.get('id');
         this.bicicletaDetail = new BicicletaDetail();
         this.getBicicletaDetail();
-        this.getOtherBicicleta();
+        this.getOtherBicicletas();
     }
 
     /**
