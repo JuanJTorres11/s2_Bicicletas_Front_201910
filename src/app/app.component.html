@@ -1,67 +1,69 @@
+
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-	
-    <!-- Navbar brand -->        
-    <a class="navbar-brand" href="#">
-        <img src="http://www.pngmart.com/files/1/Sad-Emoji-Transparent-Background.png" height="40" alt="mdb logo">
+
+    <!-- Navbar brand -->
+    <a class="navbar-brand" href="http://localhost:4200/home">
+        <img src="../assets/Images/logo.png" height="40" alt="mdb logo">
     </a>
-    
+
     <!-- Collapse button -->
-     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
-    aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+            aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
     </button>
-    
+
     <!-- Collapsible content -->
     <div class="collapse navbar-collapse" id="basicExampleNav">
-        
-   
-        
-    <!-- Links -->
-    <ul class="navbar-nav mr-auto">
-        
-     <li class="nav-item active">
-        <a class="nav-link" href="#">Inicio
-          <span class="sr-only">(current)</span>
-        </a>
-      </li>
-      
-      <!-- Dropdown -->
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="false">Catalogo</a>
-        <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-           <a class="dropdown-item" href="#">Marca</a>
-          <a class="dropdown-item" href="#">Categoria</a>
-        </div>
-      </li>
-      <!-- Dropdown -->
-      
-      <li class="nav-item">
-        <a class="nav-link" href="#">Carrito</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Lista de deseos</a>
-      </li>
-      
-    </ul> 
-    <!-- Links -->
-    
-    
-    <form class="form-inline">
-      <div class="md-form my-0">
-       <a class="btn btn-primary my-2 my-sm-0" href="#" role="button">Login</a>
-       <a class="btn btn-outline-primary my-2 my-sm-0" href="#" role="button">Sign Up</a>
-      </div>
-    </form>
-    
+
+
+
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item active">
+                <a class="nav-link" href="http://localhost:4200/home">
+                    Inicio
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>
+
+            <!-- Dropdown -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false">Catalogo</a>
+                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="http://localhost:4200/bicicletas/list">Todas</a>
+                    <a class="dropdown-item" href="#">Marca</a>
+                    <a class="dropdown-item" href="#">Categoria</a>
+                </div>
+            </li>
+            <!-- Dropdown -->
+
+            <li class="nav-item">
+                <a class="nav-link" href="#">Carrito</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Lista de deseos</a>
+            </li>
+
+        </ul>
+        <!-- Links -->
+
+
+        <form class="form-inline">
+            <div class="md-form my-0">
+                <a class="btn btn-primary my-2 my-sm-0" href="#" role="button">Login</a>
+                <a class="btn btn-outline-primary my-2 my-sm-0" href="#" role="button">Sign Up</a>
+            </div>
+        </form>
+
     </div>
-   <!-- Collapsible content -->
-   
+    <!-- Collapsible content -->
+
 </nav>
 
-<div>
-        <router-outlet></router-outlet>
-        <br>
-        <br>
-    </div>
-    
+
+
+<router-outlet></router-outlet>
+<!-- Routed components go here -->

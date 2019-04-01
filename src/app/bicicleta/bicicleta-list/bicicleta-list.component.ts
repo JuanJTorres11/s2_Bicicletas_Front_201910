@@ -10,7 +10,7 @@ import {BicicletaService} from '../bicicleta.service';
 @Component({
     selector: 'app-bicicleta',
     templateUrl: './bicicleta-list.component.html',
-    styleUrls: ['./bicicleta-list.component.css']
+    styleUrls: ['./bicicleta-list.component.css'] 
 })
 export class BicicletaListComponent implements OnInit {
 

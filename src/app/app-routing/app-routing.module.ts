@@ -24,7 +24,7 @@ const routes: Routes = [
         children: [
             {
                 path: 'list',
-                component: BicicletaListComponent
+                component: BicicletaListComponent, outlet: 'botton'
             }
               
         ]
