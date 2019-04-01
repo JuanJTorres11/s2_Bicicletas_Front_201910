@@ -9,22 +9,22 @@ import {HomeComponent} from '../Home/home-main/home.component';
 
 const routes: Routes = [
 
-    {
-        path: 'home',
-        component: HomeComponent
-    },
+    //{
+       // path: 'home',
+        //component: HomeComponent
+    //},
     
     {
         path: '**',
-        redirectTo: 'home',
+        redirectTo: 'bicicletas/list',
     },
     
-     {
+    {
         path: 'bicicletas',
         children: [
             {
                 path: 'list',
-                component: BicicletaListComponent, outlet: 'botton'
+                component: BicicletaListComponent
             }
               
         ]
@@ -34,7 +34,7 @@ const routes: Routes = [
 @NgModule({
     imports: [
         CommonModule,
-        RouterModule.forRoot(routes)
+        RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload'})
     ],
     exports: [RouterModule],
     declarations: []
