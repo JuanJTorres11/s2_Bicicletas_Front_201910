@@ -1,6 +1,6 @@
 
 import {Component, OnInit} from '@angular/core';
-
+import { ActivatedRoute } from '@angular/router';
 import {Bicicleta} from '../bicicleta';
 import {BicicletaService} from '../bicicleta.service';
 
@@ -18,7 +18,10 @@ export class BicicletaListComponent implements OnInit {
      * Constructor of the component
      * @param bookService The book's services provider
      */
-    constructor(private bicicletaService: BicicletaService) {}
+    constructor(
+	private bicicletaService: BicicletaService,
+	 private route: ActivatedRoute
+	) {}
 
     /**
      * The list of books in the BookStore

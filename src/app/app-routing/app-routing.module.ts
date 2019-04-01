@@ -19,12 +19,12 @@ const routes: Routes = [
         redirectTo: 'home',
     },
     
-     {
+    {
         path: 'bicicletas',
         children: [
             {
                 path: 'list',
-                component: BicicletaListComponent, outlet: 'botton'
+                component: BicicletaListComponent
             }
               
         ]
@@ -34,7 +34,7 @@ const routes: Routes = [
 @NgModule({
     imports: [
         CommonModule,
-        RouterModule.forRoot(routes)
+        RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload'})
     ],
     exports: [RouterModule],
     declarations: []

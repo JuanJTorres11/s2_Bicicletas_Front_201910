@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 
 import {Bicicleta} from './bicicleta';
+import { BicicletaDetail } from './bicicleta-detail';
 
 const API_URL = "../../assets/";
 const bicicletas = '/bicicletas.json';
@@ -27,5 +28,13 @@ export class BicicletaService {
     */
     getBicicletas(): Observable<Bicicleta[]> {
         return this.http.get<Bicicleta[]>(API_URL + bicicletas);
+    }
+
+	/**
+    * Returns the Observable object with the details of an author retrieved from the API
+    * @returns The author details
+    */
+    getBicicletaDetail(bicicletaId): Observable<BicicletaDetail> {
+        return this.http.get<BicicletaDetail>(API_URL + bicicletas + '/' + bicicletaId);
     }
 }
