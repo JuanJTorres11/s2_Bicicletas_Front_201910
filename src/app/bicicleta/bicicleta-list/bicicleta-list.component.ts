@@ -41,6 +41,7 @@ export class BicicletaListComponent implements OnInit {
      * This method will be called when the component is created
      */
     ngOnInit() {
+		console.log("IntitBicicletas");
         this.getBicicletas();
     }
 }

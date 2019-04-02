@@ -14,10 +14,7 @@ const routes: Routes = [
         component: HomeComponent
     },
     
-    {
-        path: '**',
-        redirectTo: 'home',
-    },
+    
     
     {
         path: 'bicicletas',
@@ -28,6 +25,11 @@ const routes: Routes = [
             }
               
         ]
+    },
+
+	{
+        path: '**',
+        redirectTo: 'home',
     }
 ];
 
