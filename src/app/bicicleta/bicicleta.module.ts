@@ -8,6 +8,7 @@ import {FormsModule} from '@angular/forms';
 import {BicicletaService} from './bicicleta.service';
 import {BicicletaListComponent} from './bicicleta-list/bicicleta-list.component';
 import {AppRoutingModule} from '../app-routing/app-routing.module';
+import {BicicletaDetailComponent} from './bicicleta-detail/bicicleta-detail.component';
 
 @NgModule({
     imports: [
@@ -18,9 +19,10 @@ import {AppRoutingModule} from '../app-routing/app-routing.module';
         FormsModule
     ],
     declarations: [
-        BicicletaListComponent
+        BicicletaListComponent,
+		BicicletaDetailComponent
     ],
     providers: [BicicletaService],
-    bootstrap: [BicicletaListComponent]
+    exports: [BicicletaListComponent]
 })
 export class BicicletaModule {}

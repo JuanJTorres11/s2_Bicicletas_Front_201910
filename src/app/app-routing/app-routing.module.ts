@@ -6,6 +6,7 @@ import {NgxPermissionsGuard} from 'ngx-permissions';
 
 import {BicicletaListComponent} from '../bicicleta/bicicleta-list/bicicleta-list.component';
 import {HomeComponent} from '../Home/home-main/home.component';
+import {BicicletaDetailComponent} from '../bicicleta/bicicleta-detail/bicicleta-detail.component';
 
 import {MarcaListComponent} from '../marca/marca-list/marca-list.component';
 import {MarcaDetailComponent} from '../marca/marca-detail/marca-detail.component';
@@ -18,11 +19,11 @@ const routes: Routes = [
     },
     
     {
-        path: '**',
-        redirectTo: 'home',
-    },
+		path: 'bicicleta',
+		component: BicicletaDetailComponent
+	},
     
-     {
+    {
         path: 'bicicletas',
         children: [
             {
@@ -33,6 +34,9 @@ const routes: Routes = [
         ]
     },
 
+	{
+        path: '**',
+        redirectTo: 'home',
     {
         path:'marcas',
         children: [
@@ -52,7 +56,7 @@ const routes: Routes = [
 @NgModule({
     imports: [
         CommonModule,
-        RouterModule.forRoot(routes)
+        RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload'})
     ],
     exports: [RouterModule],
     declarations: []
