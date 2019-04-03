@@ -14,6 +14,8 @@ import { VendedorDetailComponent } from '../usuarios/vendedores/vendedor-detail/
 import { VendedorMediospagoComponent } from '../usuarios/vendedores/vendedor-mediospago/vendedor-mediospago.component';
 import { VendedorEditComponent } from '../usuarios/vendedores/vendedor-edit/vendedor-edit.component';
 import { VendedorVentaComponent } from '../usuarios/vendedores/vendedor-venta/vendedor-venta.component';
+import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
+import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
 
 const routes: Routes = [
 
@@ -22,6 +24,16 @@ const routes: Routes = [
         component: HomeComponent
     },
     
+    {
+        path: 'iniciarSesion',
+        component: AuthLoginComponent
+    },
+
+    {
+        path: 'registrarse',
+        component: AuthSignUpComponent
+    },
+
     {
 		path: 'bicicleta',
 		component: BicicletaDetailComponent
