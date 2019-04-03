@@ -15,11 +15,6 @@ import {AppRoutingModule} from './app-routing/app-routing.module';
 import {BicicletaModule} from './bicicleta/bicicleta.module';
 import {HomeModule} from './Home/home.module';
 
-
-
-
-
-
 @NgModule({
     declarations: [
         AppComponent
