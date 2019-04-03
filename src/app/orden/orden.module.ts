@@ -4,13 +4,14 @@ import {OrdenListComponent} from './orden-list/orden-list.component';
 
 import {OrdenService} from './orden.service';
 import {FormsModule} from '@angular/forms';
+import { OrdenDetailComponent } from './orden-detail/orden-detail.component';
 
 @NgModule({
     imports: [
         CommonModule,
         FormsModule
     ],
-    declarations: [OrdenListComponent],
+    declarations: [OrdenListComponent, OrdenDetailComponent],
     providers:[OrdenService],
     exports: [OrdenListComponent]
 })

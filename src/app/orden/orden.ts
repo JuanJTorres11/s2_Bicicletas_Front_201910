@@ -23,10 +23,10 @@ export class Orden {
      */
     fecha: Date;
 
-    constructor(id:number, cantidad:number, costo:number, fecha:Date){
-        this.id=id;
-        this.cantidad=cantidad;
-        this.costo=costo;
-        this.fecha=fecha;
-    }
+    // constructor(id:number, cantidad:number, costo:number, fecha:Date){
+    //     this.id=id;
+    //     this.cantidad=cantidad;
+    //     this.costo=costo;
+    //     this.fecha=fecha;
+    // }
 }

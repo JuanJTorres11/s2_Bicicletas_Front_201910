@@ -8,7 +8,10 @@
             </thead>
             <tbody>
                 <tr *ngFor="let m of marcas">
-                    <td>{{m.name}}</td>
+                    <td style= "cursor: pointer;">
+                        <a class = "figure-caption" routerLink="/marcas/{{marcas.id}}"
+                        >{{marcas.name}}</a>
+                    </td>
                 </tr>
             </tbody>
         </table>
