@@ -1,2 +1,22 @@
-﻿body {
+﻿.spacer {
+    background-color: white;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-right: 30px;
+    margin-left: 30px;
+}
+th.a {
+    font-family: "Verdana", Sans-serif;
+    font-size: 20px;
+}
+
+th.b {
+    font-family: "Verdana", Sans-serif;
+    font-size: 25px;
+}
+
+p.precio {
+    font-family: "Verdana", Sans-serif;
+    color: #960018;
+    font-size: 20px;
 }

@@ -98,4 +98,6 @@ export class BicicletaDetailComponent implements OnInit, OnDestroy {
             this.navigationSubscription.unsubscribe();
         }
     }
+
+
 }
