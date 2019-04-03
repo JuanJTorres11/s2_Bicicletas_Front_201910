@@ -20,3 +20,11 @@ p.precio {
     color: #960018;
     font-size: 20px;
 }
+
+.carousel-control-prev {
+    filter: invert(30%);
+}
+
+.carousel-control-next {
+    filter: invert(30%);
+}
