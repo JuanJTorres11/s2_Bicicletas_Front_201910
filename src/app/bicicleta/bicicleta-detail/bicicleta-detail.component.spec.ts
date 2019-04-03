@@ -37,7 +37,7 @@ describe('BicicletaDetailComponent', () => {
     }));
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(BookDetailComponent);
+        fixture = TestBed.createComponent(BicicletaDetailComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
     });
