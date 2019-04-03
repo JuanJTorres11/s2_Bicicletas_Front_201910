@@ -16,6 +16,17 @@ export class AppComponent implements OnInit {
     title: String;
 
     /**
+     * Boolean para indicar si mostrar los botones de inicio de sesión
+     * o los de perfil.
+     */
+    sesionIniciada = false;
+    
+    /**
+     * Boolean para indicar a dónde redirigen los botones de perfil.
+     */
+    esVendedor = false;
+
+    /**
      * Assigns a title to the web page
      */
     ngOnInit(): void {
@@ -29,8 +40,3 @@ export class AppComponent implements OnInit {
 
     
     }
-
-
-
-
-

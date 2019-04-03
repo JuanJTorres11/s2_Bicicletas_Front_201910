@@ -9,17 +9,13 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpErrorInterceptor} from './interceptors/httperrorinterceptor.service';
 import {NgxPermissionsModule} from 'ngx-permissions';
 import { ModalDialogModule } from 'ngx-modal-dialog';
-
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {BicicletaModule} from './bicicleta/bicicleta.module';
 import {HomeModule} from './Home/home.module';
+import {UsuariosModule} from './usuarios/usuarios.module';
 import {MarcaModule} from './marca/marca.module'
 import {OrdenModule} from './orden/orden.module'
-
-
-
-
 
 @NgModule({
     declarations: [
@@ -41,7 +37,8 @@ import {OrdenModule} from './orden/orden.module'
         NgxPermissionsModule.forRoot(),
         NgbModule,
         BicicletaModule,
-        HomeModule,
+        HomeModule, 
+        UsuariosModule,
         MarcaModule,
         OrdenModule
     ],

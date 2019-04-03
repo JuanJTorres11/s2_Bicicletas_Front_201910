@@ -10,6 +10,10 @@ import {BicicletaDetailComponent} from '../bicicleta/bicicleta-detail/bicicleta-
 
 import {MarcaListComponent} from '../marca/marca-list/marca-list.component';
 import {MarcaDetailComponent} from '../marca/marca-detail/marca-detail.component';
+import { VendedorDetailComponent } from '../usuarios/vendedores/vendedor-detail/vendedor-detail.component';
+import { VendedorMediospagoComponent } from '../usuarios/vendedores/vendedor-mediospago/vendedor-mediospago.component';
+import { VendedorEditComponent } from '../usuarios/vendedores/vendedor-edit/vendedor-edit.component';
+import { VendedorVentaComponent } from '../usuarios/vendedores/vendedor-venta/vendedor-venta.component';
 
 const routes: Routes = [
 
@@ -38,6 +42,29 @@ const routes: Routes = [
         path: '**',
         redirectTo: 'home',
     },
+
+     {
+        path: 'vendedores',
+        children: [
+            {
+                path: ':id',
+                component: VendedorDetailComponent
+            },
+            {
+                path: 'edit',
+                component: VendedorEditComponent
+            },
+            {
+                path: 'mediosPago',
+                component: VendedorMediospagoComponent
+            },
+            {
+                path: 'ventas',
+                component: VendedorVentaComponent
+            }
+        ]
+    },
+
     {
         path:'marcas',
         children: [
@@ -46,7 +73,7 @@ const routes: Routes = [
                 component: MarcaListComponent
             },
             {
-                path:'id',
+                path:':id',
                 component: MarcaDetailComponent
             }
               
