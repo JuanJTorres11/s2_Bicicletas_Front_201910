@@ -15,9 +15,9 @@ and open the template in the editor.
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li *ngFor="let f of bicicletaDetail.album,let i = index" data-target="#carouselExampleIndicators" class="{{ (i == 0) ? 'active' : '' }}" attr.data-slide-to="{{i}}"></li>
-                 </ol>
+                </ol>
                 <div class="carousel-inner">
-                    <div *ngFor="let f of bicicletaDetail.album,let i = index" class= "{{ (i == 0) ? 'carousel-item active' : 'carousel-item' }}" >
+                    <div *ngFor="let f of bicicletaDetail.album,let i = index" class="{{ (i == 0) ? 'carousel-item active' : 'carousel-item' }}">
                         <img class="d-block w-100" src="{{bicicletaDetail.album[i]}}" alt="slide {{i}}">
 
                     </div>
@@ -84,6 +84,11 @@ and open the template in the editor.
 </div>
 <br>
 <br>
+<div>
+    <app-bicicleta-resena [bicicletaResenas]="bicicletaDetail.resenas"></app-bicicleta-resena>
+    <br>
+    <br>
+</div>
 
 <div class="spacer">
     <hr style="border: 1px solid#C8C8C8;" />
