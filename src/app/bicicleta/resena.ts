@@ -29,6 +29,11 @@ export class Resena {
    titulo : string;
 
     /*
+    * Nombre usuario calificador
+     */
+    usuario: string;
+
+    /*
     * Relación a una bicicleta
     * dado que esta tiene cardinalidad 1.
      */

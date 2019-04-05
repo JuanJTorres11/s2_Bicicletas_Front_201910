@@ -35,6 +35,6 @@ export class BicicletaService {
     * @returns The author details
     */
     getBicicletaDetail(bicicletaId): Observable<BicicletaDetail> {
-        return this.http.get<BicicletaDetail>(API_URL + bicicletas + '/' + bicicletaId);
+        return this.http.get<BicicletaDetail>(API_URL + '/bicicleta' + bicicletaId + '.json');
     }
 }
