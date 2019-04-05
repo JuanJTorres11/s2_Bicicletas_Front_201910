@@ -1,0 +1,9 @@
+{
+  "id": 4,
+  "descripcion": "Color sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque",
+  "referencia": "BBBB111",
+  "precio": 900000,
+  "usada": false,
+  "stock": 12,
+  "album": [ "https://cdn.shopify.com/s/files/1/0081/1222/products/Urban_Ando_34_WEB_ce30a9f0-dcc1-4351-8cce-3ff45631e129_1000x.jpg?v=1550772418", "https://cdn.shopify.com/s/files/1/0081/1222/products/Urban_Ando_34_WEB_ce30a9f0-dcc1-4351-8cce-3ff45631e129_1000x.jpg?v=1550772418" ]
+}

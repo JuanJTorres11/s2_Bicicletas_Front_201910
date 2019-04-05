@@ -26,6 +26,10 @@ const routes: Routes = [
             {
                 path: 'list',
                 component: BicicletaListComponent
+            },
+			{
+                path: ':id',
+                component: BicicletaDetailComponent
             }
               
         ]

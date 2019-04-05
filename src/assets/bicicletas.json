@@ -1,42 +1,49 @@
-[{
-  "referencia": 65,
-  "precio": "$9.08",
-  "imagen": "https://phantom-bikes.com/wp-content/uploads/2016/12/phantom-bikes-phantom-vision-electric-bike-black.jpg",
-  "marca": "Tres-Zap"
-}, {
-  "referencia": 95,
-  "precio": "$5.94",
-  "imagen": "https://flatbike.com/wp-content/uploads/2017/04/change-bike-df-612-pic-6.jpg",
-  "marca": "Voltsillam"
-}, {
-  "referencia": 93,
-  "precio": "$8.79",
-  "imagen": "https://cdn.shopify.com/s/files/1/0081/1222/products/Urban_Ando_34_WEB_ce30a9f0-dcc1-4351-8cce-3ff45631e129_1000x.jpg?v=1550772418",
-  "marca": "Tampflex"
-}, {
-  "referencia": 12,
-  "precio": "$8.53",
-  "imagen": "https://media.treehugger.com/assets/images/2014/01/Faraday.jpg",
-  "marca": "Overhold"
-}, {
-  "referencia": 17,
-  "precio": "$7.12",
-  "imagen": "https://flatbike.com/wp-content/uploads/2017/04/change-bike-df-612-pic-6.jpg",
-  "marca": "Lotstring"
-}, {
-  "referencia": 3,
-  "precio": "$1.16",
-  "imagen": "https://flatbike.com/wp-content/uploads/2017/04/change-bike-df-612-pic-6.jpg",
-  "marca": "Lotstring"
-}, {
-  "referencia": 68,
-  "precio": "$3.59",
-  "imagen": "https://flatbike.com/wp-content/uploads/2017/04/change-bike-df-612-pic-6.jpg",
-  "marca": "Ronstring"
-}, {
-  "referencia": 78,
-  "precio": "$5.29",
-  "imagen": "https://flatbike.com/wp-content/uploads/2017/04/change-bike-df-612-pic-6.jpg",
-  "marca": "Alphazap"
-}
+[
+  {
+    "id": 1,
+    "descripcion": "Color sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque",
+    "referencia": "AAA111",
+    "precio": 600000,
+    "usada": true,
+    "stock": 12,
+    "album": [ "https://media.treehugger.com/assets/images/2014/01/Faraday.jpg", "https://media.treehugger.com/assets/images/2014/01/Faraday.jpg" ]
+  },
+  {
+    "id": 2,
+    "descripcion": "Color sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque",
+    "referencia": "AAA222",
+    "precio": 700000,
+    "usada": true,
+    "stock": 50,
+    "album": [ "https://flatbike.com/wp-content/uploads/2017/04/change-bike-df-612-pic-6.jpg", "https://flatbike.com/wp-content/uploads/2017/04/change-bike-df-612-pic-6.jpg" ]
+  },
+  {
+    "id": 3,
+    "descripcion": "Color sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque",
+    "referencia": "CCC111",
+    "precio": 600000,
+    "usada": true,
+    "stock": 40,
+    "album": [ "https://flatbike.com/wp-content/uploads/2017/04/change-bike-df-612-pic-6.jpg", "https://flatbike.com/wp-content/uploads/2017/04/change-bike-df-612-pic-6.jpg" ]
+  },
+  {
+    "id": 4,
+    "descripcion": "Color sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque",
+    "referencia": "BBBB111",
+    "precio": 900000,
+    "usada": false,
+    "stock": 12,
+    "album": [ "https://cdn.shopify.com/s/files/1/0081/1222/products/Urban_Ando_34_WEB_ce30a9f0-dcc1-4351-8cce-3ff45631e129_1000x.jpg?v=1550772418", "https://cdn.shopify.com/s/files/1/0081/1222/products/Urban_Ando_34_WEB_ce30a9f0-dcc1-4351-8cce-3ff45631e129_1000x.jpg?v=1550772418" ]
+  },
+  {
+    "id": 5,
+    "descripcion": "Color sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque",
+    "referencia": "DDDD111",
+    "precio": 900000,
+    "usada": false,
+    "stock": 14,
+    "album": [ "https://cdn.shopify.com/s/files/1/0081/1222/products/Urban_Ando_34_WEB_ce30a9f0-dcc1-4351-8cce-3ff45631e129_1000x.jpg?v=1550772418", "https://cdn.shopify.com/s/files/1/0081/1222/products/Urban_Ando_34_WEB_ce30a9f0-dcc1-4351-8cce-3ff45631e129_1000x.jpg?v=1550772418" ]
+  }
+
+
 ]

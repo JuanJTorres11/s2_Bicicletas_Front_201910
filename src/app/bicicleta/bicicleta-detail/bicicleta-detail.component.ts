@@ -44,6 +44,7 @@ export class BicicletaDetailComponent implements OnInit, OnDestroy {
     */
     bicicletaDetail: BicicletaDetail;
 
+	
     /**
     * The other books shown in the sidebar
     */
@@ -60,9 +61,12 @@ export class BicicletaDetailComponent implements OnInit, OnDestroy {
     * we want to show
     */
     getBicicletaDetail(): void {
+
          this.bicicletaService.getBicicletaDetail(this.bicicleta_id)
             .subscribe(bicicletaDetail => {
                 this.bicicletaDetail = bicicletaDetail;
+					console.log(this.bicicletaDetail.album.length);
+   
             });
     }
 
@@ -87,7 +91,7 @@ export class BicicletaDetailComponent implements OnInit, OnDestroy {
         this.bicicletaDetail = new BicicletaDetail();
         this.getBicicletaDetail();
         this.getOtherBicicletas();
-    }
+	 }
 
     /**
     * This method helps to refresh the view when we need to load another book into it

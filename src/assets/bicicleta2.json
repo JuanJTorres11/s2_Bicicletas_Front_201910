@@ -1,0 +1,9 @@
+{
+  "id": 2,
+  "descripcion": "Color sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque",
+  "referencia": "AAA222",
+  "precio": 700000,
+  "usada": true,
+  "stock": 50,
+  "album": [ "https://flatbike.com/wp-content/uploads/2017/04/change-bike-df-612-pic-6.jpg", "https://flatbike.com/wp-content/uploads/2017/04/change-bike-df-612-pic-6.jpg" ]
+}
