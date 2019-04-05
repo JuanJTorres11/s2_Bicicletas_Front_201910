@@ -1,6 +1,7 @@
 [
   {
     "id": 1,
+    "calificacion":  5,
     "descripcion": "Color sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque",
     "referencia": "AAA111",
     "precio": 600000,
@@ -10,6 +11,7 @@
   },
   {
     "id": 2,
+    "calificacion": 4,
     "descripcion": "Color sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque",
     "referencia": "AAA222",
     "precio": 700000,
@@ -19,6 +21,7 @@
   },
   {
     "id": 3,
+    "calificacion": 5,
     "descripcion": "Color sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque",
     "referencia": "CCC111",
     "precio": 600000,
@@ -28,6 +31,7 @@
   },
   {
     "id": 4,
+    "calificacion": 2,
     "descripcion": "Color sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque",
     "referencia": "BBBB111",
     "precio": 900000,
@@ -37,6 +41,7 @@
   },
   {
     "id": 5,
+    "calificacion": 3,
     "descripcion": "Color sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque",
     "referencia": "DDDD111",
     "precio": 900000,
