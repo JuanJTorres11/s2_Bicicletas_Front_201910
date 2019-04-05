@@ -68,17 +68,18 @@ and open the template in the editor.
                 </tbody>
 
             </table>
+            <div class="spacerR">
+                <p class="resena" (click)="resenaListComponent.isCollapsed = !resenaListComponent.isCollapsed">  Ver reseñas</p>
+            </div>
+                <form class="form-inline">
+                    <div class="md-form my-0">
 
-            <a class="nav-link" routerLink="bicicleta">Ver reseñas</a>
+                        <a class="btn btn-success my-2 my-sm-0" href="#" role="button">Añadir al carrito</a>
+                        <a class="btn btn-outline-success my-2 my-sm-0" href="#" role="button">Comprar</a>
+                    </div>
+                </form>
 
-            <form class="form-inline">
-                <div class="md-form my-0">
-                    <a class="btn btn-success my-2 my-sm-0" href="#" role="button">Añadir al carrito</a>
-                    <a class="btn btn-outline-success my-2 my-sm-0" href="#" role="button">Comprar</a>
-                </div>
-            </form>
-
-        </div>
+            </div>
     </div>
 
 </div>

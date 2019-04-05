@@ -8,7 +8,7 @@ import { Resena } from '../resena';
 export class BicicletaResenaComponent implements OnInit {
     @Input() bicicletaResenas: Resena [];
     
-    public isCollapsed = false;
+    public isCollapsed = true;
     
     /**
      * The function called when a review is posted to update the reviews
@@ -16,7 +16,7 @@ export class BicicletaResenaComponent implements OnInit {
     updateResenas(resenas:Resena[]): void {
         this.bicicletaResenas = resenas;
     }
-    
+		
     ngOnInit(){
     }
 }
