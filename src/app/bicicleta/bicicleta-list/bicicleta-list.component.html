@@ -4,15 +4,16 @@
         <div class="col-lg-3 col-md-6 mb-4" *ngFor="let bicicleta of bicicletas">
  
             <div class="card h-100">    
-                <a href="#">
-                    <img class="card-img-top" src="{{bicicleta.imagen}}" alt="">
+                <a routerLink="/bicicletas/{{bicicleta.id}}">
+                    <img class="card-img-top" src="{{bicicleta.album[0]}}" alt="">
                 </a>
                 <div class="card-body">
-                    <h4 class="card-title">Bicicletaaaa</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+                    <h4 class="card-title">Bicicleta de "categoria" "marca":{{bicicleta.referencia}}</h4>
+                    <p class="card-text">{{bicicleta.descripcion}}</p>
                 </div>
                 <div class="card-footer">
-                    <a href="#" class="btn btn-primary">Boton</a>
+                    <a routerLink="/bicicletas/{{bicicleta.id}}" class="btn btn-outline-primary">Mas info</a>
+                    <a href="#" class="btn btn-success">Comprar</a>
                 </div>
             </div>
  
