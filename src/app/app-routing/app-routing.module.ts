@@ -25,21 +25,6 @@ const routes: Routes = [
     },
     
     {
-        path: 'iniciarSesion',
-        component: AuthLoginComponent
-    },
-
-    {
-        path: 'registrarse',
-        component: AuthSignUpComponent
-    },
-
-    {
-		path: 'bicicleta',
-		component: BicicletaDetailComponent
-	},
-    
-    {
         path: 'bicicletas',
         children: [
             {
@@ -55,6 +40,20 @@ const routes: Routes = [
         redirectTo: 'home',
     },
 
+    {
+        path: 'iniciarSesion',
+        component: AuthLoginComponent
+    },
+   {
+        path: 'registrarse',
+        component: AuthSignUpComponent
+    },
+ 
+    {
+		path: 'bicicleta',
+		component: BicicletaDetailComponent
+    },
+    
      {
         path: 'vendedores',
         children: [

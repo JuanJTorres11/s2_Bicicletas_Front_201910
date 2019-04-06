@@ -16,6 +16,7 @@ import {HomeModule} from './Home/home.module';
 import {UsuariosModule} from './usuarios/usuarios.module';
 import {MarcaModule} from './marca/marca.module'
 import {OrdenModule} from './orden/orden.module'
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
     declarations: [
@@ -40,7 +41,8 @@ import {OrdenModule} from './orden/orden.module'
         HomeModule, 
         UsuariosModule,
         MarcaModule,
-        OrdenModule
+        OrdenModule,
+        AuthModule
     ],
     bootstrap: [AppComponent],
     providers: [

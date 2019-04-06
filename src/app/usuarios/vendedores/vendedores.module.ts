@@ -9,6 +9,12 @@ import { VendedorEditComponent } from './vendedor-edit/vendedor-edit.component';
   imports: [
     CommonModule
   ],
-  declarations: [VendedorDetailComponent, VendedorMediospagoComponent, VendedorVentaComponent, VendedorEditComponent]
+  declarations: [
+    VendedorDetailComponent,
+    VendedorMediospagoComponent,
+    VendedorVentaComponent,
+    VendedorEditComponent
+  ],
+  bootstrap: [VendedorDetailComponent]
 })
 export class VendedoresModule { }
