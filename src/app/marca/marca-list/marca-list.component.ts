@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import { Router } from '@angular/router';
 import {Marca} from '../marca';
 import {MarcaService} from '../marca.service';
 
@@ -20,7 +21,7 @@ export class MarcaListComponent implements OnInit {
     /**
      * Constructor del componente
      */
-    constructor(private marcaService: MarcaService){}
+    constructor(private marcaService: MarcaService, private router: Router){}
 
     getMarcas(): void {
         this.marcaService.getMarcas().subscribe(lasMarcas  => this.marcas = lasMarcas);

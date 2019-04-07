@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import { Router } from '@angular/router';
 import {Orden} from '../orden';
 import {OrdenService} from '../orden.service';
 
@@ -20,7 +21,7 @@ export class OrdenListComponent implements OnInit {
     /**
      * Constructor del componente
      */
-    constructor(private ordenService: OrdenService){}
+    constructor(private ordenService: OrdenService, private router: Router){}
 
     getOrdenes(): void {
         this.ordenService.getOrdenes().subscribe(lasOrdenes  => this.ordenes = lasOrdenes);

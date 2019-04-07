@@ -11,6 +11,9 @@ import {BicicletaDetailComponent} from '../bicicleta/bicicleta-detail/bicicleta-
 import {MarcaListComponent} from '../marca/marca-list/marca-list.component';
 import {MarcaDetailComponent} from '../marca/marca-detail/marca-detail.component';
 
+import {OrdenListComponent} from '../orden/orden-list/orden-list.component';
+import {OrdenDetailComponent} from '../orden/orden-detail/orden-detail.component';
+
 const routes: Routes = [
 
     {
@@ -34,10 +37,10 @@ const routes: Routes = [
         ]
     },
 
-	{
-        path: '**',
-        redirectTo: 'home',
-    },
+	// {
+    //     path: '**',
+    //     redirectTo: 'home',
+    // },
     {
         path:'marcas',
         children: [
@@ -46,8 +49,22 @@ const routes: Routes = [
                 component: MarcaListComponent
             },
             {
-                path:'id',
+                path:':id',
                 component: MarcaDetailComponent
+            }
+              
+        ]
+    },
+    {
+        path:'ordenes',
+        children: [
+            {
+                path: 'list',
+                component: OrdenListComponent
+            },
+            {
+                path:':id',
+                component: OrdenDetailComponent
             }
               
         ]
