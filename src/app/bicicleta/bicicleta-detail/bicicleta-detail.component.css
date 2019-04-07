@@ -5,6 +5,13 @@
     margin-right: 30px;
     margin-left: 30px;
 }
+.spacerR {
+    background-color: white;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-right: 30px;
+    margin-left: 30px;
+}
 th.a {
     font-family: "Verdana", Sans-serif;
     font-size: 20px;
@@ -20,3 +27,21 @@ p.precio {
     color: #960018;
     font-size: 20px;
 }
+
+.carousel-control-prev {
+    filter: invert(30%);
+}
+
+.carousel-control-next {
+    filter: invert(30%);
+}
+
+.nav-link {
+    color: #960018;
+    
+}
+
+p.resena {
+    color: #009fff;
+}
+
