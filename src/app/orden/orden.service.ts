@@ -19,6 +19,6 @@ export class OrdenService{
     }
 
     getOrdenDetail(marcaId): Observable<OrdenDetail>{
-        return this.http.get<OrdenDetail>((API_URL + ordenes + '/' + ordenId));
+        return this.http.get<OrdenDetail>((API_URL + ordenes + '/' ));
     }
 }

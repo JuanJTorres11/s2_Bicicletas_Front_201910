@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import { AuthService } from './auth/auth.service';
 
 /**
  * The app component. This component is the base of s2_bicicletas-Front
@@ -15,22 +16,23 @@ export class AppComponent implements OnInit {
      */
     title: String;
 
-    /**
-     * Assigns a title to the web page
-     */
-    ngOnInit(): void {
-        this.title = "s2_bicicletas-Front";
-    }
-
        /**
      * @ignore
      */
-    constructor() { }
+    constructor(private authService: AuthService) { }
 
-    
+    /**
+     * Asigna el titulo de la página e inicializa la autenticación
+     */
+    ngOnInit(): void {
+        this.title = "TIENDA DE BICICLETAS";
+        this.authService.start();
     }
 
-
-
-
-
+    /**
+     * Cierra la sesión
+     */
+    logout(): void {
+        this.authService.logout()
+    }
+}
