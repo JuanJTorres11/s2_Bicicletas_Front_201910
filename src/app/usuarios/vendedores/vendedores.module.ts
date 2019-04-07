@@ -4,6 +4,7 @@ import { VendedorDetailComponent } from './vendedor-detail/vendedor-detail.compo
 import { VendedorMediospagoComponent } from './vendedor-mediospago/vendedor-mediospago.component';
 import { VendedorVentaComponent } from './vendedor-venta/vendedor-venta.component';
 import { VendedorEditComponent } from './vendedor-edit/vendedor-edit.component';
+import { VendedorService } from './vendedor.service';
 
 @NgModule({
   imports: [
@@ -15,6 +16,8 @@ import { VendedorEditComponent } from './vendedor-edit/vendedor-edit.component';
     VendedorVentaComponent,
     VendedorEditComponent
   ],
-  bootstrap: [VendedorDetailComponent]
+  bootstrap: [VendedorDetailComponent],
+  providers: [VendedorService],
+  exports: [VendedorDetailComponent]
 })
 export class VendedoresModule { }

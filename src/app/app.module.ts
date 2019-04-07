@@ -17,6 +17,7 @@ import {UsuariosModule} from './usuarios/usuarios.module';
 import {MarcaModule} from './marca/marca.module'
 import {OrdenModule} from './orden/orden.module'
 import { AuthModule } from './auth/auth.module';
+import { VendedoresModule } from './usuarios/vendedores/vendedores.module';
 
 @NgModule({
     declarations: [
@@ -40,6 +41,7 @@ import { AuthModule } from './auth/auth.module';
         BicicletaModule,
         HomeModule, 
         UsuariosModule,
+        VendedoresModule,
         MarcaModule,
         OrdenModule,
         AuthModule

@@ -1,25 +1,16 @@
+import { Usuario } from "../usuario";
+
+const tipo:string = 'Vendedor';
+
 /**
  * Clase de vendedor
  */
-export class Vendedor {
-    
-    /**
-    * Nombre del vendedor
-    */
-     nombre:string;
+export class Vendedor extends Usuario {
 
      /**
-      * Login (correo) del vendedor
-      */
-     login:string;
-
-     /**
-      * Contraseña del vendedor
-      */
-     password:string;
-
-     /**
-      * Telefono del vendedor
+      * Telefono del vendedor.
       */
      telefono:number;
+
+     rol = tipo;
 }
