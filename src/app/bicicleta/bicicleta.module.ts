@@ -12,6 +12,8 @@ import {BicicletaListComponent} from './bicicleta-list/bicicleta-list.component'
 import {AppRoutingModule} from '../app-routing/app-routing.module';
 import {BicicletaDetailComponent} from './bicicleta-detail/bicicleta-detail.component';
 import {BicicletaResenaComponent} from './bicicleta-resena/bicicleta-resena.component';
+import {BicicletaCreateComponent} from './bicicleta-create/bicicleta-create.component';
+
 
 
 @NgModule({
@@ -26,7 +28,8 @@ import {BicicletaResenaComponent} from './bicicleta-resena/bicicleta-resena.comp
     declarations: [
         BicicletaListComponent,
 		BicicletaDetailComponent,
-		BicicletaResenaComponent
+		BicicletaResenaComponent,
+		BicicletaCreateComponent
     ],
     providers: [BicicletaService],
     exports: [BicicletaListComponent]
