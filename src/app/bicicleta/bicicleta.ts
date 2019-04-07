@@ -11,6 +11,10 @@ export class Bicicleta{
      */
 	 id : number;
 
+	 /**
+     * La calificacion promedio de la bicicleta
+     */
+	 calificacion : number;
     /**
      * La descripcion de la bicicleta
      */
@@ -40,6 +44,8 @@ export class Bicicleta{
      * Las rutas de las imagenes de la bicicleta
      */
     album : string[];
+
+
 
     /**
      * La marca de la bicicleta

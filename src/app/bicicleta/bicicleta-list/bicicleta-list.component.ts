@@ -28,6 +28,9 @@ export class BicicletaListComponent implements OnInit {
      */
     bicicletas: Bicicleta[];
 
+	
+
+
     /**
      * Asks the service to update the list of books
      */

@@ -10,6 +10,12 @@ import {BicicletaDetailComponent} from '../bicicleta/bicicleta-detail/bicicleta-
 
 import {MarcaListComponent} from '../marca/marca-list/marca-list.component';
 import {MarcaDetailComponent} from '../marca/marca-detail/marca-detail.component';
+import { VendedorDetailComponent } from '../usuarios/vendedores/vendedor-detail/vendedor-detail.component';
+import { VendedorMediospagoComponent } from '../usuarios/vendedores/vendedor-mediospago/vendedor-mediospago.component';
+import { VendedorEditComponent } from '../usuarios/vendedores/vendedor-edit/vendedor-edit.component';
+import { VendedorVentaComponent } from '../usuarios/vendedores/vendedor-venta/vendedor-venta.component';
+import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
+import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
 
 import {OrdenListComponent} from '../orden/orden-list/orden-list.component';
 import {OrdenDetailComponent} from '../orden/orden-detail/orden-detail.component';
@@ -22,25 +28,61 @@ const routes: Routes = [
     },
     
     {
-		path: 'bicicleta',
-		component: BicicletaDetailComponent
-	},
-    
-    {
         path: 'bicicletas',
         children: [
             {
                 path: 'list',
                 component: BicicletaListComponent
+            },
+			{
+                path: ':id',
+                component: BicicletaDetailComponent
             }
               
         ]
     },
 
-	// {
-    //     path: '**',
-    //     redirectTo: 'home',
-    // },
+	{
+        path: '**',
+        redirectTo: 'home',
+    },
+
+    {
+        path: 'iniciarSesion',
+        component: AuthLoginComponent
+    },
+   {
+        path: 'registrarse',
+        component: AuthSignUpComponent
+    },
+ 
+    {
+		path: 'bicicleta',
+		component: BicicletaDetailComponent
+    },
+    
+     {
+        path: 'vendedores',
+        children: [
+            {
+                path: ':id',
+                component: VendedorDetailComponent
+            },
+            {
+                path: 'edit',
+                component: VendedorEditComponent
+            },
+            {
+                path: 'mediosPago',
+                component: VendedorMediospagoComponent
+            },
+            {
+                path: 'ventas',
+                component: VendedorVentaComponent
+            }
+        ]
+    },
+
     {
         path:'marcas',
         children: [

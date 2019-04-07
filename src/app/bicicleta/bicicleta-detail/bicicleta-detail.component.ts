@@ -1,10 +1,13 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+import {Component, OnInit, OnDestroy, ViewChild, ViewContainerRef} from '@angular/core';
+import {ActivatedRoute, Router, NavigationEnd} from '@angular/router';
+import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
+import {ToastrService} from 'ngx-toastr';
 
 
 import { BicicletaService } from '../bicicleta.service';
 import { Bicicleta } from '../bicicleta';
 import { BicicletaDetail } from '../bicicleta-detail';
+import { BicicletaResenaComponent } from '../bicicleta-resena/bicicleta-resena.component';
 
 @Component({
     selector: 'app-bicicleta-detail',
@@ -23,7 +26,10 @@ export class BicicletaDetailComponent implements OnInit, OnDestroy {
     constructor(
         private bicicletaService: BicicletaService,
         private route: ActivatedRoute,
-        private router: Router
+        private modalDialogService: ModalDialogService,
+        private router: Router,
+        private viewRef: ViewContainerRef,
+        private toastrService: ToastrService
     ) {
         //This is added so we can refresh the view when one of the books in
         //the "Other books" list is clicked
@@ -44,6 +50,7 @@ export class BicicletaDetailComponent implements OnInit, OnDestroy {
     */
     bicicletaDetail: BicicletaDetail;
 
+	
     /**
     * The other books shown in the sidebar
     */
@@ -55,14 +62,32 @@ export class BicicletaDetailComponent implements OnInit, OnDestroy {
     */
     navigationSubscription;
 
+	/**
+     * The child BookReviewListComponent
+     */
+    @ViewChild(BicicletaResenaComponent) resenaListComponent: BicicletaResenaComponent;
+
+
+	/**
+     * The function called when a review is posted, so that the child component can refresh the list
+     */
+    updateResenas(): void {
+        this.getBicicletaDetail();
+        this.resenaListComponent.updateResenas(this.bicicletaDetail.resenas);
+        this.resenaListComponent.isCollapsed = false;
+     }
+
     /**
     * The method which retrieves the details of the bike that
     * we want to show
     */
     getBicicletaDetail(): void {
+
          this.bicicletaService.getBicicletaDetail(this.bicicleta_id)
             .subscribe(bicicletaDetail => {
                 this.bicicletaDetail = bicicletaDetail;
+					console.log(this.bicicletaDetail.album.length);
+   
             });
     }
 
@@ -87,7 +112,7 @@ export class BicicletaDetailComponent implements OnInit, OnDestroy {
         this.bicicletaDetail = new BicicletaDetail();
         this.getBicicletaDetail();
         this.getOtherBicicletas();
-    }
+	 }
 
     /**
     * This method helps to refresh the view when we need to load another book into it
