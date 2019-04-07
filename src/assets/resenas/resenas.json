@@ -1,0 +1,23 @@
+[
+ {
+    "id": 1,
+    "calificacion": 5,
+    "descripcion": "Color sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque",
+    "titulo": "Qué bicicleta tan mala",
+    "usuario": "Monica"
+  },
+  {
+    "id": 2,
+    "calificacion": 4,
+    "descripcion": "Color sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque",
+    "titulo": "La mejor bici!!",
+    "usuario": "Andrea"
+  },
+  {
+    "id": 3,
+    "calificacion": 3,
+    "descripcion": "Color sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque",
+    "titulo": "Aceptable",
+    "usuario": "Bayona"
+  }
+]

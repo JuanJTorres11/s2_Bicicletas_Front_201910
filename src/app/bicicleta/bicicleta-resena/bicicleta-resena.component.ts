@@ -4,6 +4,7 @@ import { Resena } from '../resena';
 @Component({
     selector: 'app-bicicleta-resena',
     templateUrl: './bicicleta-resena.component.html',
+	styleUrls: ['./bicicleta-resena.component.css']
 })
 export class BicicletaResenaComponent implements OnInit {
     @Input() bicicletaResenas: Resena [];
