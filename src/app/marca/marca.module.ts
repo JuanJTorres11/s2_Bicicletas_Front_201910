@@ -6,6 +6,7 @@ import {MarcaService} from './marca.service';
 import {FormsModule} from '@angular/forms';
 import { MarcaDetailComponent } from './marca-detail/marca-detail.component';
 import {AppRoutingModule} from '../app-routing/app-routing.module';
+import { MarcaCreateComponent } from './marca-create/marca-create.component';
 
 @NgModule({
     imports: [
@@ -13,7 +14,7 @@ import {AppRoutingModule} from '../app-routing/app-routing.module';
         FormsModule,
         AppRoutingModule
     ],
-    declarations: [MarcaListComponent, MarcaDetailComponent],
+    declarations: [MarcaListComponent, MarcaDetailComponent, MarcaCreateComponent],
     providers:[MarcaService],
     exports: [MarcaListComponent]
 })

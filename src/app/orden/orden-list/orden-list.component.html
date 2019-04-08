@@ -1,0 +1,19 @@
+<div class= "container-fluid">
+        <div class="col">
+            <table class = "table table-striped">
+                <thead class= "thead-dark">
+                    <tr>
+                        <th>Lista ordenes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let o of ordenes">
+                        <td style= "cursor: pointer;">
+                            <a class = "figure-caption" routerLink="/ordenes/{{o.id}}"
+                            >{{o.fecha}}</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+</div>

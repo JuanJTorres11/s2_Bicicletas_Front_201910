@@ -17,12 +17,19 @@ export class MarcaDetailComponent implements OnInit {
     private route: ActivatedRoute
   ) { }
 
+  /**
+   * El detalle de la marca
+   */
   marcaDetail: MarcaDetail;
 
   @Input() marca_id: number;
 
   loader: any;
 
+  /**
+   * El metodo que retorna los detalles de la bicicleta
+   * que se quiere ensenar
+   */
   getMarcaDetail(): void {
     this.marcaService.getMarcaDetail(this.marca_id)
     .subscribe(o => {

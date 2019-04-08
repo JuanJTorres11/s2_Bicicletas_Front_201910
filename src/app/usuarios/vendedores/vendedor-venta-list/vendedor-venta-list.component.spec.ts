@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { VendedorVentaComponent } from './vendedor-venta.component';
+import { VendedorVentaListComponent } from './vendedor-venta-list.component';
 
-describe('VendedorVentaComponent', () => {
-  let component: VendedorVentaComponent;
-  let fixture: ComponentFixture<VendedorVentaComponent>;
+describe('VendedorVentaListComponent', () => {
+  let component: VendedorVentaListComponent;
+  let fixture: ComponentFixture<VendedorVentaListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ VendedorVentaComponent ]
+      declarations: [ VendedorVentaListComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(VendedorVentaComponent);
+    fixture = TestBed.createComponent(VendedorVentaListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

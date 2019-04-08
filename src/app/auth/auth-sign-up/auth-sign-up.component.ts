@@ -3,6 +3,7 @@ import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../auth.service';
 import { Usuario } from '../../usuarios/usuario';
 import { Vendedor } from '../../usuarios/vendedores/vendedor';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
     selector: 'app-auth-sign-up',
@@ -17,6 +18,8 @@ export class AuthSignUpComponent implements OnInit {
     * @param toastrService The toastr to show messages to the user
     */
     constructor(
+        private route: ActivatedRoute,
+        private router: Router,
         private authService: AuthService,
         private toastrService: ToastrService,
     ) { }
