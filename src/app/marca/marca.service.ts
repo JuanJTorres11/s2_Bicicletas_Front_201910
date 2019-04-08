@@ -7,12 +7,17 @@ import {Observable} from 'rxjs';
 const API_URL = "../../assets/";
 const marcas = "marcas.json";
 
+/**
+ * El proveedor de servicios relacionados con las marcas
+ */
 @Injectable()
 export class MarcaService{
 
-    constructor(private http: HttpClient){
-
-    }
+    /**
+     * Constructor del servicio de la marca
+     * @param http Cliente http para los requests
+     */
+    constructor(private http: HttpClient){}
 
     /***
      * Obtiene la lista de marcas
@@ -22,7 +27,7 @@ export class MarcaService{
     }
 
     /**
-     * Obtener una marca con el id especificad
+     * Obtener una marca con el id especificado
      * @param marcaId Id de la marca a obtener
      */
     getMarcaDetail(marcaId): Observable<MarcaDetail>{
