@@ -1,49 +1,49 @@
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
-        <!-- Navbar brand -->
-        <a class="navbar-brand" href="http://localhost:4200/home">
-            <img src="../assets/Images/logo.png" height="40" alt="mdb logo">
-        </a>
+    <!-- Navbar brand -->
+    <a class="navbar-brand" href="http://localhost:4200/home">
+        <img src="../assets/Images/logo.png" height="40" alt="mdb logo">
+    </a>
 
-        <!-- Collapse button -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+    <!-- Collapse button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
             aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-        <!-- Collapsible content -->
-        <div class="collapse navbar-collapse" id="basicExampleNav">
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="basicExampleNav">
 
-            <!-- Links -->
-            <ul class="navbar-nav mr-auto">
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto">
 
-                <li class="nav-item active">
-                    <a class="nav-link" href="http://localhost:4200/home">
-                        Inicio
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="http://localhost:4200/home">
+                    Inicio
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>
 
-                <!-- Dropdown -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">Catalogo</a>
-                    <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" routerLink="bicicletas/list">Todas</a>
-                        <a class="dropdown-item" href="#">Marca</a>
-                        <a class="dropdown-item" href="#">Categoria</a>
-                    </div>
-                </li>
-                <!-- Dropdown -->
+            <!-- Dropdown -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">Catalogo</a>
+                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" routerLink="bicicletas/list">Todas</a>
+                    <a class="dropdown-item" href="#">Marca</a>
+                    <a class="dropdown-item" href="#">Categoria</a>
+                </div>
+            </li>
+            <!-- Dropdown -->
 
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="bicicleta">Carrito</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Lista de deseos</a>
-                </li>
-              
-               <!-- Dropdown -->
+            <li class="nav-item">
+                <a class="nav-link" routerLink="bicicleta">Carrito</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Lista de deseos</a>
+            </li>
+
+            <!-- Dropdown -->
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
                    aria-expanded="false">Funcionalidades</a>
@@ -55,32 +55,29 @@
             </li>
             <!-- Dropdown -->
 
-            </ul>
+        </ul>
 
-            <div>
-                <div *ngxPermissionsOnly="['VENDEDOR']">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item"><a class="nav-link" [routerLink]="['vendedores',darIdActual()]">Perfil</a></li>
-                        <li class="nav-item"> <a class="nav-link" [routerLink]="['vendedores',darIdActual(),'edit']">Configuración</a></li>
-                        <li class="nav-item"><a class="nav-link" (click)="logout()" href="#">Cerrar Sesión</a></li>
-                    </ul>
-                </div>
-                <div *ngxPermissionsOnly="['COMPRADOR']">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item"><a class="nav-link" href="#">Perfil</a></li>
-                        <li class="nav-item"> <a class="nav-link" href="#">Configuración</a></li>
-                        <li class="nav-item"><a class="nav-link" (click)="logout()" href="#">Cerrar Sesión</a></li>
-                    </ul>
-                </div>
-                <div *ngxPermissionsOnly="['INVITADO']">
-                    <a class="btn btn-primary my-2 my-sm-0" routerLink="/iniciarSesion" role="button">Iniciar Sesión</a>
-                    <a class="btn btn-outline-primary my-2 my-sm-0" routerLink="/registrarse" role="button">Registrarse</a>
-                </div>
-       
+        <div>
+            <div *ngxPermissionsOnly="['VENDEDOR']">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Perfil</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="#">Configuración</a></li>
+                    <li class="nav-item"><a class="nav-link" (click)="logout()" href="#">Cerrar Sesión</a></li>
+                </ul>
+            </div>
+            <div *ngxPermissionsOnly="['COMPRADOR']">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Perfil</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="#">Configuración</a></li>
+                    <li class="nav-item"><a class="nav-link" (click)="logout()" href="#">Cerrar Sesión</a></li>
+                </ul>
+            </div>
+            <div *ngxPermissionsOnly="['INVITADO']">
+                <a class="btn btn-primary my-2 my-sm-0" routerLink="iniciarSesion" role="button">Iniciar Sesión</a>
+                <a class="btn btn-outline-primary my-2 my-sm-0" routerLink="registrarse" role="button">Registrarse</a>
             </div>
 
         </div>
-        <!-- Collapsible content -->
 
     </nav>
 
@@ -90,12 +87,25 @@
         <br>
         <br>
     </div>
+    <!-- Collapsible content -->
 
-    <footer class="footer bg-light" id="footer">
-        <div class="container">
-            <p class="navbar-text text-center">
-                <img src="../assets/uniandes.png" alt="logo" width="8%" /><span id="footer-text">© Clean Code
-                    201910</span>
-            </p>
-        </div>
-    </footer>
+</nav>
+
+<!-- Routed components go here -->
+<div>
+    <router-outlet></router-outlet>
+    <br>
+    <br>
+    <app-vendedor-detail></app-vendedor-detail>
+</div>
+
+<footer class="footer bg-light" id="footer">
+    <div class="container">
+        <p class="navbar-text text-center">
+            <img src="../assets/uniandes.png" alt="logo" width="8%" /><span id="footer-text">
+                © Clean Code
+                201910
+            </span>
+        </p>
+    </div>
+</footer>
