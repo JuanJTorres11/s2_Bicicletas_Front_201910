@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { VendedorDetailComponent } from './vendedor-detail/vendedor-detail.component';
 import { VendedorMediospagoComponent } from './vendedor-mediospago/vendedor-mediospago.component';
-import { VendedorVentaComponent } from './vendedor-venta/vendedor-venta.component';
+import { VendedorVentaAddComponent } from './vendedor-venta-add/vendedor-venta-add.component';
+import { VendedorVentaListComponent } from './vendedor-venta-list/vendedor-venta-list.component';
 import { VendedorEditComponent } from './vendedor-edit/vendedor-edit.component';
 import { VendedorService } from './vendedor.service';
 
@@ -13,7 +14,8 @@ import { VendedorService } from './vendedor.service';
   declarations: [
     VendedorDetailComponent,
     VendedorMediospagoComponent,
-    VendedorVentaComponent,
+    VendedorVentaAddComponent,
+    VendedorVentaListComponent,
     VendedorEditComponent
   ],
   bootstrap: [VendedorDetailComponent],

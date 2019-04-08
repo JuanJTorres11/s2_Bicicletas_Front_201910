@@ -151,6 +151,8 @@ export class AuthService {
         this.http.get<VendedorDetail>(API_URL).subscribe(vendedorBD => {
             localStorage.setItem('id', vendedorBD.id.toString());
             localStorage.setItem('nombre', vendedorBD.nombre);
+            localStorage.setItem('login', vendedorBD.login);
+            localStorage.setItem('telefono', vendedorBD.telefono.toString());
             vendedor = vendedorBD;
         });
         return vendedor;
@@ -168,6 +170,8 @@ export class AuthService {
         this.http.post<Vendedor>(API_URL, ven).subscribe(vendedorBD => {
             localStorage.setItem('id', vendedorBD.id.toString());
             localStorage.setItem('nombre', vendedorBD.nombre);
+            localStorage.setItem('login', vendedorBD.login);
+            localStorage.setItem('telefono', vendedorBD.telefono.toString());
             vendedor = vendedorBD;
         });
         return vendedor;
