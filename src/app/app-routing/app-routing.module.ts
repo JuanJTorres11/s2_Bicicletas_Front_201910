@@ -7,7 +7,7 @@ import {HomeComponent} from '../Home/home-main/home.component';
 import {BicicletaDetailComponent} from '../bicicleta/bicicleta-detail/bicicleta-detail.component';
 import {BicicletaCreateComponent} from '../bicicleta/bicicleta-create/bicicleta-create.component';
 import {MarcaListComponent} from '../marca/marca-list/marca-list.component';
-import {MarcaDetailComponent} from '../marca/marca-detail/marca-detail.component';
+import {MarcaDetailComponent} from '../marca/marca-detail/marca-detail.component';  
 import { VendedorDetailComponent } from '../usuarios/vendedores/vendedor-detail/vendedor-detail.component';
 import { VendedorEditComponent } from '../usuarios/vendedores/vendedor-edit/vendedor-edit.component';
 import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
@@ -15,6 +15,7 @@ import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component
 
 import {OrdenListComponent} from '../orden/orden-list/orden-list.component';
 import {OrdenDetailComponent} from '../orden/orden-detail/orden-detail.component';
+import { MarcaCreateComponent } from '../marca/marca-create/marca-create.component';
 
 const routes: Routes = [
 
@@ -85,6 +86,10 @@ const routes: Routes = [
             {
                 path:':id',
                 component: MarcaDetailComponent
+            },
+            {
+                path:'create',
+                component: MarcaCreateComponent
             }
               
         ]
