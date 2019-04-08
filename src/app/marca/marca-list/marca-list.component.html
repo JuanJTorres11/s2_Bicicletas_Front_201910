@@ -1,5 +1,5 @@
 <div class= "container-fluid">
-    <div class="col-md-2">
+    <div class="col">
         <table class = "table table-striped">
             <thead class= "thead-dark">
                 <tr>
@@ -16,12 +16,13 @@
             </tbody>
         </table>
     </div>
-    <div class="col-8">
-        <div *ngIf="showView">
-            <app-author-detail [authorDetail]="selectedAuthor"></app-author-detail>
-        </div>
-        <div *ngIf="showCreate">
-            <app-author-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-author-create>
-        </div>
+    <div class="row justify-content-center align-self-center" >
+            <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                >Crear marca</button> 
     </div>
+    <div class="col-8">
+        <div *ngIf="showCreate">
+            <app-marca-create (create)="ngOnInit()"></app-marca-create>
+        </div>
+    </div> 
 </div>

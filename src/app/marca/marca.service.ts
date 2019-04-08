@@ -26,7 +26,7 @@ export class MarcaService{
      * @param marcaId Id de la marca a obtener
      */
     getMarcaDetail(marcaId): Observable<MarcaDetail>{
-        return this.http.get<MarcaDetail>((API_URL + marcas + '/' + marcaId));
+        return this.http.get<MarcaDetail>((API_URL + '/marca' + marcaId + '.json'));
     }
 
     /**

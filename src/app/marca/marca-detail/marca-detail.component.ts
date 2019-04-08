@@ -26,6 +26,10 @@ export class MarcaDetailComponent implements OnInit {
 
   loader: any;
 
+  /**
+   * El metodo que retorna los detalles de la bicicleta
+   * que se quiere ensenar
+   */
   getMarcaDetail(): void {
     this.marcaService.getMarcaDetail(this.marca_id)
     .subscribe(o => {

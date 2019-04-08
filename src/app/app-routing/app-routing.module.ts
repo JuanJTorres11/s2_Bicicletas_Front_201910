@@ -42,10 +42,7 @@ const routes: Routes = [
         ]
     },
 
-	{
-        path: '**',
-        redirectTo: 'home',
-    },
+	
 
     {
         path: 'iniciarSesion',
@@ -110,7 +107,12 @@ const routes: Routes = [
             }
               
         ]
-    }
+    },
+    
+    {
+        path: '**',
+        redirectTo: 'home',
+    },
 ];
 
 @NgModule({
