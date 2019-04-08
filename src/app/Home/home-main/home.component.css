@@ -8,3 +8,10 @@ and open the template in the editor.
     Author     : Andrea
 */
 
+.spacer {
+    background-color: white;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-right: 30px;
+    margin-left: 30px;
+}

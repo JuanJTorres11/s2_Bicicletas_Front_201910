@@ -31,6 +31,16 @@ export class BicicletaService {
     }
 
 	/**
+    * Creates a new book
+    * @param book The new book
+    * @returns The book with its new id if it was created, false if it wasn't
+    */
+    createBicicleta(bicicleta): Observable<BicicletaDetail> {
+        return this.http.post<BicicletaDetail>(API_URL + bicicleta, bicicleta);
+    }
+
+
+	/**
     * Returns the Observable object with the details of an author retrieved from the API
     * @returns The author details
     */
