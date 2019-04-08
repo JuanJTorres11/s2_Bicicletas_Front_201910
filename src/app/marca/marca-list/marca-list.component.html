@@ -16,4 +16,12 @@
             </tbody>
         </table>
     </div>
+    <div class="col-8">
+        <div *ngIf="showView">
+            <app-author-detail [authorDetail]="selectedAuthor"></app-author-detail>
+        </div>
+        <div *ngIf="showCreate">
+            <app-author-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-author-create>
+        </div>
+    </div>
 </div>

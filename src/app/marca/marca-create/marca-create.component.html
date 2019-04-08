@@ -1,0 +1,25 @@
+<div class ="row">
+  <div class ="col-3"></div>
+  <div class="col-6">
+    <br>
+    <h2 class="text-center">Crear una marca</h2>
+    <br>
+    <form name ="marca" (ngSubmit) = "f.form.valid && createMarca()" #f="ngForm" novalidate>
+      <div class ="form-group">
+        <label for="marcaName"><b>Nombre</b></label>
+        <input type ="text" name="marcaName" class="form-control" id="marcaName" [(ngModel)]="marca.name"
+        #marcaName="ngModel" [ngClass] = "{'is-invalid': f.submitted && marcaName.invalid}" required>
+        <div class = "invalid-feedback">
+          <div>El nombre de la marca hace falta</div>
+        </div>
+      </div>
+
+      <div class="row form-inline justify-content-center align-self-center">
+        <button type="submit" class="btn btn-primary">Crear</button>
+        <div class="divider"></div>
+        <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancelar</button>
+      </div>
+    </form>
+  </div>
+  <div class ="col-3"></div>
+</div>

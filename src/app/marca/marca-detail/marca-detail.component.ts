@@ -17,6 +17,9 @@ export class MarcaDetailComponent implements OnInit {
     private route: ActivatedRoute
   ) { }
 
+  /**
+   * El detalle de la marca
+   */
   marcaDetail: MarcaDetail;
 
   @Input() marca_id: number;
