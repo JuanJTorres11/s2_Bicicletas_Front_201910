@@ -7,6 +7,7 @@ import {NgxPermissionsGuard} from 'ngx-permissions';
 import {BicicletaListComponent} from '../bicicleta/bicicleta-list/bicicleta-list.component';
 import {HomeComponent} from '../Home/home-main/home.component';
 import {BicicletaDetailComponent} from '../bicicleta/bicicleta-detail/bicicleta-detail.component';
+import {BicicletaCreateComponent} from '../bicicleta/bicicleta-create/bicicleta-create.component';
 
 import {MarcaListComponent} from '../marca/marca-list/marca-list.component';
 import {MarcaDetailComponent} from '../marca/marca-detail/marca-detail.component';
@@ -24,6 +25,7 @@ const routes: Routes = [
         component: HomeComponent
     },
     
+
     {
         path: 'bicicletas',
         children: [
@@ -32,9 +34,13 @@ const routes: Routes = [
                 component: BicicletaListComponent
             },
 			{
+                path: 'add',
+                component: BicicletaCreateComponent
+            },
+			{
                 path: ':id',
                 component: BicicletaDetailComponent
-            }
+            }		
               
         ]
     },
