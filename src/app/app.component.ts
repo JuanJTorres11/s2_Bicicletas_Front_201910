@@ -35,4 +35,8 @@ export class AppComponent implements OnInit {
     logout(): void {
         this.authService.logout()
     }
+
+    darIdActual():string {
+        return localStorage.getItem("id");
+    }
 }
