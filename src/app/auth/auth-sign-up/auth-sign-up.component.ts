@@ -2,7 +2,7 @@ import { Component, OnInit, Input, OnChanges, Output, EventEmitter } from '@angu
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../auth.service';
 import { Usuario } from '../../usuarios/usuario';
-import { Vendedor } from 'src/app/usuarios/vendedores/vendedor';
+import { Vendedor } from '../../usuarios/vendedores/vendedor';
 
 @Component({
     selector: 'app-auth-sign-up',
