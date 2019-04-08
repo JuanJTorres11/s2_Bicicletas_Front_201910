@@ -34,6 +34,7 @@ export class MarcaService{
      * @param marca Marca a crear
      */
     createMarca(marca): Observable<MarcaDetail> {
+        console.log(API_URL+marcas);
         return this.http.post<MarcaDetail>(API_URL + marcas, marca);
     }
 }

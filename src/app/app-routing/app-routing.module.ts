@@ -84,13 +84,14 @@ const routes: Routes = [
                 component: MarcaListComponent
             },
             {
-                path:':id',
-                component: MarcaDetailComponent
-            },
-            {
                 path:'create',
                 component: MarcaCreateComponent
+            },
+            {
+                path:':id',
+                component: MarcaDetailComponent
             }
+            
               
         ]
     },
