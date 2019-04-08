@@ -38,6 +38,7 @@ export class MarcaCreateComponent implements OnInit {
 }
 
   ngOnInit() {
+    this.marca=new Marca();
   }
 
 }
