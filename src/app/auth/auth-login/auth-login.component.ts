@@ -1,10 +1,8 @@
 import { Component, OnInit, Input, OnChanges, Output, EventEmitter } from '@angular/core';
-
 import { AuthService } from '../auth.service';
-
 import { Usuario } from '../../usuarios/usuario';
-
 import { ToastrService } from 'ngx-toastr';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
     selector: 'app-auth-login',
@@ -19,6 +17,8 @@ export class AuthLoginComponent implements OnInit {
     * @param toastrService The toastr to show messages to the user
     */
     constructor(
+        private route: ActivatedRoute,
+        private router: Router,
         private authService: AuthService,
         private toastrService: ToastrService,
     ) { }
