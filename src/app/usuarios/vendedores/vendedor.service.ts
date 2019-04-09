@@ -1,11 +1,10 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
-import {Vendedor} from './vendedor';
 import {VendedorDetail} from "./vendedorDetail"
+import { environment } from '../../../environments/environment';
 
-const API_URL = "../../assets/";
-const vendedores = '/vendedor.json';
+const API_URL = environment.apiURL + "/vendedores";
 
 /**
 * Proveedor de servicio para los componentes de Vendedor
@@ -24,6 +23,6 @@ export class VendedorService {
     * @returns VendedorDetail
     */
     getVendedorDetail(id:number): Observable<VendedorDetail> {
-        return this.http.get<VendedorDetail>(API_URL + vendedores + '-' + id + '.json');
+        return this.http.get<VendedorDetail>(API_URL + "/" + id );
     }
 }
