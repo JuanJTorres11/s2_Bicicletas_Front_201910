@@ -105,7 +105,7 @@ export class AuthService {
      * @param password contraseña del usuario (necesario para iniciar como comprador o vendedor)
      */
     login(role: string, login?: string, password?: string): void {
-        if (role === 'Administrador') {
+        if (role == 'Administrador') {
             this.setAdministradorRole();
             this.router.navigateByUrl('/');
         }
@@ -113,8 +113,8 @@ export class AuthService {
             // TODO
         }
         else {
-            this.getVendedor(login, password);
-            let id = localStorage.getItem('id');
+            let id = this.getVendedor(login, password).id;
+            console.log("el id es " + id);
             this.setVendedorRole;
             this.router.navigateByUrl('/vendedores/' + id);
         }
@@ -129,11 +129,11 @@ export class AuthService {
      * @param telefono Telefono (si es vendedor)
      */
     signUp(role: string, user?: Usuario, ven?: Vendedor): void {
-        if (role === 'Administrador') {
+        if (role == 'Administrador') {
             this.setAdministradorRole();
             this.router.navigateByUrl('/');
         }
-        else if (role === 'Comprador') {
+        else if (role == 'Comprador') {
             // TODO
         }
         else {
@@ -150,16 +150,18 @@ export class AuthService {
      * @param password Contraseña del vendedor
      */
     getVendedor(log: string, pass: string): VendedorDetail {
-        let vendedor: Vendedor;
-        let credenciales: Credencial;
+        let vendedor = new Vendedor();
+        let credenciales = new Credencial();
         credenciales.login = log;
         credenciales.password = pass;
         this.http.post<VendedorDetail>(API_URL + '/vendedores/auth', credenciales, {headers: this.header}).subscribe(vendedorBD => {
             localStorage.setItem('id', vendedorBD.id.toString());
+            console.log('Desde la bd el id es: '+ vendedorBD.id.toString());
             localStorage.setItem('nombre', vendedorBD.nombre);
             localStorage.setItem('login', vendedorBD.login);
             localStorage.setItem('telefono', vendedorBD.telefono.toString());
             vendedor = vendedorBD;
+            console.log('El id local es: ' + vendedor.id);
         });
         return vendedor;
     }
@@ -172,7 +174,7 @@ export class AuthService {
      * @param telefono Telefono del vendedor nuevo
      */
     postVendedor(ven: Vendedor): Vendedor {
-        let vendedor: Vendedor;
+        let vendedor = new Vendedor();
         this.http.post<Vendedor>(API_URL + '/vendedores', ven, {headers: this.header}).subscribe(vendedorBD => {
             localStorage.setItem('id', vendedorBD.id.toString());
             localStorage.setItem('nombre', vendedorBD.nombre);
