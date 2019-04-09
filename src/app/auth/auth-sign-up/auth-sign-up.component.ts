@@ -40,7 +40,8 @@ export class AuthSignUpComponent implements OnInit {
     * Sign the user up with the selected role
     */
     signUp(): void {
-        if (this.rol =='Vendedor') {
+        if (this.rol ==='Vendedor') {
+            this.vendedor = new Vendedor();
             this.vendedor.nombre = this.nombre;
             this.vendedor.login = this.login;
             this.vendedor.password = this.password;
