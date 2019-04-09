@@ -113,7 +113,7 @@ export class AuthService {
             // TODO
         }
         else {
-            let id = this.getVendedor(login, password).id;
+            let id = localStorage.getItem('id');
             console.log("el id es " + id);
             this.setVendedorRole;
             this.router.navigateByUrl('/vendedores/' + id);
