@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { VendedorService } from '../vendedor.service';
 
 @Component({
   selector: 'app-vendedor-venta-add',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VendedorVentaAddComponent implements OnInit {
 
-  constructor() { }
+  constructor(service:VendedorService) { }
+
+  album:string [] = ["prueba1"];
 
   ngOnInit() {
   }

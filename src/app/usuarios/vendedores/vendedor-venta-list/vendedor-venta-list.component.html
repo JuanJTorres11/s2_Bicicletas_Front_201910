@@ -1,3 +1,21 @@
-<p>
-  vendedor-venta works!
-</p>
+<div class="container">
+  <div class="row text-center text-lg-left">
+    <div class="col-lg-3 col-md-6 mb-4" *ngFor="let venta of ventas">
+      <div class="card h-100">
+        <a href="">
+          <!-- routerLink="/ventas/{{venta.id}}" -->
+          <img class="card-img-top" src="{{venta.album[0]}}" alt="">
+        </a>
+        <div class="card-body">
+          <h4 class="card-title">Venta :{{venta.id}}</h4>
+        </div>
+        <div class="card-footer">
+          <a *ngIf="venta.aprobado" href="" class="btn btn-success">Aprobado</a>
+          <!-- routerLink="/ventas/{{venta.id}}" -->
+          <a *ngIf="venta.aprobado" href="" class="btn btn-warning">Pendiente</a>
+          <a *ngIf="!venta.aprobado" href="" class="btn btn-danger">Rechazado</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
