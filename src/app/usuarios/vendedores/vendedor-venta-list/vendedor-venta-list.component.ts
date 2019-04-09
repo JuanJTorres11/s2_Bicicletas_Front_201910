@@ -9,6 +9,8 @@ export class VendedorVentaListComponent implements OnInit {
 
   constructor() { }
 
+  ventas:any[];
+  
   ngOnInit() {
   }
 
