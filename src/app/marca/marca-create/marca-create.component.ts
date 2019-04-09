@@ -20,9 +20,19 @@ export class MarcaCreateComponent implements OnInit {
    */
   marca: Marca
 
+  /**
+   * Emisor de eventos para la cancelacion de una creacion
+   */
   @Output() cancel = new EventEmitter();
+
+  /**
+   * Emisor de eventos para una creacion
+   */
   @Output() create = new EventEmitter();
 
+  /**
+   * Pide al servicio crear la marca
+   */
   createMarca(): Marca {
     this.marcaService.createMarca(this.marca)
     .subscribe((marca) => {
@@ -33,10 +43,17 @@ export class MarcaCreateComponent implements OnInit {
     return this.marca;
   }
 
+  /**
+   * Cancela la creacion de la marca
+   */
   cancelCreation(): void {
     this.cancel.emit();
 }
 
+/**
+ * Esto inicializara el componente
+ * Este metodo sera llamado cuando se cree el componente
+ */
   ngOnInit() {
     this.marca=new Marca();
   }
