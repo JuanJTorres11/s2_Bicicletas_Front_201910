@@ -25,4 +25,5 @@ export class VendedorService {
     getVendedorDetail(id:number): Observable<VendedorDetail> {
         return this.http.get<VendedorDetail>(API_URL + "/" + id );
     }
+    
 }

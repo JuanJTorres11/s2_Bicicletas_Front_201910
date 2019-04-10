@@ -16,7 +16,7 @@ export class VendedorDetailComponent implements OnInit {
     * @param route The route element which helps to obtain the editorial's id
     * @param toastrService The toastr to show messages to the user
     */
-   constructor(
+   constructor (
     private vendedorService: VendedorService,
     private route: ActivatedRoute
     ) { }
