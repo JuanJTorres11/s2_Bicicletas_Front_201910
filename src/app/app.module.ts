@@ -18,6 +18,7 @@ import {MarcaModule} from './marca/marca.module'
 import {OrdenModule} from './orden/orden.module'
 import { AuthModule } from './auth/auth.module';
 import { VendedoresModule } from './usuarios/vendedores/vendedores.module';
+import { CategoriaModule } from './categoria/categoria.module';
 
 @NgModule({
     declarations: [
@@ -44,7 +45,8 @@ import { VendedoresModule } from './usuarios/vendedores/vendedores.module';
         VendedoresModule,
         MarcaModule,
         OrdenModule,
-        AuthModule
+        AuthModule,
+        CategoriaModule
     ],
     bootstrap: [AppComponent],
     providers: [
