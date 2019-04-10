@@ -43,9 +43,6 @@ const routes: Routes = [
               
         ]
     },
-
-	
-
     {
         path: 'iniciarSesion',
         component: AuthLoginComponent
@@ -109,10 +106,9 @@ const routes: Routes = [
               
         ]
     },
-    
     {
         path: '**',
-        redirectTo: 'home',
+        redirectTo: 'home'
     }
 ];
 
