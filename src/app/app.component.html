@@ -7,7 +7,7 @@
 
     <!-- Collapse button -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
-            aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+        aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -27,7 +27,7 @@
             <!-- Dropdown -->
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">Catalogo</a>
+                    aria-haspopup="true" aria-expanded="false">Catalogo</a>
                 <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" routerLink="bicicletas/list">Todas</a>
                     <a class="dropdown-item" routerLink="marcas/list">Marca</a>
@@ -45,8 +45,8 @@
 
             <!-- Dropdown -->
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-                   aria-expanded="false">Funcionalidades</a>
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">Funcionalidades</a>
                 <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" routerLink="bicicletas/add">Crear bicicleta</a>
                     <a class="dropdown-item" href="#">Actualizar bicicleta</a>
@@ -60,8 +60,8 @@
         <div>
             <div *ngxPermissionsOnly="['VENDEDOR']">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Perfil</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="#">Configuración</a></li>
+                    <li class="nav-item"><a class="nav-link" [routerLink]="['vendedores',darIdActual()]">Perfil</a></li>
+                    <li class="nav-item"> <a class="nav-link" [routerLink]="['vendedores',darIdActual(),'edit']">Configuración</a></li>
                     <li class="nav-item"><a class="nav-link" (click)="logout()" href="#">Cerrar Sesión</a></li>
                 </ul>
             </div>
@@ -88,7 +88,6 @@
     <router-outlet></router-outlet>
     <br>
     <br>
-    <app-vendedor-detail></app-vendedor-detail>
 </div>
 
 <footer class="footer bg-light" id="footer">

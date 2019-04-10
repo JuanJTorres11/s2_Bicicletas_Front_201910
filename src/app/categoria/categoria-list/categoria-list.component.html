@@ -3,11 +3,11 @@
     <h1>Categorías</h1>
   </div>
   <div class="col-md" id="agregarCategoriaDiv">
-    <button type="button" class="btn btn-outline-primary" style="margin-left: 10px;" (click)="mostrarComponenteAgregarCategoria()">Agregar Categoria<i class="material-icons" style="vertical-align:bottom; margin-left: 5px;">add</i></button>
+    <button type="button" class="btn btn-outline-primary" data-toggle="collapse" data-target="#collapse-categoria" aria-expanded="false" aria-controls="collapse-categoria" style="margin-left: 10px;" (click)="mostrarComponenteAgregarCategoria()">Agregar Categoria<i class="material-icons" style="vertical-align:bottom; margin-left: 5px;">add</i></button>
   </div>
 </div>
 
-<div *ngIf="agregarCategoria">
+<div *ngIf="agregarCategoria" class="collapse" id="collapse-categoria">
   <categoria-add (cancelar)="recibirEventoCancelar()" (crear)="recibirEventoCrear()"></categoria-add>
 </div>
 
@@ -22,7 +22,7 @@
 <br>
 <div class="lista-categorias">
   <div *ngFor="let c of categorias">
-    <div class="card" style="cursor: pointer;" (click)="onSelected(c.nombre)" id="tarjeta">
+    <div class="card" style="cursor: pointer;" (click)="onSelected(c.nombre)" id="tarjeta" routerLink="/categorias/{{c.nombre}}">
       <div class="row no-gutters">
         <div class="col-2" style="align-self: center">
           <img src="https://www.portobikes.es/wp-content/uploads/2015/07/1436216032_bicycle.png" class="card-img" class="img-fluid" style="margin: 10px;">

@@ -18,6 +18,7 @@ export class CategoriaService {
   }
 
   getCategoriaDetail(nombre: string): Observable<CategoriaDetail> {
+    console.log(API_URL + categorias + '/' + nombre);
     return this.http.get<CategoriaDetail>(API_URL + categorias + '/' + nombre);
   }
 

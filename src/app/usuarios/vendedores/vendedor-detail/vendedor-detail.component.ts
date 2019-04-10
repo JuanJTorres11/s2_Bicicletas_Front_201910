@@ -10,35 +10,36 @@ import { VendedorDetail } from '../vendedorDetail';
 })
 export class VendedorDetailComponent implements OnInit {
 
-   /**
-    * The component's constructor
-    * @param editorialService The editorial's service
-    * @param route The route element which helps to obtain the editorial's id
-    * @param toastrService The toastr to show messages to the user
-    */
-   constructor(
+  /**
+   * The component's constructor
+   * @param editorialService The editorial's service
+   * @param route The route element which helps to obtain the editorial's id
+   * @param toastrService The toastr to show messages to the user
+   */
+  constructor(
     private vendedorService: VendedorService,
     private route: ActivatedRoute
-    ) { }
+  ) { }
 
-    /**
-     * Vendedor que se mostrará
-     */
-    @Input() vendedor:VendedorDetail;
+  /**
+   * Vendedor que se mostrará
+   */
+  vendedor: VendedorDetail;
 
-    /**
-     * Identificador que llega en la ruta
-     */
-    id:number;
+  /**
+   * Identificador que llega en la ruta
+   */
+  id: number;
 
-    getVendedorDetail(): void {
-      this.vendedorService.getVendedorDetail(this.id).subscribe( (vendedorRemoto) => {
-              this.vendedor = vendedorRemoto});
+  getVendedorDetail(): void {
+    this.vendedorService.getVendedorDetail(this.id).subscribe((vendedorRemoto) => {
+      this.vendedor = vendedorRemoto
+    });
   }
 
   ngOnInit() {
     this.id = +this.route.snapshot.paramMap.get('id');
-    if (this.id) { 
+    if (this.id) {
       this.vendedor = new VendedorDetail();
       this.getVendedorDetail();
     }

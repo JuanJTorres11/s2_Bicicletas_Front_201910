@@ -1,13 +1,14 @@
-import {Injectable} from '@angular/core';
-import {Router} from '@angular/router';
-import {NgxRolesService, NgxPermissionsService} from 'ngx-permissions'
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { NgxRolesService, NgxPermissionsService } from 'ngx-permissions'
 import 'rxjs/add/operator/catch';
 import { VendedorDetail } from '../usuarios/vendedores/vendedorDetail';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import { Observable } from 'rxjs';
 import { Vendedor } from '../usuarios/vendedores/vendedor';
 import { Usuario } from '../usuarios/usuario';
+import { Credencial } from './credencial';
+import { Observable } from 'rxjs';
 
 const API_URL = environment.apiURL;
 /**
@@ -22,18 +23,22 @@ export class AuthService {
      * @param roleService NgxRolesService to manage authentication roles
      * @param permissionsService NgxPermissionsService to manage authentication permissions
      */
-    constructor (
+    constructor(
         private router: Router,
         private roleService: NgxRolesService,
         private permissionsService: NgxPermissionsService,
-        private http: HttpClient ) {}
+        private http: HttpClient) { }
+
+        header: HttpHeaders = new HttpHeaders ({
+            "Content-Type": "application/json"
+        });
 
     /**
      * Inicializa los roles y permisos. <br>
      * Por defecto se inicializa como 'Invitado'. <br>
      * De lo contrario, se inicializa como Admin, Comprador o Vendedor.
      */
-    start (): void {
+    start(): void {
         this.permissionsService.flushPermissions();
         this.roleService.flushRoles();
         const role = localStorage.getItem('rol');
@@ -54,7 +59,7 @@ export class AuthService {
     /**
      * Inicializa le rol Invitado
      */
-    setInvitadoRole (): void {
+    setInvitadoRole(): void {
         this.roleService.flushRoles();
         this.roleService.addRole('INVITADO', ['']);
     }
@@ -62,7 +67,7 @@ export class AuthService {
     /**
      * Inicializa le rol Comprador
      */
-    setCompradorRole (): void {
+    setCompradorRole(): void {
         this.roleService.flushRoles();
         this.roleService.addRole('COMPRADOR', ['']);
         localStorage.setItem('rol', 'COMPRADOR');
@@ -71,7 +76,7 @@ export class AuthService {
     /**
      * Inicializa le rol Vendedor
      */
-    setVendedorRole (): void {
+    setVendedorRole(): void {
         this.roleService.flushRoles();
         this.roleService.addRole('VENDEDOR', ['']);
         localStorage.setItem('rol', 'VENDEDOR');
@@ -80,7 +85,7 @@ export class AuthService {
     /**
      * Inicializa le rol Administrador
      */
-    setAdministradorRole (): void {
+    setAdministradorRole(): void {
         this.roleService.flushRoles();
         this.roleService.addRole('ADMIN', ['']);
         localStorage.setItem('rol', 'ADMIN');
@@ -89,98 +94,30 @@ export class AuthService {
     /**
      * Imprime los roles.
      */
-    printRole (): void {
+    printRole(): void {
         console.log(this.roleService.getRoles());
-    }
-
-    
-    /**
-     * Inicia sesión de un usuario con su rol, correo y contraseña
-     * @param role Rol del usuario (obligatorio siempre)
-     * @param login Login o correo del usuario (necesario para iniciar como comprador o vendedor)
-     * @param password contraseña del usuario (necesario para iniciar como comprador o vendedor)
-     */
-    login (role:string, login?:string, password?:string): void {
-        if (role === 'Administrador') {
-            this.setAdministradorRole();
-            this.router.navigateByUrl('/');
-        }
-        else if (role === 'Comprador') {
-            // TODO
-        }
-        else {
-            this.getVendedor(login, password);
-            let id = localStorage.getItem('id');
-            this.setVendedorRole;
-            this.router.navigateByUrl('/vendedores/' + id);
-        }
-    }
-
-    /**
-     * Registro de un usuario nuevo
-     * @param role Rol del usuario
-     * @param nombre Nombre del usuario
-     * @param login Login o correo del usuario
-     * @param password Contraseña del usuario
-     * @param telefono Telefono (si es vendedor)
-     */
-    signUp(role:string, user?:Usuario, ven?:Vendedor):void {
-        if (role === 'Administrador') {
-            this.setAdministradorRole();
-            this.router.navigateByUrl('/');
-        }
-        else if (role === 'Comprador') {
-            // TODO
-        }
-        else {
-            this.postVendedor(ven);
-            let id = localStorage.getItem('id');
-            this.setVendedorRole;
-            this.router.navigateByUrl('/vendedores/' + id);
-        }
     }
 
     /**
      * Obtiene un vendedor mediante una consulta al API
-     * @param login Correo del vendedor a buscar
-     * @param password Contraseña del vendedor
+     * @param credenciales Credenciales de inicio de sesión.
      */
-    getVendedor (login:string, password:string) : VendedorDetail {
-        let vendedor:VendedorDetail;
-
-        this.http.get<VendedorDetail>(API_URL).subscribe(vendedorBD => {
-            localStorage.setItem('id', vendedorBD.id.toString());
-            localStorage.setItem('nombre', vendedorBD.nombre);
-            localStorage.setItem('login', vendedorBD.login);
-            localStorage.setItem('telefono', vendedorBD.telefono.toString());
-            vendedor = vendedorBD;
-        });
-        return vendedor;
+    getVendedor(credenciales:Credencial): Observable<VendedorDetail> {
+       return this.http.post<VendedorDetail>(API_URL + '/vendedores/auth', credenciales, {headers: this.header}).pipe();
     }
 
     /**
      * Registra un nuevo vendedor mediante el API
-     * @param nombre Nombre del vendedor nuevo
-     * @param login Correo del vendedor nuevo
-     * @param password Contraseña del vendedor nuevo
-     * @param telefono Telefono del vendedor nuevo
+     * @param ven Vendedor a registrar.
      */
-    postVendedor(ven:Vendedor) : Vendedor {
-        let vendedor:Vendedor;
-        this.http.post<Vendedor>(API_URL, ven).subscribe(vendedorBD => {
-            localStorage.setItem('id', vendedorBD.id.toString());
-            localStorage.setItem('nombre', vendedorBD.nombre);
-            localStorage.setItem('login', vendedorBD.login);
-            localStorage.setItem('telefono', vendedorBD.telefono.toString());
-            vendedor = vendedorBD;
-        });
-        return vendedor;
+    postVendedor(ven: Vendedor): Observable<VendedorDetail> {
+       return this.http.post<Vendedor>(API_URL + '/vendedores', ven, {headers: this.header}).pipe();
     }
 
     /**
      * Cierra la sesión
      */
-    logout (): void {
+    logout(): void {
         this.roleService.flushRoles();
         this.setInvitadoRole();
         localStorage.clear();

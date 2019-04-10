@@ -25,7 +25,7 @@ export class CategoriaAddComponent implements OnInit {
   crearCategoria() {
     this.categoriaService.createCategoria(this.categoria).subscribe(categoria => {
       this.categoria = categoria;
-      this.crear.emit("crear");
+      this.crear.emit();
       this.toastrService.success("Se creó la categoría " + this.categoria, "Creación Categoría");
     }, err => {
       this.toastrService.error(err, "Error");

@@ -13,3 +13,14 @@ h1 {
   .material-icons {
     margin-left: 10px;
   }
+
+  .back-arrow {
+    font-size: 36px;
+    padding-top: 10px;
+    padding-left: 10px;
+    color: dodgerblue;
+  }
+
+  .back-arrow:active {
+    color: navy;
+  }

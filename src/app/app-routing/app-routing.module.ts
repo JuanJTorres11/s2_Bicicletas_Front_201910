@@ -45,9 +45,6 @@ const routes: Routes = [
               
         ]
     },
-
-	
-
     {
         path: 'iniciarSesion',
         component: AuthLoginComponent
@@ -86,13 +83,14 @@ const routes: Routes = [
                 component: MarcaListComponent
             },
             {
-                path:':id',
-                component: MarcaDetailComponent
-            },
-            {
                 path:'create',
                 component: MarcaCreateComponent
+            },
+            {
+                path:':id',
+                component: MarcaDetailComponent
             }
+            
               
         ]
     },
@@ -124,7 +122,7 @@ const routes: Routes = [
     
     {
         path: '**',
-        redirectTo: 'home',
+        redirectTo: 'home'
     }
 ];
 

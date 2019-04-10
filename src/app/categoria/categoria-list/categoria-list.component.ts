@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Categoria } from '../categoria';
@@ -32,6 +32,8 @@ export class CategoriaListComponent implements OnInit {
    */
   categoria: Categoria;
 
+  @Output() detail = new EventEmitter<string>();
+
   /**
    * Constructor del componente
    * @param categorias Lista de categorias.
@@ -53,12 +55,15 @@ export class CategoriaListComponent implements OnInit {
     this.getCategorias();
   }
 
+  enviarEventoDetail(nombre: string) {
+    this.detail.emit(nombre);
+  }
+
   onSelected(nombre: string) {
-    console.log(nombre);
     this.nombreCategoria = nombre;
     this.categoria = new Categoria();
-    this.categoriaService.getCategoriaDetail(this.nombreCategoria).subscribe(c => this.categoria = c);
-    this.router.navigate(['/categorias/' + nombre]);
+    this.categoriaService.getCategoriaDetail(nombre).subscribe(c => this.categoria = c);
+    this.enviarEventoDetail(nombre);
   }
 
   getCategorias() {
@@ -68,5 +73,6 @@ export class CategoriaListComponent implements OnInit {
 
   ngOnInit() {
     this.getCategorias();
+    
   }
 }

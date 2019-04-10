@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 import { CategoriaDetail } from '../categoria-detail';
 import { CategoriaService } from '../categoria.service';
@@ -12,11 +13,11 @@ import { CategoriaService } from '../categoria.service';
 export class CategoriaDetailComponent implements OnInit {
 
   categoriaDetail: CategoriaDetail;
-  @Input() nombre: string;
-  loader: any;
+  nombre: string;
 
   constructor(private categoriaService: CategoriaService,
-              private route: ActivatedRoute          
+              private route: ActivatedRoute,
+              private location: Location
   ) { }
 
   getCategoriaDetail() {
@@ -27,7 +28,18 @@ export class CategoriaDetailComponent implements OnInit {
       });
   }
 
+  back() {
+    this.location.back();
+  }
+
+  showEditDialog() {
+    
+  }
+
   ngOnInit() {
+    this.nombre = String(this.route.snapshot.paramMap.get('nombre'));
+
+    this.categoriaDetail = new CategoriaDetail();
     this.getCategoriaDetail();
   }
 
