@@ -21,7 +21,7 @@ export class AuthLoginComponent implements OnInit {
         private route: ActivatedRoute,
         private router: Router,
         private service: AuthService,
-        private toastrService: ToastrService,
+        private toastrService: ToastrService
     ) { }
 
     usuario: Usuario;

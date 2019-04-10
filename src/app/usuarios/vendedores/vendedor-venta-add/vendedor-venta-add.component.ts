@@ -8,11 +8,28 @@ import { VendedorService } from '../vendedor.service';
 })
 export class VendedorVentaAddComponent implements OnInit {
 
-  constructor(service:VendedorService) { }
+  constructor(
+    private service: VendedorService) { }
 
+  /**
+   * Identificador del vendedor actual
+   */
+  id:number;
+
+  /**
+   * Representación del objeto venta
+   */
+  venta:any;
+  
   album:string [] = ["prueba1"];
 
+  addVenta () {
+    this.service.postVendedorVentas(this.id, this.venta).subscribe(ventaBD => {
+
+    });
+  }
   ngOnInit() {
+    this.id = parseInt(localStorage.getItem('id'));
   }
 
 }
