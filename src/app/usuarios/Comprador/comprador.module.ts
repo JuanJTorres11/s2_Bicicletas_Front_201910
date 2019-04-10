@@ -1,6 +1,3 @@
-
-
-
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {CompradorListComponent} from './comprador-list/comprador-list.component';
@@ -13,17 +10,13 @@ import { CompradorCreateComponent } from './comprador-create/comprador-create.co
 
 @NgModule({
     imports: [
-      CommonModule
+        CommonModule,
+        FormsModule,
+        AppRoutingModule
     ],
-    declarations: [
-      CompradorDetailComponent,
-      VendedorMediospagoComponent,
-      VendedorVentaAddComponent,
-      VendedorVentaListComponent,
-      CompradorEditComponent
-    ],
-    bootstrap: [CompradorDetailComponent],
-    providers: [CompradorService],
-    exports: [CompradorDetailComponent]
-  })
-  export class CompradorModule { }
+    declarations: [CompradorListComponent, CompradorDetailComponent, CompradorCreateComponent],
+    providers:[CompradorService],
+    exports: [CompradorListComponent]
+})
+
+export class MarcaModule{}
