@@ -7,11 +7,13 @@ import { VendedorVentaListComponent } from './vendedor-venta-list/vendedor-venta
 import { VendedorEditComponent } from './vendedor-edit/vendedor-edit.component';
 import { VendedorService } from './vendedor.service';
 import { BicicletaModule } from '../../bicicleta/bicicleta.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
-    BicicletaModule
+    BicicletaModule,
+    FormsModule
   ],
   declarations: [
     VendedorDetailComponent,

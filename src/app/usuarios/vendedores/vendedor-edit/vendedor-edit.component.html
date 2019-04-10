@@ -1,32 +1,111 @@
 <div class="container-fluid">
-  <div class="col md-4">
-    <ul class="nav flex-column">
-      <li class="nav-item">
-        <a class="nav-link active" href="#">Active</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
-    </ul>
-  </div>
-  <div class="col md-8">
-    <div class="collapse" id="nombre">
-
+  <div class="row">
+    <div class="col-2">
+      <div class="card">
+        <div class="btn-group-vertical">
+          <button class="btn btn-secondary" data-toggle="collapse" href="#nombre" role="button" aria-expanded="false"
+            aria-controls="collapseExample">Cambiar Nombre
+          </button>
+          <button class="btn btn-secondary" data-toggle="collapse" href="#correo" role="button" aria-expanded="false"
+            aria-controls="collapseExample">Cambiar Correo
+          </button>
+          <button class="btn btn-secondary" data-toggle="collapse" href="#telefono" role="button" aria-expanded="false"
+            aria-controls="collapseExample">Cambiar Telefono
+          </button>
+          <button class="btn btn-secondary" data-toggle="collapse" href="#password" role="button" aria-expanded="false"
+            aria-controls="collapseExample">Cambiar Password
+          </button>
+          <button class="btn btn-danger" data-toggle="collapse" href="#eliminar" role="button" aria-expanded="false"
+            aria-controls="collapseExample">Eliminar
+          </button>
+        </div>
+      </div>
     </div>
-    <div class="collapse" id="telefono">
-
-    </div>
-    <div class="collapse" id="password">
-
-    </div>
-    <div class="collapse" id="eliminar">
-
+    <div class="col-10">
+      <form name="CambioVendedor">
+        <div class="collapse" id="nombre">
+          <div class="card">
+            <h5 class="card-header">Cambio de Nombre</h5>
+            <div class="card-body">
+              <div class="form-group">
+                <label for="inputNombre">Nombre Actual</label>
+                <input type="text" class="form-control" id="inputNombre" placeholder="Nombre" [(ngModel)]="nombreActual"
+                  required>
+                <label for="inputNombreNuevo">Nombre Nuevo</label>
+                <input type="text" class="form-control" id="inputNombreNuevo" placeholder="Nombre"
+                  [(ngModel)]="nombreNuevo" required>
+                <label for="inputConfNombre">Confirmar Nombre Nuevo</label>
+                <input type="text" class="form-control" id="inputConfNombre" placeholder="Nombre"
+                  [(ngModel)]="confNombre" required>
+              </div>
+              <button type="submit" class="btn btn-info" (cbuttonck)="cambiarNombre()">Confirmar</button>
+            </div>
+          </div>
+        </div>
+        <div class="collapse" id="correo">
+          <div class="card">
+            <h5 class="card-header">Cambio de Correo</h5>
+            <div class="card-body">
+              <div class="form-group">
+                <label for="inputCorreo">Correo Actual</label>
+                <input type="email" class="form-control" id="inputCorreo" placeholder="Correo"
+                  [(ngModel)]="correoActual" required>
+                <label for="inputCorreoNuevo">Correo Nuevo</label>
+                <input type="email" class="form-control" id="inputCorreoNuevo" placeholder="Correo"
+                  [(ngModel)]="correoNuevo" required>
+                <label for="inputConfCorreo">Confirmar Correo Nuevo</label>
+                <input type="email" class="form-control" id="inputConfCorreo" placeholder="Correo"
+                  [(ngModel)]="confCorreo" required>
+              </div>
+              <button type="submit" class="btn btn-info" (cbuttonck)="cambiarCorreo()">Confirmar</button>
+            </div>
+          </div>
+        </div>
+        <div class="collapse" id="telefono">
+          <div class="card">
+            <h5 class="card-header">Cambio de Telefono</h5>
+            <div class="card-body">
+              <div class="form-group">
+                <label for="inputTelefono">Telefono Actual</label>
+                <input type="tel" class="form-control" id="inputTelefono" placeholder="Telefono"
+                  [(ngModel)]="telefonoActual" required>
+                <label for="inputTelefonoNuevo">Telefono Nuevo</label>
+                <input type="tel" class="form-control" id="inputTelefonoNuevo" placeholder="Telefono"
+                  [(ngModel)]="telefonoNuevo" required>
+                <label for="inputConfTelefono">Confirmar Telefono Nuevo</label>
+                <input type="tel" class="form-control" id="inputConfTelefono" placeholder="Telefono"
+                  [(ngModel)]="confTelefono" required>
+              </div>
+              <button type="submit" class="btn btn-info" (cbuttonck)="cambiarTelefono()">Confirmar</button>
+            </div>
+          </div>
+        </div>
+        <div class="collapse" id="password">
+          <div class="card">
+            <h5 class="card-header">Cambio de Contraseña</h5>
+            <div class="card-body">
+              <div class="form-group">
+                <label for="inputPassword">Password Actual</label>
+                <input type="password" class="form-control" id="inputPassword" placeholder="Password"
+                  [(ngModel)]="PasswordActual" required>
+                <label for="inputPasswordNuevo">Password Nueva</label>
+                <input type="password" class="form-control" id="inputPasswordNuevo" placeholder="Password"
+                  [(ngModel)]="PasswordNueva" required>
+                <label for="inputConfPassword">Confirmar Password Nueva</label>
+                <input type="password" class="form-control" id="inputConfPassword" placeholder="Password"
+                  [(ngModel)]="confPassword" required>
+              </div>
+              <button type="submit" class="btn btn-info" (cbuttonck)="cambiarPassword()">Confirmar</button>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" (cbuttonck)="putVendedor()">Confirmar todos los cambios</button>
+      </form>
+      <div class="collapse" id="eliminar">
+        <div class="card text-center">
+          <button class="btn btn-dark" (cbuttonck)="deleteVendedor()">Eliminar Vendedor</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
