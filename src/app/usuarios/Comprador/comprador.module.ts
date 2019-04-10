@@ -1,3 +1,6 @@
+
+
+
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {CompradorListComponent} from './comprador-list/comprador-list.component';
