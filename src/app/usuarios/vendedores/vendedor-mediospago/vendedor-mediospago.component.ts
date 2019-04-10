@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { VendedorService } from '../vendedor.service';
 
 @Component({
   selector: 'app-vendedor-mediospago',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VendedorMediospagoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: VendedorService) { }
 
+  id: number;
+
+  mediosPago = ["Visa terminada en 4910", "MasterCard terminada en 7903", "Visa terminada en 5674"];
+
+  getMediosPago() {
+    this.service.getVendedorMediosPago(this.id).subscribe(mediosPago => {
+
+    });
+  }
+  
   ngOnInit() {
+    this.id = parseInt(localStorage.getItem('id'));
   }
 
 }

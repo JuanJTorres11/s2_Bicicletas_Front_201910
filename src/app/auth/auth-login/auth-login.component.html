@@ -3,7 +3,7 @@
         <br>
         <h2 class="text-center">Iniciar Sesión</h2>
         <br>
-        <form name="login" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+        <form name="login" (ngSubmit)="f.form.valid && login()" #f="ngForm">
             <div class="form-group">
                 <label for="role"><b>Role</b></label>
                 <select class="custom-select" name="role" id="role" [(ngModel)]="usuario.rol" required>
