@@ -8,6 +8,7 @@ import { environment } from '../../environments/environment';
 import { Vendedor } from '../usuarios/vendedores/vendedor';
 import { Usuario } from '../usuarios/usuario';
 import { Credencial } from './credencial';
+import { Observable } from 'rxjs';
 
 const API_URL = environment.apiURL;
 /**
@@ -97,92 +98,20 @@ export class AuthService {
         console.log(this.roleService.getRoles());
     }
 
-
-    /**
-     * Inicia sesión de un usuario con su rol, correo y contraseña
-     * @param role Rol del usuario (obligatorio siempre)
-     * @param login Login o correo del usuario (necesario para iniciar como comprador o vendedor)
-     * @param password contraseña del usuario (necesario para iniciar como comprador o vendedor)
-     */
-    login(role: string, login?: string, password?: string): void {
-        if (role == 'Administrador') {
-            this.setAdministradorRole();
-            this.router.navigateByUrl('/');
-        }
-        else if (role === 'Comprador') {
-            // TODO
-        }
-        else {
-            let id = localStorage.getItem('id');
-            console.log("el id es " + id);
-            this.setVendedorRole;
-            this.router.navigateByUrl('/vendedores/' + id);
-        }
-    }
-
-    /**
-     * Registro de un usuario nuevo
-     * @param role Rol del usuario
-     * @param nombre Nombre del usuario
-     * @param login Login o correo del usuario
-     * @param password Contraseña del usuario
-     * @param telefono Telefono (si es vendedor)
-     */
-    signUp(role: string, user?: Usuario, ven?: Vendedor): void {
-        if (role == 'Administrador') {
-            this.setAdministradorRole();
-            this.router.navigateByUrl('/');
-        }
-        else if (role == 'Comprador') {
-            // TODO
-        }
-        else {
-            this.postVendedor(ven);
-            let id = localStorage.getItem('id');
-            this.setVendedorRole;
-            this.router.navigateByUrl('/vendedores/' + id);
-        }
-    }
-
     /**
      * Obtiene un vendedor mediante una consulta al API
-     * @param login Correo del vendedor a buscar
-     * @param password Contraseña del vendedor
+     * @param credenciales Credenciales de inicio de sesión.
      */
-    getVendedor(log: string, pass: string): VendedorDetail {
-        let vendedor = new Vendedor();
-        let credenciales = new Credencial();
-        credenciales.login = log;
-        credenciales.password = pass;
-        this.http.post<VendedorDetail>(API_URL + '/vendedores/auth', credenciales, {headers: this.header}).subscribe(vendedorBD => {
-            localStorage.setItem('id', vendedorBD.id.toString());
-            console.log('Desde la bd el id es: '+ vendedorBD.id.toString());
-            localStorage.setItem('nombre', vendedorBD.nombre);
-            localStorage.setItem('login', vendedorBD.login);
-            localStorage.setItem('telefono', vendedorBD.telefono.toString());
-            vendedor = vendedorBD;
-            console.log('El id local es: ' + vendedor.id);
-        });
-        return vendedor;
+    getVendedor(credenciales:Credencial): Observable<VendedorDetail> {
+       return this.http.post<VendedorDetail>(API_URL + '/vendedores/auth', credenciales, {headers: this.header}).pipe();
     }
 
     /**
      * Registra un nuevo vendedor mediante el API
-     * @param nombre Nombre del vendedor nuevo
-     * @param login Correo del vendedor nuevo
-     * @param password Contraseña del vendedor nuevo
-     * @param telefono Telefono del vendedor nuevo
+     * @param ven Vendedor a registrar.
      */
-    postVendedor(ven: Vendedor): Vendedor {
-        let vendedor = new Vendedor();
-        this.http.post<Vendedor>(API_URL + '/vendedores', ven, {headers: this.header}).subscribe(vendedorBD => {
-            localStorage.setItem('id', vendedorBD.id.toString());
-            localStorage.setItem('nombre', vendedorBD.nombre);
-            localStorage.setItem('login', vendedorBD.login);
-            localStorage.setItem('telefono', vendedorBD.telefono.toString());
-            vendedor = vendedorBD;
-        });
-        return vendedor;
+    postVendedor(ven: Vendedor): Observable<VendedorDetail> {
+       return this.http.post<Vendedor>(API_URL + '/vendedores', ven, {headers: this.header}).pipe();
     }
 
     /**

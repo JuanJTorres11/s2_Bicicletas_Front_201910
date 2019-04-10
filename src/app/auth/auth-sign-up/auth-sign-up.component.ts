@@ -20,7 +20,7 @@ export class AuthSignUpComponent implements OnInit {
     constructor(
         private route: ActivatedRoute,
         private router: Router,
-        private authService: AuthService,
+        private service: AuthService,
         private toastrService: ToastrService,
     ) { }
 
@@ -40,18 +40,30 @@ export class AuthSignUpComponent implements OnInit {
     * Sign the user up with the selected role
     */
     signUp(): void {
-        if (this.rol ==='Vendedor') {
+        if (this.rol == 'Administrador') {
+            this.service.setAdministradorRole();
+            this.router.navigateByUrl('/');
+        }
+        else if (this.rol == 'Comprador') {
+            // TODO
+        }
+        else {
             this.vendedor = new Vendedor();
             this.vendedor.nombre = this.nombre;
             this.vendedor.login = this.login;
             this.vendedor.password = this.password;
             this.vendedor.telefono = this.telefono;
-            this.authService.signUp(this.rol, this.vendedor);
+            this.service.postVendedor(this.vendedor).subscribe(vendedorBD => {
+                localStorage.setItem('id', vendedorBD.id.toString());
+                let id = vendedorBD.id;
+                localStorage.setItem('nombre', vendedorBD.nombre);
+                localStorage.setItem('login', vendedorBD.login);
+                localStorage.setItem('telefono', vendedorBD.telefono.toString())
+                this.service.setVendedorRole();
+                this.toastrService.success('Se registró correctamente');
+                this.router.navigateByUrl('/vendedores/' + id);
+            });
         }
-        else {
-            //TODO
-        }
-        this.toastrService.success('Se registró correctamente')
     }
 
     /**
