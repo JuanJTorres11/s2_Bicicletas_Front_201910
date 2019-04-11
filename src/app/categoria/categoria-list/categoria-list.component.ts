@@ -43,53 +43,39 @@ export class CategoriaListComponent implements OnInit {
     this.agregarCategoria = false;
   }
 
-
-
   /**
    * Cambia el estado de la variable de agregarCategoria a
    * true para mostrar el componente.
    */
-
   mostrarComponenteAgregarCategoria() {
     this.agregarCategoria = true;
   }
 
-
-
   /**
    * Recibe el evento de cancelar del componente de agregar.
    */
-
   recibirEventoCancelar() {
     this.agregarCategoria = false;
   }
 
-
-
   /**
    * Recibe el evento de crear del componente de agregar.
    */
-
   recibirEventoCrear() {
     this.getCategorias();
   }
 
-
   /**
    * Envia el evento para mostrar el detail de la categoria.
    */
-
   enviarEventoDetail(nombre: string) {
     this.detail.emit(nombre);
   }
-
-
 
   /**
    * Metodo que se activa cuando un elemento es seleccionado.
    * @param nombre Nombre de la categoria elegida.
    */
-
   onSelected(nombre: string) {
     this.nombreCategoria = nombre;
     this.categoria = new Categoria();
@@ -97,12 +83,9 @@ export class CategoriaListComponent implements OnInit {
     this.enviarEventoDetail(nombre);
   }
 
-
-
- /**
+  /**
    * Obtiene todas las categorias.
    */
-
   getCategorias() {
     this.categoriaService.getCategorias()
       .subscribe(categorias => this.categorias = categorias);
@@ -113,7 +96,6 @@ export class CategoriaListComponent implements OnInit {
    */
   ngOnInit() {
     this.getCategorias();
-
 
   }
 }

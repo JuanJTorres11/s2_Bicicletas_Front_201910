@@ -15,8 +15,7 @@
               <div class="form-group" id="formEditCategoria">
                 <label for="nombreCategoria"><b>Nombre</b></label>
                 <input type="text" name="nombreCategoria" class="form-control" id="nombreCategoria" [(ngModel)]="categoria.nombre" #nombreCategoria="ngModel" 
-                  [ngClass]="{ 'is-invalid': f.submitted && nombreCategoria.invalid }" placeHolder="Ingresa el nombre" required>
-
+                  [ngClass]="{ 'is-invalid': f.submitted && nombreCategoria.invalid }" required>
                 <div class="invalid-feedback">
                   <div>El nombre de la categoría no puede estar vacío"</div>
                 </div>

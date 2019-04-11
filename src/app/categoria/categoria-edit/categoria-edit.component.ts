@@ -4,7 +4,6 @@ import { ToastrService } from 'ngx-toastr';
 import { Categoria } from '../categoria';
 import { CategoriaService } from '../categoria.service';
 
-
 @Component({
   selector: 'categoria-edit',
   templateUrl: './categoria-edit.component.html',
@@ -45,7 +44,6 @@ export class CategoriaEditComponent implements OnInit {
 
   ngOnInit() {
     this.getCategoria();
-
   }
 
 }
