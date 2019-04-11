@@ -11,7 +11,7 @@ export class Marca{
     /**
      * El nombre de la marca
      */
-    name:string;
+    nombre:string;
 
     // constructor(id: number, name: string){
     //     this.id=id;

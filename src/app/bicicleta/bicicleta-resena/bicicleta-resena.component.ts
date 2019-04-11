@@ -12,7 +12,7 @@ export class BicicletaResenaComponent implements OnInit {
     public isCollapsed = true;
     
     /**
-     * The function called when a review is posted to update the reviews
+	 * La funcion que se llama cuando se publica una reseña para actualizar las reseñas
      */
     updateResenas(resenas:Resena[]): void {
         this.bicicletaResenas = resenas;
