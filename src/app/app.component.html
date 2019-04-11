@@ -68,8 +68,8 @@
             </div>
             <div *ngxPermissionsOnly="['COMPRADOR']">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Perfil</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="#">Configuración</a></li>
+                    <li class="nav-item"><a class="nav-link" [routerLink]="['comprador',darIdActual()]">Perfil</a></li>
+                    <li class="nav-item"> <a class="nav-link" [routerLink]="['comprador',darIdActual(),'edit']">Configuración</a></li>
                     <li class="nav-item"><a class="nav-link" (click)="logout()" href="#">Cerrar Sesión</a></li>
                 </ul>
             </div>

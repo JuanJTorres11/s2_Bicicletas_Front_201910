@@ -6,7 +6,6 @@ import { CompradorDetail } from "./comprador-Detail"
 //import { Bicicleta } from 'src/app/bicicleta/bicicleta';
 import { environment } from '../../../environments/environment';
 
-// const API_URL = "../../assets/";
 const API_URL = environment.apiURL + "/comprador";
 //const carrito = '/carrito.json';
 const compradores = '/compradores.json';
