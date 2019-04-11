@@ -17,8 +17,6 @@ export class CompradorCreateComponent implements OnInit {
     /**
     * Constructor for the component
     * @param compradorService The books' services provider
-    * @param authorService The authors' services provider
-    * @param editorialService The editorials' services provider
     * @param toastrService The toastr to show messages to the user
     * @param router The router
     */
@@ -36,15 +34,20 @@ export class CompradorCreateComponent implements OnInit {
  
     
     /**
-    * Cancels the creation of the new book
-    * Redirects to the books' list page
+    * Cancels the creation of the comprador
+    * Redirects to the comprador list page
+    */
+   @Output() create = new EventEmitter();
+   
+    /**
+    * Cancels the  cancel of the comprador
+    * Redirects to the comprador list page
     */
     @Output() cancel = new EventEmitter();
 
-    @Output() create = new EventEmitter();
 
     /**
-    * Creates a new book
+    * Creates a new comprador
     */
     createComprador(): Comprador {
         this.compradorService.createComprador(this.comprador)
@@ -59,7 +62,7 @@ export class CompradorCreateComponent implements OnInit {
         }
 
           /**
-   * Cancela la creacion de la marca
+   * Cancela la creacion del comprador
    */
   cancelCreation(): void {
     this.cancel.emit();

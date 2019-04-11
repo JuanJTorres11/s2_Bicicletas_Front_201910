@@ -16,8 +16,7 @@ export class VentaCreateComponent implements OnInit {
 
     /**
     * Constructor for the component
-    * @param VentaService The books' services provider
-    * @param ventaService The authors' services provider
+    * @param VentaService The venta' services provider
     * @param toastrService The toastr to show messages to the user
     * @param router The router
     */
@@ -28,22 +27,27 @@ export class VentaCreateComponent implements OnInit {
     ) {}
 
     /**
-    * The new comprador
+    * The new Venta
     */
     venta: Venta;
 
  
     
     /**
-    * Cancels the creation of the new book
-    * Redirects to the books' list page
+    * Cancels the creation of the venta
+    * Redirects to the venta' list page
+    */
+   @Output() create = new EventEmitter();
+
+   /**
+    * Cancels the creation of the new venta
+    * Redirects to the venta' list page
     */
     @Output() cancel = new EventEmitter();
 
-    @Output() create = new EventEmitter();
 
     /**
-    * Creates a new book
+    * Creates a new venta
     */
     createVenta(): Venta {
         this.ventaService.createVenta(this.venta)
@@ -58,7 +62,7 @@ export class VentaCreateComponent implements OnInit {
         }
 
           /**
-   * Cancela la creacion de la marca
+   * Cancela la creacion de la venta
    */
   cancelCreation(): void {
     this.cancel.emit();

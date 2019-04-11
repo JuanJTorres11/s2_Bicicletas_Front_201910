@@ -18,8 +18,8 @@ export class VentaService {
 
     	/**
     * Crea una nueva venta.
-    * @param venta La informacion del comprador a crear. 
-    * @returns The comprador with its new id if it was created, false if it wasn't
+    * @param venta La informacion de la venta a crear. 
+    * @returns The venta with its new id if it was created, false if it wasn't
     */
    createVenta(venta): Observable<Venta> {
     return this.http.post<Venta>(API_URL + ventas, venta);
@@ -35,7 +35,7 @@ export class VentaService {
     // }
 
         /***
-     * Obtiene la lista de compradores
+     * Obtiene la lista de ventas
      */
     getVentas(): Observable<Venta[]>{
         return this.http.get<Venta[]>(API_URL + ventas);
