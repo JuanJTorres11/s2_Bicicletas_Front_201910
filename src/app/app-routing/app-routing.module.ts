@@ -20,6 +20,8 @@ import { CategoriaListComponent } from '../categoria/categoria-list/categoria-li
 import { CategoriaDetailComponent } from '../categoria/categoria-detail/categoria-detail.component';
 import { MediopagoListComponent } from '../mediopago/mediopago-list/mediopago-list.component';
 import { MediopagoDetailComponent } from '../mediopago/mediopago-detail/mediopago-detail.component';
+import {BicicletaEditComponent} from '../bicicleta/bicicleta-edit/bicicleta-edit.component';
+
 
 const routes: Routes = [
 
@@ -39,6 +41,10 @@ const routes: Routes = [
 			{
                 path: 'add',
                 component: BicicletaCreateComponent
+            },
+			{
+                path: 'edit',
+                component: BicicletaEditComponent
             },
 			{
                 path: ':id',
