@@ -1,0 +1,31 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-8">
+      <form>
+        <div class="form-group">
+          <label for="login"><b>Nombre</b></label>
+          <input type="text" name="nombre" class="form-control" value="{{vendedor.nombre}}" readonly>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="login"><b>Correo</b></label>
+            <input type="email" name="login" class="form-control" value="{{vendedor.login}}" readonly>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="tel"><b>Telefono</b></label>
+            <input type="tel" name="tel" class="form-control" value="{{vendedor.telefono}}" readonly>
+          </div>
+        </div>
+      </form>
+      <div>
+        <app-vendedor-mediospago></app-vendedor-mediospago>
+      </div>
+    </div>
+    <div class="col-4">
+      <app-vendedor-venta-add></app-vendedor-venta-add>
+    </div>
+  </div>
+  <div class="row">
+    <app-vendedor-venta-list></app-vendedor-venta-list>
+  </div>
+</div>

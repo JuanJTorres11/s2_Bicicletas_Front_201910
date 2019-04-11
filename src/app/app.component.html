@@ -1,67 +1,103 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-	
-    <!-- Navbar brand -->        
-    <a class="navbar-brand" href="#">
-        <img src="http://www.pngmart.com/files/1/Sad-Emoji-Transparent-Background.png" height="40" alt="mdb logo">
+
+    <!-- Navbar brand -->
+    <a class="navbar-brand" href="http://localhost:4200/home">
+        <img src="../assets/Images/logo.png" height="40" alt="mdb logo">
     </a>
-    
+
     <!-- Collapse button -->
-     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
-    aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+        aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
     </button>
-    
+
     <!-- Collapsible content -->
     <div class="collapse navbar-collapse" id="basicExampleNav">
-        
-   
-        
-    <!-- Links -->
-    <ul class="navbar-nav mr-auto">
-        
-     <li class="nav-item active">
-        <a class="nav-link" href="#">Inicio
-          <span class="sr-only">(current)</span>
-        </a>
-      </li>
-      
-      <!-- Dropdown -->
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="false">Catalogo</a>
-        <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-           <a class="dropdown-item" href="#">Marca</a>
-          <a class="dropdown-item" href="#">Categoria</a>
-        </div>
-      </li>
-      <!-- Dropdown -->
-      
-      <li class="nav-item">
-        <a class="nav-link" href="#">Carrito</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Lista de deseos</a>
-      </li>
-      
-    </ul> 
-    <!-- Links -->
-    
-    
-    <form class="form-inline">
-      <div class="md-form my-0">
-       <a class="btn btn-primary my-2 my-sm-0" href="#" role="button">Login</a>
-       <a class="btn btn-outline-primary my-2 my-sm-0" href="#" role="button">Sign Up</a>
-      </div>
-    </form>
-    
-    </div>
-   <!-- Collapsible content -->
-   
-</nav>
 
-<div>
-        <router-outlet></router-outlet>
-        <br>
-        <br>
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item active">
+                <a class="nav-link" href="http://localhost:4200/home">
+                    Inicio
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>
+
+            <!-- Dropdown -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">Catalogo</a>
+                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" routerLink="bicicletas/list">Todas</a>
+                    <a class="dropdown-item" routerLink="marcas/list">Marca</a>
+                    <a class="dropdown-item" routerLink="categorias/list">Categoria</a>
+                </div>
+            </li>
+            <!-- Dropdown -->
+
+            <li class="nav-item">
+                <a class="nav-link" routerLink="bicicleta">Carrito</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Lista de deseos</a>
+            </li>
+
+            <!-- Dropdown -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">Funcionalidades</a>
+                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" routerLink="bicicletas/add">Crear bicicleta</a>
+                    <a class="dropdown-item" href="#">Actualizar bicicleta</a>
+                    <a class="dropdown-item" href="#">Eliminar bicicleta</a>
+                    <a class="dropdown-item" routerLink="/marcas/create">Crear marca</a>
+                </div>
+            </li>
+            <!-- Dropdown -->
+
+        </ul>
+
+        <div>
+            <div *ngxPermissionsOnly="['VENDEDOR']">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><a class="nav-link" [routerLink]="['vendedores',darIdActual()]">Perfil</a></li>
+                    <li class="nav-item"> <a class="nav-link" [routerLink]="['vendedores',darIdActual(),'edit']">Configuración</a></li>
+                    <li class="nav-item"><a class="nav-link" (click)="logout()" href="#">Cerrar Sesión</a></li>
+                </ul>
+            </div>
+            <div *ngxPermissionsOnly="['COMPRADOR']">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Perfil</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="#">Configuración</a></li>
+                    <li class="nav-item"><a class="nav-link" (click)="logout()" href="#">Cerrar Sesión</a></li>
+                </ul>
+            </div>
+            <div *ngxPermissionsOnly="['INVITADO']">
+                <a class="btn btn-primary my-2 my-sm-0" routerLink="iniciarSesion" role="button" style="margin-right: 10px">Iniciar Sesión</a>
+                <a class="btn btn-outline-primary my-2 my-sm-0" routerLink="registrarse" role="button">Registrarse</a>
+            </div>
+
+        </div>
+
     </div>
-    
+    <!-- Collapsible content -->
+
+</nav>
+<!-- Routed components go here -->
+<div>
+    <router-outlet></router-outlet>
+    <br>
+    <br>
+</div>
+
+<footer class="footer bg-light" id="footer">
+    <div class="container">
+        <p class="navbar-text text-center">
+            <img src="../assets/uniandes.png" alt="logo" width="8%" /><span id="footer-text">
+                © Clean Code
+                201910
+            </span>
+        </p>
+    </div>
+</footer>

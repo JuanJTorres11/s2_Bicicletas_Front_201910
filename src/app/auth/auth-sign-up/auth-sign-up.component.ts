@@ -1,8 +1,9 @@
 import { Component, OnInit, Input, OnChanges, Output, EventEmitter } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-
 import { AuthService } from '../auth.service';
-import { User } from '../user';
+import { Usuario } from '../../usuarios/usuario';
+import { Vendedor } from '../../usuarios/vendedores/vendedor';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
     selector: 'app-auth-sign-up',
@@ -17,11 +18,21 @@ export class AuthSignUpComponent implements OnInit {
     * @param toastrService The toastr to show messages to the user
     */
     constructor(
-        private authService: AuthService,
+        private route: ActivatedRoute,
+        private router: Router,
+        private service: AuthService,
         private toastrService: ToastrService,
     ) { }
 
-    user: User;
+    user: Usuario;
+
+    vendedor:Vendedor;
+
+    rol:string;
+    nombre:string;
+    login:string;
+    password:string;
+    telefono:number;
 
     roles: String[];
 
@@ -29,16 +40,37 @@ export class AuthSignUpComponent implements OnInit {
     * Sign the user up with the selected role
     */
     signUp(): void {
-        this.authService.login(this.user.role);
-        this.toastrService.success('Successfully signed up')
+        if (this.rol == 'Administrador') {
+            this.service.setAdministradorRole();
+            this.router.navigateByUrl('/');
+        }
+        else if (this.rol == 'Comprador') {
+            // TODO
+        }
+        else {
+            this.vendedor = new Vendedor();
+            this.vendedor.nombre = this.nombre;
+            this.vendedor.login = this.login;
+            this.vendedor.password = this.password;
+            this.vendedor.telefono = this.telefono;
+            this.service.postVendedor(this.vendedor).subscribe(vendedorBD => {
+                localStorage.setItem('id', vendedorBD.id.toString());
+                let id = vendedorBD.id;
+                localStorage.setItem('nombre', vendedorBD.nombre);
+                localStorage.setItem('login', vendedorBD.login);
+                localStorage.setItem('telefono', vendedorBD.telefono.toString())
+                this.service.setVendedorRole();
+                this.toastrService.success('Se registró correctamente');
+                this.router.navigateByUrl('/vendedores/' + id);
+            });
+        }
     }
 
     /**
     * This function will initialize the component
     */
     ngOnInit() {
-        this.user = new User();
-        this.roles = ['Administrator', 'Client'];
+        this.user = new Usuario();
+        this.roles = ['Administrador', 'Comprador', 'Vendedor'];
     }
-
 }

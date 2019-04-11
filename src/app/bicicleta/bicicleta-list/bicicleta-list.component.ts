@@ -1,6 +1,6 @@
 
 import {Component, OnInit} from '@angular/core';
-
+import { ActivatedRoute } from '@angular/router';
 import {Bicicleta} from '../bicicleta';
 import {BicicletaService} from '../bicicleta.service';
 
@@ -10,7 +10,7 @@ import {BicicletaService} from '../bicicleta.service';
 @Component({
     selector: 'app-bicicleta',
     templateUrl: './bicicleta-list.component.html',
-    styleUrls: ['./bicicleta-list.component.css']
+    styleUrls: ['./bicicleta-list.component.css'] 
 })
 export class BicicletaListComponent implements OnInit {
 
@@ -18,12 +18,18 @@ export class BicicletaListComponent implements OnInit {
      * Constructor of the component
      * @param bookService The book's services provider
      */
-    constructor(private bicicletaService: BicicletaService) {}
+    constructor(
+	private bicicletaService: BicicletaService,
+	 private route: ActivatedRoute
+	) {}
 
     /**
      * The list of books in the BookStore
      */
     bicicletas: Bicicleta[];
+
+	
+
 
     /**
      * Asks the service to update the list of books
@@ -38,6 +44,7 @@ export class BicicletaListComponent implements OnInit {
      * This method will be called when the component is created
      */
     ngOnInit() {
+		console.log("IntitBicicletas");
         this.getBicicletas();
     }
 }

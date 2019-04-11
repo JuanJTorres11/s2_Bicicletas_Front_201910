@@ -1,0 +1,26 @@
+h1 {
+    padding-left: 10px;
+    padding-top: 10px;
+  }
+  
+  hr {
+    margin-left: 15px;
+    margin-right: 15px;
+    border:0;
+    border-bottom:2px solid #F2F2F2;
+  }
+  
+  .material-icons {
+    margin-left: 10px;
+  }
+
+  .back-arrow {
+    font-size: 36px;
+    padding-top: 10px;
+    padding-left: 10px;
+    color: dodgerblue;
+  }
+
+  .back-arrow:active {
+    color: navy;
+  }

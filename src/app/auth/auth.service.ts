@@ -1,8 +1,16 @@
-import {Injectable} from '@angular/core';
-import {Router} from '@angular/router';
-import {NgxRolesService, NgxPermissionsService} from 'ngx-permissions'
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { NgxRolesService, NgxPermissionsService } from 'ngx-permissions'
 import 'rxjs/add/operator/catch';
+import { VendedorDetail } from '../usuarios/vendedores/vendedorDetail';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from '../../environments/environment';
+import { Vendedor } from '../usuarios/vendedores/vendedor';
+import { Usuario } from '../usuarios/usuario';
+import { Credencial } from './credencial';
+import { Observable } from 'rxjs';
 
+const API_URL = environment.apiURL;
 /**
  * The service provider for everything related to authentication
  */
@@ -15,63 +23,104 @@ export class AuthService {
      * @param roleService NgxRolesService to manage authentication roles
      * @param permissionsService NgxPermissionsService to manage authentication permissions
      */
-    constructor (private router: Router, private roleService: NgxRolesService, private permissionsService: NgxPermissionsService) { }
+    constructor(
+        private router: Router,
+        private roleService: NgxRolesService,
+        private permissionsService: NgxPermissionsService,
+        private http: HttpClient) { }
 
-    start (): void {
+        header: HttpHeaders = new HttpHeaders ({
+            "Content-Type": "application/json"
+        });
+
+    /**
+     * Inicializa los roles y permisos. <br>
+     * Por defecto se inicializa como 'Invitado'. <br>
+     * De lo contrario, se inicializa como Admin, Comprador o Vendedor.
+     */
+    start(): void {
         this.permissionsService.flushPermissions();
         this.roleService.flushRoles();
-        this.permissionsService.loadPermissions(['edit_author_permission', 'delete_author_permission', 'leave_review']);
-        const role = localStorage.getItem('role');
+        const role = localStorage.getItem('rol');
         if (!role) {
-            this.setGuestRole();
-        } else if (role === 'ADMIN') {
-            this.setAdministratorRole();
-        } else {
-            this.setClientRole();
+            this.setInvitadoRole();
+        }
+        else if (role === 'ADMIN') {
+            this.setAdministradorRole();
+        }
+        else if (role === 'COMPRADOR') {
+            this.setCompradorRole();
+        }
+        else {
+            this.setVendedorRole();
         }
     }
 
-    setGuestRole (): void {
+    /**
+     * Inicializa le rol Invitado
+     */
+    setInvitadoRole(): void {
         this.roleService.flushRoles();
-        this.roleService.addRole('GUEST', ['']);
+        this.roleService.addRole('INVITADO', ['']);
     }
 
-    setClientRole (): void {
+    /**
+     * Inicializa le rol Comprador
+     */
+    setCompradorRole(): void {
         this.roleService.flushRoles();
-        this.roleService.addRole('CLIENT', ['leave_review']);
-        localStorage.setItem('role', 'CLIENT');
+        this.roleService.addRole('COMPRADOR', ['']);
+        localStorage.setItem('rol', 'COMPRADOR');
     }
 
-    setAdministratorRole (): void {
+    /**
+     * Inicializa le rol Vendedor
+     */
+    setVendedorRole(): void {
         this.roleService.flushRoles();
-        this.roleService.addRole('ADMIN', ['edit_author_permission', 'delete_author_permission']);
-        localStorage.setItem('role', 'ADMIN');
+        this.roleService.addRole('VENDEDOR', ['']);
+        localStorage.setItem('rol', 'VENDEDOR');
     }
 
-    printRole (): void {
+    /**
+     * Inicializa le rol Administrador
+     */
+    setAdministradorRole(): void {
+        this.roleService.flushRoles();
+        this.roleService.addRole('ADMIN', ['']);
+        localStorage.setItem('rol', 'ADMIN');
+    }
+
+    /**
+     * Imprime los roles.
+     */
+    printRole(): void {
         console.log(this.roleService.getRoles());
     }
 
     /**
-     * Logs the user in with the desired role
-     * @param role The desired role to set to the user
+     * Obtiene un vendedor mediante una consulta al API
+     * @param credenciales Credenciales de inicio de sesión.
      */
-    login (role): void {
-        if (role === 'Administrator') {
-            this.setAdministratorRole();
-        } else {
-            this.setClientRole()
-        }
-        this.router.navigateByUrl('/');
+    getVendedor(credenciales:Credencial): Observable<VendedorDetail> {
+       return this.http.post<VendedorDetail>(API_URL + '/vendedores/auth', credenciales, {headers: this.header}).pipe();
     }
 
     /**
-     * Logs the user out
+     * Registra un nuevo vendedor mediante el API
+     * @param ven Vendedor a registrar.
      */
-    logout (): void {
+    postVendedor(ven: Vendedor): Observable<VendedorDetail> {
+       return this.http.post<Vendedor>(API_URL + '/vendedores', ven, {headers: this.header}).pipe();
+    }
+
+    /**
+     * Cierra la sesión
+     */
+    logout(): void {
         this.roleService.flushRoles();
-        this.setGuestRole();
-        localStorage.removeItem('role');
+        this.setInvitadoRole();
+        localStorage.clear();
         this.router.navigateByUrl('/');
     }
 }

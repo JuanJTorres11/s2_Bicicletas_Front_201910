@@ -1,0 +1,6 @@
+[
+{ "id": 1, "costo": "$3.25","cantidad": 7, "fecha": "12/21/2018" },
+{ "id": 2, "costo": "$88.84", "cantidad": 3, "fecha": "10/25/2018" },
+{ "id": 3, "costo": "$47.62", "cantidad": 10, "fecha": "05/15/2018" },
+{ "id": 4, "costo": "$74.24", "cantidad": 3, "fecha": "08/19/2018" }
+]
