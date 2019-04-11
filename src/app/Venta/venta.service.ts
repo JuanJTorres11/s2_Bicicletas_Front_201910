@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {Venta} from './venta';
-import { Bicicleta } from 'src/app/bicicleta/bicicleta';
+//import { Bicicleta } from 'src/app/bicicleta/bicicleta';
 
 const API_URL = "../../assets/";
 const ventas = '/ventas.json';

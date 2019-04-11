@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import {Comprador} from '../comprador';
 import {CompradorService} from '../comprador.service';
-import { Bicicleta } from 'src/app/bicicleta/bicicleta';
+//import { Bicicleta } from 'src/app/bicicleta/bicicleta';
 // import { MedioPago } from 'src/app/MedioPago/MedioPago';
 
 /**
@@ -20,7 +20,7 @@ export class CompradorListComponent implements OnInit {
     /**
      * Lista de Compradores
      */
-    bicicletas: Bicicleta[];
+    comprador: Comprador[];
 
     /**
      * Lista Medios de Pago
@@ -34,12 +34,20 @@ export class CompradorListComponent implements OnInit {
      */
     constructor(private compradorService: CompradorService, private router: Router){}
 
+    //     /**
+    //  * Pide al servicio la lista de venta-carrito
+    //  */
+    // getCarrito(): void {
+    //     this.compradorService.getCompradorCarrito().subscribe(lasBicicletas  => this.bicicletas = lasBicicletas);
+    // }
+
+    
         /**
-     * Pide al servicio la lista de venta-carrito
-     */
-    getCarrito(): void {
-        this.compradorService.getCompradorCarrito().subscribe(lasBicicletas  => this.bicicletas = lasBicicletas);
-    }
+      * Pide al servicio la lista de venta-carrito
+      */
+     getCompradores(): void {
+         this.compradorService.getCompradores().subscribe(compradores  => this.comprador = compradores);
+     }
 
 
     //         /**
@@ -54,7 +62,7 @@ export class CompradorListComponent implements OnInit {
      * Este metodo sera llamado cuando se cree el componente
      */
     ngOnInit(){
-        this.getCarrito();
+       // this.getCarrito();
         // this.getMedioPago();
     }
 

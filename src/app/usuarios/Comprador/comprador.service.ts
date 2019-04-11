@@ -3,14 +3,14 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Comprador } from './comprador';
 import { CompradorDetail } from "./comprador-Detail"
-import { Bicicleta } from 'src/app/bicicleta/bicicleta';
+//import { Bicicleta } from 'src/app/bicicleta/bicicleta';
 import { environment } from '../../../environments/environment';
 
 // const API_URL = "../../assets/";
 const API_URL = environment.apiURL + "/comprador";
-const carrito = '/carrito.json';
+//const carrito = '/carrito.json';
 const compradores = '/compradores.json';
-const mediosPago = '/mediosPago.json';
+//const mediosPago = '/mediosPago.json';
 
 @Injectable()
 export class CompradorService {
@@ -39,18 +39,25 @@ export class CompradorService {
         return this.http.get<CompradorDetail>(API_URL + compradores + '-' + id + '.json');
     }
 
-    /***
+//     /***
+//  * Obtiene la lista de compradores
+//  */
+//     getCompradorCarrito(): Observable<Bicicleta[]> {
+//         return this.http.get<Bicicleta[]>(API_URL + carrito);
+//     }
+
+//     /**
+//  * Obtiene los medios de pago del vendedor.
+//  * @param id Identificador del vendedor
+//  */
+//     getCompradorMediosPago(id: number): Observable<any> {
+//         return this.http.get(API_URL + "/" + id + "/mediosPago");
+//     }
+
+        /***
  * Obtiene la lista de compradores
  */
-    getCompradorCarrito(): Observable<Bicicleta[]> {
-        return this.http.get<Bicicleta[]>(API_URL + carrito);
-    }
-
-    /**
- * Obtiene los medios de pago del vendedor.
- * @param id Identificador del vendedor
- */
-    getCompradorMediosPago(id: number): Observable<any> {
-        return this.http.get(API_URL + "/" + id + "/mediosPago");
-    }
+getCompradores(): Observable<Comprador[]> {
+    return this.http.get<Comprador[]>(API_URL + compradores);
+}
 }

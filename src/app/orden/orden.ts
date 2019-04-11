@@ -6,7 +6,7 @@ export class Orden {
     /**
      * El id de la orden
      */
-    id: number;
+    identificador: number;
 
     /**
      * La cantidad de bicicletas ordenadas

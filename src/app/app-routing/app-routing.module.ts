@@ -20,6 +20,8 @@ import {CompradorListComponent} from '../usuarios/comprador/comprador-list/compr
 import {OrdenListComponent} from '../orden/orden-list/orden-list.component';
 import {OrdenDetailComponent} from '../orden/orden-detail/orden-detail.component';
 import { MarcaCreateComponent } from '../marca/marca-create/marca-create.component';
+import { CategoriaListComponent } from '../categoria/categoria-list/categoria-list.component';
+import { CategoriaDetailComponent } from '../categoria/categoria-detail/categoria-detail.component';
 
 const routes: Routes = [
 
@@ -110,6 +112,18 @@ const routes: Routes = [
               
         ]
     },
+    {
+        path: 'categorias',
+        children: [{
+          path: 'list',
+          component: CategoriaListComponent
+        },
+        {
+          path: ':nombre',
+          component: CategoriaDetailComponent
+        }]
+      },
+    
     {
         path: '**',
         redirectTo: 'home'

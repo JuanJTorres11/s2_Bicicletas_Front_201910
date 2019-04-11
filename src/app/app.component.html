@@ -31,7 +31,7 @@
                 <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" routerLink="bicicletas/list">Todas</a>
                     <a class="dropdown-item" routerLink="marcas/list">Marca</a>
-                    <a class="dropdown-item" href="#">Categoria</a>
+                    <a class="dropdown-item" routerLink="categorias/list">Categoria</a>
                 </div>
             </li>
             <!-- Dropdown -->
@@ -51,6 +51,7 @@
                     <a class="dropdown-item" routerLink="bicicletas/add">Crear bicicleta</a>
                     <a class="dropdown-item" href="#">Actualizar bicicleta</a>
                     <a class="dropdown-item" href="#">Eliminar bicicleta</a>
+                    <a class="dropdown-item" routerLink="/marcas/create">Crear marca</a>
                 </div>
             </li>
             <!-- Dropdown -->
@@ -73,7 +74,7 @@
                 </ul>
             </div>
             <div *ngxPermissionsOnly="['INVITADO']">
-                <a class="btn btn-primary my-2 my-sm-0" routerLink="iniciarSesion" role="button">Iniciar Sesión</a>
+                <a class="btn btn-primary my-2 my-sm-0" routerLink="iniciarSesion" role="button" style="margin-right: 10px">Iniciar Sesión</a>
                 <a class="btn btn-outline-primary my-2 my-sm-0" routerLink="registrarse" role="button">Registrarse</a>
             </div>
 
