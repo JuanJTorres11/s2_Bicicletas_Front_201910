@@ -19,14 +19,23 @@ export class OrdenListComponent implements OnInit {
     ordenes: Orden[];
 
     /**
-     * Constructor del componente
-     */
+   * Constructor del componente
+   * @param ordenService El servicio de la orden que se comunica con el API
+   * @param route La ruta que ayuda a obtener las ordenes a mostrar
+   */
     constructor(private ordenService: OrdenService, private router: Router){}
 
+    /**
+     * Pide al servicio la lista de ordenes
+     */
     getOrdenes(): void {
         this.ordenService.getOrdenes().subscribe(lasOrdenes  => this.ordenes = lasOrdenes);
     }
 
+    /**
+     * Esto inicializara el componente tomando la lista de ordenes del servicio
+     * Este metodo sera llamado cuando se cree el componente
+     */
     ngOnInit(){
         this.getOrdenes();
     }

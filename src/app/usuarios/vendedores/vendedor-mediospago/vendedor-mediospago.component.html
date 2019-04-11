@@ -1,3 +1,25 @@
-<p>
-  vendedor-mediospago works!
-</p>
+<div class="dropdown">
+  <button class="btn btn-primary btn-lg dropdown-toggle" type="button" data-toggle="dropdown">Métodos de Pago
+    <span class="caret"></span></button>
+  <ul class="dropdown-menu">
+    <li class="dropdown-header"> Tarjetas </li>
+    <div *ngFor="let medio of mediosPago">
+      <li><a href="#"></a>{{medio}}</li>
+      <li class="dropdown-divider"></li>
+    </div>
+    <li class="dropdown-divider"></li>
+    <li>
+      <div class="row">
+        <div class="col md-4">
+          <button class="btn btn-success">Agregar</button>
+        </div>
+        <div class="col md-4">
+          <button class="btn btn-warning">Modificar</button>
+        </div>
+        <div class="col md-4">
+          <button class="btn btn-danger">Eliminar</button>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
