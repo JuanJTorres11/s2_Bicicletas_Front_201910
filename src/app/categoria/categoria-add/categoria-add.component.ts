@@ -2,7 +2,9 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Categoria } from '../categoria';
 import { ToastrService } from 'ngx-toastr';
 import { CategoriaService } from '../categoria.service';
+
 import { $ } from 'protractor';
+
 
 @Component({
   selector: 'categoria-add',
@@ -27,7 +29,11 @@ export class CategoriaAddComponent implements OnInit {
     this.categoriaService.createCategoria(this.categoria).subscribe(categoria => {
       this.categoria = categoria;
       this.crear.emit();
+
+      this.toastrService.success("Se creó la categoría " + this.categoria, "Creación Categoría");
+
       //this.toastrService.success("Se creó la categoría " + this.categoria, "Creación Categoría");
+
     }, err => {
       this.toastrService.error(err, "Error");
     });
