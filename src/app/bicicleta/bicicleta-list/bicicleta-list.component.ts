@@ -5,7 +5,7 @@ import {Bicicleta} from '../bicicleta';
 import {BicicletaService} from '../bicicleta.service';
 
 /**
- * The component for the list of bikes in the BikeStore
+ * El componente para la lista de Bicicletas de la tienda
  */
 @Component({
     selector: 'app-bicicleta',
@@ -15,8 +15,8 @@ import {BicicletaService} from '../bicicleta.service';
 export class BicicletaListComponent implements OnInit {
 
     /**
-     * Constructor of the component
-     * @param bookService The book's services provider
+     * Constructor del componente
+     * @param bicicletaService El proveedor de servicio de la Bicicleta 
      */
     constructor(
 	private bicicletaService: BicicletaService,
@@ -24,7 +24,7 @@ export class BicicletaListComponent implements OnInit {
 	) {}
 
     /**
-     * The list of books in the BookStore
+     * La lista de Bicicletas de la tienda
      */
     bicicletas: Bicicleta[];
 
@@ -32,7 +32,7 @@ export class BicicletaListComponent implements OnInit {
 
 
     /**
-     * Asks the service to update the list of books
+     * Metodo que retorna todas las bicicletas de la tienda para mostrarlos en la lista
      */
     getBicicletas(): void {
         this.bicicletaService.getBicicletas()
@@ -40,8 +40,7 @@ export class BicicletaListComponent implements OnInit {
     }
 
     /**
-     * This will initialize the component by retrieving the list of books from the service
-     * This method will be called when the component is created
+     * Metodo que incializa el componente
      */
     ngOnInit() {
 		console.log("IntitBicicletas");
