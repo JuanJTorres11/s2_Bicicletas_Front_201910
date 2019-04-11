@@ -106,12 +106,7 @@ export class CategoriaListComponent implements OnInit {
   getCategorias() {
     this.categoriaService.getCategorias()
       .subscribe(categorias => this.categorias = categorias);
-  }
-
-
-  ngOnInit() {
-    this.getCategorias();
-    
+  } 
 
   /**
    * Metodo que se activa cuando se inicializa el componente.

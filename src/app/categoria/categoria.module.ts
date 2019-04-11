@@ -19,8 +19,6 @@ import { BicicletaModule } from '../bicicleta/bicicleta.module';
     CommonModule,
     FormsModule,
 
-    RouterModule
-
     RouterModule,
     BicicletaModule
 

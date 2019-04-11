@@ -33,6 +33,7 @@ export class CategoriaDetailComponent implements OnInit {
   }
 
   showEditDialog() {
+  }
     
   recibirActualizacion(event) {
     this.nombre = event.nombre;

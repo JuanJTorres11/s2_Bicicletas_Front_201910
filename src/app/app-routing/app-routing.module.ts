@@ -125,10 +125,6 @@ const routes: Routes = [
           path: ':nombre',
           component: CategoriaDetailComponent
         }]
-
-      },
-    
-
     },
     {
         path: 'medioPagos',

@@ -36,11 +36,6 @@ export class CategoriaService {
     return this.http.get<CategoriaDetail>(API_URL + categorias + '/' + nombre);
   }
 
-
-  createCategoria(categoria): Observable<Categoria> {
-    return this.http.post<Categoria>(API_URL + categorias, categoria);
-  }
-
   /**
    * Crea una nueva categoria con la información dada.
    * @param categoria Categoria a crear.
