@@ -51,8 +51,6 @@ import { MediopagoModule } from './mediopago/mediopago.module';
 
         CompradorModule,
         VentaModule,
-        AuthModule
-
         AuthModule,
         CategoriaModule,
         MediopagoModule
