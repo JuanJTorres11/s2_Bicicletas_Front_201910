@@ -12,10 +12,10 @@ import { Bicicleta } from '../../bicicleta/bicicleta';
 })
 export class BicletaCreateResenaComponent implements OnInit, OnChanges {
 
-    /**
-    * The constructor of the component
-    * @param bookService The book service which communicates with the API
-    * @param toastrService The toastr to show messages to the user
+   /**
+    * El contructor del componente
+    * @param bicicletaService El servicio de la Bicicleta que se comunica con el API
+    * @param toastrService toastr: sirve para mostrar los mensajes al usuario
     */
     constructor(
         private bicicletaService: BicicletaService,
@@ -23,35 +23,35 @@ export class BicletaCreateResenaComponent implements OnInit, OnChanges {
     ) { }
 
     /**
-    * The book's id
+    * El id de la Bicicleta
     */
     @Input() bicicleta: Bicicleta;
 
     /**
-    * The review to post
+    * La Resena que se desea publicar
     */
     resena: Resena;
     
     public isCollapsed = true;
 
     /**
-    * The Event Emitter which sends the signal when a review has just been posted
-    * so that the list of reviews refreshes
+    * El Event Emitter which envía la señal  cuando se publica una reseña
+    * para que se refresque la lista de resenas
     */
     @Output() updateResenas = new EventEmitter();
 
     
 
     /**
-    * The function which initializes the component.
+    * Funcion que incializa el componente
     */
     ngOnInit() {
         this.resena = new Resena();
     }
 
     /**
-    * The function which notices that the input which defines the book_id has changed.
-    * If the book has changed, we update the reviews to show
+    * The function which notices that the input which defines the bicicleta_id has changed.
+    * If the bike has changed, we update the reviews to show
     */
     ngOnChanges() {
         this.ngOnInit();

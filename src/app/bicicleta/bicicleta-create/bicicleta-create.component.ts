@@ -15,12 +15,10 @@ import {Bicicleta} from '../bicicleta';
 export class BicicletaCreateComponent implements OnInit {
 
     /**
-    * Constructor for the component
-    * @param bookService The books' services provider
-    * @param authorService The authors' services provider
-    * @param editorialService The editorials' services provider
-    * @param toastrService The toastr to show messages to the user
-    * @param router The router
+    * Constructor del componentee
+    * @param bicicletaService El servicio de la Bicicleta que se comunica con el API
+    * @param toastrService toastr: sirve para mostrar los mensajes al usuario
+    * @param router El router
     */
     constructor(
         private dp: DatePipe,
@@ -30,15 +28,15 @@ export class BicicletaCreateComponent implements OnInit {
     ) {}
 
     /**
-    * The new book
+    * La nueva Bicicleta
     */
     bicicleta: Bicicleta;
 
  
     
     /**
-    * Cancels the creation of the new book
-    * Redirects to the books' list page
+    * Cancea la creacion de una nueva bicicleta
+    * Redirige  a la pagina de lista de bicicletas 
     */
     cancelCreation(): void {
         this.toastrService.warning('The book wasn\'t created', 'Book creation');
@@ -46,7 +44,7 @@ export class BicicletaCreateComponent implements OnInit {
     }
 
     /**
-    * Creates a new book
+    * Crea una nueva Bicicleta
     */
     createBicicleta(): Bicicleta {
         this.bicicletaService.createBicicleta(this.bicicleta)
@@ -60,7 +58,7 @@ export class BicicletaCreateComponent implements OnInit {
     }
 
     /**
-    * This function will initialize the component
+    * Funcion que incializa el componente
     */
     ngOnInit() {
         this.bicicleta = new Bicicleta();
