@@ -18,6 +18,7 @@ import {OrdenDetailComponent} from '../orden/orden-detail/orden-detail.component
 import { MarcaCreateComponent } from '../marca/marca-create/marca-create.component';
 import { CategoriaListComponent } from '../categoria/categoria-list/categoria-list.component';
 import { CategoriaDetailComponent } from '../categoria/categoria-detail/categoria-detail.component';
+import { MarcaEditComponent } from '../marca/marca-edit/marca-edit.component';
 
 const routes: Routes = [
 
@@ -90,7 +91,6 @@ const routes: Routes = [
                 path:':id',
                 component: MarcaDetailComponent
             }
-            
               
         ]
     },
