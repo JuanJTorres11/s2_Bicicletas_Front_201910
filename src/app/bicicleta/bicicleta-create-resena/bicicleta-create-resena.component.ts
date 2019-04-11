@@ -13,7 +13,7 @@ import { Bicicleta } from '../../bicicleta/bicicleta';
 export class BicletaCreateResenaComponent implements OnInit, OnChanges {
 
    /**
-    * El contructor del componente
+    * El constructor del componente
     * @param bicicletaService El servicio de la Bicicleta que se comunica con el API
     * @param toastrService toastr: sirve para mostrar los mensajes al usuario
     */
@@ -54,6 +54,7 @@ export class BicletaCreateResenaComponent implements OnInit, OnChanges {
     * If the bike has changed, we update the reviews to show
     */
     ngOnChanges() {
+		console.log("entro a create r");
         this.ngOnInit();
     }
 
