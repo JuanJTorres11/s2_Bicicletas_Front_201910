@@ -1,8 +1,12 @@
+
+import { Component, OnInit, Input } from '@angular/core';
+
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 
 import { Categoria } from '../categoria';
 import { CategoriaService } from '../categoria.service';
+
 
 @Component({
   selector: 'categoria-edit',
@@ -15,6 +19,11 @@ export class CategoriaEditComponent implements OnInit {
    * Nombre de la categoria
    */
   @Input() nombre: string;
+
+
+  constructor() { }
+
+  ngOnInit() {
 
   /**
    * Categoria
@@ -44,6 +53,7 @@ export class CategoriaEditComponent implements OnInit {
 
   ngOnInit() {
     this.getCategoria();
+
   }
 
 }

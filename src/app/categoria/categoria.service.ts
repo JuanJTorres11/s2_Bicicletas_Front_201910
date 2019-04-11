@@ -13,21 +13,32 @@ export class CategoriaService {
 
   constructor(private http: HttpClient) { }
 
+
+
   /**
    * Obtiene todas las categorias.
    * @returns Lista de categorias.
    */
+
   getCategorias(): Observable<Categoria[]> {
     return this.http.get<Categoria[]>(API_URL + categorias);
   }
+
+
 
   /**
    * Obtiene la categoria con el nombre dado.
    * @returns Categoria con el nombre dado.
    */
+
   getCategoriaDetail(nombre: string): Observable<CategoriaDetail> {
     console.log(API_URL + categorias + '/' + nombre);
     return this.http.get<CategoriaDetail>(API_URL + categorias + '/' + nombre);
+  }
+
+
+  createCategoria(categoria): Observable<Categoria> {
+    return this.http.post<Categoria>(API_URL + categorias, categoria);
   }
 
   /**
@@ -48,4 +59,5 @@ export class CategoriaService {
   updateCategoria(nombre, categoria): Observable<CategoriaDetail> {
     return this.http.put<CategoriaDetail>(API_URL + categorias + '/' + nombre, categoria);
   }
+
 }

@@ -9,14 +9,21 @@ import { CategoriaDetailComponent } from './categoria-detail/categoria-detail.co
 import { CategoriaService } from './categoria.service';
 import { CategoriaEditComponent } from './categoria-edit/categoria-edit.component';
 
+
+
 import { BicicletaModule } from '../bicicleta/bicicleta.module';
+
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+
+    RouterModule
+
     RouterModule,
     BicicletaModule
+
   ],
   declarations: [CategoriaListComponent, CategoriaAddComponent, CategoriaDetailComponent, CategoriaEditComponent],
   bootstrap: [CategoriaListComponent],
