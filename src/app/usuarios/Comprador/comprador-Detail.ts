@@ -10,6 +10,6 @@ export class CompradorDetail extends Comprador {
      mediosPago:Mediopago[];*/
 
      /**
-      * Lista de ventas del vendedor
-     ventas: Venta[];*/
+      * Lista de bicicletas del carrito del comprador
+     carrito: Bicicletas[];*/
 }
