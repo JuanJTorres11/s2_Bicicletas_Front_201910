@@ -20,7 +20,7 @@ export class BicicletaDetailComponent implements OnInit, OnDestroy {
     /**
     * El contructor del componente
     * @param bicicletaService El servicio de la Bicicleta que se comunica con el API
-    * @param route Route para recibir el id de la Bicicleta que se desea mostrar
+    * @param route  Route que recupera el id de la bicicleta que se desea mostrar
     * @param router El router que se necesita para saber cuando se debe refrescar el componente
     * @param toastrService toastr: sirve para mostrar los mensajes al usuario
     */
