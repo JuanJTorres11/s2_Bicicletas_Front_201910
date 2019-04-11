@@ -17,11 +17,11 @@ import { BicicletaResenaComponent } from '../bicicleta-resena/bicicleta-resena.c
 export class BicicletaDetailComponent implements OnInit, OnDestroy {
 
     /**
-    * The constructor of the component
-    * @param bookService The book service which communicates with the API
-    * @param route The route which helps to retrieves the id of the book to be shown
-    * @param router The router which is needed to know when the component needs to reload
-    * @param toastrService The toastr to show messages to the user
+    * El contructor del componente
+    * @param bicicletaService El servicio de la Bicicleta que se comunica con el API
+    * @param route Route para recibir el id de la Bicicleta que se desea mostrar
+    * @param router El router que se necesita para saber cuando se debe refrescar el componente
+    * @param toastrService toastr: sirve para mostrar los mensajes al usuario
     */
     constructor(
         private bicicletaService: BicicletaService,
@@ -31,8 +31,8 @@ export class BicicletaDetailComponent implements OnInit, OnDestroy {
         private viewRef: ViewContainerRef,
         private toastrService: ToastrService
     ) {
-        //This is added so we can refresh the view when one of the books in
-        //the "Other books" list is clicked
+        //This is added so we can refresh the view when one of the bikes in
+        //the "Other bikes" list is clicked
         this.navigationSubscription = this.router.events.subscribe((e: any) => {
             if (e instanceof NavigationEnd) {
                 this.ngOnInit();
@@ -41,35 +41,34 @@ export class BicicletaDetailComponent implements OnInit, OnDestroy {
     }
 
     /**
-    * The bike's id retrieved from the path
+    * El id de la bicicleta que se recibe en el path
     */
     bicicleta_id: number;
 
     /**
-    * The book whose details are shown
+    * La bicicleta cuyo detalle se muestra
     */
     bicicletaDetail: BicicletaDetail;
 
 	
     /**
-    * The other books shown in the sidebar
+    * Los otros libros que se muestran al final de la pagina
     */
     other_bicicletas: Bicicleta[];
 
     /**
-    * The suscription which helps to know when a new bike
-    * needs to be loaded
+    * La suscripcion con la que se sabe cuando se necesita cargar una bicicleta
     */
     navigationSubscription;
 
 	/**
-     * The child BookReviewListComponent
+     * El hijo BicicletaResenaComponent
      */
     @ViewChild(BicicletaResenaComponent) resenaListComponent: BicicletaResenaComponent;
 
 
 	/**
-     * The function called when a review is posted, so that the child component can refresh the list
+     * funcion que se llama cuando se publica una resena, para que el componente hijo actualice la lista
      */
     updateResenas(): void {
         this.getBicicletaDetail();
@@ -78,8 +77,7 @@ export class BicicletaDetailComponent implements OnInit, OnDestroy {
      }
 
     /**
-    * The method which retrieves the details of the bike that
-    * we want to show
+    * Metodo que trae los detalles de la bicicleta que se desean mostrar
     */
     getBicicletaDetail(): void {
 
@@ -92,7 +90,7 @@ export class BicicletaDetailComponent implements OnInit, OnDestroy {
     }
 
     /**
-    * This method retrieves all the books in the Bookstore to show them in the list
+    * Este metodo trae todos los libros de la tienda para mostrarlos en la lista
     */
     getOtherBicicletas(): void {
         this.bicicletaService.getBicicletas()
@@ -103,9 +101,8 @@ export class BicicletaDetailComponent implements OnInit, OnDestroy {
     }
 
     /**
-    * The method which initilizes the component
-    * We need to initialize the book and its editorial so that
-    * they are never considered undefined
+    * metodo que incializa el componente
+    * Se necesita incializar el libro de modo que nunca aparezca como undefined
     */
     ngOnInit() {
         this.bicicleta_id = + this.route.snapshot.paramMap.get('id');
@@ -115,8 +112,7 @@ export class BicicletaDetailComponent implements OnInit, OnDestroy {
 	 }
 
     /**
-    * This method helps to refresh the view when we need to load another book into it
-    * when one of the other books in the list is clicked
+    * Este metodo refresca la vista cuando necesitamos cargar otro libro
     */
     ngOnDestroy() {
         if (this.navigationSubscription) {

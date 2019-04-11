@@ -6,8 +6,16 @@
  import { Resena } from './resena';
  import { Bicicleta } from './bicicleta';
 
+ 
+/**
+*Clase que representa una  bicicleta
+* Contiene la informacion de cardinalidad mayor a 1
+*/
  export class BicicletaDetail extends Bicicleta {
    
+    /**
+    * Las resenas de la bicicleta
+    */
     resenas: Resena[];
  
  }
