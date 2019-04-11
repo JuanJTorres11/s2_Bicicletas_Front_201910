@@ -59,5 +59,5 @@ export class CompradorService {
  */
 getCompradores(): Observable<Comprador[]> {
     return this.http.get<Comprador[]>(API_URL + compradores);
-}
+}   
 }
