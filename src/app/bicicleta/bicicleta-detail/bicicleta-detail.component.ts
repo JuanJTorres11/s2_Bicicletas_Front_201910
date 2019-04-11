@@ -8,7 +8,6 @@ import { BicicletaService } from '../bicicleta.service';
 import { Bicicleta } from '../bicicleta';
 import { BicicletaDetail } from '../bicicleta-detail';
 import { BicicletaResenaComponent } from '../bicicleta-resena/bicicleta-resena.component';
-import { BicletaCreateResenaComponent } from '../bicicleta-create-resena/bicicleta-create-resena.component';
 
 @Component({
     selector: 'app-bicicleta-detail',
@@ -67,24 +66,6 @@ export class BicicletaDetailComponent implements OnInit, OnDestroy {
      */
     @ViewChild(BicicletaResenaComponent) resenaListComponent: BicicletaResenaComponent;
 
-	/**
-     * El hijo BicletaCreateResenaComponent
-     */
-    @ViewChild(BicletaCreateResenaComponent) resenaCreateComponent: BicletaCreateResenaComponent;
-
-	toggleReviews(): void {
-        if (this.resenaCreateComponent.isCollapsed == false) {
-            this.resenaCreateComponent.isCollapsed = true;
-        }
-        this.resenaListComponent.isCollapsed = !this.resenaListComponent.isCollapsed;
-    }
-
-    toggleCreateReview(): void {
-        if (this.resenaListComponent.isCollapsed == false) {
-            this.resenaListComponent.isCollapsed = true;
-        }
-        this.resenaCreateComponent.isCollapsed = !this.resenaCreateComponent.isCollapsed;
-    }
 
 	/**
      * funcion que se llama cuando se publica una resena, para que el componente hijo actualice la lista
@@ -93,10 +74,7 @@ export class BicicletaDetailComponent implements OnInit, OnDestroy {
         this.getBicicletaDetail();
         this.resenaListComponent.updateResenas(this.bicicletaDetail.resenas);
         this.resenaListComponent.isCollapsed = false;
-		 this.resenaCreateComponent.isCollapsed = true;
      }
-	  
-
 
     /**
     * Metodo que trae los detalles de la bicicleta que se desean mostrar

@@ -89,7 +89,7 @@ export class CategoriaListComponent implements OnInit {
   getCategorias() {
     this.categoriaService.getCategorias()
       .subscribe(categorias => this.categorias = categorias);
-  }
+  } 
 
   /**
    * Metodo que se activa cuando se inicializa el componente.
