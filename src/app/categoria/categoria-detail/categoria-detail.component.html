@@ -1,15 +1,9 @@
 <div class="container-fluid">
   <div class="row">
     <a (click)="back()" style="align-self: center; cursor: pointer;"><i class="material-icons back-arrow">arrow_back_ios</i></a>
-
-    <h1>{{categoriaDetail.nombre}}<categoria-edit></categoria-edit></h1>
-  </div>
-</div>
-<hr>
     <h1>{{categoriaDetail.nombre}}<categoria-edit [nombre]="nombre" (update)="recibirActualizacion($event)"></categoria-edit></h1>
   </div>
 </div>
 <hr>
 
 <!--<app-bicicleta [bicicletas]="categoriaDetail.bicicletas"></app-bicicleta>-->
-

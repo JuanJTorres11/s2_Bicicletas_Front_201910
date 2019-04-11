@@ -32,13 +32,10 @@ export class CategoriaDetailComponent implements OnInit {
     this.location.back();
   }
 
-  showEditDialog() {
-    
   recibirActualizacion(event) {
     this.nombre = event.nombre;
     console.log(event);
     this.getCategoriaDetail();
-
   }
 
   ngOnInit() {

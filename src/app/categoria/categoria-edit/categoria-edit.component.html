@@ -15,11 +15,7 @@
               <div class="form-group" id="formEditCategoria">
                 <label for="nombreCategoria"><b>Nombre</b></label>
                 <input type="text" name="nombreCategoria" class="form-control" id="nombreCategoria" [(ngModel)]="categoria.nombre" #nombreCategoria="ngModel" 
-
-                  [ngClass]="{ 'is-invalid': f.submitted && nombreCategoria.invalid }" placeHolder="Ingresa el nombre" required>
-
                   [ngClass]="{ 'is-invalid': f.submitted && nombreCategoria.invalid }" required>
-
                 <div class="invalid-feedback">
                   <div>El nombre de la categoría no puede estar vacío"</div>
                 </div>
@@ -29,11 +25,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-
-        <button type="button" class="btn btn-primary">Guardar Cambios</button>
-
         <button type="button" class="btn btn-primary" (click)="editCategoria()" data-dismiss="modal">Guardar Cambios</button>
-
       </div>
     </div>
   </div>
