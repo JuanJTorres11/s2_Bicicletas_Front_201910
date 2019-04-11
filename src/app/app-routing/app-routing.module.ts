@@ -18,6 +18,8 @@ import {OrdenDetailComponent} from '../orden/orden-detail/orden-detail.component
 import { MarcaCreateComponent } from '../marca/marca-create/marca-create.component';
 import { CategoriaListComponent } from '../categoria/categoria-list/categoria-list.component';
 import { CategoriaDetailComponent } from '../categoria/categoria-detail/categoria-detail.component';
+import { MediopagoListComponent } from '../mediopago/mediopago-list/mediopago-list.component';
+import { MediopagoDetailComponent } from '../mediopago/mediopago-detail/mediopago-detail.component';
 
 const routes: Routes = [
 
@@ -118,8 +120,18 @@ const routes: Routes = [
           path: ':nombre',
           component: CategoriaDetailComponent
         }]
-      },
-    
+    },
+    {
+        path: 'medioPagos',
+        children: [{
+            path: 'list',
+            component: MediopagoListComponent
+        },
+        {
+            path: ':numeroTarjeta',
+            component: MediopagoDetailComponent
+        }]
+    }, 
     {
         path: '**',
         redirectTo: 'home'
