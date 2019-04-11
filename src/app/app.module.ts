@@ -12,12 +12,15 @@ import { ModalDialogModule } from 'ngx-modal-dialog';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {BicicletaModule} from './bicicleta/bicicleta.module';
+import {VentaModule} from './venta/venta.module';
+import {CompradorModule} from './usuarios/comprador/comprador.module';
 import {HomeModule} from './Home/home.module';
 import {UsuariosModule} from './usuarios/usuarios.module';
 import {MarcaModule} from './marca/marca.module'
 import {OrdenModule} from './orden/orden.module'
 import { AuthModule } from './auth/auth.module';
 import { VendedoresModule } from './usuarios/vendedores/vendedores.module';
+import { CategoriaModule } from './categoria/categoria.module';
 
 @NgModule({
     declarations: [
@@ -44,6 +47,8 @@ import { VendedoresModule } from './usuarios/vendedores/vendedores.module';
         VendedoresModule,
         MarcaModule,
         OrdenModule,
+        CompradorModule,
+        VentaModule,
         AuthModule
     ],
     bootstrap: [AppComponent],

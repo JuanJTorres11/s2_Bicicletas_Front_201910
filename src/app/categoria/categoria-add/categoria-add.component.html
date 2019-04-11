@@ -1,0 +1,16 @@
+<div class="card" style="margin-top: 10px;">
+  <form name="categoria" (ngSubmit)="f.form.valid && crearCategoria()" #f="ngForm" novalidate>
+    <div style="margin: 10px;">
+      <div class="form-group" id="formCrearCategoria">
+        <label for="nombreCategoria"><b>Nombre</b></label>
+        <input type="text" name="nombreCategoria" class="form-control" id="nombreCategoria" [(ngModel)]="categoria.nombre" #nombreCategoria="ngModel" 
+          [ngClass]="{ 'is-invalid': f.submitted && nombreCategoria.invalid }" placeHolder="Ingresa el nombre" required>
+        <div class="invalid-feedback">
+          <div>El nombre de la categoría no puede estar vacío"</div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success" style="margin-right: 15px;">Agregar</button>
+      <button type="button" class="btn btn-outline-danger" (click)="cancelarCreacion()">Cancelar</button>
+    </div>
+  </form>
+</div>

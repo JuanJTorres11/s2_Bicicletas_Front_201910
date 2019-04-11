@@ -3,9 +3,10 @@ import {HttpClient} from '@angular/common/http'
 import {Orden} from './orden';
 import {OrdenDetail} from './orden-detail';
 import {Observable} from 'rxjs';
+import { environment } from '../../environments/environment.prod';
 
-const API_URL = "../../assets/";
-const ordenes = "ordenes.json";
+const API_URL = environment.apiURL;
+const ordenes = '/ordenes';
 
 /**
  * El proveedor de servicios relacionados con las ordenes
@@ -33,6 +34,6 @@ export class OrdenService{
      * @param ordenId Id de la orden a obtener
      */
     getOrdenDetail(ordenId): Observable<OrdenDetail>{
-        return this.http.get<OrdenDetail>((API_URL + '/orden' + ordenId + '.json'));
+        return this.http.get<OrdenDetail>((API_URL + ordenes + '/' + ordenId));
     }
 }

@@ -3,9 +3,10 @@ import {HttpClient} from '@angular/common/http'
 import {Marca} from './marca';
 import {MarcaDetail} from './marca-detail';
 import {Observable} from 'rxjs';
+import { environment } from '../../environments/environment.prod';
 
-const API_URL = "../../assets/";
-const marcas = "marcas.json";
+const API_URL = environment.apiURL;
+const marcas = '/marcas';
 
 /**
  * El proveedor de servicios relacionados con las marcas
@@ -31,7 +32,7 @@ export class MarcaService{
      * @param marcaId Id de la marca a obtener
      */
     getMarcaDetail(marcaId): Observable<MarcaDetail>{
-        return this.http.get<MarcaDetail>((API_URL + '/marca' + marcaId + '.json'));
+        return this.http.get<MarcaDetail>((API_URL + marcas + '/' + marcaId));
     }
 
     /**
