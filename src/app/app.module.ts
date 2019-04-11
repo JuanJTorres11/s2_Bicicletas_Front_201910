@@ -21,6 +21,7 @@ import {OrdenModule} from './orden/orden.module'
 import { AuthModule } from './auth/auth.module';
 import { VendedoresModule } from './usuarios/vendedores/vendedores.module';
 import { CategoriaModule } from './categoria/categoria.module';
+import { MediopagoModule } from './mediopago/mediopago.module';
 
 @NgModule({
     declarations: [
@@ -53,7 +54,8 @@ import { CategoriaModule } from './categoria/categoria.module';
         AuthModule
 
         AuthModule,
-        CategoriaModule
+        CategoriaModule,
+        MediopagoModule
     ],
     bootstrap: [AppComponent],
     providers: [
