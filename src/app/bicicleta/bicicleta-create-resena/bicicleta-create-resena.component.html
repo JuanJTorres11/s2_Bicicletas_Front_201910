@@ -1,0 +1,58 @@
+<div id="collapseReview" [ngbCollapse]="isCollapsed">
+    <div class="spacer">
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">Crear comentario</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>
+
+                        <div class="form-group">
+                            <label for="inputReferencia4">Titulo</label>
+                            <input class="form-control" id="inputReferencia4" placeholder="Referencia">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputState">Calificacion</label>
+                            <select id="inputCategoria" class="form-control">
+                                <option selected>Selecione una calificacion</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                    </th>
+                    <th>
+                        <div class="form-row">
+                            <label for="exampleFormControlTextarea3">Descripción</label>
+                            <textarea class="form-control" id="inputDescripcion3" rows="7"></textarea>
+                        </div>
+                        <br>
+                        <div class="form-row col-md-6" >
+                            <div class="form-group" style="margin-right: 10px">
+                                <button class="btn btn-success" type="submit">Crear</button>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-danger" type="submit">Cancelar</button>
+                            </div>
+                        </div>
+                    </th>
+                    <th>
+                      
+                    </th>
+
+                </tr>
+
+
+            </tbody>
+        </table>
+
+        
+    </div>
+</div>

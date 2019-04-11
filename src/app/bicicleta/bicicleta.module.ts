@@ -13,6 +13,8 @@ import {AppRoutingModule} from '../app-routing/app-routing.module';
 import {BicicletaDetailComponent} from './bicicleta-detail/bicicleta-detail.component';
 import {BicicletaResenaComponent} from './bicicleta-resena/bicicleta-resena.component';
 import {BicicletaCreateComponent} from './bicicleta-create/bicicleta-create.component';
+import {BicletaCreateResenaComponent} from './bicicleta-create-resena/bicicleta-create-resena.component';
+import {BicicletaEditComponent} from './bicicleta-edit/bicicleta-edit.component';
 
 
 
@@ -29,7 +31,9 @@ import {BicicletaCreateComponent} from './bicicleta-create/bicicleta-create.comp
         BicicletaListComponent,
 		BicicletaDetailComponent,
 		BicicletaResenaComponent,
-		BicicletaCreateComponent
+		BicicletaCreateComponent,
+		BicletaCreateResenaComponent,
+		BicicletaEditComponent
     ],
     providers: [BicicletaService],
     exports: [BicicletaListComponent]
