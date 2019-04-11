@@ -11,19 +11,19 @@ const bicicletas = '/bicicletas.json';
 
 
 /**
-* The service provider for everything related to bikes
+* Los servicios relacionados con las bicicletas
 */
 @Injectable()
 export class BicicletaService {
 
     /**
-    * Constructor of the service
+    * Constructor del servicio
     * @param http The HttpClient - This is necessary in order to perform requests
     */
     constructor(private http: HttpClient) {}
 
     /**
-    * Returns the Observable object containing the list of books retrieved from the API
+    * Retorna un objeto Observable  que contien la lista de bocicletas que se reciben del API
     * @returns The list of bikes in real time
     */
     getBicicletas(): Observable<Bicicleta[]> {
@@ -31,9 +31,9 @@ export class BicicletaService {
     }
 
 	/**
-    * Creates a new book
-    * @param book The new book
-    * @returns The book with its new id if it was created, false if it wasn't
+    * Crea una nueva Bicicleta
+    * @param bicicleta La nueva Bicicleta
+    * @returns La Bicicletacon su nuevo id si se pudo crear, false de los contrario
     */
     createBicicleta(bicicleta): Observable<BicicletaDetail> {
         return this.http.post<BicicletaDetail>(API_URL + bicicleta, bicicleta);
@@ -41,8 +41,8 @@ export class BicicletaService {
 
 
 	/**
-    * Returns the Observable object with the details of an author retrieved from the API
-    * @returns The author details
+    * Retorna un objeto Observable con el detalle de la Bicicleta que se reciben del API 
+    * @returns El detalle de la Bicicleta
     */
     getBicicletaDetail(bicicletaId): Observable<BicicletaDetail> {
         return this.http.get<BicicletaDetail>(API_URL + '/bicicleta' + bicicletaId + '.json');
