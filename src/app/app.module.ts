@@ -47,9 +47,13 @@ import { CategoriaModule } from './categoria/categoria.module';
         VendedoresModule,
         MarcaModule,
         OrdenModule,
+
         CompradorModule,
         VentaModule,
         AuthModule
+
+        AuthModule,
+        CategoriaModule
     ],
     bootstrap: [AppComponent],
     providers: [
