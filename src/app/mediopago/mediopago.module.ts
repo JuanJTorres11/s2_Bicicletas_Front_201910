@@ -9,7 +9,6 @@ import { MediopagoEditComponent } from './mediopago-edit/mediopago-edit.componen
   imports: [
     CommonModule
   ],
-  declarations: [MediopagoListComponent, MediopagoAddComponent, MediopagoDetailComponent, MediopagoEditComponent],
-  exports: [MediopagoListComponent, MediopagoDetailComponent]
+  declarations: [MediopagoListComponent, MediopagoAddComponent, MediopagoDetailComponent, MediopagoEditComponent]
 })
 export class MediopagoModule { }

@@ -26,7 +26,7 @@ const routes: Routes = [
         path: 'home',
         component: HomeComponent
     },
-    
+
 
     {
         path: 'bicicletas',
@@ -35,38 +35,38 @@ const routes: Routes = [
                 path: 'list',
                 component: BicicletaListComponent
             },
-			{
+            {
                 path: 'add',
                 component: BicicletaCreateComponent
             },
-			{
+            {
                 path: ':id',
                 component: BicicletaDetailComponent
-            }		
-              
+            }
+
         ]
     },
     {
         path: 'iniciarSesion',
         component: AuthLoginComponent
     },
-   {
+    {
         path: 'registrarse',
         component: AuthSignUpComponent
     },
- 
+
     {
-		path: 'bicicleta',
-		component: BicicletaDetailComponent
+        path: 'bicicleta',
+        component: BicicletaDetailComponent
     },
-    
-     {
+
+    {
         path: 'vendedores',
         children: [
             {
                 path: ':id',
                 component: VendedorDetailComponent,
-                children:[
+                children: [
                     {
                         path: 'edit',
                         component: VendedorEditComponent
@@ -77,47 +77,47 @@ const routes: Routes = [
     },
 
     {
-        path:'marcas',
+        path: 'marcas',
         children: [
             {
                 path: 'list',
                 component: MarcaListComponent
             },
             {
-                path:'create',
+                path: 'create',
                 component: MarcaCreateComponent
             },
             {
-                path:':id',
+                path: ':id',
                 component: MarcaDetailComponent
             }
-            
-              
+
+
         ]
     },
     {
-        path:'ordenes',
+        path: 'ordenes',
         children: [
             {
                 path: 'list',
                 component: OrdenListComponent
             },
             {
-                path:':id',
+                path: ':id',
                 component: OrdenDetailComponent
             }
-              
+
         ]
     },
     {
         path: 'categorias',
         children: [{
-          path: 'list',
-          component: CategoriaListComponent
+            path: 'list',
+            component: CategoriaListComponent
         },
         {
-          path: ':nombre',
-          component: CategoriaDetailComponent
+            path: ':nombre',
+            component: CategoriaDetailComponent
         }]
     },
     {
@@ -140,7 +140,7 @@ const routes: Routes = [
 @NgModule({
     imports: [
         CommonModule,
-        RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload'})
+        RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' })
     ],
     exports: [RouterModule],
     declarations: []

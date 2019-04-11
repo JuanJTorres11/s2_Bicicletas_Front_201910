@@ -15,7 +15,6 @@ import { BicicletaModule } from '../bicicleta/bicicleta.module';
   imports: [
     CommonModule,
     FormsModule,
-
     RouterModule,
     BicicletaModule
   ],
