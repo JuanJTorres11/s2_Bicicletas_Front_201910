@@ -11,6 +11,9 @@ import { environment } from '../../environments/environment.prod';
 const API_URL = environment.apiURL;
 const bicicletas = '/bicicletas';
 
+const API_URL2 = "../../assets/";
+const bicicletas2 = '/bicicletas.json';
+
 
 /**
 * Los servicios relacionados con las bicicletas
@@ -29,7 +32,7 @@ export class BicicletaService {
     * @returns The list of bikes in real time
     */
     getBicicletas(): Observable<Bicicleta[]> {
-        return this.http.get<Bicicleta[]>(API_URL + bicicletas);
+        return this.http.get<Bicicleta[]>(API_URL2 + bicicletas2);
     }
 
 	/**
@@ -47,6 +50,6 @@ export class BicicletaService {
     * @returns El detalle de la Bicicleta
     */
     getBicicletaDetail(bicicletaId): Observable<BicicletaDetail> {
-        return this.http.get<BicicletaDetail>(API_URL + '/bicicleta' + bicicletaId + '.json');
+        return this.http.get<BicicletaDetail>(API_URL2 + '/bicicleta' + bicicletaId + '.json');
     }
 }

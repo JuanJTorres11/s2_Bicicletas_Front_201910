@@ -37,7 +37,7 @@ describe('BicicletaEditComponent', () => {
     }));
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(BookEditComponent);
+        fixture = TestBed.createComponent(BicicletaEditComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
     });
