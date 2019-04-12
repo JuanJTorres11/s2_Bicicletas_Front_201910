@@ -1,0 +1,26 @@
+h1 {
+    padding-left: 10px;
+    padding-top: 10px;
+  }
+  
+  #separador-titulo {
+    margin-left: 15px;
+    margin-right: 15px;
+    border:0;
+    border-bottom:2px solid #BFBFBF;
+  }
+  
+  hr {
+    margin-left: 15px;
+    margin-right: 15px;
+    border:0;
+    border-bottom:2px solid #F2F2F2;
+  }
+  
+  img {
+    height: 70px;
+  }
+  
+  #numeroTarjeta {
+    align-self: center;
+  }

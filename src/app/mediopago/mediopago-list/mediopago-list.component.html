@@ -1,3 +1,21 @@
-<p>
-  mediopago-list works!
-</p>
+<div class="container-fluid">
+  <h1>Medios de Pago</h1>
+  <hr id="separador-titulo">
+  <ul class="list-group list-group-flush" style="margin-left: 20px; margin-right: 20px" *ngFor="let mp of mediosPago">
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col-7">
+          <div class="row">
+            <img src="{{mp.imagen}}" alt="mastercard">
+            <p class="h6" style="margin-left: 10px;" id="numeroTarjeta">&middot;&middot;&middot;&middot; &middot;&middot;&middot;&middot; &middot;&middot;&middot;&middot; {{mp.numeroCodificado}}</p>
+          </div>
+        </div>
+        <div class="col-5 text-right">
+          <a href="#">Ver información</a><br >
+          <a href="#">Actualizar información</a><br>
+          <a href="#" style="color: #F00">Eliminar medio de pago</a>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
