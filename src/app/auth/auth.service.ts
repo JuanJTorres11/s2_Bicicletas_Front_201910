@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgxRolesService, NgxPermissionsService } from 'ngx-permissions'
+import { NgxRolesService } from 'ngx-permissions'
 import 'rxjs/add/operator/catch';
 import { VendedorDetail } from '../usuarios/vendedores/vendedorDetail';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -25,7 +25,6 @@ export class AuthService {
     constructor(
         private router: Router,
         private roleService: NgxRolesService,
-        private permissionsService: NgxPermissionsService,
         private http: HttpClient) { }
 
         header: HttpHeaders = new HttpHeaders ({
@@ -38,23 +37,28 @@ export class AuthService {
      * De lo contrario, se inicializa como Admin, Comprador o Vendedor.
      */
     start(): void {
-        this.permissionsService.flushPermissions();
-        this.roleService.flushRoles();
         const role = localStorage.getItem('rol');
-        if (!role) {
-            this.roleService.addRole('INVITADO', ['']);
-        }
-        else if (role === 'ADMIN') {
+        this.setRol(role);
+    }
+
+    setRol(rol:string):void {
+        this.roleService.flushRoles();
+        if (rol === 'ADMIN' || rol ==="Administrador") {
             this.roleService.addRole('ADMIN', ['']);
         }
-        else if (role === 'COMPRADOR') {
+        else if (rol === 'COMPRADOR' || rol ==="Comprador") {
             this.roleService.addRole('COMPRADOR', ['']);
         }
         else {
             this.roleService.addRole('VENDEDOR', ['']);
         }
+        if (!rol || rol === 'INVITADO' || rol==="Invitado") {
+            this.roleService.addRole('INVITADO', ['']);
+        }
+        else {
+            this.roleService.addRole(rol, ['']);
+        }
     }
-
     /**
      * Imprime los roles.
      */
