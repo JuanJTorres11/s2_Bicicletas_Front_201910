@@ -4,7 +4,7 @@ import { Bicicleta } from '../../bicicleta/bicicleta';
 import { BicicletaListComponent } from '../../bicicleta/bicicleta-list/bicicleta-list.component';
 
 @Component({
-  selector: 'app-categoria-bicicleta',
+  selector: 'categoria-bicicleta',
   templateUrl: './categoria-bicicleta.component.html',
   styleUrls: ['./categoria-bicicleta.component.css']
 })
