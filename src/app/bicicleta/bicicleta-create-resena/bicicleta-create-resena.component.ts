@@ -35,7 +35,7 @@ export class BicletaCreateResenaComponent implements OnInit, OnChanges {
     public isCollapsed = true;
 
     /**
-    * El Event Emitter which envía la señal  cuando se publica una reseña
+    * El Event Emitter que envía la señal  cuando se publica una reseña
     * para que se refresque la lista de resenas
     */
     @Output() updateResenas = new EventEmitter();

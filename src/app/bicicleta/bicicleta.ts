@@ -3,6 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+ import { Categoria } from '../categoria/categoria';
+ import { Marca } from '../marca/marca';
+ import { Orden } from '../orden/orden';
+
 export class Bicicleta{
    
         
@@ -49,21 +54,21 @@ export class Bicicleta{
 
     /**
      * La marca de la bicicleta
-     
+     */
     marca : Marca;
-	*/
+	
 
      /**
      * LA categoria de la bicicleta
-     
+     */
     categoria : Categoria;
-	*/
+	
      
     /**
      * La orden asociada a la bicicleta
-     
+     */
     orden : Orden;
-	*/
+	
     
     
 }
