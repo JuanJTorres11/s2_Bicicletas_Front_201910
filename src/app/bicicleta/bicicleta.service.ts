@@ -32,7 +32,7 @@ export class BicicletaService {
     * @returns The list of bikes in real time
     */
     getBicicletas(): Observable<Bicicleta[]> {
-        return this.http.get<Bicicleta[]>(API_URL2 + bicicletas2);
+        return this.http.get<Bicicleta[]>(API_URL + bicicletas);
     }
 
 	/**
@@ -41,7 +41,7 @@ export class BicicletaService {
     * @returns La Bicicletacon su nuevo id si se pudo crear, false de los contrario
     */
     createBicicleta(bicicleta): Observable<BicicletaDetail> {
-        return this.http.post<BicicletaDetail>(API_URL + bicicleta, bicicleta);
+        return this.http.post<BicicletaDetail>(API_URL + bicicletas, bicicleta);
     }
 
 
@@ -50,6 +50,6 @@ export class BicicletaService {
     * @returns El detalle de la Bicicleta
     */
     getBicicletaDetail(bicicletaId): Observable<BicicletaDetail> {
-        return this.http.get<BicicletaDetail>(API_URL2 + '/bicicleta' + bicicletaId + '.json');
+        return this.http.get<BicicletaDetail>(API_URL + bicicletas + '/' + bicicletaId);
     }
 }
