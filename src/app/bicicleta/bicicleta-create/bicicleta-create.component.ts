@@ -35,7 +35,7 @@ export class BicicletaCreateComponent implements OnInit {
  
     
     /**
-    * Cancea la creacion de una nueva bicicleta
+    * Cancela la creacion de una nueva bicicleta
     * Redirige  a la pagina de lista de bicicletas 
     */
     cancelCreation(): void {
