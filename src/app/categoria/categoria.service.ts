@@ -2,11 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Categoria } from './categoria';
+import { Bicicleta } from '../bicicleta/bicicleta';
 import { CategoriaDetail } from './categoria-detail';
 import { environment } from '../../environments/environment.prod';
 
 const API_URL = environment.apiURL;
 const categorias = '/categorias';
+const bicicletas = '/bicicletas';
 
 @Injectable()
 export class CategoriaService {
@@ -47,5 +49,15 @@ export class CategoriaService {
    */
   updateCategoria(nombre, categoria): Observable<CategoriaDetail> {
     return this.http.put<CategoriaDetail>(API_URL + categorias + '/' + nombre, categoria);
+  }
+
+  /**
+   * Obtiene las bicicletas de la categoria con el nombre dado.
+   * @param nombre Nombre de la categoria.
+   * @return Lista de bicicletas de la categoria.
+   */
+  getCategoriaBicicletas(nombre: string): Observable<Bicicleta[]> {
+    console.log(API_URL + categorias + '/' + nombre + bicicletas);
+    return this.http.get<Bicicleta[]>(API_URL + categorias + '/' + nombre + bicicletas);
   }
 }

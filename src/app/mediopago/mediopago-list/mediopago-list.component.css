@@ -24,3 +24,12 @@ h1 {
   #numeroTarjeta {
     align-self: center;
   }
+  
+  #blue-link {
+    color: dodgerblue;
+    cursor: pointer;
+  }
+  
+  #blue-link:hover {
+    text-decoration: underline;
+  }
