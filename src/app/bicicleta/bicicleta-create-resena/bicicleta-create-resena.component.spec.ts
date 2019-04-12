@@ -12,7 +12,7 @@ import {Bicicleta} from '../bicicleta';
 
 describe('BicletaCreateResenaComponent', () => {
   let component: BicletaCreateResenaComponent;
-    let fixture: ComponentFixture<BookAddReviewComponent>;
+    let fixture: ComponentFixture<BicletaCreateResenaComponent>;
     
     beforeEach(async(() => {
         TestBed.configureTestingModule({
