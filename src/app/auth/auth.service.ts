@@ -6,7 +6,6 @@ import { VendedorDetail } from '../usuarios/vendedores/vendedorDetail';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Vendedor } from '../usuarios/vendedores/vendedor';
-import { Usuario } from '../usuarios/usuario';
 import { Credencial } from './credencial';
 import { Observable } from 'rxjs';
 
@@ -43,52 +42,17 @@ export class AuthService {
         this.roleService.flushRoles();
         const role = localStorage.getItem('rol');
         if (!role) {
-            this.setInvitadoRole();
+            this.roleService.addRole('INVITADO', ['']);
         }
         else if (role === 'ADMIN') {
-            this.setAdministradorRole();
+            this.roleService.addRole('ADMIN', ['']);
         }
         else if (role === 'COMPRADOR') {
-            this.setCompradorRole();
+            this.roleService.addRole('COMPRADOR', ['']);
         }
         else {
-            this.setVendedorRole();
+            this.roleService.addRole('VENDEDOR', ['']);
         }
-    }
-
-    /**
-     * Inicializa le rol Invitado
-     */
-    setInvitadoRole(): void {
-        this.roleService.flushRoles();
-        this.roleService.addRole('INVITADO', ['']);
-    }
-
-    /**
-     * Inicializa le rol Comprador
-     */
-    setCompradorRole(): void {
-        this.roleService.flushRoles();
-        this.roleService.addRole('COMPRADOR', ['']);
-        localStorage.setItem('rol', 'COMPRADOR');
-    }
-
-    /**
-     * Inicializa le rol Vendedor
-     */
-    setVendedorRole(): void {
-        this.roleService.flushRoles();
-        this.roleService.addRole('VENDEDOR', ['']);
-        localStorage.setItem('rol', 'VENDEDOR');
-    }
-
-    /**
-     * Inicializa le rol Administrador
-     */
-    setAdministradorRole(): void {
-        this.roleService.flushRoles();
-        this.roleService.addRole('ADMIN', ['']);
-        localStorage.setItem('rol', 'ADMIN');
     }
 
     /**
@@ -119,7 +83,7 @@ export class AuthService {
      */
     logout(): void {
         this.roleService.flushRoles();
-        this.setInvitadoRole();
+        this.roleService.addRole('INVITADO', ['']);
         localStorage.clear();
         this.router.navigateByUrl('/');
     }

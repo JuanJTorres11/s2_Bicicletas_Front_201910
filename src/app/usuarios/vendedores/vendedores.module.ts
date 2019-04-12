@@ -8,7 +8,7 @@ import { VendedorEditComponent } from './vendedor-edit/vendedor-edit.component';
 import { VendedorService } from './vendedor.service';
 import { BicicletaModule } from '../../bicicleta/bicicleta.module';
 import { FormsModule } from '@angular/forms';
-import { MediopagoModule } from 'src/app/mediopago/mediopago.module';
+import { MediopagoModule } from '../../mediopago/mediopago.module';
 
 @NgModule({
   imports: [

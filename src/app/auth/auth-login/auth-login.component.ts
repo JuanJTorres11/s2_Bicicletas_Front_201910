@@ -26,7 +26,7 @@ export class AuthLoginComponent implements OnInit {
 
     usuario: Usuario;
 
-    roles: String[];
+    roles: string[];
 
     /**
      * Inicia sesión de un usuario con su rol, correo y contraseña
