@@ -6,8 +6,10 @@ import {HttpClient} from '@angular/common/http';
 import {Bicicleta} from './bicicleta';
 import { BicicletaDetail } from './bicicleta-detail';
 
-const API_URL = "../../assets/";
-const bicicletas = '/bicicletas.json';
+import { environment } from '../../environments/environment.prod';
+
+const API_URL = environment.apiURL;
+const bicicletas = '/bicicletas';
 
 
 /**
