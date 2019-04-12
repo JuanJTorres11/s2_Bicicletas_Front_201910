@@ -34,7 +34,7 @@ export class AuthSignUpComponent implements OnInit {
     password:string;
     telefono:number;
 
-    roles: String[];
+    roles: string[];
 
     /**
     * Sign the user up with the selected role
