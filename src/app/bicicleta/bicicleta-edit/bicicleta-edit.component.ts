@@ -1,4 +1,5 @@
-import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import {Component, OnInit, ViewChild, EventEmitter, Output, Input} from '@angular/core';
+import {DatePipe} from '@angular/common';
 import {Router, ActivatedRoute} from '@angular/router';
 import {NgbTypeahead} from '@ng-bootstrap/ng-bootstrap';
 import {Observable, Subject, merge} from 'rxjs';
@@ -19,7 +20,8 @@ import {Marca} from '../../marca/marca';
 @Component({
     selector: 'app-bicicleta-edit',
     templateUrl: './bicicleta-edit.component.html',
-    styleUrls: ['./bicicleta-edit.component.css']
+    styleUrls: ['./bicicleta-edit.component.css'],
+	providers: [DatePipe]
 
 })
 export class BicicletaEditComponent implements OnInit {
@@ -39,6 +41,7 @@ export class BicicletaEditComponent implements OnInit {
         private route: ActivatedRoute
 		private marcaService: MarcaService,
         private categoriaService: CategoriaService,
+		private dp: DatePipe,
 
     ) {}
 
@@ -54,7 +57,7 @@ export class BicicletaEditComponent implements OnInit {
    */
   @Output() create = new EventEmitter();
    
-   @Input() 
+  
     bicicleta_id: number;
    
    /**
@@ -83,7 +86,22 @@ export class BicicletaEditComponent implements OnInit {
     */
     marcas: Marca[];
 
+	@ViewChild('instance') instance: NgbTypeahead;
+    focus$ = new Subject<string>();
+    click$ = new Subject<string>();
 
+    search = (text$: Observable<string>) => {
+        const debouncedText$ = text$.pipe(debounceTime(200), distinctUntilChanged());
+        const clicksWithClosedPopup$ = this.click$.pipe(filter(() => !this.instance.isPopupOpen()));
+        const inputFocus$ = this.focus$;
+
+        return merge(debouncedText$, inputFocus$, clicksWithClosedPopup$).pipe(
+            map(term => (term === '' ? this.authors
+                : this.authors.filter(v => v.name.toLowerCase().indexOf(term.toLowerCase()) > -1)).slice(0, 10))
+        );
+    }
+
+	formatter = (x: {name: string}) => x.name;
 
    getBicicleta(): void {
      this.bicicleta = new BicicletaDetail();
@@ -123,7 +141,7 @@ export class BicicletaEditComponent implements OnInit {
   /**
    * Cancela la modificacion de la bicicleta
    */
-  cancelCreation(): void {
+  cancelEdition(): void {
     this.cancel.emit();
 	       this.router.navigate(['/bicicletas/list']);
  
@@ -147,6 +165,8 @@ export class BicicletaEditComponent implements OnInit {
     * Funcion que incializa el componente
     */
     ngOnInit() {
+	        this.bicicleta_id = +this.route.snapshot.paramMap.get('id');
+
 	    this.getBicicleta();
 		
 		this.getCategorias();
