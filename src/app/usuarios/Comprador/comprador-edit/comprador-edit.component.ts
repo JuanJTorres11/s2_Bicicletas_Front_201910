@@ -1,8 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
-import { CompradorService } from '../comprador.service';
-import { CompradorDetail } from '../comprador-detail';
+
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {DatePipe} from '@angular/common';
+import {Router, ActivatedRoute} from '@angular/router';
+import {NgbTypeahead} from '@ng-bootstrap/ng-bootstrap';
+import {Observable, Subject, merge} from 'rxjs';
+import {debounceTime, distinctUntilChanged, filter, map} from 'rxjs/operators';
+import {ToastrService} from 'ngx-toastr';
+
+import {CompradorService} from '../comprador.service';
+import {Comprador} from '../comprador';
+import {CompradorDetail} from '../compradorDetail';
+
 
 @Component({
   selector: 'app-comprador-edit',
@@ -90,7 +98,9 @@ export class CompradorEditComponent implements OnInit {
     });
   }
 
-  putVendedor(): void {
+
+  putComprador():void {
+
     this.service.putComprador(this.id, this.comprador).subscribe((comprador) => {
       this.comprador = comprador
     });
