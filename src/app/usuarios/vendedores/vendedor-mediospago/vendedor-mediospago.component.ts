@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { VendedorService } from '../vendedor.service';
 import { Router } from '@angular/router';
-import { Mediopago } from 'src/app/mediopago/mediopago';
+import { Mediopago } from '../../../mediopago/mediopago';
 
 @Component({
   selector: 'app-vendedor-mediospago',

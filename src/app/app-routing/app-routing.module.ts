@@ -11,7 +11,6 @@ import { VendedorDetailComponent } from '../usuarios/vendedores/vendedor-detail/
 import { VendedorEditComponent } from '../usuarios/vendedores/vendedor-edit/vendedor-edit.component';
 import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
-
 import { OrdenListComponent } from '../orden/orden-list/orden-list.component';
 import { OrdenDetailComponent } from '../orden/orden-detail/orden-detail.component';
 import { MarcaCreateComponent } from '../marca/marca-create/marca-create.component';

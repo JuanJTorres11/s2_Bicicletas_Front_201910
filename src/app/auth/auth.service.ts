@@ -79,7 +79,7 @@ export class AuthService {
      * @param ven Vendedor a registrar.
      */
     postVendedor(ven: Vendedor): Observable<VendedorDetail> {
-       return this.http.post<Vendedor>(API_URL + '/vendedores', ven, {headers: this.header}).pipe();
+       return this.http.post<VendedorDetail>(API_URL + '/vendedores', ven, {headers: this.header}).pipe();
     }
 
     /**
