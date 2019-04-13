@@ -54,13 +54,13 @@ export class BicicletaEditComponent implements OnInit {
    */
   @Output() create = new EventEmitter();
    
-
+   @Input() 
     bicicleta_id: number;
    
    /**
     * La nueva Bicicleta
     */
-    bicicleta: Bicicleta;
+    bicicleta: BicicletaDetail;
 
 	/**
     * La categoria de l Bicicleta
@@ -86,9 +86,12 @@ export class BicicletaEditComponent implements OnInit {
 
 
    getBicicleta(): void {
+     this.bicicleta = new BicicletaDetail();
+
         this.bicicletaService.getBicicletaDetail(this.bicicleta_id)
             .subscribe(bicicleta => {
                 this.bicicleta = bicicleta;
+				
             });
     }
 
@@ -144,11 +147,7 @@ export class BicicletaEditComponent implements OnInit {
     * Funcion que incializa el componente
     */
     ngOnInit() {
-		this.bicicleta_id = +this.route.snapshot.paramMap.get('id');
-        this.getBicicleta();
-		this.bicicleta.categoria = new Categoria();
-		this.bicicleta.marca = new Marca();
-		this.bicicleta.album = new Array(4);
+	    this.getBicicleta();
 		
 		this.getCategorias();
 		this.getMarcas();
