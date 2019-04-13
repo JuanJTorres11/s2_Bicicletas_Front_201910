@@ -44,7 +44,10 @@ export class AuthService {
 
     setRol(rol:string):void {
         this.roleService.flushRoles();
-        if (rol === 'ADMIN' || rol ==="Administrador") {
+        if (!rol || rol === 'INVITADO' || rol==="Invitado") {
+            this.roleService.addRole('INVITADO', ['']);
+        }
+        else if (rol === 'ADMIN' || rol ==="Administrador") {
             this.roleService.addRole('ADMIN', ['']);
         }
         else if (rol === 'COMPRADOR' || rol ==="Comprador") {
@@ -53,18 +56,12 @@ export class AuthService {
         else {
             this.roleService.addRole('VENDEDOR', ['']);
         }
-        if (!rol || rol === 'INVITADO' || rol==="Invitado") {
-            this.roleService.addRole('INVITADO', ['']);
-        }
-        else {
-            this.roleService.addRole(rol, ['']);
-        }
     }
     /**
      * Imprime los roles.
      */
     printRole(): void {
-        console.log("prueba" + this.roleService.getRoles());
+        console.log(this.roleService.getRoles());
     }
 
     /**
