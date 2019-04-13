@@ -26,6 +26,7 @@ import { MediopagoListComponent } from '../mediopago/mediopago-list/mediopago-li
 import { MediopagoDetailComponent } from '../mediopago/mediopago-detail/mediopago-detail.component';
 import { BicicletaEditComponent } from '../bicicleta/bicicleta-edit/bicicleta-edit.component';
 
+import { MarcaEditComponent } from '../marca/marca-edit/marca-edit.component';
 
 const routes: Routes = [
 
@@ -139,7 +140,6 @@ const routes: Routes = [
                 path: ':id',
                 component: MarcaDetailComponent
             }
-
 
         ]
     },
