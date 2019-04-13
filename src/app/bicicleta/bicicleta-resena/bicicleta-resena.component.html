@@ -13,13 +13,17 @@
             </thead>
             <tbody>
                 <tr *ngFor="let r of bicicletaResenas">
-                    <th>Titulo {{r.titulo}}</th>
                     <th>
-                        <p class="font-weight-normal">Color sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque {{r.descripcion}}</p>
-</th>
+					<p>{{r.titulo}}</p>
+					</th>
+
                     <th>
-                        <p>Usuario {{r.usuario}}</p>
-                        <p>Calificacion {{r.calificacion}}</p>
+                   <p class="font-weight-normal">{{r.descripcion}}</p>
+                   </th>
+				   
+				   <th>
+                        <p>Nombre Usuario</p>
+                        <p>{{r.calificacion}}</p>
                     </th>
 
                 </tr>
