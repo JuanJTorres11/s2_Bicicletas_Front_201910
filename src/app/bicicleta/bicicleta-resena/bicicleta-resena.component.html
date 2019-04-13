@@ -5,18 +5,25 @@
                 <tr>
                     <th scope="col">Comentarios</th>
                     <th scope="col"></th>
-                    <th scope="col">Editar</th>
+                    <th scope="col">
+                    Editar
+                    
+                    </th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th>Titulo</th>
+                <tr *ngFor="let r of bicicletaResenas">
                     <th>
-                        <p class="font-weight-normal">Color sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque</p>
-</th>
+					<p>{{r.titulo}}</p>
+					</th>
+
                     <th>
-                        <p>Usuario</p>
-                        <p>Calificacion</p>
+                   <p class="font-weight-normal">{{r.descripcion}}</p>
+                   </th>
+				   
+				   <th>
+                        <p>Nombre Usuario</p>
+                        <p>{{r.calificacion}}</p>
                     </th>
 
                 </tr>

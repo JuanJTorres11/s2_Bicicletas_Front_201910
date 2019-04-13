@@ -23,7 +23,7 @@ export class BicletaCreateResenaComponent implements OnInit, OnChanges {
     ) { }
 
     /**
-    * El id de la Bicicleta
+    * la Bicicleta
     */
     @Input() bicicleta: Bicicleta;
 
@@ -40,13 +40,31 @@ export class BicletaCreateResenaComponent implements OnInit, OnChanges {
     */
     @Output() updateResenas = new EventEmitter();
 
-    
+     /**
+    * Funcion que crea una resena
+    * @param reviewForm The form of the review
+    */
+    postResena(reviewForm: NgForm): Resena {
+        this.resena.bicicleta = this.bicicleta;
+        this.bicicletaService.createResena(this.bicicleta.id,this.resena)
+            .subscribe(() => {
+                reviewForm.resetForm();
+                this.updateResenas.emit();
+                this.toastrService.success("The review was successfully created", 'Review added');
+            }, err => {
+                this.toastrService.error(err, 'Error');
+            });
+        return this.resena;
+    }
+
+
 
     /**
     * Funcion que incializa el componente
     */
     ngOnInit() {
         this.resena = new Resena();
+		
     }
 
     /**

@@ -1,6 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {Router} from '@angular/router';
-import {DatePipe} from '@angular/common';
 import {ToastrService} from 'ngx-toastr';
 
 import {BicicletaService} from '../bicicleta.service';
@@ -17,7 +16,7 @@ import {Marca} from '../../marca/marca';
     selector: 'app-bicicleta-create',
     templateUrl: './bicicleta-create.component.html',
     styleUrls: ['./bicicleta-create.component.css'],
-    providers: [DatePipe]
+    
 })
 export class BicicletaCreateComponent implements OnInit {
 
@@ -28,13 +27,22 @@ export class BicicletaCreateComponent implements OnInit {
     * @param router El router
     */
     constructor(
-        private dp: DatePipe,
         private bicicletaService: BicicletaService,
         private marcaService: MarcaService,
         private categoriaService: CategoriaService,
         private toastrService: ToastrService,
         private router: Router
     ) {}
+
+	 /**
+   * Emisor de eventos para la cancelacion de una creacion
+   */
+  @Output() cancel = new EventEmitter();
+
+  /**
+   * Emisor de eventos para una creacion
+   */
+  @Output() create = new EventEmitter();
 
     /**
     * La nueva Bicicleta
@@ -87,14 +95,16 @@ export class BicicletaCreateComponent implements OnInit {
             });
     }
     
-    /**
-    * Cancela la creacion de una nueva bicicleta
-    * Redirige  a la pagina de lista de bicicletas 
-    */
-    cancelCreation(): void {
-        this.toastrService.warning('The bike wasn\'t created', 'Bike creation');
-        this.router.navigate(['/bicicletas/list']);
-    }
+  
+
+  /**
+   * Cancela la creacion de la bicicleta
+   */
+  cancelCreation(): void {
+    this.cancel.emit();
+	       this.router.navigate(['/bicicletas/list']);
+ 
+	}
 
     /**
     * Crea una nueva Bicicleta
@@ -103,6 +113,7 @@ export class BicicletaCreateComponent implements OnInit {
         this.bicicletaService.createBicicleta(this.bicicleta)
             .subscribe(bicicleta => {
                 this.bicicleta.id = bicicleta.id;
+ 		       this.create.emit();
                 this.router.navigate(['/bicicleta/' + bicicleta.id]);
             }, err => {
                 this.toastrService.error(err, 'Error');

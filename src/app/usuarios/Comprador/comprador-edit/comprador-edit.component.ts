@@ -1,3 +1,4 @@
+
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {DatePipe} from '@angular/common';
 import {Router, ActivatedRoute} from '@angular/router';
@@ -10,43 +11,44 @@ import {CompradorService} from '../comprador.service';
 import {Comprador} from '../comprador';
 import {CompradorDetail} from '../compradorDetail';
 
+
 @Component({
-    selector: 'app-comprador-edit',
-    templateUrl: './comprador-edit.component.html',
-    styleUrls: ['./comprador-edit.component.css']
-  })
+  selector: 'app-comprador-edit',
+  templateUrl: './comprador-edit.component.html',
+  styleUrls: ['./comprador-edit.component.css']
+})
 
-  export class CompradorEditComponent implements OnInit{
+export class CompradorEditComponent implements OnInit {
 
-    constructor(
-        private service: CompradorService,
-        private route: ActivatedRoute,
-        private router: Router,
-        private toastrService: ToastrService) { }
+  constructor(
+    private service: CompradorService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private toastrService: ToastrService) { }
 
   /**
      * Comprador que se mostrará
      */
-    comprador: CompradorDetail;
+  comprador: CompradorDetail;
 
-      /**
-   * Identificador que llega en la ruta
-   */
+  /**
+* Identificador que llega en la ruta
+*/
   id: number;
 
-  nombreActual:string;
-  nombreNuevo:string;
-  confNombre:string;
-  correoActual:string;
-  correoNuevo:string;
-  confCorreo:string;
-  passwordActual:string;
-  passwordNueva:string;
-  confPassword:string;
-        
+  nombreActual: string;
+  nombreNuevo: string;
+  confNombre: string;
+  correoActual: string;
+  correoNuevo: string;
+  confCorreo: string;
+  passwordActual: string;
+  passwordNueva: string;
+  confPassword: string;
+
 
   cambiarNombre() {
-    if(this.nombreActual != this.comprador.nombre) {
+    if (this.nombreActual != this.comprador.nombre) {
       this.toastrService.error("El Nombre actual no coincide");
     }
     else {
@@ -60,7 +62,7 @@ import {CompradorDetail} from '../compradorDetail';
   }
 
   cambiarCorreo() {
-    if(this.correoActual != this.comprador.login) {
+    if (this.correoActual != this.comprador.login) {
       this.toastrService.error("El correo actual no coincide");
     }
     else {
@@ -74,7 +76,7 @@ import {CompradorDetail} from '../compradorDetail';
   }
 
   cambiarpassword() {
-    if(this.passwordActual != this.comprador.password) {
+    if (this.passwordActual != this.comprador.password) {
       this.toastrService.error("La password actual no coincide");
     }
     else {
@@ -87,16 +89,18 @@ import {CompradorDetail} from '../compradorDetail';
     }
   }
 
-    /**
-   * Obtiene el Comprador actual
-   */
+  /**
+ * Obtiene el Comprador actual
+ */
   getCompradorDetail(): void {
     this.service.getCompradorDetail(this.id).subscribe((comprador) => {
       this.comprador = comprador
     });
   }
 
+
   putComprador():void {
+
     this.service.putComprador(this.id, this.comprador).subscribe((comprador) => {
       this.comprador = comprador
     });
@@ -104,9 +108,9 @@ import {CompradorDetail} from '../compradorDetail';
     this.router.navigateByUrl('/comprador/' + this.id);
   }
 
-    /**
-   * Método que se ejecuta cuando se crea el componente
-   */
+  /**
+ * Método que se ejecuta cuando se crea el componente
+ */
   ngOnInit() {
     this.id = +this.route.snapshot.paramMap.get('id');
     if (this.id) {
@@ -114,4 +118,4 @@ import {CompradorDetail} from '../compradorDetail';
       this.getCompradorDetail();
     }
   }
-  }
+}
