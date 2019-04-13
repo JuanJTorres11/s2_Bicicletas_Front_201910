@@ -43,6 +43,9 @@ export class VendedorMediospagoComponent implements OnInit {
     return mp.numeroCodificado;
   }
 
+  /**
+   * Método que se ejecuta apenas se crea el componente
+   */
   ngOnInit() {
     this.id = parseInt(localStorage.getItem('id'));
     this.getMediosPago();
