@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Usuario } from '../../usuarios/usuario';
 import { ToastrService } from 'ngx-toastr';
@@ -26,7 +26,7 @@ export class AuthLoginComponent implements OnInit {
 
     usuario: Usuario;
 
-    roles: String[];
+    roles: string[];
 
     /**
      * Inicia sesión de un usuario con su rol, correo y contraseña
@@ -37,7 +37,6 @@ export class AuthLoginComponent implements OnInit {
         credenciales.password = this.usuario.password;
 
         if (this.usuario.rol == 'Administrador') {
-            this.service.setAdministradorRole();
             this.router.navigateByUrl('/');
         }
 
@@ -51,12 +50,12 @@ export class AuthLoginComponent implements OnInit {
                 localStorage.setItem('nombre', vendedorBD.nombre);
                 localStorage.setItem('login', vendedorBD.login);
                 localStorage.setItem('telefono', vendedorBD.telefono.toString());
-                this.service.setVendedorRole();
                 this.toastrService.success('Se inició sesión correctamente');
                 this.router.navigateByUrl('/vendedores/' + id);
 
             });
         }
+        this.service.setRol(this.usuario.rol);
     }
 
     /**

@@ -8,12 +8,14 @@ import { VendedorEditComponent } from './vendedor-edit/vendedor-edit.component';
 import { VendedorService } from './vendedor.service';
 import { BicicletaModule } from '../../bicicleta/bicicleta.module';
 import { FormsModule } from '@angular/forms';
+import { MediopagoModule } from '../../mediopago/mediopago.module';
 
 @NgModule({
   imports: [
     CommonModule,
     BicicletaModule,
-    FormsModule
+    FormsModule,
+    MediopagoModule
   ],
   declarations: [
     VendedorDetailComponent,
@@ -24,6 +26,6 @@ import { FormsModule } from '@angular/forms';
   ],
   bootstrap: [VendedorDetailComponent],
   providers: [VendedorService],
-  exports: [VendedorDetailComponent]
+  exports: [VendedorDetailComponent, VendedorMediospagoComponent]
 })
 export class VendedoresModule { }

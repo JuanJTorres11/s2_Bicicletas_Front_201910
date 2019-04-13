@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgxRolesService, NgxPermissionsService } from 'ngx-permissions'
+import { NgxRolesService } from 'ngx-permissions'
 import 'rxjs/add/operator/catch';
 import { VendedorDetail } from '../usuarios/vendedores/vendedorDetail';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Vendedor } from '../usuarios/vendedores/vendedor';
-import { Usuario } from '../usuarios/usuario';
 import { Credencial } from './credencial';
 import { Observable } from 'rxjs';
 
@@ -26,7 +25,6 @@ export class AuthService {
     constructor(
         private router: Router,
         private roleService: NgxRolesService,
-        private permissionsService: NgxPermissionsService,
         private http: HttpClient) { }
 
         header: HttpHeaders = new HttpHeaders ({
@@ -39,58 +37,28 @@ export class AuthService {
      * De lo contrario, se inicializa como Admin, Comprador o Vendedor.
      */
     start(): void {
-        this.permissionsService.flushPermissions();
-        this.roleService.flushRoles();
         const role = localStorage.getItem('rol');
-        if (!role) {
-            this.setInvitadoRole();
+        this.setRol(role);
+    }
+
+    setRol(rol:string):void {
+        this.roleService.flushRoles();
+        if (rol === 'ADMIN' || rol ==="Administrador") {
+            this.roleService.addRole('ADMIN', ['']);
         }
-        else if (role === 'ADMIN') {
-            this.setAdministradorRole();
-        }
-        else if (role === 'COMPRADOR') {
-            this.setCompradorRole();
+        else if (rol === 'COMPRADOR' || rol ==="Comprador") {
+            this.roleService.addRole('COMPRADOR', ['']);
         }
         else {
-            this.setVendedorRole();
+            this.roleService.addRole('VENDEDOR', ['']);
+        }
+        if (!rol || rol === 'INVITADO' || rol==="Invitado") {
+            this.roleService.addRole('INVITADO', ['']);
+        }
+        else {
+            this.roleService.addRole(rol, ['']);
         }
     }
-
-    /**
-     * Inicializa le rol Invitado
-     */
-    setInvitadoRole(): void {
-        this.roleService.flushRoles();
-        this.roleService.addRole('INVITADO', ['']);
-    }
-
-    /**
-     * Inicializa le rol Comprador
-     */
-    setCompradorRole(): void {
-        this.roleService.flushRoles();
-        this.roleService.addRole('COMPRADOR', ['']);
-        localStorage.setItem('rol', 'COMPRADOR');
-    }
-
-    /**
-     * Inicializa le rol Vendedor
-     */
-    setVendedorRole(): void {
-        this.roleService.flushRoles();
-        this.roleService.addRole('VENDEDOR', ['']);
-        localStorage.setItem('rol', 'VENDEDOR');
-    }
-
-    /**
-     * Inicializa le rol Administrador
-     */
-    setAdministradorRole(): void {
-        this.roleService.flushRoles();
-        this.roleService.addRole('ADMIN', ['']);
-        localStorage.setItem('rol', 'ADMIN');
-    }
-
     /**
      * Imprime los roles.
      */
@@ -119,7 +87,7 @@ export class AuthService {
      */
     logout(): void {
         this.roleService.flushRoles();
-        this.setInvitadoRole();
+        this.roleService.addRole('INVITADO', ['']);
         localStorage.clear();
         this.router.navigateByUrl('/');
     }
