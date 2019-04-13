@@ -173,12 +173,7 @@ export class BicicletaEditComponent implements OnInit {
 		this.getMarcas();
      }
 
-	 /**
-    * The function which is called every time the user chooses to edit a different bike
-    */
-    ngOnChanges() {
-        this.ngOnInit();
-    }
+	
 
 
 }
