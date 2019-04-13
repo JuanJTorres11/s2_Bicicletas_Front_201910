@@ -42,4 +42,12 @@ export class MarcaService{
     createMarca(marca): Observable<MarcaDetail> {
         return this.http.post<MarcaDetail>(API_URL + marcas, marca);
     }
+
+    /**
+     * Actualiza una marca
+     * @param marca Marca a actualizar
+     */
+    updateMarca(marca): Observable<MarcaDetail>{
+        return this.http.put<MarcaDetail>(API_URL + marcas + '/' + marca.id, marca);
+    }
 }
