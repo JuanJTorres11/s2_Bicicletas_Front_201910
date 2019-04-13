@@ -13,7 +13,7 @@ export class VendedorDetailComponent implements OnInit {
   /**
    * The component's constructor
    * @param editorialService The editorial's service
-   * @param route The route element which helps to obtain the editorial's id
+   * @param route Ruta
    * @param toastrService The toastr to show messages to the user
    */
   constructor(

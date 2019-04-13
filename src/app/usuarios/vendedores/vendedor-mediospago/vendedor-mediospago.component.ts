@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { VendedorService } from '../vendedor.service';
 import { Router } from '@angular/router';
+import { Mediopago } from 'src/app/mediopago/mediopago';
 
 @Component({
   selector: 'app-vendedor-mediospago',
@@ -15,16 +16,31 @@ export class VendedorMediospagoComponent implements OnInit {
 
   id: number;
 
-  mediosPago = ["Visa terminada en 4910", "MasterCard terminada en 7903", "Visa terminada en 5674"];
+  mediosPago: Mediopago [];
 
+  /**
+   * Obtiene los médios de pago asociados a este vendedor
+   */
   getMediosPago() {
-    this.service.getVendedorMediosPago(this.id).subscribe(mediosPago => {
-
+    this.service.getVendedorMediosPago(this.id).subscribe(mediosPagoBD => {
+      this.mediosPago = mediosPagoBD;
     });
   }
   
+  /**
+   * Redirige al componente de Medios de Pago.
+   */
   redirectMedioPago() {
-    this.router.navigateByUrl('/MediosPago/');
+    this.router.navigateByUrl('vendedores/' + this.id + 'mediosPago/');
+  }
+
+  /**
+   * Genera el numero codificado de la tarjeta del medio de pago.
+   */
+  generarNumeroCodificado(mp: Mediopago): number {
+    var numeroTarjeta: string = String(mp.numeroTarjeta);
+    mp.numeroCodificado = +numeroTarjeta.substring(numeroTarjeta.length - 4, numeroTarjeta.length);
+    return mp.numeroCodificado;
   }
 
   ngOnInit() {
