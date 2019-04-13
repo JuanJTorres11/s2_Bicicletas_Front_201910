@@ -8,7 +8,7 @@ import {ToastrService} from 'ngx-toastr';
 
 import {CompradorService} from '../comprador.service';
 import {Comprador} from '../comprador';
-import {CompradorDetail} from '../comprador-detail';
+import {CompradorDetail} from '../compradorDetail';
 
 @Component({
     selector: 'app-comprador-edit',
@@ -96,7 +96,7 @@ import {CompradorDetail} from '../comprador-detail';
     });
   }
 
-  putVendedor():void {
+  putComprador():void {
     this.service.putComprador(this.id, this.comprador).subscribe((comprador) => {
       this.comprador = comprador
     });
