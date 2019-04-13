@@ -3,7 +3,7 @@
 <div class="wrapper">
     <div class="inner">
         <form name="bicicleta" (ngSubmit)="f.form.valid && createBicicleta()" #f="ngForm" novalidate>
-            <h3>Actualizar bicicleta</h3>
+            <h3>Actualizar bicicleta con id {{bicicleta_id}}</h3>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputReferencia4">Referencia</label>
@@ -88,7 +88,7 @@
                     <button class="btn btn-success" type="submit">Crear</button>
                 </div>
                 <div class="form-group col-md-6">
-                    <button class="btn btn-danger" type="button" (click)="cancelCreation()">Cancelar</button>
+                    <button class="btn btn-danger" type="button" (click)="cancelEdition()">Cancelar</button>
                 </div>
             </div>
         </form>
