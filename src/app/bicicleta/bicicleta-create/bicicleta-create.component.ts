@@ -128,7 +128,7 @@ export class BicicletaCreateComponent implements OnInit {
         this.bicicleta = new Bicicleta();
 		this.bicicleta.categoria = new Categoria();
 		this.bicicleta.marca = new Marca();
-		this.bicicleta.album = new Array(4);
+		this.bicicleta.album = new Array(1);
 		
 		this.getCategorias();
 		this.getMarcas();
