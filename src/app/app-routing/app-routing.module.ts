@@ -15,6 +15,7 @@ import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component
 import { CompradorEditComponent } from '../usuarios/comprador/comprador-edit/comprador-edit.component';
 import { CompradorDetailComponent } from '../usuarios/comprador/comprador-detail/comprador-detail.component';
 import {VentaCreateComponent} from '../venta/venta-create/venta-create.component';
+
  
 import {OrdenListComponent} from '../orden/orden-list/orden-list.component';
 import {OrdenDetailComponent} from '../orden/orden-detail/orden-detail.component';
