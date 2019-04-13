@@ -34,14 +34,13 @@ export class AuthSignUpComponent implements OnInit {
     password:string;
     telefono:number;
 
-    roles: String[];
+    roles: string[];
 
     /**
     * Sign the user up with the selected role
     */
     signUp(): void {
         if (this.rol == 'Administrador') {
-            this.service.setAdministradorRole();
             this.router.navigateByUrl('/');
         }
         else if (this.rol == 'Comprador') {
@@ -59,11 +58,11 @@ export class AuthSignUpComponent implements OnInit {
                 localStorage.setItem('nombre', vendedorBD.nombre);
                 localStorage.setItem('login', vendedorBD.login);
                 localStorage.setItem('telefono', vendedorBD.telefono.toString())
-                this.service.setVendedorRole();
                 this.toastrService.success('Se registró correctamente');
                 this.router.navigateByUrl('/vendedores/' + id);
             });
         }
+        this.service.setRol(this.rol);
     }
 
     /**

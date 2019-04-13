@@ -19,6 +19,11 @@ import {OrdenModule} from './orden/orden.module'
 import { AuthModule } from './auth/auth.module';
 import { VendedoresModule } from './usuarios/vendedores/vendedores.module';
 import { CategoriaModule } from './categoria/categoria.module';
+import { MediopagoModule } from './mediopago/mediopago.module';
+
+import { CompradorModule } from './usuarios/comprador/comprador.module';
+import { VentaModule } from './venta/venta.module';
+
 
 @NgModule({
     declarations: [
@@ -46,7 +51,11 @@ import { CategoriaModule } from './categoria/categoria.module';
         MarcaModule,
         OrdenModule,
         AuthModule,
-        CategoriaModule
+        CategoriaModule,
+        MediopagoModule, 
+        CompradorModule, 
+        VentaModule
+
     ],
     bootstrap: [AppComponent],
     providers: [

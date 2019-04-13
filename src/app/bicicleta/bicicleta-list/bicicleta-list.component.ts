@@ -1,5 +1,5 @@
 
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {Bicicleta} from '../bicicleta';
 import {BicicletaService} from '../bicicleta.service';
@@ -24,12 +24,9 @@ export class BicicletaListComponent implements OnInit {
 	) {}
 
     /**
-     * La lista de Bicicletas de la tienda
+     * La lista de Bicicletas que se desean mostrar
      */
-    bicicletas: Bicicleta[];
-
-	
-
+      @Input() bicicletas: Bicicleta[];
 
     /**
      * Metodo que retorna todas las bicicletas de la tienda para mostrarlos en la lista

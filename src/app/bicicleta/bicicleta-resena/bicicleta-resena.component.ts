@@ -7,7 +7,8 @@ import { Resena } from '../resena';
 	styleUrls: ['./bicicleta-resena.component.css']
 })
 export class BicicletaResenaComponent implements OnInit {
-    @Input() bicicletaResenas: Resena [];
+    
+	@Input() bicicletaResenas: Resena [];
     
     public isCollapsed = true;
     

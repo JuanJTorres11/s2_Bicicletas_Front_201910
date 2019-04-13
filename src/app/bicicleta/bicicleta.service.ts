@@ -5,9 +5,16 @@ import {HttpClient} from '@angular/common/http';
 
 import {Bicicleta} from './bicicleta';
 import { BicicletaDetail } from './bicicleta-detail';
+import {Resena} from './resena';
 
-const API_URL = "../../assets/";
-const bicicletas = '/bicicletas.json';
+import { environment } from '../../environments/environment.prod';
+
+const API_URL = environment.apiURL;
+const bicicletas = '/bicicletas';
+
+const API_URL2 = "../../assets/";
+const bicicletas2 = '/bicicletas.json';
+const resenas = '/resenas';
 
 
 /**
@@ -36,7 +43,26 @@ export class BicicletaService {
     * @returns La Bicicletacon su nuevo id si se pudo crear, false de los contrario
     */
     createBicicleta(bicicleta): Observable<BicicletaDetail> {
-        return this.http.post<BicicletaDetail>(API_URL + bicicleta, bicicleta);
+        return this.http.post<BicicletaDetail>(API_URL + bicicletas, bicicleta);
+    }
+
+
+	/**
+        * Actualiza una bicicleta
+        * @param bicicleta The updated bike
+        * @returns The updated bike
+        */
+    updateBicicleta(bicicleta): Observable<BicicletaDetail> {
+        return this.http.put<BicicletaDetail>(API_URL + bicicletas + '/' + bicicleta.id, bicicleta);
+    }
+
+	 /**
+    * Crea una reseña
+    * @param resena La resena
+    * @returns True si se pudo crear, false de los contrario
+    */
+    createResena(bicicletaId, resena): Observable<Resena> {
+        return this.http.post<Resena>(API_URL + bicicletas + '/' + bicicletaId + resenas, resena);
     }
 
 
@@ -45,6 +71,6 @@ export class BicicletaService {
     * @returns El detalle de la Bicicleta
     */
     getBicicletaDetail(bicicletaId): Observable<BicicletaDetail> {
-        return this.http.get<BicicletaDetail>(API_URL + '/bicicleta' + bicicletaId + '.json');
+        return this.http.get<BicicletaDetail>(API_URL + bicicletas + '/' + bicicletaId);
     }
 }
