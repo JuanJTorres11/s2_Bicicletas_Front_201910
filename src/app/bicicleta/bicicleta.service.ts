@@ -46,6 +46,16 @@ export class BicicletaService {
         return this.http.post<BicicletaDetail>(API_URL + bicicletas, bicicleta);
     }
 
+
+	/**
+        * Actualiza una bicicleta
+        * @param bicicleta The updated bike
+        * @returns The updated bike
+        */
+    updateBicicleta(bicicleta): Observable<BicicletaDetail> {
+        return this.http.put<BicicletaDetail>(API_URL + bicicletas + '/' + bicicleta.id, bicicleta);
+    }
+
 	 /**
     * Crea una reseña
     * @param resena La resena
