@@ -5,6 +5,7 @@ import {HttpClient} from '@angular/common/http';
 
 import {Bicicleta} from './bicicleta';
 import { BicicletaDetail } from './bicicleta-detail';
+import {Resena} from './resena';
 
 import { environment } from '../../environments/environment.prod';
 
@@ -13,6 +14,7 @@ const bicicletas = '/bicicletas';
 
 const API_URL2 = "../../assets/";
 const bicicletas2 = '/bicicletas.json';
+const resenas = '/resenas';
 
 
 /**
@@ -42,6 +44,15 @@ export class BicicletaService {
     */
     createBicicleta(bicicleta): Observable<BicicletaDetail> {
         return this.http.post<BicicletaDetail>(API_URL + bicicletas, bicicleta);
+    }
+
+	 /**
+    * Crea una reseña
+    * @param resena La resena
+    * @returns True si se pudo crear, false de los contrario
+    */
+    createResena(bicicletaId, resena): Observable<Resena> {
+        return this.http.post<Resena>(API_URL + bicicletas + '/' + bicicletaId + resenas, resena);
     }
 
 
