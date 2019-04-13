@@ -86,22 +86,8 @@ export class BicicletaEditComponent implements OnInit {
     */
     marcas: Marca[];
 
-	@ViewChild('instance') instance: NgbTypeahead;
-    focus$ = new Subject<string>();
-    click$ = new Subject<string>();
-
-    search = (text$: Observable<string>) => {
-        const debouncedText$ = text$.pipe(debounceTime(200), distinctUntilChanged());
-        const clicksWithClosedPopup$ = this.click$.pipe(filter(() => !this.instance.isPopupOpen()));
-        const inputFocus$ = this.focus$;
-
-        return merge(debouncedText$, inputFocus$, clicksWithClosedPopup$).pipe(
-            map(term => (term === '' ? this.authors
-                : this.authors.filter(v => v.name.toLowerCase().indexOf(term.toLowerCase()) > -1)).slice(0, 10))
-        );
-    }
-
-	formatter = (x: {name: string}) => x.name;
+	
+	
 
    getBicicleta(): void {
      this.bicicleta = new BicicletaDetail();
