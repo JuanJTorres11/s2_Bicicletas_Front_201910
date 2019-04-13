@@ -38,6 +38,10 @@ export class CategoriaDetailComponent implements OnInit {
     this.getCategoriaDetail();
   }
 
+  createCategoriaBicicleta() {
+    
+  }
+
   ngOnInit() {
     this.nombre = String(this.route.snapshot.paramMap.get('nombre'));
 
