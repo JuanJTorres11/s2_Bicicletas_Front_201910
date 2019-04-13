@@ -47,7 +47,7 @@ const routes: Routes = [
                 component: BicicletaCreateComponent
             },
             {
-                path: 'edit',
+                path: ':id/edit',
                 component: BicicletaEditComponent
             },
             {
