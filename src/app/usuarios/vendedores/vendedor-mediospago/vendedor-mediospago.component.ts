@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { VendedorService } from '../vendedor.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-vendedor-mediospago',
@@ -8,7 +9,9 @@ import { VendedorService } from '../vendedor.service';
 })
 export class VendedorMediospagoComponent implements OnInit {
 
-  constructor(private service: VendedorService) { }
+  constructor(
+    private service: VendedorService,
+    private router: Router) { }
 
   id: number;
 
@@ -20,8 +23,12 @@ export class VendedorMediospagoComponent implements OnInit {
     });
   }
   
-  ngOnInit() {
-    this.id = parseInt(localStorage.getItem('id'));
+  redirectMedioPago() {
+    this.router.navigateByUrl('/MediosPago/');
   }
 
+  ngOnInit() {
+    this.id = parseInt(localStorage.getItem('id'));
+    this.getMediosPago();
+  }
 }
