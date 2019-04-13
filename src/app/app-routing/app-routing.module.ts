@@ -12,6 +12,10 @@ import { VendedorEditComponent } from '../usuarios/vendedores/vendedor-edit/vend
 import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
 
+import { CompradorEditComponent } from '../usuarios/comprador/comprador-edit/comprador-edit.component';
+import { CompradorDetailComponent } from '../usuarios/comprador/comprador-detail/comprador-detail.component';
+import {VentaCreateComponent} from '../venta/venta-create/venta-create.component';
+ 
 import {OrdenListComponent} from '../orden/orden-list/orden-list.component';
 import {OrdenDetailComponent} from '../orden/orden-detail/orden-detail.component';
 import { MarcaCreateComponent } from '../marca/marca-create/marca-create.component';
@@ -81,6 +85,34 @@ const routes: Routes = [
             }
         ]
     },
+
+    {
+        path: 'compradores',
+        children: [
+            {
+                path: ':id',
+                component: CompradorDetailComponent,
+                children: [
+                    {
+                        path: 'edit',
+                        component: CompradorEditComponent
+                    }
+                ]
+            }
+        ]
+    },
+
+    {
+        path: 'venta',
+        children: [
+            {
+                path: 'add',
+                component: VentaCreateComponent
+            }
+        ]
+    },
+
+    
 
     {
         path: 'marcas',
