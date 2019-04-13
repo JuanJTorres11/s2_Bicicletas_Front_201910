@@ -23,7 +23,7 @@ export class BicletaCreateResenaComponent implements OnInit, OnChanges {
     ) { }
 
     /**
-    * El id de la Bicicleta
+    * la Bicicleta
     */
     @Input() bicicleta: Bicicleta;
 
@@ -64,6 +64,7 @@ export class BicletaCreateResenaComponent implements OnInit, OnChanges {
     */
     ngOnInit() {
         this.resena = new Resena();
+		
     }
 
     /**
