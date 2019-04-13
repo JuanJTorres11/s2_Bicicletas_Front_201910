@@ -60,4 +60,14 @@ export class CategoriaService {
     console.log(API_URL + categorias + '/' + nombre + bicicletas);
     return this.http.get<Bicicleta[]>(API_URL + categorias + '/' + nombre + bicicletas);
   }
+
+  /**
+   * Crea una nueva bicicleta dentro de una categoria
+   * @param nombre Nombre de la categoria
+   * @param bicicleta Bicicleta que se va a crear.
+   * @return Bicicleta creada.
+   */
+  createCategoriaBicicleta(nombre, bicicleta): Observable<Bicicleta> {
+    return this.http.post<Bicicleta>(API_URL + categorias + '/' + nombre + bicicletas, bicicleta);
+  }
 }

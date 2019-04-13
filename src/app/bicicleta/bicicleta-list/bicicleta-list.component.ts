@@ -28,9 +28,6 @@ export class BicicletaListComponent implements OnInit {
      */
       @Input() bicicletas: Bicicleta[];
 
-	
-
-
     /**
      * Metodo que retorna todas las bicicletas de la tienda para mostrarlos en la lista
      */
