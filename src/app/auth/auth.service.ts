@@ -49,12 +49,15 @@ export class AuthService {
         }
         else if (rol === 'ADMIN' || rol ==="Administrador") {
             this.roleService.addRole('ADMIN', ['']);
+            localStorage.setItem('rol', 'ADMIN');
         }
         else if (rol === 'COMPRADOR' || rol ==="Comprador") {
             this.roleService.addRole('COMPRADOR', ['']);
+            localStorage.setItem('rol', 'COMPRADOR');
         }
         else {
             this.roleService.addRole('VENDEDOR', ['']);
+            localStorage.setItem('rol', 'VENDEDOR');
         }
     }
     /**
