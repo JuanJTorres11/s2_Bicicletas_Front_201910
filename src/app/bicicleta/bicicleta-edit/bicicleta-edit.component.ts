@@ -36,7 +36,7 @@ export class BicicletaEditComponent implements OnInit {
         private bicicletaService: BicicletaService,
         private toastrService: ToastrService,
         private router: Router,
-        private route: ActivatedRoute
+        private route: ActivatedRoute,
 		private marcaService: MarcaService,
         private categoriaService: CategoriaService,
 
