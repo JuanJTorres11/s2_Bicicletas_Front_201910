@@ -28,6 +28,6 @@ export class MediopagoService {
    * @return Medio de pago encontrado.
    */
   getMediopago(numero: number): Observable<Mediopago> {
-    return this.http.get<Mediopago>(API_URL + 'medio-' + numero + '.json');
+    return this.http.get<Mediopago>(API_URL + mediosPago + '/' + numero);
   }
 }
