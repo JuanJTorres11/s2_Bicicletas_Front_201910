@@ -13,7 +13,7 @@ import { Bicicleta } from '../../bicicleta/bicicleta';
 export class BicletaCreateResenaComponent implements OnInit, OnChanges {
 
    /**
-    * El contructor del componente
+    * El constructor del componente
     * @param bicicletaService El servicio de la Bicicleta que se comunica con el API
     * @param toastrService toastr: sirve para mostrar los mensajes al usuario
     */
@@ -23,7 +23,7 @@ export class BicletaCreateResenaComponent implements OnInit, OnChanges {
     ) { }
 
     /**
-    * El id de la Bicicleta
+    * la Bicicleta
     */
     @Input() bicicleta: Bicicleta;
 
@@ -35,18 +35,36 @@ export class BicletaCreateResenaComponent implements OnInit, OnChanges {
     public isCollapsed = true;
 
     /**
-    * El Event Emitter which envía la señal  cuando se publica una reseña
+    * El Event Emitter que envía la señal  cuando se publica una reseña
     * para que se refresque la lista de resenas
     */
     @Output() updateResenas = new EventEmitter();
 
-    
+     /**
+    * Funcion que crea una resena
+    * @param reviewForm The form of the review
+    */
+    postResena(reviewForm: NgForm): Resena {
+        this.resena.bicicleta = this.bicicleta;
+        this.bicicletaService.createResena(this.bicicleta.id,this.resena)
+            .subscribe(() => {
+                reviewForm.resetForm();
+                this.updateResenas.emit();
+                this.toastrService.success("The review was successfully created", 'Review added');
+            }, err => {
+                this.toastrService.error(err, 'Error');
+            });
+        return this.resena;
+    }
+
+
 
     /**
     * Funcion que incializa el componente
     */
     ngOnInit() {
         this.resena = new Resena();
+		
     }
 
     /**
@@ -54,6 +72,7 @@ export class BicletaCreateResenaComponent implements OnInit, OnChanges {
     * If the bike has changed, we update the reviews to show
     */
     ngOnChanges() {
+		console.log("entro a create r");
         this.ngOnInit();
     }
 

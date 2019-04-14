@@ -9,13 +9,17 @@ import { CategoriaDetailComponent } from './categoria-detail/categoria-detail.co
 import { CategoriaService } from './categoria.service';
 import { CategoriaEditComponent } from './categoria-edit/categoria-edit.component';
 
+import { BicicletaModule } from '../bicicleta/bicicleta.module';
+import { CategoriaBicicletaComponent } from './categoria-bicicleta/categoria-bicicleta.component';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    BicicletaModule
   ],
-  declarations: [CategoriaListComponent, CategoriaAddComponent, CategoriaDetailComponent, CategoriaEditComponent],
+  declarations: [CategoriaListComponent, CategoriaAddComponent, CategoriaDetailComponent, CategoriaEditComponent, CategoriaBicicletaComponent],
   bootstrap: [CategoriaListComponent],
   exports: [ CategoriaListComponent, CategoriaAddComponent ],
   providers: [CategoriaService]

@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
     /**
      * The title that appears on the NavBar and the web browser
      */
-    title: String;
+    title: string;
 
        /**
      * @ignore
@@ -26,6 +26,7 @@ export class AppComponent implements OnInit {
      */
     ngOnInit(): void {
         this.title = "TIENDA DE BICICLETAS";
+        console.log("llegó al initde app component");
         this.authService.start();
     }
 

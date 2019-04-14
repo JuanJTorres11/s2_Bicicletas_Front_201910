@@ -9,6 +9,13 @@ h1 {
     border:0;
     border-bottom:2px solid #F2F2F2;
   }
+
+  #separador-titulo {
+    margin-left: 15px;
+    margin-right: 15px;
+    border:0;
+    border-bottom:2px solid #BFBFBF;
+  }
   
   .card {
     margin-left: 25px;
@@ -20,6 +27,7 @@ h1 {
   .lista-categorias {
     overflow: scroll;
     height: 75vh;
+    overflow-x: hidden;
   }
   
   .material-icons.md-2 {
