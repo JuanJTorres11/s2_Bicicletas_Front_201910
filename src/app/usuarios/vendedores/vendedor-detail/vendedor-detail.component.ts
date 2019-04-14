@@ -37,6 +37,9 @@ export class VendedorDetailComponent implements OnInit {
     });
   }
 
+  /**
+   * Método que se ejecuta cuando se crea el componente
+   */
   ngOnInit() {
     this.id = +this.route.snapshot.paramMap.get('id');
     if (this.id) {
