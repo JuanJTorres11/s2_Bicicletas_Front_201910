@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import {Comprador} from '../comprador';
 import {CompradorService} from '../comprador.service';
-//import { Bicicleta } from 'src/app/bicicleta/bicicleta';
+// import { Bicicleta } from 'src/app/bicicleta/bicicleta';
 // import { MedioPago } from 'src/app/MedioPago/MedioPago';
 
 /**

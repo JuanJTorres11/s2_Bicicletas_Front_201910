@@ -21,6 +21,10 @@ import { VendedoresModule } from './usuarios/vendedores/vendedores.module';
 import { CategoriaModule } from './categoria/categoria.module';
 import { MediopagoModule } from './mediopago/mediopago.module';
 
+import { CompradorModule } from './usuarios/comprador/comprador.module';
+import { VentaModule } from './venta/venta.module';
+
+
 @NgModule({
     declarations: [
         AppComponent
@@ -48,7 +52,10 @@ import { MediopagoModule } from './mediopago/mediopago.module';
         OrdenModule,
         AuthModule,
         CategoriaModule,
-        MediopagoModule
+        MediopagoModule, 
+        CompradorModule, 
+        VentaModule
+
     ],
     bootstrap: [AppComponent],
     providers: [

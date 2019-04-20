@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Comprador } from './comprador';
-import { CompradorDetail } from "./comprador-Detail"
+import { CompradorDetail } from "./compradorDetail"
 //import { Bicicleta } from 'src/app/bicicleta/bicicleta';
 import { environment } from '../../../environments/environment';
 
@@ -59,4 +59,13 @@ export class CompradorService {
 getCompradores(): Observable<Comprador[]> {
     return this.http.get<Comprador[]>(API_URL + compradores);
 }   
+
+    /**
+     * Actualiza un comprador
+     * @param id Identificador del comprador a actualizar
+     * @param comprador Objeto con los cambios realizados.
+     */
+    putComprador(id:number, comprador:CompradorDetail): Observable<CompradorDetail> {
+        return this.http.put<CompradorDetail>(API_URL + "/" + id, comprador);
+    }
 }
