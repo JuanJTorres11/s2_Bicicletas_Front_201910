@@ -64,6 +64,11 @@
                                 <a class="nav-link" routerLink = "venta/add">Venta</a>
             
                         </li>
+                        
+                        <li class =" nav-item">
+                            <a class="nav-link" routerLink = "compradores/edit">Comprador Editar</a>
+                            
+                        </li>
 
         </ul>
 
@@ -83,7 +88,7 @@
                 </ul>
             </div>
             <div *ngxPermissionsOnly="['INVITADO']">
-                <a class="btn btn-primary my-2 my-sm-0" routerLink="iniciarSesion" role="button" style="margin-right: 10px">Iniciar Sesión</a>
+                <a class="btn btn-primary my-2 my-sm-0" routerLink="iniciarSesion" role="button">Iniciar Sesión</a>
                 <a class="btn btn-outline-primary my-2 my-sm-0" routerLink="registrarse" role="button">Registrarse</a>
             </div>
 

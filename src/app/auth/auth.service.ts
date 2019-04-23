@@ -39,24 +39,25 @@ export class AuthService {
     start(): void {
         const role = localStorage.getItem('rol');
         this.setRol(role);
+        this.printRole;
     }
 
     setRol(rol:string):void {
         this.roleService.flushRoles();
-        if (rol === 'ADMIN' || rol ==="Administrador") {
-            this.roleService.addRole('ADMIN', ['']);
-        }
-        else if (rol === 'COMPRADOR' || rol ==="Comprador") {
-            this.roleService.addRole('COMPRADOR', ['']);
-        }
-        else {
-            this.roleService.addRole('VENDEDOR', ['']);
-        }
         if (!rol || rol === 'INVITADO' || rol==="Invitado") {
             this.roleService.addRole('INVITADO', ['']);
         }
+        else if (rol === 'ADMIN' || rol ==="Administrador") {
+            this.roleService.addRole('ADMIN', ['']);
+            localStorage.setItem('rol', 'ADMIN');
+        }
+        else if (rol === 'COMPRADOR' || rol ==="Comprador") {
+            this.roleService.addRole('COMPRADOR', ['']);
+            localStorage.setItem('rol', 'COMPRADOR');
+        }
         else {
-            this.roleService.addRole(rol, ['']);
+            this.roleService.addRole('VENDEDOR', ['']);
+            localStorage.setItem('rol', 'VENDEDOR');
         }
     }
     /**

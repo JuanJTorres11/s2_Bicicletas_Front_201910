@@ -15,6 +15,7 @@ import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component
 import { CompradorEditComponent } from '../usuarios/comprador/comprador-edit/comprador-edit.component';
 import { CompradorDetailComponent } from '../usuarios/comprador/comprador-detail/comprador-detail.component';
 import {VentaCreateComponent} from '../venta/venta-create/venta-create.component';
+import {VentaEditComponent} from '../venta/venta-edit/venta-edit.component';
 
  
 import {OrdenListComponent} from '../orden/orden-list/orden-list.component';
@@ -102,15 +103,10 @@ const routes: Routes = [
         path: 'compradores',
         children: [
             {
-                path: ':id',
-                component: CompradorDetailComponent,
-                children: [
-                    {
                         path: 'edit',
                         component: CompradorEditComponent
                     }
-                ]
-            }
+                
         ]
     },
 
@@ -120,6 +116,10 @@ const routes: Routes = [
             {
                 path: 'add',
                 component: VentaCreateComponent
+            },
+            {
+                path: 'edit',
+                component: VentaEditComponent
             }
         ]
     },

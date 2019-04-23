@@ -40,4 +40,13 @@ export class VentaService {
     getVentas(): Observable<Venta[]>{
         return this.http.get<Venta[]>(API_URL + ventas);
     }
+    
+        /**
+     * Actualiza un comprador
+     * @param id Identificador del comprador a actualizar
+     * @param comprador Objeto con los cambios realizados.
+     */
+    putVenta(id:number, venta:Venta): Observable<Venta> {
+        return this.http.put<Venta>(API_URL + "/" + id, venta);
+    }
 }
