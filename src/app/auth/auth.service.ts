@@ -39,7 +39,6 @@ export class AuthService {
     start(): void {
         const role = localStorage.getItem('rol');
         this.setRol(role);
-        this.printRole;
     }
 
     setRol(rol:string):void {
@@ -59,12 +58,6 @@ export class AuthService {
             this.roleService.addRole('VENDEDOR', ['']);
             localStorage.setItem('rol', 'VENDEDOR');
         }
-    }
-    /**
-     * Imprime los roles.
-     */
-    printRole(): void {
-        console.log(this.roleService.getRoles());
     }
 
     /**
