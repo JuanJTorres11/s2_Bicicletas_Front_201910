@@ -78,14 +78,8 @@ const routes: Routes = [
         path: 'vendedores',
         children: [
             {
-                path: ':id',
-                component: VendedorDetailComponent,
-                children: [
-                    {
-                        path: 'edit',
-                        component: VendedorEditComponent
-                    }
-                ]
+                path: 'edit',
+                component: VendedorEditComponent
             },
             {
                 path: 'mediosPago',
@@ -95,6 +89,10 @@ const routes: Routes = [
                         component: MediopagoDetailComponent
                     }
                 ]
+            },
+            {
+                path: ':id',
+                component: VendedorDetailComponent
             }
         ]
     },
