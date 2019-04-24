@@ -26,6 +26,6 @@ import { MediopagoModule } from '../../mediopago/mediopago.module';
   ],
   bootstrap: [VendedorDetailComponent],
   providers: [VendedorService],
-  exports: [VendedorDetailComponent, VendedorMediospagoComponent]
+  exports: [VendedorDetailComponent, VendedorMediospagoComponent, VendedorEditComponent]
 })
 export class VendedoresModule { }
