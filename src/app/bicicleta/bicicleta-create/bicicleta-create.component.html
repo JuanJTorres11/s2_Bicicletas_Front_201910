@@ -62,15 +62,20 @@
                         <div>Debe ingresar una valor para el stock</div>
                     </div>
                 </div>
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-4">
                     <label for="inputPrecio4">Foto</label>
-                    <input class="form-control" id="inputFoto4" placeholder="Enlace de la foto"
-                           type="text" name="bikekFoto" [(ngModel)]="bicicleta.album[0]"
+                    <input class="form-control" id="inputFoto4" placeholder="Ruta"
+                           type="text" name="bikekFoto" [(ngModel)]="rutaFoto"
                            #bikekFoto="ngModel" [ngClass]="{ 'is-invalid': f.submitted && bikekFoto.invalid }" required>
                     <div class="invalid-feedback">
                         <div>Debe ingresar el enlace de una foto</div>
                     </div>
+
                 </div>
+                <div class="form-group col-md-2">
+                    <button class="album btn btn-secondary" type="button"  (click)="anadirFoto(rutaFoto)" onclick="document.getElementById('inputFoto4').value = ''">Confirmar</button>
+                </div>
+
             </div>
 
             <div class="form-row">

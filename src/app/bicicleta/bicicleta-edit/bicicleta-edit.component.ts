@@ -151,9 +151,9 @@ export class BicicletaEditComponent implements OnInit {
     * Funcion que incializa el componente
     */
     ngOnInit() {
-	        this.bicicleta_id = +this.route.snapshot.paramMap.get('id');
-
-	    this.getBicicleta();
+	   
+	   this.bicicleta_id = +this.route.snapshot.paramMap.get('id');
+	   this.getBicicleta();
 		
 		this.getCategorias();
 		this.getMarcas();
