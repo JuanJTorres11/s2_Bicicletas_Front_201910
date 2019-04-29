@@ -254,6 +254,12 @@ button {
     .wrapper {
         background: none;
     }
-
+    .spacer {
+        background-color: white;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        margin-right: 100px;
+        margin-left: 100px;
+    }
     
 }
