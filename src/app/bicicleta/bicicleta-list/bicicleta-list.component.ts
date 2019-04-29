@@ -41,6 +41,9 @@ export class BicicletaListComponent implements OnInit {
      */
     ngOnInit() {
 		console.log("IntitBicicletas");
-        this.getBicicletas();
+		if(this.bicicletas === undefined){
+		 this.getBicicletas();
+		}
+       
     }
 }
