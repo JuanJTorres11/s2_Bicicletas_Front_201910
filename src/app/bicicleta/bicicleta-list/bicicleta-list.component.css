@@ -13,3 +13,8 @@ and open the template in the editor.
 .author-caption{
     color: grey;
 }
+p.precio {
+    font-family: "Verdana", Sans-serif;
+    color: #960018;
+    font-size: 17px;
+}
