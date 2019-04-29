@@ -106,8 +106,8 @@ export class BicicletaDetailComponent implements OnInit, OnDestroy {
          this.bicicletaService.getBicicletaDetail(this.bicicleta_id)
             .subscribe(bicicletaDetail => {
                 this.bicicletaDetail = bicicletaDetail;
-					console.log(this.bicicletaDetail.album.length);
-   
+					console.log("album" + this.bicicletaDetail.album.length);
+					 console.log("resenas" + this.bicicletaDetail.resenas.length);
             });
     }
 

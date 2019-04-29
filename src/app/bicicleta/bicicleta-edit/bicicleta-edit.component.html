@@ -2,7 +2,7 @@
 
 <div class="wrapper">
     <div class="inner">
-        <form name="bicicleta" (ngSubmit)="f.form.valid && createBicicleta()" #f="ngForm" novalidate>
+        <form name="bicicleta" (ngSubmit)="f.form.valid && updateBicicleta()" #f="ngForm" novalidate>
             <h3>Modificar bicicleta con id {{bicicleta.id}}</h3>
             <div class="form-row">
                 <div class="form-group col-md-6">
@@ -28,7 +28,7 @@
                 <div class="form-group col-md-6">
                     <label for="inputState">Marca</label>
                     <select id="inputMarca"
-                            class="custom-select" name="bicicletaMarca" [(ngModel)]="bicicleta.marca.nombre"
+                            class="custom-select" name="bicicletaMarca" [(ngModel)]="bicicleta.marca.id"
                             #bicicletaMarca="ngModel" [ngClass]="{ 'is-invalid': f.submitted && bicicletaMarca.invalid }"
                             required>
                         <option selected>Seleccione una marca...</option>
@@ -64,13 +64,9 @@
                 </div>
                 <div class="form-group col-md-4">
                     <label for="inputPrecio4">Foto</label>
-                    <input class="form-control" id="inputFoto4" placeholder="Ruta"
+                    <input class="form-control" id="inputFoto4" placeholder="{{bicicleta.album[0]}}"
                            type="text" name="bikekFoto" [(ngModel)]="rutaFoto"
-                           #bikekFoto="ngModel" [ngClass]="{ 'is-invalid': f.submitted && bikekFoto.invalid }" required>
-                    <div class="invalid-feedback">
-                        <div>Debe ingresar el enlace de una foto</div>
-                    </div>
-
+                           #bikekFoto="ngModel"  >
                 </div>
                 <div class="form-group col-md-2">
                     <button class="album btn btn-secondary" type="button" (click)="anadirFoto(rutaFoto)" onclick="document.getElementById('inputFoto4').value = ''">Confirmar</button>

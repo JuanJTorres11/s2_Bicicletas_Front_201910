@@ -86,8 +86,18 @@ export class BicicletaEditComponent implements OnInit {
     */
     marcas: Marca[];
 
+	/**
+    * Ruta temporal de la foto
+    */
+	rutaFoto : String;
+
+
 	
-	
+	anadirFoto(ruta):void{
+		this.bicicleta.album.push(ruta);
+		console.log("guardó ruta");
+		console.log(this.bicicleta.album.toString());
+	}
 
    getBicicleta(): void {
      this.bicicleta = new BicicletaDetail();
@@ -95,8 +105,9 @@ export class BicicletaEditComponent implements OnInit {
         this.bicicletaService.getBicicletaDetail(this.bicicleta_id)
             .subscribe(bicicleta => {
                 this.bicicleta = bicicleta;
-				
+				console.log("# de resenas en Edit " + this.bicicleta.resenas.lenght);
             });
+			
     }
 
 	
@@ -151,12 +162,13 @@ export class BicicletaEditComponent implements OnInit {
     * Funcion que incializa el componente
     */
     ngOnInit() {
-	   
 	   this.bicicleta_id = +this.route.snapshot.paramMap.get('id');
 	   this.getBicicleta();
 		
 		this.getCategorias();
 		this.getMarcas();
+		this.rutaFoto = this.bicicleta.album[0];
+	
      }
 
 	
