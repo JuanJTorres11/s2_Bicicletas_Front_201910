@@ -15,3 +15,6 @@ p.eliminar {
     font-style: normal;
     font-size: 14px;
 }
+.checked {
+    color: orange;
+}
