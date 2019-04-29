@@ -48,20 +48,20 @@ and open the template in the editor.
                 <table class="table-light">
                     <thead>
                         <tr>
-                            <th class="a" scope="col">Bicicleta de bicicross BMX: {{bicicletaDetail.referencia}}</th>
+                            <th class="a" scope="col">Bicicleta de {{bicicletaDetail.categoria.nombre}} {{bicicletaDetail.marca.nombre}}: {{bicicletaDetail.referencia}}</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td class="b">
-                               
-                                <p class="precio"> $ {{bicicletaDetail.precio}}</p>
+                                
+                               <p class="precio"> $ {{bicicletaDetail.precio}}</p>
                             </td>
 
-                       
+
                         <tr>
                             <td class="b">
-                               
+
 
                                 <span class="fa fa-star {{(bicicletaDetail.calificacion >= 1) ? 'checked' : ''}}"></span>
                                 <span class="fa fa-star {{(bicicletaDetail.calificacion >= 2) ? 'checked' : ''}}"></span>
@@ -73,7 +73,22 @@ and open the template in the editor.
                             </td>
                         </tr>
                         <tr>
-                            <td class="b">Usada: {{ (bicicletaDetail.usada == true) ? 'SÍ' : 'NO' }}</td>
+                            <td>
+                                <span>Usada: </span>
+                                <span>{{ (bicicletaDetail.usada == true) ? 'SÍ' : 'NO' }}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Marca: </span>
+                                <span>{{ bicicletaDetail.marca.nombre }}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Categoría: </span>
+                                <span>{{ bicicletaDetail.categoria.nombre }}</span>
+                            </td>
                         </tr>
                         <tr>
                             <td class="b">Descripción:</td>
