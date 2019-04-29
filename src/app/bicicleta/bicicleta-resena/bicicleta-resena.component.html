@@ -6,7 +6,7 @@
                     <th scope="col">Comentarios</th>
                     <th scope="col"></th>
                     <th scope="col">
-                    Editar
+                    
                     
                     </th>
                 </tr>
@@ -14,8 +14,11 @@
             <tbody>
                 <tr *ngFor="let r of bicicletaResenas">
                     <th>
-					<p>{{r.titulo}}</p>
-					</th>
+                        <p>{{r.titulo}}</p>
+                        <p class="editar">Editar</p>
+                        <p class="eliminar">Eliminar</p>
+
+                    </th>
 
                     <th>
                    <p class="font-weight-normal">{{r.descripcion}}</p>

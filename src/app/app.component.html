@@ -76,7 +76,7 @@
             <div *ngxPermissionsOnly="['VENDEDOR']">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item"><a class="nav-link" [routerLink]="['vendedores',darIdActual()]">Perfil</a></li>
-                    <li class="nav-item"> <a class="nav-link" [routerLink]="['vendedores',darIdActual(),'edit']">Configuración</a></li>
+                    <li class="nav-item"> <a class="nav-link" [routerLink]="['vendedores','edit']">Configuración</a></li>
                     <li class="nav-item"><a class="nav-link" (click)="logout()" href="#">Cerrar Sesión</a></li>
                 </ul>
             </div>
