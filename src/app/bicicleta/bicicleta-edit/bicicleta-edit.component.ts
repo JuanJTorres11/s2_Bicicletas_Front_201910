@@ -149,9 +149,10 @@ export class BicicletaEditComponent implements OnInit {
     * Actualiza una  Bicicleta
     */
     updateBicicleta(): void {
+		console.log("# de resenas en Edit " + this.bicicleta.resenas.length);
         this.bicicletaService.updateBicicleta(this.bicicleta)
             .subscribe(() => {
-                this.router.navigate(['/bicicleta/' + this.bicicleta.id]);
+                this.router.navigate(['/bicicletas/list/' + this.bicicleta.id]);
                 this.toastrService.success("The bike was successfully edited", 'bike edition');
 				console.log("# de resenas en Edit " + this.bicicleta.resenas.length);
     
