@@ -5,103 +5,136 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <!-- Author:  Andrea Bayona -->
-<br>
-<div class="row">
+<html>
+<head>
 
-    <div class="col-md-6">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <br>
+    <div class="row">
 
-        <div class="spacer">
-	
+        <div class="col-md-6">
 
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li *ngFor="let f of bicicletaDetail.album,let i = index" data-target="#carouselExampleIndicators" class="{{ (i == 0) ? 'active' : '' }}" attr.data-slide-to="{{i}}"></li>
-                </ol>
-                <div class="carousel-inner">
-                    <div *ngFor="let f of bicicletaDetail.album,let i = index" class="{{ (i == 0) ? 'carousel-item active' : 'carousel-item' }}">
-                        <img class="d-block w-100" src="{{bicicletaDetail.album[i]}}" alt="slide {{i}}">
+            <div class="spacer">
+
+
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li *ngFor="let f of bicicletaDetail.album,let i = index" data-target="#carouselExampleIndicators" class="{{ (i == 0) ? 'active' : '' }}" attr.data-slide-to="{{i}}"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div *ngFor="let f of bicicletaDetail.album,let i = index" class="{{ (i == 0) ? 'carousel-item active' : 'carousel-item' }}">
+                            <img class="d-block w-100" src="{{bicicletaDetail.album[i]}}" alt="slide {{i}}">
+
+                        </div>
 
                     </div>
-
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
                 </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
             </div>
         </div>
-    </div>
 
-    <div class="col-md-4">
+        <div class="col-md-4">
 
-        <div class="spacer">
-            <table class="table-light">
-                <thead>
-                    <tr>
-                        <th class="a" scope="col">Bicicleta de bicicross BMX: {{bicicletaDetail.referencia}}</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="b">
-                            Precio:
-                            <p class="precio"> $ {{bicicletaDetail.precio}}</p>
-                        </td>
+            <div class="spacer">
+                <table class="table-light">
+                    <thead>
+                        <tr>
+                            <th class="a" scope="col">Bicicleta de {{bicicletaDetail.categoria.nombre}} {{bicicletaDetail.marca.nombre}}: {{bicicletaDetail.referencia}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="b">
 
-                    </tr>
-                    <tr>
-                        <td class="b">Calificación: {{bicicletaDetail.calificacion}}</td>
-                    </tr>
-                    <tr>
-                        <td class="b">Usada: {{ (bicicletaDetail.usada == true) ? 'SÍ' : 'NO' }}</td>
-                    </tr>
-                    <tr>
-                        <td class="b">Descripción:</td>
-                    </tr>
-                    <tr>
-                        <td> {{bicicletaDetail.descripcion}}</td>
-                    </tr>
+                                <p class="precio"> $ {{bicicletaDetail.precio}}</p>
+                            </td>
 
-                </tbody>
 
-            </table>
-            <div class="spacerR">
-                <a class="resena" style="margin-right: 12px" (click)="toggleReviews()">  Ver reseñas</a>
+                        <tr>
+                            <td class="b">
 
-                <a class="resena-c" (click)=" toggleCreateReview()"> Crear reseña</a>
+                                <span class="fa fa-star {{(bicicletaDetail.calificacion >= 1) ? 'checked' : ''}}"></span>
+                                <span class="fa fa-star {{(bicicletaDetail.calificacion >= 2) ? 'checked' : ''}}"></span>
+                                <span class="fa fa-star {{(bicicletaDetail.calificacion >= 3) ? 'checked' : ''}}"></span>
+                                <span class="fa fa-star {{(bicicletaDetail.calificacion >= 4) ? 'checked' : ''}}"></span>
+                                <span class="fa fa-star {{(bicicletaDetail.calificacion >= 5) ? 'checked' : ''}}"></span>
+
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Usada: </span>
+                                <span>{{ (bicicletaDetail.usada == true) ? 'SÍ' : 'NO' }}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Marca: </span>
+                                <span>{{ bicicletaDetail.marca.nombre }}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Categoría: </span>
+                                <span>{{ bicicletaDetail.categoria.nombre }}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="b">Descripción:</td>
+                        </tr>
+                        <tr>
+                            <td> {{bicicletaDetail.descripcion}}</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+                <div class="spacerR">
+                    <a class="resena" style="margin-right: 12px" (click)="toggleReviews()">  Ver reseñas</a>
+
+                    <a class="resena-c" (click)=" toggleCreateReview()"> Crear reseña</a>
+
+                </div>
+
+                <form class="form-inline">
+                    <div class="md-form my-0">
+
+                        <a class="btn btn-success my-2 my-sm-0" href="#" role="button" style="margin-right: 8px">Añadir al carrito</a>
+                        <a class="btn btn-outline-success my-2 my-sm-0" href="#" role="button">Comprar</a>
+                    </div>
+                </form>
 
             </div>
-
-            <form class="form-inline">
-                <div class="md-form my-0">
-
-                    <a class="btn btn-success my-2 my-sm-0" href="#" role="button" style="margin-right: 8px">Añadir al carrito</a>
-                    <a class="btn btn-outline-success my-2 my-sm-0" href="#" role="button">Comprar</a>
-                </div>
-            </form>
-
         </div>
+
+    </div>
+    <br>
+    <br>
+    <div>
+        <app-bicicleta-create-resena [bicicleta]="bicicletaDetail" (updateResenas)="updateResenas()"></app-bicicleta-create-resena>
+
+        <app-bicicleta-resena [bicicletaResenas]="bicicletaDetail.resenas"></app-bicicleta-resena>
+
+        <br>
+        <br>
     </div>
 
-</div>
-<br>
-<br>
-<div>
-    <app-bicicleta-create-resena [bicicleta]="bicicletaDetail"></app-bicicleta-create-resena>
-
-    <app-bicicleta-resena [bicicletaResenas]="bicicletaDetail.resenas"></app-bicicleta-resena>
-
+    <div class="spacer">
+        <hr style="border: 1px solid#C8C8C8;" />
+        <h3>También te puede interesar</h3>
+    </div>
     <br>
     <br>
-</div>
+</body>
 
-<div class="spacer">
-    <hr style="border: 1px solid#C8C8C8;" />
-    <h3>También te puede interesar</h3>
-</div>
-<br>
-<br>
+</html>

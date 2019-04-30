@@ -8,10 +8,13 @@
 p.editar {
     color: #009fff;
     font-style: normal;
-    font-size: 13px;
+    font-size: 12px;
 }
 p.eliminar {
     color: #ff0000;
     font-style: normal;
-    font-size: 14px;
+    font-size: 12px;
+}
+.checked {
+    color: orange;
 }

@@ -50,12 +50,12 @@ export class AuthLoginComponent implements OnInit {
                 localStorage.setItem('nombre', vendedorBD.nombre);
                 localStorage.setItem('login', vendedorBD.login);
                 localStorage.setItem('telefono', vendedorBD.telefono.toString());
-                this.service.setRol(this.usuario.rol);
                 this.toastrService.success('Se inició sesión correctamente');
                 this.router.navigateByUrl('/vendedores/' + id);
 
             });
         }
+        this.service.setRol(this.usuario.rol);
     }
 
     /**

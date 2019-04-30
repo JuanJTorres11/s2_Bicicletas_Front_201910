@@ -1,38 +1,55 @@
-<div id="collapseReview" [ngbCollapse]="isCollapsed">
-    <div class="spacer">
-        <table class="table">
-            <thead class="thead-light">
-                <tr>
-                    <th scope="col">Comentarios</th>
-                    <th scope="col"></th>
-                    <th scope="col">
-                    
-                    
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let r of bicicletaResenas">
-                    <th>
-                        <p>{{r.titulo}}</p>
-                        <p class="editar">Editar</p>
-                        <p class="eliminar">Eliminar</p>
+<!DOCTYPE html>
+<html>
+<head>
 
-                    </th>
-
-                    <th>
-                   <p class="font-weight-normal">{{r.descripcion}}</p>
-                   </th>
-				   
-				   <th>
-                        <p>Nombre Usuario</p>
-                        <p>{{r.calificacion}}</p>
-                    </th>
-
-                </tr>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div id="collapseReview" [ngbCollapse]="isCollapsed">
+        <div class="spacer">
+            <table class="table">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">Comentarios</th>
+                        <th scope="col"></th>
+                        <th scope="col">
 
 
-            </tbody>
-        </table>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let r of bicicletaResenas">
+                        <th>
+                            <p>{{r.titulo}}</p>
+                            <p class="editar">&nbsp; &nbsp;Editar</p>
+                            <p class="eliminar" >&nbsp; &nbsp;Eliminar</p>
+
+                        </th>
+
+                        <th>
+                            <p class="font-weight-normal">{{r.descripcion}}</p>
+                        </th>
+
+                        <th>
+                            <p>Nombre Usuario</p>
+
+                            <span class="fa fa-star {{(r.calificacion >= 1) ? 'checked' : ''}}"></span>
+                            <span class="fa fa-star {{(r.calificacion >= 2) ? 'checked' : ''}}"></span>
+                            <span class="fa fa-star {{(r.calificacion >= 3) ? 'checked' : ''}}"></span>
+                            <span class="fa fa-star {{(r.calificacion >= 4) ? 'checked' : ''}}"></span>
+                            <span class="fa fa-star {{(r.calificacion >= 5) ? 'checked' : ''}}"></span>
+
+                        </th>
+
+                    </tr>
+
+
+                </tbody>
+            </table>
+        </div>
     </div>
-</div>
+
+</body>
+
+</html>

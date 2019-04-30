@@ -59,12 +59,29 @@ export class BicicletaService {
 	 /**
     * Crea una reseña
     * @param resena La resena
-    * @returns True si se pudo crear, false de los contrario
+    * @returns True si se pudo crear, false de lo contrario
     */
     createResena(bicicletaId, resena): Observable<Resena> {
         return this.http.post<Resena>(API_URL + bicicletas + '/' + bicicletaId + resenas, resena);
     }
 
+	 /**
+    * Retorna una reseña
+    * @param resenaId id de la resena
+    * @returns La resena
+    */
+    getResena(bicicletaId, resenaId): Observable<Resena> {
+        return this.http.get<Resena>(API_URL + bicicletas + '/' + bicicletaId + resenas + '/' + resenaId);
+    }
+
+	 /**
+    * Actualiza una reseña
+    * @param resena La resena
+    * @returns True si se pudo actualizar, false de lo contrario
+    */
+    updateResena(bicicletaId, resena): Observable<Resena> {
+        return this.http.put<Resena>(API_URL + bicicletas + '/' + bicicletaId + resenas + '/' + resena.id, resena);
+    }
 
 	/**
     * Retorna un objeto Observable con el detalle de la Bicicleta que se reciben del API 

@@ -12,6 +12,8 @@ export class BicicletaResenaComponent implements OnInit {
     
     public isCollapsed = true;
     
+
+
     /**
 	 * La funcion que se llama cuando se publica una reseña para actualizar las reseñas
      */
