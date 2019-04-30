@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CategoriaService } from '../categoria.service';
 import { Bicicleta } from '../../bicicleta/bicicleta';
-import { BicicletaListComponent } from '../../bicicleta/bicicleta-list/bicicleta-list.component';
 
 @Component({
   selector: 'categoria-bicicleta',
@@ -27,6 +26,7 @@ export class CategoriaBicicletaComponent implements OnInit {
     this.categoriaService.getCategoriaBicicletas(nombreCategoria)
       .subscribe(bicis => {
         this.bicicletas = bicis;
+        console.log(bicis);
       });
   }
 
@@ -38,6 +38,7 @@ export class CategoriaBicicletaComponent implements OnInit {
     if(this.bicicletas === undefined) {
       this.bicicletas = [];
     }
+    this.getCategoriaBicicletas();
   }
 
 }
