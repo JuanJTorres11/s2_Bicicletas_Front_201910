@@ -1,0 +1,110 @@
+<button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#addModal">
+  Agregar Bicicleta
+</button>
+
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addModalTitle">Agregar Bicicleta</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span> 
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <form name="bicicleta" (ngSubmit)="f.form.valid && createBicicleta()" #f="ngForm" novalidate>
+          <h3>Crear bicicleta</h3>
+          <div class="form-row">
+              <div class="form-group col-md-6">
+                  <label for="inputReferencia4">Referencia</label>
+                  <input  class="form-control" id="inputReferencia4" placeholder="Referencia"
+                      type="text" name="bikekRef" [(ngModel)]="bicicleta.referencia"
+                      #bikekRef="ngModel" [ngClass]="{ 'is-invalid': f.submitted && bikekRef.invalid }" required>
+                  <div class="invalid-feedback">
+                      <div>Debe ingresar una referencia</div>
+                  </div>
+              </div>
+              <div class="form-group col-md-6">
+                  <label for="inputPrecio4">Precio</label>
+                  <input class="form-control" id="inputPrecio4" placeholder="Precio"
+                          type="text" name="bikekPrecio" [(ngModel)]="bicicleta.precio"
+                          #bikekPrecio="ngModel" [ngClass]="{ 'is-invalid': f.submitted && bikekPrecio.invalid }" required>
+                  <div class="invalid-feedback">
+                      <div>Debe ingresar un precio</div>
+                  </div>
+              </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputState">Marca</label>
+                <select id="inputMarca"
+                        class="custom-select" name="bicicletaMarca" [(ngModel)]="bicicleta.marca.id"
+                        #bicicletaMarca="ngModel" [ngClass]="{ 'is-invalid': f.submitted && bicicletaMarca.invalid }"
+                        required>
+                    <option selected>Seleccione una marca...</option>
+                    <option [value]="marca.id" *ngFor="let marca of marcas">{{marca.nombre}}</option>
+                </select>
+                <div class="invalid-feedback">
+                    <div>Debe seleccionar una marca para la bicicleta</div>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputState">Categoría</label>
+                <select id="inputCategoria"
+                    class="custom-select" name="bicicletaCategoria" [(ngModel)]="bicicleta.categoria.nombre"
+                    #bicicletaCategoria="ngModel" [ngClass]="{ 'is-invalid': f.submitted && bicicletaCategoria.invalid }"
+                    required>
+                    <option selected>Seleccione una categoria...</option>
+                    <option [value]="categoria.nombre" *ngFor="let categoria of categorias">{{categoria.nombre}}</option>
+                </select>
+                <div class="invalid-feedback">
+                    <div>Debe seleccionar una categoria para la bicicleta</div>
+                </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputStock4">Stock</label>
+                <input class="form-control" id="inputStock4" placeholder="Stock"
+                        type="text" name="bikekStock" [(ngModel)]="bicicleta.stock"
+                        #bikekStock="ngModel" [ngClass]="{ 'is-invalid': f.submitted && bikekStock.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>Debe ingresar una valor para el stock</div>
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputPrecio4">Foto</label>
+                <input class="form-control" id="inputFoto4" placeholder="Ruta"
+                        type="text" name="bikekFoto" [(ngModel)]="rutaFoto"
+                        #bikekFoto="ngModel" [ngClass]="{ 'is-invalid': f.submitted && bikekFoto.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>Debe ingresar el enlace de una foto</div>
+                </div>
+
+            </div>
+            <div class="form-group col-md-2">
+                <button class="album btn btn-secondary" type="button"  (click)="anadirFoto(rutaFoto)" onclick="document.getElementById('inputFoto4').value = ''">Confirmar</button>
+            </div>
+
+          </div>
+
+          <div class="form-row">
+            <label for="exampleFormControlTextarea3">Descripción</label>
+            <textarea name="bicicletaDescription" class="form-control" id="bicicletaDescription" [(ngModel)]="bicicleta.descripcion"
+                      #bicicletaDescription="ngModel" [ngClass]="{ 'is-invalid': f.submitted && bicicletaDescription.invalid }"
+                      required></textarea>
+            <div class="invalid-feedback">
+                <div>Ingresa la descripcion de la bicicleta</div>
+            </div>
+          </div>
+      </form>
+      </div>
+
+      <div class="moda-footer">
+        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary">Agregar</button>
+      </div>
+    </div>
+  </div> 
+</div>

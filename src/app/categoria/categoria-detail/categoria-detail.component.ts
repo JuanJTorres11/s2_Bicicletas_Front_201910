@@ -4,6 +4,8 @@ import { Location } from '@angular/common';
 
 import { CategoriaDetail } from '../categoria-detail';
 import { CategoriaService } from '../categoria.service';
+import { Bicicleta } from '../../bicicleta/bicicleta';
+import { balancePreviousStylesIntoKeyframes } from '@angular/animations/browser/src/util';
 
 @Component({
   selector: 'categoria-detail',
@@ -25,6 +27,7 @@ export class CategoriaDetailComponent implements OnInit {
     this.categoriaService.getCategoriaDetail(this.nombre)
       .subscribe(categoriaDetail => {
         this.categoriaDetail = categoriaDetail;
+        console.log(this.categoriaDetail);
       });
   }
 
@@ -38,8 +41,15 @@ export class CategoriaDetailComponent implements OnInit {
     this.getCategoriaDetail();
   }
 
-  createCategoriaBicicleta() {
-    
+  recibirEliminacion() {
+    this.back();
+  }
+
+  createCategoriaBicicleta(bicicleta: Bicicleta) {
+    this.categoriaService.createCategoriaBicicleta(this.nombre, bicicleta)
+      .subscribe(bici => {
+        this.categoriaDetail.bicicletas.push(bici);
+      });
   }
 
   ngOnInit() {
