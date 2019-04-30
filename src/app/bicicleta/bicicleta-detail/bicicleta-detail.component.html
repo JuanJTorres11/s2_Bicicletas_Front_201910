@@ -121,7 +121,7 @@ and open the template in the editor.
     <br>
     <br>
     <div>
-        <app-bicicleta-create-resena [bicicleta]="bicicletaDetail"></app-bicicleta-create-resena>
+        <app-bicicleta-create-resena [bicicleta]="bicicletaDetail" (updateResenas)="updateResenas()"></app-bicicleta-create-resena>
 
         <app-bicicleta-resena [bicicletaResenas]="bicicletaDetail.resenas"></app-bicicleta-resena>
 
