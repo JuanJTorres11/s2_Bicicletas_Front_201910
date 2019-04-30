@@ -40,7 +40,7 @@ export class BicicletaEditResenaComponent implements OnInit {
   /**
   *El id de la resena
   */
-  resena_id: number;
+  @Input() resena_id: number;
 
   /**
   *El id de la bicicleta
@@ -72,12 +72,13 @@ export class BicicletaEditResenaComponent implements OnInit {
            this.bicicletaService.getResena(this.bicicleta_id, this.resena_id)
             .subscribe(resena => {
                 this.resena = resena;
+				console.log("id bike Resena" + this.resena.bicicleta.id);
+				this.bicicleta_id = this.resena.bicicleta.id;
            });
-			
     }
 
 	/**
-    * Actualiza una  resena
+    * Actualiza una resena
     */
     updateResena(): void {
 	      this.bicicletaService.updateResena(this.bicicleta_id, this.resena)
@@ -91,8 +92,6 @@ export class BicicletaEditResenaComponent implements OnInit {
     * Funcion que incializa el componente
     */
     ngOnInit() {
-		this.resena_id = +this.route.snapshot.paramMap.get('id');
-		console.log(this.route.snapshot.paramMap.get('id'));
 		this.resena = new Resena();
 	    this.getResena();
 	
