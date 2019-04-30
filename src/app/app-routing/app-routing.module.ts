@@ -14,12 +14,12 @@ import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component
 
 import { CompradorEditComponent } from '../usuarios/comprador/comprador-edit/comprador-edit.component';
 import { CompradorDetailComponent } from '../usuarios/comprador/comprador-detail/comprador-detail.component';
-import {VentaCreateComponent} from '../venta/venta-create/venta-create.component';
-import {VentaEditComponent} from '../venta/venta-edit/venta-edit.component';
+import { VentaCreateComponent } from '../venta/venta-create/venta-create.component';
+import { VentaEditComponent } from '../venta/venta-edit/venta-edit.component';
 
- 
-import {OrdenListComponent} from '../orden/orden-list/orden-list.component';
-import {OrdenDetailComponent} from '../orden/orden-detail/orden-detail.component';
+
+import { OrdenListComponent } from '../orden/orden-list/orden-list.component';
+import { OrdenDetailComponent } from '../orden/orden-detail/orden-detail.component';
 
 import { MarcaCreateComponent } from '../marca/marca-create/marca-create.component';
 import { CategoriaListComponent } from '../categoria/categoria-list/categoria-list.component';
@@ -83,12 +83,7 @@ const routes: Routes = [
             },
             {
                 path: 'mediosPago',
-                children: [
-                    {
-                        path: ':idM',
-                        component: MediopagoDetailComponent
-                    }
-                ]
+                component: MediopagoListComponent
             },
             {
                 path: ':id',
@@ -101,10 +96,10 @@ const routes: Routes = [
         path: 'compradores',
         children: [
             {
-                        path: 'edit',
-                        component: CompradorEditComponent
-                    }
-                
+                path: 'edit',
+                component: CompradorEditComponent
+            }
+
         ]
     },
 
@@ -122,7 +117,7 @@ const routes: Routes = [
         ]
     },
 
-    
+
 
     {
         path: 'marcas',

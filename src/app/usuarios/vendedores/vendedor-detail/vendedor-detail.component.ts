@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { VendedorService } from '../vendedor.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { VendedorDetail } from '../vendedorDetail';
 
 @Component({
@@ -18,7 +18,8 @@ export class VendedorDetailComponent implements OnInit {
    */
   constructor(
     private vendedorService: VendedorService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   /**
@@ -48,4 +49,7 @@ export class VendedorDetailComponent implements OnInit {
     }
   }
 
+  getMediosPago () {
+    this.router.navigateByUrl('/vendedores/mediosPago');
+  }
 }
