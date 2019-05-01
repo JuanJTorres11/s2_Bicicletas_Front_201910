@@ -1,10 +1,13 @@
 <div class="container-fluid">
   <div class="row">
     <a (click)="back()" style="align-self: center; cursor: pointer;"><i class="material-icons back-arrow">arrow_back_ios</i></a>
-    <h1>{{categoriaDetail.nombre}}<categoria-edit [nombre]="nombre" (update)="recibirActualizacion($event)"></categoria-edit></h1>
-    <button type="button" class="btn btn-outline-primary align-self-right" data-toggle="modal" data-target="#addBikeModal">Agregar Bicicleta</button>
+    <h1>{{categoriaDetail.nombre}}
+      <categoria-edit [nombre]="nombre" (update)="recibirActualizacion($event)"></categoria-edit>
+      <categoria-delete [nombre]="nombre" (eliminado)="recibirEliminacion()"></categoria-delete>
+    </h1>
+    <!--<categoria-add-bicicleta></categoria-add-bicicleta>-->
   </div>
 </div>
 <hr>
 
-<categoria-bicicleta [nombreCategoria]="categoriaDetail.nombre"></categoria-bicicleta>
+<categoria-bicicleta [nombreCategoria]="nombre"></categoria-bicicleta>

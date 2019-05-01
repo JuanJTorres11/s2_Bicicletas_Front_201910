@@ -19,7 +19,7 @@ export class MediopagoService {
    * @return lista de medios de pago.
    */
   getMediospago(): Observable<Mediopago[]> {
-    return this.http.get<Mediopago[]>(API_URL + mediosPago);
+    return this.http.get<Mediopago[]>(API_URL + '/' + localStorage.getItem('rol') + '/' + localStorage.getItem('id') + mediosPago);
   }
 
   /**

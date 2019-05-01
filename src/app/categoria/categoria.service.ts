@@ -70,4 +70,13 @@ export class CategoriaService {
   createCategoriaBicicleta(nombre, bicicleta): Observable<Bicicleta> {
     return this.http.post<Bicicleta>(API_URL + categorias + '/' + nombre + bicicletas, bicicleta);
   }
+
+  /**
+   * Elimina la categoria con el nombre dado.
+   * @param nombre Nombre de la categoria.
+   * @return Categoria eliminada.
+   */
+  deleteCategoria(nombre: String): Observable<CategoriaDetail> {
+    return this.http.delete<CategoriaDetail>(API_URL + categorias + '/' + nombre);
+  }
 }
