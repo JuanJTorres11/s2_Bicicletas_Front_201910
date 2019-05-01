@@ -98,6 +98,10 @@ const routes: Routes = [
             {
                 path: 'edit',
                 component: CompradorEditComponent
+            },
+            {
+                path: ':id',
+                component: CompradorDetailComponent
             }
 
         ]

@@ -3,6 +3,7 @@ import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../auth.service';
 import { Usuario } from '../../usuarios/usuario';
 import { Vendedor } from '../../usuarios/vendedores/vendedor';
+import { Comprador } from '../../usuarios/Comprador/comprador';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -26,13 +27,15 @@ export class AuthSignUpComponent implements OnInit {
 
     user: Usuario;
 
-    vendedor:Vendedor;
+    vendedor: Vendedor;
 
-    rol:string;
-    nombre:string;
-    login:string;
-    password:string;
-    telefono:number;
+    comprador: Comprador;
+
+    rol: string;
+    nombre: string;
+    login: string;
+    password: string;
+    telefono: number;
 
     roles: string[];
 
@@ -44,7 +47,19 @@ export class AuthSignUpComponent implements OnInit {
             this.router.navigateByUrl('/');
         }
         else if (this.rol == 'Comprador') {
-            // TODO
+            this.comprador = new Comprador();
+            this.comprador.nombre = this.nombre;
+            this.comprador.login = this.login;
+            this.comprador.password = this.password;
+            this.service.postComprador(this.comprador).subscribe(compradorBD => {
+                localStorage.setItem('id', compradorBD.id.toString());
+                let id = compradorBD.id;
+                localStorage.setItem('nombre', compradorBD.nombre);
+                localStorage.setItem('login', compradorBD.login);
+                this.toastrService.success('Se registró correctamente');
+                this.router.navigateByUrl('/compradores/' + id);
+            }
+            );
         }
         else {
             this.vendedor = new Vendedor();

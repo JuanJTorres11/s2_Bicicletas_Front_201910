@@ -64,11 +64,7 @@
                                 <a class="nav-link" routerLink = "venta/add">Venta</a>
             
                         </li>
-                        
-                        <li class =" nav-item">
-                            <a class="nav-link" routerLink = "compradores/edit">Comprador Editar</a>
-                            
-                        </li>
+
 
         </ul>
 
@@ -83,7 +79,7 @@
             <div *ngxPermissionsOnly="['COMPRADOR']">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item"><a class="nav-link" href="#">Perfil</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="#">Configuración</a></li>
+                    <li class="nav-item"> <a class="nav-link" [routerLink]="['compradores','edit']">Configuración</a></li>
                     <li class="nav-item"><a class="nav-link" (click)="logout()" href="#">Cerrar Sesión</a></li>
                 </ul>
             </div>
