@@ -1,4 +1,5 @@
-import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import {Component, OnInit, ViewChild, EventEmitter, Output, Input} from '@angular/core';
+import {DatePipe} from '@angular/common';
 import {Router, ActivatedRoute} from '@angular/router';
 import {NgbTypeahead} from '@ng-bootstrap/ng-bootstrap';
 import {Observable, Subject, merge} from 'rxjs';
@@ -19,7 +20,8 @@ import {Marca} from '../../marca/marca';
 @Component({
     selector: 'app-bicicleta-edit',
     templateUrl: './bicicleta-edit.component.html',
-    styleUrls: ['./bicicleta-edit.component.css']
+    styleUrls: ['./bicicleta-edit.component.css'],
+	providers: [DatePipe]
 
 })
 export class BicicletaEditComponent implements OnInit {
@@ -39,6 +41,7 @@ export class BicicletaEditComponent implements OnInit {
         private route: ActivatedRoute,
 		private marcaService: MarcaService,
         private categoriaService: CategoriaService,
+		private dp: DatePipe,
 
     ) {}
 
@@ -54,7 +57,7 @@ export class BicicletaEditComponent implements OnInit {
    */
   @Output() create = new EventEmitter();
    
-   @Input() 
+  
     bicicleta_id: number;
    
    /**
@@ -83,16 +86,27 @@ export class BicicletaEditComponent implements OnInit {
     */
     marcas: Marca[];
 
+	/**
+    * Ruta temporal de la foto
+    */
+	rutaFoto : String;
 
+
+	
+	anadirFoto(ruta):void{
+		this.bicicleta.album.push(ruta);
+		console.log("guardó ruta");
+		console.log(this.bicicleta.album.toString());
+	}
 
    getBicicleta(): void {
-     this.bicicleta = new BicicletaDetail();
-
-        this.bicicletaService.getBicicletaDetail(this.bicicleta_id)
+           this.bicicletaService.getBicicletaDetail(this.bicicleta_id)
             .subscribe(bicicleta => {
                 this.bicicleta = bicicleta;
-				
+				console.log("# de fotos en album en Edit " + this.bicicleta.album.length);
+				console.log("# de resenas en Edit " + this.bicicleta.resenas.length);
             });
+			
     }
 
 	
@@ -123,7 +137,7 @@ export class BicicletaEditComponent implements OnInit {
   /**
    * Cancela la modificacion de la bicicleta
    */
-  cancelCreation(): void {
+  cancelEdition(): void {
     this.cancel.emit();
 	       this.router.navigate(['/bicicletas/list']);
  
@@ -135,10 +149,13 @@ export class BicicletaEditComponent implements OnInit {
     * Actualiza una  Bicicleta
     */
     updateBicicleta(): void {
+		console.log("# de resenas en Edit " + this.bicicleta.resenas.length);
         this.bicicletaService.updateBicicleta(this.bicicleta)
             .subscribe(() => {
-                this.router.navigate(['/bicicleta/' + this.bicicleta.id]);
+                this.router.navigate(['/bicicletas/list/' + this.bicicleta.id]);
                 this.toastrService.success("The bike was successfully edited", 'bike edition');
+				console.log("# de resenas en Edit " + this.bicicleta.resenas.length);
+    
             });
     }
 
@@ -147,18 +164,18 @@ export class BicicletaEditComponent implements OnInit {
     * Funcion que incializa el componente
     */
     ngOnInit() {
-	    this.getBicicleta();
+	   this.bicicleta_id = +this.route.snapshot.paramMap.get('id');
+	     this.bicicleta = new BicicletaDetail();
+
+	   this.getBicicleta();
 		
 		this.getCategorias();
 		this.getMarcas();
+		this.rutaFoto = this.bicicleta.album[0];
+	
      }
 
-	 /**
-    * The function which is called every time the user chooses to edit a different bike
-    */
-    ngOnChanges() {
-        this.ngOnInit();
-    }
+	
 
 
 }

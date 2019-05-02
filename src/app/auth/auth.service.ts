@@ -3,9 +3,11 @@ import { Router } from '@angular/router';
 import { NgxRolesService } from 'ngx-permissions'
 import 'rxjs/add/operator/catch';
 import { VendedorDetail } from '../usuarios/vendedores/vendedorDetail';
+import { CompradorDetail } from '../usuarios/comprador/compradorDetail';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Vendedor } from '../usuarios/vendedores/vendedor';
+import { Comprador } from '../usuarios/comprador/comprador'
 import { Credencial } from './credencial';
 import { Observable } from 'rxjs';
 
@@ -43,28 +45,30 @@ export class AuthService {
 
     setRol(rol:string):void {
         this.roleService.flushRoles();
-        if (rol === 'ADMIN' || rol ==="Administrador") {
-            this.roleService.addRole('ADMIN', ['']);
-        }
-        else if (rol === 'COMPRADOR' || rol ==="Comprador") {
-            this.roleService.addRole('COMPRADOR', ['']);
-        }
-        else {
-            this.roleService.addRole('VENDEDOR', ['']);
-        }
         if (!rol || rol === 'INVITADO' || rol==="Invitado") {
             this.roleService.addRole('INVITADO', ['']);
         }
+        else if (rol === 'ADMIN' || rol ==="Administrador") {
+            this.roleService.addRole('ADMIN', ['']);
+            localStorage.setItem('rol', 'ADMIN');
+        }
+        else if (rol === 'COMPRADOR' || rol ==="Comprador" || rol === "compradores") {
+            this.roleService.addRole('COMPRADOR', ['']);
+            localStorage.setItem('rol', 'compradores');
+        }
         else {
-            this.roleService.addRole(rol, ['']);
+            this.roleService.addRole('VENDEDOR', ['']);
+            localStorage.setItem('rol', 'vendedores');
         }
     }
-    /**
-     * Imprime los roles.
+
+        /**
+     * Obtiene un comprador mediante una consulta al API
+     * @param credenciales Credenciales de inicio de sesión.
      */
-    printRole(): void {
-        console.log(this.roleService.getRoles());
-    }
+    getComprador(credenciales:Credencial): Observable<CompradorDetail> {
+        return this.http.post<CompradorDetail>(API_URL + '/compradores/auth', credenciales, {headers: this.header}).pipe();
+     }
 
     /**
      * Obtiene un vendedor mediante una consulta al API
@@ -73,6 +77,14 @@ export class AuthService {
     getVendedor(credenciales:Credencial): Observable<VendedorDetail> {
        return this.http.post<VendedorDetail>(API_URL + '/vendedores/auth', credenciales, {headers: this.header}).pipe();
     }
+
+        /**
+     * Registra un nuevo comprador mediante el API
+     * @param com comprador a registrar.
+     */
+    postComprador(com: Comprador): Observable<CompradorDetail> {
+        return this.http.post<CompradorDetail>(API_URL + '/compradores', com, {headers: this.header}).pipe();
+     }
 
     /**
      * Registra un nuevo vendedor mediante el API

@@ -11,6 +11,13 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class VendedorEditComponent implements OnInit {
 
+  /**
+   * Constructor del componente
+   * @param service 
+   * @param route 
+   * @param router 
+   * @param toastrService 
+   */
   constructor(
     private service: VendedorService,
     private route: ActivatedRoute,
@@ -40,6 +47,9 @@ export class VendedorEditComponent implements OnInit {
   passwordNueva:string;
   confPassword:string;
 
+   /**
+   * Verifica que se cambie bien el nombre.
+   */
   cambiarNombre() {
     if(this.nombreActual != this.vendedor.nombre) {
       this.toastrService.error("El Nombre actual no coincide");
@@ -54,6 +64,9 @@ export class VendedorEditComponent implements OnInit {
     }
   }
 
+   /**
+   * Verifica que se cambie bien el correo.
+   */
   cambiarCorreo() {
     if(this.correoActual != this.vendedor.login) {
       this.toastrService.error("El correo actual no coincide");
@@ -68,6 +81,9 @@ export class VendedorEditComponent implements OnInit {
     }
   }
 
+   /**
+   * Verifica que se cambie bien el telefono.
+   */
   cambiarTelefono() {
     if(this.telefonoActual != this.vendedor.telefono) {
       this.toastrService.error("El telefono actual no coincide");
@@ -82,6 +98,9 @@ export class VendedorEditComponent implements OnInit {
     }
   }
 
+  /**
+   * Verifica que se cambie bien la contraseña
+   */
   cambiarpassword() {
     if(this.passwordActual != this.vendedor.password) {
       this.toastrService.error("La password actual no coincide");
@@ -105,6 +124,9 @@ export class VendedorEditComponent implements OnInit {
     });
   }
 
+  /**
+   * Actualiza la información de un vendedor
+   */
   putVendedor():void {
     this.service.putVendedor(this.id, this.vendedor).subscribe((vendedorRemoto) => {
       this.vendedor = vendedorRemoto
@@ -113,6 +135,9 @@ export class VendedorEditComponent implements OnInit {
     this.router.navigateByUrl('/vendedores/' + this.id);
   }
 
+  /**
+   * Elimina el vendedor actual.
+   */
   deleteVendedor():void {
     this.service.deleteVendedor(this.id);
     this.router.navigateByUrl('/home');
@@ -122,7 +147,7 @@ export class VendedorEditComponent implements OnInit {
    * Método que se ejecuta cuando se crea el componente
    */
   ngOnInit() {
-    this.id = +this.route.snapshot.paramMap.get('id');
+    this.id = Number.parseInt(localStorage.getItem("id"));
     if (this.id) {
       this.vendedor = new VendedorDetail();
       this.getVendedorDetail();

@@ -2,21 +2,21 @@
 
 <div class="wrapper">
     <div class="inner">
-        <form name="bicicleta" (ngSubmit)="f.form.valid && createBicicleta()" #f="ngForm" novalidate>
-            <h3>Actualizar bicicleta</h3>
+        <form name="bicicleta" (ngSubmit)="f.form.valid && updateBicicleta()" #f="ngForm" novalidate>
+            <h3>Modificar bicicleta con id {{bicicleta.id}}</h3>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputReferencia4">Referencia</label>
-                    <input  class="form-control" id="inputReferencia4" placeholder="Referencia"
-                        type="text" name="bikekRef" [(ngModel)]="bicicleta.referencia"
-                        #bikekRef="ngModel" [ngClass]="{ 'is-invalid': f.submitted && bikekRef.invalid }" required>
+                    <input class="form-control" id="inputReferencia4" placeholder="{{bicicleta.referencia}}"
+                           type="text" name="bikekRef" [(ngModel)]="bicicleta.referencia"
+                           #bikekRef="ngModel" [ngClass]="{ 'is-invalid': f.submitted && bikekRef.invalid }" required>
                     <div class="invalid-feedback">
                         <div>Debe ingresar una referencia</div>
                     </div>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputPrecio4">Precio</label>
-                    <input class="form-control" id="inputPrecio4" placeholder="Precio"
+                    <input class="form-control" id="inputPrecio4" placeholder="{{bicicleta.precio}}"
                            type="text" name="bikekPrecio" [(ngModel)]="bicicleta.precio"
                            #bikekPrecio="ngModel" [ngClass]="{ 'is-invalid': f.submitted && bikekPrecio.invalid }" required>
                     <div class="invalid-feedback">
@@ -41,9 +41,9 @@
                 <div class="form-group col-md-6">
                     <label for="inputState">Categoría</label>
                     <select id="inputCategoria"
-                        class="custom-select" name="bicicletaCategoria" [(ngModel)]="bicicleta.categoria.nombre"
-                        #bicicletaCategoria="ngModel" [ngClass]="{ 'is-invalid': f.submitted && bicicletaCategoria.invalid }"
-                        required>
+                            class="custom-select" name="bicicletaCategoria" [(ngModel)]="bicicleta.categoria.nombre"
+                            #bicicletaCategoria="ngModel" [ngClass]="{ 'is-invalid': f.submitted && bicicletaCategoria.invalid }"
+                            required>
                         <option selected>Seleccione una categoria...</option>
                         <option [value]="categoria.nombre" *ngFor="let categoria of categorias">{{categoria.nombre}}</option>
                     </select>
@@ -62,15 +62,17 @@
                         <div>Debe ingresar una valor para el stock</div>
                     </div>
                 </div>
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-4">
                     <label for="inputPrecio4">Foto</label>
-                    <input class="form-control" id="inputFoto4" placeholder="Enlace de la foto"
-                           type="text" name="bikekFoto" [(ngModel)]="bicicleta.album[0]"
-                           #bikekFoto="ngModel" [ngClass]="{ 'is-invalid': f.submitted && bikekFoto.invalid }" required>
-                    <div class="invalid-feedback">
-                        <div>Debe ingresar el enlace de una foto</div>
-                    </div>
+                    <input class="form-control" id="inputFoto4" placeholder="{{bicicleta.album[0]}}"
+                           type="text" name="bikekFoto" [(ngModel)]="rutaFoto"
+                           #bikekFoto="ngModel"  >
                 </div>
+                <div class="form-group col-md-2">
+                    <span style="float:right; font-size: 10pt; color: green;"> &nbsp; # fotos: {{bicicleta.album.length }}</span>
+                    <button class="album btn btn-secondary" type="button" (click)="anadirFoto(rutaFoto)" onclick="document.getElementById('inputFoto4').value = ''">Confirmar</button>
+                </div>
+
             </div>
 
             <div class="form-row">
@@ -85,7 +87,7 @@
 
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <button class="btn btn-success" type="submit">Crear</button>
+                    <button class="btn btn-success" type="submit">Actualizar</button>
                 </div>
                 <div class="form-group col-md-6">
                     <button class="btn btn-danger" type="button" (click)="cancelCreation()">Cancelar</button>

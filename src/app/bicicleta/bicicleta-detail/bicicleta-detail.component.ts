@@ -93,7 +93,7 @@ export class BicicletaDetailComponent implements OnInit, OnDestroy {
         this.getBicicletaDetail();
         this.resenaListComponent.updateResenas(this.bicicletaDetail.resenas);
         this.resenaListComponent.isCollapsed = false;
-		 this.resenaCreateComponent.isCollapsed = true;
+		this.resenaCreateComponent.isCollapsed = true;
      }
 	  
 
@@ -106,8 +106,8 @@ export class BicicletaDetailComponent implements OnInit, OnDestroy {
          this.bicicletaService.getBicicletaDetail(this.bicicleta_id)
             .subscribe(bicicletaDetail => {
                 this.bicicletaDetail = bicicletaDetail;
-					console.log(this.bicicletaDetail.album.length);
-   
+					console.log("# album en Detail " + this.bicicletaDetail.album.length);
+					console.log("# resenas en Detail " + this.bicicletaDetail.resenas.length);
             });
     }
 
