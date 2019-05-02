@@ -1,0 +1,26 @@
+<!-- Button trigger modal -->
+<div class="spacer">
+
+    <i class="material-icons delete" data-toggle="modal" (click)="toggle()">delete</i>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="eliminar{{bicicleta_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Eliminar bicicleta</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                &iquest;Est&aacute;&nbsp;seguro de eliminar la bicicleta con id {{bicicleta_id}}?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger" (click)="deleteResena()">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>

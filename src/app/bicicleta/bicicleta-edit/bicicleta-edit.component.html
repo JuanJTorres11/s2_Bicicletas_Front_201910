@@ -1,5 +1,4 @@
 
-
 <div class="wrapper">
     <div class="inner">
         <form name="bicicleta" (ngSubmit)="f.form.valid && updateBicicleta()" #f="ngForm" novalidate>
@@ -39,7 +38,7 @@
                     </div>
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="inputState">Categoría</label>
+                    <label for="inputState">Categor&iacute;a</label>
                     <select id="inputCategoria"
                             class="custom-select" name="bicicletaCategoria" [(ngModel)]="bicicleta.categoria.nombre"
                             #bicicletaCategoria="ngModel" [ngClass]="{ 'is-invalid': f.submitted && bicicletaCategoria.invalid }"
@@ -66,7 +65,7 @@
                     <label for="inputPrecio4">Foto</label>
                     <input class="form-control" id="inputFoto4" placeholder="{{bicicleta.album[0]}}"
                            type="text" name="bikekFoto" [(ngModel)]="rutaFoto"
-                           #bikekFoto="ngModel"  >
+                           #bikekFoto="ngModel">
                 </div>
                 <div class="form-group col-md-2">
                     <span style="float:right; font-size: 10pt; color: green;"> &nbsp; # fotos: {{bicicleta.album.length }}</span>
@@ -76,7 +75,7 @@
             </div>
 
             <div class="form-row">
-                <label for="exampleFormControlTextarea3">Descripción</label>
+                <label for="exampleFormControlTextarea3">Descripci&oacute;n</label>
                 <textarea name="bicicletaDescription" class="form-control" id="bicicletaDescription" [(ngModel)]="bicicleta.descripcion"
                           #bicicletaDescription="ngModel" [ngClass]="{ 'is-invalid': f.submitted && bicicletaDescription.invalid }"
                           required></textarea>
