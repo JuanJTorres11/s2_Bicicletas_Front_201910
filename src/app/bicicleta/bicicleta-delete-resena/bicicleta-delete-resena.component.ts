@@ -41,6 +41,12 @@ export class BicicletaDeleteResenaComponent implements OnInit {
   */
   @Input()bicicleta_id: number;
 
+  /**
+   * El Event Emitter que envía la señal  cuando se publica una reseña
+   * para que se refresque la lista de resenas
+   */
+   @Output() updateResenas = new EventEmitter();
+
 
   toggle(): void {
 
@@ -48,8 +54,25 @@ export class BicicletaDeleteResenaComponent implements OnInit {
     }
 
 	hide(): void{
-		$('#'+this.resena_id).modal('hide')
+		$('#eliminar'+this.resena_id).modal('hide')
 	}
+
+	/**
+    * Eliminar una resena
+    */
+    deleteResena(): void {
+		console.log("entro a delete R");
+	      this.bicicletaService.deleteResena(this.bicicleta_id, this.resena_id)
+            .subscribe(() => {
+			    this.updateResenas.emit();
+                this.router.navigate(['./bicicletas/', this.bicicleta_id]);
+				this.hide();
+                this.toastrService.success("The review was successfully deleted", 'review deletion');
+            }, err => {
+                this.toastrService.error(err, 'Error');
+            });
+    }
+
 
   ngOnInit() {
   }
