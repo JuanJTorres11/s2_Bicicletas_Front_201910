@@ -60,6 +60,11 @@ export class CompradorService {
     return this.http.get<Comprador[]>(API_URL + compradores);
 }   
 
+getCompradorOrden(id: number): Observable<any>
+{
+    return this.http.get(API_URL + "/" + id + "/ordenes");
+}
+
     /**
      * Actualiza un comprador
      * @param id Identificador del comprador a actualizar
