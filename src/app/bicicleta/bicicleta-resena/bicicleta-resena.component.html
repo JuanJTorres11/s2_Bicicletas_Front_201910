@@ -19,11 +19,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let r of bicicletaResenas">
+
+                    <tr *ngFor="let r of bicicletaResenas; let i = index">
                         <th>
-                            <p>{{r.titulo}}</p>
+                            <p>{{r.titulo}}   {{r.id}}</p>
                             <p class="editar">&nbsp; &nbsp;Editar</p>
-                            <p class="eliminar" >&nbsp; &nbsp;Eliminar</p>
+                            <p class="eliminar">&nbsp; &nbsp;Eliminar</p>
+
+                            <app-bicicleta-edit-resena [(resena_id)]="bicicletaResenas[i].id" [(bicicleta_id)] = "bicicletaResenas[i].bicicleta.id"></app-bicicleta-edit-resena>
+
+
 
                         </th>
 
@@ -50,6 +55,7 @@
         </div>
     </div>
 
+  
 </body>
 
 </html>

@@ -1,4 +1,5 @@
 import {Component, OnInit, ViewChild, EventEmitter, Output, Input} from '@angular/core';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {DatePipe} from '@angular/common';
 import {Router, ActivatedRoute} from '@angular/router';
 import {NgbTypeahead} from '@ng-bootstrap/ng-bootstrap';
@@ -31,21 +32,19 @@ export class BicicletaEditResenaComponent implements OnInit {
      private bicicletaService: BicicletaService,
      private toastrService: ToastrService,
      private router: Router,
-     private route: ActivatedRoute,
-	 private dp: DatePipe,
-
+     private route: ActivatedRoute
   ) 
 {  }
 	
   /**
   *El id de la resena
   */
-  @Input() resena_id: number;
+ @Input()resena_id: number;
 
   /**
   *El id de la bicicleta
   */
-  bicicleta_id: number;
+  @Input()bicicleta_id: number;
 
   /**
    * Emisor de eventos para la cancelacion de una creacion
@@ -72,9 +71,8 @@ export class BicicletaEditResenaComponent implements OnInit {
            this.bicicletaService.getResena(this.bicicleta_id, this.resena_id)
             .subscribe(resena => {
                 this.resena = resena;
-				console.log("id bike Resena" + this.resena.bicicleta.id);
-				this.bicicleta_id = this.resena.bicicleta.id;
-           });
+				console.log("id bike Resena: " + this.resena.bicicleta.id);
+	        });
     }
 
 	/**
@@ -88,13 +86,18 @@ export class BicicletaEditResenaComponent implements OnInit {
             });
     }
 
+	toggle(): void {
+        $('#'+this.resena_id).modal();
+    }
+
   /**
     * Funcion que incializa el componente
     */
     ngOnInit() {
 		this.resena = new Resena();
-	    this.getResena();
-	
+		console.log(this.bicicleta_id);
+		console.log(this.resena_id);
+		this.getResena();
 		
     }
 
