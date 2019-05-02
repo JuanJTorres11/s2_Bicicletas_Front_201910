@@ -5,3 +5,8 @@
     margin-right: 100px;
     margin-left: 100px;
 }
+button.editar {
+    color: #009fff;
+    font-size: 12px;
+    font-style: normal;
+}

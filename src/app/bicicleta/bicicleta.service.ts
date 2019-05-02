@@ -38,12 +38,30 @@ export class BicicletaService {
     }
 
 	/**
+    * Retorna un objeto Observable con el detalle de la Bicicleta que se reciben del API 
+    * @returns El detalle de la Bicicleta
+    */
+    getBicicletaDetail(bicicletaId): Observable<BicicletaDetail> {
+        return this.http.get<BicicletaDetail>(API_URL + bicicletas + '/' + bicicletaId);
+    }
+
+
+	/**
     * Crea una nueva Bicicleta
     * @param bicicleta La nueva Bicicleta
     * @returns La Bicicletacon su nuevo id si se pudo crear, false de los contrario
     */
     createBicicleta(bicicleta): Observable<BicicletaDetail> {
         return this.http.post<BicicletaDetail>(API_URL + bicicletas, bicicleta);
+    }
+
+	/**
+    * Elimia una Bicicleta
+	* @param bicicletaId El id de la Bicicleta
+    * @returns True si se pudo eliminar, false de lo contrario
+    */
+    deleteBicicleta(bicicletaId): Observable<BicicletaDetail> {
+        return this.http.delete<BicicletaDetail>(API_URL + bicicletas + '/' + bicicletaId);
     }
 
 
@@ -56,21 +74,43 @@ export class BicicletaService {
         return this.http.put<BicicletaDetail>(API_URL + bicicletas + '/' + bicicleta.id, bicicleta);
     }
 
+	
 	 /**
     * Crea una reseña
     * @param resena La resena
-    * @returns True si se pudo crear, false de los contrario
+    * @returns True si se pudo crear, false de lo contrario
     */
     createResena(bicicletaId, resena): Observable<Resena> {
         return this.http.post<Resena>(API_URL + bicicletas + '/' + bicicletaId + resenas, resena);
     }
 
+	 /**
+    * Retorna una reseña
+    * @param resenaId id de la resena
+    * @returns La resena
+    */
+    getResena(bicicletaId, resenaId): Observable<Resena> {
+        return this.http.get<Resena>(API_URL + bicicletas + '/' + bicicletaId + resenas + '/' + resenaId);
+    }
+
+	 /**
+    * Actualiza una reseña
+    * @param resena La resena
+    * @returns True si se pudo actualizar, false de lo contrario
+    */
+    updateResena(bicicletaId, resena): Observable<Resena> {
+        return this.http.put<Resena>(API_URL + bicicletas + '/' + bicicletaId + resenas + '/' + resena.id, resena);
+    }
 
 	/**
-    * Retorna un objeto Observable con el detalle de la Bicicleta que se reciben del API 
-    * @returns El detalle de la Bicicleta
+    * Elimia una Resena
+	* @param bicicletaId El id de la Bicicleta
+	* @param resenaId El id de la resena
+    * @returns True si se pudo eliminar, false de lo contrario
     */
-    getBicicletaDetail(bicicletaId): Observable<BicicletaDetail> {
-        return this.http.get<BicicletaDetail>(API_URL + bicicletas + '/' + bicicletaId);
+    deleteResena(bicicletaId, resenaId): Observable<Resena> {
+        return this.http.delete<Resena>(API_URL + bicicletas + '/' + bicicletaId + resenas + '/' + resenaId);
     }
+
+	
 }

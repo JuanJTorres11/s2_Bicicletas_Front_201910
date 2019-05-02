@@ -1,22 +1,49 @@
-<br>
-<div class="container">
-    <div class="row text-center text-lg-left">
-        <div class="col-lg-3 col-md-6 mb-4" *ngFor="let bicicleta of bicicletas">
- 
-            <div class="card h-100">    
-                <a routerLink="/bicicletas/{{bicicleta.id}}">
-                    <img class="card-img-top" src="{{bicicleta.album[0]}}" alt="">
-                </a>
-                <div class="card-body">
-                    <h4 class="card-title">Bicicleta de "categoria" "marca":{{bicicleta.referencia}}</h4>
-                    <p class="card-text">{{bicicleta.descripcion}}</p>
-                </div>
-                <div class="card-footer">
-                    <a routerLink="/bicicletas/{{bicicleta.id}}" class="btn btn-outline-primary" style="margin-right: 5px">Mas info</a>
-                    <a href="#" class="btn btn-success">Comprar</a>
-                </div>
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
+</head>
+<body>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <input type="text" class="form-control" placeholder="Buscar..." style="margin:auto">
             </div>
- 
+        </div>
+        <br>
+        <div class="row text-center text-lg-left">
+            <div class="col-lg-3 col-md-6 mb-4" *ngFor="let bicicleta of bicicletas">
+
+                <div class="card h-100">
+                    <a routerLink="/bicicletas/{{bicicleta.id}}">
+                        <img class="card-img-top" src="{{bicicleta.album[0]}}" alt="">
+                    </a>
+                    <div class="card-body">
+                        <h4 class="card-title">Bicicleta {{bicicleta.referencia}}</h4>
+                        <p class="precio">$ {{bicicleta.precio}}</p>
+
+                        <span class="fa fa-star {{(bicicleta.calificacion >= 1) ? 'checked' : ''}}"></span>
+                        <span class="fa fa-star {{(bicicleta.calificacion >= 2) ? 'checked' : ''}}"></span>
+                        <span class="fa fa-star {{(bicicleta.calificacion >= 3) ? 'checked' : ''}}"></span>
+                        <span class="fa fa-star {{(bicicleta.calificacion >= 4) ? 'checked' : ''}}"></span>
+                        <span class="fa fa-star {{(bicicleta.calificacion >= 5) ? 'checked' : ''}}"></span>
+
+
+                        <p class="card-text">{{bicicleta.descripcion}}</p>
+                    </div>
+                    <div class="card-footer">
+                        <a routerLink="/bicicletas/{{bicicleta.id}}" class="btn btn-outline-primary" style="margin-right: 5px">Mas info</a>
+                        <a href="#" class="btn btn-success">Comprar</a>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
-</div>
+    
+
+</body>
+
+</html>

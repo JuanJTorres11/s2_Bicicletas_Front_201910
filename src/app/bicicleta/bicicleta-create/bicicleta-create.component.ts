@@ -59,6 +59,11 @@ export class BicicletaCreateComponent implements OnInit {
     */
     marcaB: Marca;
 
+	/**
+    * Ruta temporal de la foto
+    */
+	rutaFoto : String;
+
 
 	/**
     * La lista de todas las categorias
@@ -70,7 +75,11 @@ export class BicicletaCreateComponent implements OnInit {
     */
     marcas: Marca[];
 
-
+	anadirFoto(ruta):void{
+		this.bicicleta.album.push(ruta);
+		console.log("guardó ruta");
+		console.log(this.bicicleta.album.toString());
+	}
  /**
     * Retorna la lista de todas las marcas
     */
@@ -102,7 +111,7 @@ export class BicicletaCreateComponent implements OnInit {
    */
   cancelCreation(): void {
     this.cancel.emit();
-	       this.router.navigate(['/bicicletas/list']);
+	       this.router.navigate(['./bicicletas/list']);
  
 	}
 
@@ -114,7 +123,7 @@ export class BicicletaCreateComponent implements OnInit {
             .subscribe(bicicleta => {
                 this.bicicleta.id = bicicleta.id;
  		       this.create.emit();
-                this.router.navigate(['/bicicleta/' + bicicleta.id]);
+                this.router.navigate(['./bicicletas/' , this.bicicleta.id]);
             }, err => {
                 this.toastrService.error(err, 'Error');
             });
@@ -125,13 +134,16 @@ export class BicicletaCreateComponent implements OnInit {
     * Funcion que incializa el componente
     */
     ngOnInit() {
+		this.rutaFoto = "";
         this.bicicleta = new Bicicleta();
 		this.bicicleta.categoria = new Categoria();
 		this.bicicleta.marca = new Marca();
-		this.bicicleta.album = new Array(1);
+		this.bicicleta.album = new Array();
 		
 		this.getCategorias();
 		this.getMarcas();
      }
+
+	 
 
 }

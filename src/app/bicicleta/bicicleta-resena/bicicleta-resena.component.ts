@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, } from '@angular/core';
 import { Resena } from '../resena';
 
+
 @Component({
     selector: 'app-bicicleta-resena',
     templateUrl: './bicicleta-resena.component.html',
@@ -9,9 +10,12 @@ import { Resena } from '../resena';
 export class BicicletaResenaComponent implements OnInit {
     
 	@Input() bicicletaResenas: Resena [];
-    
+
+	
     public isCollapsed = true;
     
+	resenaActual : Resena;
+
     /**
 	 * La funcion que se llama cuando se publica una reseña para actualizar las reseñas
      */
@@ -20,5 +24,7 @@ export class BicicletaResenaComponent implements OnInit {
     }
 		
     ngOnInit(){
+
+	this.resenaActual = new Resena();
     }
 }

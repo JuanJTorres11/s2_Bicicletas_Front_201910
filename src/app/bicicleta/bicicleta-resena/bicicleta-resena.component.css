@@ -5,3 +5,16 @@
     margin-right: 100px;
     margin-left: 100px;
 }
+p.editar {
+    color: #009fff;
+    font-style: normal;
+    font-size: 12px;
+}
+p.eliminar {
+    color: #ff0000;
+    font-style: normal;
+    font-size: 12px;
+}
+.checked {
+    color: orange;
+}

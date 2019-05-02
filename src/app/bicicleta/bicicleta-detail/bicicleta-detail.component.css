@@ -49,3 +49,15 @@ a.resena {
 a.resena-c {
     color: #30d0ff;
 }
+.checked {
+    color: orange;
+}
+
+.edit-icon {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    margin-top: 1px;
+    margin-right: 5px;
+    color: dodgerblue;
+    cursor: pointer;
+}

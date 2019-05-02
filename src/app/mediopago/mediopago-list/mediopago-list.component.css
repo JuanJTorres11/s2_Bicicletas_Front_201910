@@ -33,3 +33,14 @@ h1 {
   #blue-link:hover {
     text-decoration: underline;
   }
+
+  .back-arrow {
+    font-size: 36px;
+    padding-top: 10px;
+    padding-left: 10px;
+    color: dodgerblue;
+  }
+  
+  .back-arrow:hover {
+    color: navy;
+  }

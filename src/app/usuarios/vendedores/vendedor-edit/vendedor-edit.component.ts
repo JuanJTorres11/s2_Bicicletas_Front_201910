@@ -147,7 +147,7 @@ export class VendedorEditComponent implements OnInit {
    * Método que se ejecuta cuando se crea el componente
    */
   ngOnInit() {
-    this.id = +this.route.snapshot.paramMap.get('id');
+    this.id = Number.parseInt(localStorage.getItem("id"));
     if (this.id) {
       this.vendedor = new VendedorDetail();
       this.getVendedorDetail();

@@ -1,58 +1,61 @@
-<div id="collapseReview" [ngbCollapse]="isCollapsed">
-    <div class="spacer">
-        <table class="table">
-            <thead class="thead-light">
-                <tr>
-                    <th scope="col">Editar comentario</th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th>
+<button type="button" class="btn btn-link editar" data-toggle="modal" (click)="toggle()"><strong>Editar </strong></button>
 
-                        <div class="form-group">
-                            <label for="inputReferencia4">Titulo</label>
-                            <input class="form-control" id="inputReferencia4" placeholder="Referencia">
+<div class="modal fade" id ="{{resena_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="title">Editar rese&ntilde;a</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form name="post" (ngSubmit)="reviewForm.form.valid && updateResena(reviewForm)" #reviewForm="ngForm" novalidate>
+
+                <div class="modal-body">
+                    <!-- contenido resena -->
+                    <div class="form-group">
+                        <label for="inputReferencia4">T&iacute;tulo</label>
+                        <input type="text" name="reviewTitle" class="form-control" placeholder="Referencia" id="reviewTitle" [(ngModel)]="resena.titulo"
+                               #reviewTitle="ngModel" [ngClass]="{ 'is-invalid': reviewForm.submitted && reviewTitle.invalid }" required>
+                        <div class="invalid-feedback">
+                            <div>The review's title is missing</div>
                         </div>
-                        <div class="form-group">
-                            <label for="inputState">Calificacion</label>
-                            <select id="inputCategoria" class="form-control">
-                                <option selected>Selecione una calificacion</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputState">Calificaci&oacute;n</label>
+                        <select id="inputC"
+                                class="custom-select" name="resenaCali" [(ngModel)]="resena.calificacion"
+                                #resenaCali="ngModel" [ngClass]="{ 'is-invalid': reviewForm.submitted && resenaCali.invalid }"
+                                required>
+
+                            <option selected>Selecione una calificaci&oacute;n</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea3">Descripci&oacute;n</label>
+                        <textarea name="rDescription" class="form-control" id="rDescription" rows="7" [(ngModel)]="resena.descripcion"
+                                  #rDescription="ngModel" [ngClass]="{ 'is-invalid': reviewForm.submitted && rDescription.invalid }"
+                                  required></textarea>
+                        <div class="invalid-feedback">
+                            <div>Ingresa la descripcion de la bicicleta</div>
                         </div>
-                    </th>
-                    <th>
-                        <div class="form-row">
-                            <label for="exampleFormControlTextarea3">Descripción</label>
-                            <textarea class="form-control" id="inputDescripcion3" rows="7"></textarea>
-                        </div>
-                        <br>
-                        <div class="form-row col-md-6">
-                            <div class="form-group" style="margin-right: 10px">
-                                <button class="btn btn-success" type="submit">Crear</button>
-                            </div>
-                            <div class="form-group">
-                                <button class="btn btn-danger" type="submit">Cancelar</button>
-                            </div>
-                        </div>
-                    </th>
-                    <th>
+                    </div>
 
-                    </th>
+                    <!-- contenido resena -->
 
-                </tr>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                </div>
 
+            </form>
 
-            </tbody>
-        </table>
-
-
+        </div>
     </div>
 </div>

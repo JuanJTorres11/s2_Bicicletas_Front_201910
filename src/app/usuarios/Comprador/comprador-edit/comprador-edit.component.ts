@@ -94,8 +94,7 @@ export class CompradorEditComponent implements OnInit {
  */
   getCompradorDetail(): void {
     this.service.getCompradorDetail(this.id).subscribe((comprador) => {
-      this.comprador = comprador
-    });
+      this.comprador = comprador})
   }
 
 

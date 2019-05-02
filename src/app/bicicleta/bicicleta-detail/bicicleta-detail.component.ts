@@ -10,6 +10,10 @@ import { BicicletaDetail } from '../bicicleta-detail';
 import { BicicletaResenaComponent } from '../bicicleta-resena/bicicleta-resena.component';
 import { BicletaCreateResenaComponent } from '../bicicleta-create-resena/bicicleta-create-resena.component';
 
+
+import {Categoria} from '../../categoria/categoria';
+import {Marca} from '../../marca/marca'; 
+
 @Component({
     selector: 'app-bicicleta-detail',
     templateUrl: './bicicleta-detail.component.html',
@@ -93,7 +97,7 @@ export class BicicletaDetailComponent implements OnInit, OnDestroy {
         this.getBicicletaDetail();
         this.resenaListComponent.updateResenas(this.bicicletaDetail.resenas);
         this.resenaListComponent.isCollapsed = false;
-		 this.resenaCreateComponent.isCollapsed = true;
+		this.resenaCreateComponent.isCollapsed = true;
      }
 	  
 
@@ -106,8 +110,8 @@ export class BicicletaDetailComponent implements OnInit, OnDestroy {
          this.bicicletaService.getBicicletaDetail(this.bicicleta_id)
             .subscribe(bicicletaDetail => {
                 this.bicicletaDetail = bicicletaDetail;
-					console.log(this.bicicletaDetail.album.length);
-   
+					console.log("# album en Detail " + this.bicicletaDetail.album.length);
+					console.log("# resenas en Detail " + this.bicicletaDetail.resenas.length);
             });
     }
 
@@ -129,6 +133,8 @@ export class BicicletaDetailComponent implements OnInit, OnDestroy {
     ngOnInit() {
         this.bicicleta_id = + this.route.snapshot.paramMap.get('id');
         this.bicicletaDetail = new BicicletaDetail();
+		this.bicicletaDetail.categoria = new Categoria;
+		this.bicicletaDetail.marca = new Marca;
         this.getBicicletaDetail();
         this.getOtherBicicletas();
 	 }

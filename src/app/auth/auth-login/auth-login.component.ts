@@ -41,7 +41,14 @@ export class AuthLoginComponent implements OnInit {
         }
 
         else if (this.usuario.rol === 'Comprador') {
-            // TODO
+            this.service.getComprador(credenciales).subscribe(compradorBD => {
+                localStorage.setItem('id', compradorBD.toString());
+                let id = compradorBD.id;
+                localStorage.setItem('nombre', compradorBD.nombre);
+                localStorage.setItem('login', compradorBD.login);
+                this.toastrService.success('Se inicio sesión correctamente.');
+                this.router.navigateByUrl('/compradores/' + id);
+            })
         }
         else {
             this.service.getVendedor(credenciales).subscribe(vendedorBD => {
@@ -50,12 +57,12 @@ export class AuthLoginComponent implements OnInit {
                 localStorage.setItem('nombre', vendedorBD.nombre);
                 localStorage.setItem('login', vendedorBD.login);
                 localStorage.setItem('telefono', vendedorBD.telefono.toString());
-                this.service.setRol(this.usuario.rol);
                 this.toastrService.success('Se inició sesión correctamente');
                 this.router.navigateByUrl('/vendedores/' + id);
 
             });
         }
+        this.service.setRol(this.usuario.rol);
     }
 
     /**

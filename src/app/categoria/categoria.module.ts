@@ -11,6 +11,8 @@ import { CategoriaEditComponent } from './categoria-edit/categoria-edit.componen
 
 import { BicicletaModule } from '../bicicleta/bicicleta.module';
 import { CategoriaBicicletaComponent } from './categoria-bicicleta/categoria-bicicleta.component';
+import { CategoriaAddBicicletaComponent } from './categoria-add-bicicleta/categoria-add-bicicleta.component';
+import { CategoriaDeleteComponent } from './categoria-delete/categoria-delete.component';
 
 @NgModule({
   imports: [
@@ -19,7 +21,7 @@ import { CategoriaBicicletaComponent } from './categoria-bicicleta/categoria-bic
     RouterModule,
     BicicletaModule
   ],
-  declarations: [CategoriaListComponent, CategoriaAddComponent, CategoriaDetailComponent, CategoriaEditComponent, CategoriaBicicletaComponent],
+  declarations: [CategoriaListComponent, CategoriaAddComponent, CategoriaDetailComponent, CategoriaEditComponent, CategoriaBicicletaComponent, CategoriaAddBicicletaComponent, CategoriaDeleteComponent],
   bootstrap: [CategoriaListComponent],
   exports: [ CategoriaListComponent, CategoriaAddComponent ],
   providers: [CategoriaService]
