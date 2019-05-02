@@ -1,5 +1,5 @@
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-link eliminar" data-toggle="modal" (click)="toggle()"><strong>Eliminar</strong> {{resena_id}}</button>
+<button type="button" class="btn btn-link eliminar" data-toggle="modal" (click)="toggle()"><strong>Eliminar</strong> </button>
 
 <!-- Modal -->
 <div class="modal fade" id="eliminar{{resena_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -16,7 +16,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-danger">Eliminar</button>
+                <button type="button" class="btn btn-danger" (click)="deleteResena()">Eliminar</button>
             </div>
         </div>
     </div>
