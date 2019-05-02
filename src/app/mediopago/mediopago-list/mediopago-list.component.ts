@@ -83,12 +83,12 @@ export class MediopagoListComponent implements OnInit {
       });
   }
 
-  mostrarModalEdit(numeroTarjeta: number) {
+  mostrarModal(numeroTarjeta: number) {
     this.mostrarInfo = false;
     this.onSelected(numeroTarjeta);
   }
 
-  recibirEventoEdit() {
+  recibirEvento() {
     this.ngOnInit();
   }
 

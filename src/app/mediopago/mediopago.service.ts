@@ -40,4 +40,22 @@ export class MediopagoService {
   updateMediopago(numero: number, mediopago: Mediopago): Observable<Mediopago> {
     return this.http.put<Mediopago>(API_URL + mediosPago + '/' + numero, mediopago);
   }
+
+  /**
+   * Elimina el medio de pago con el numero dado.
+   * @param numero Numero del medio de pago que se desea eliminar.
+   * @return Medio de pago eliminado.
+   */
+  deleteMediopago(numero: number): Observable<Mediopago> {
+    return this.http.delete<Mediopago>(API_URL + mediosPago + '/' + numero);
+  }
+
+  /**
+   * Crea un medio de pago con la informacion dada.
+   * @param mediopago Medio de pago que se va a crear.
+   * @return Medio de pago creado.
+   */
+  createMediopago(mediopago): Observable<Mediopago> {
+    return this.http.post<Mediopago>(API_URL + mediosPago, mediopago);
+  }
 }

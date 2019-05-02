@@ -12,8 +12,8 @@
         </div>
         <div class="col-5 text-right">
           <a id="blue-link" (click)="mostrarInfoMediopago(mp.numeroTarjeta)">Ver información</a><br>
-          <mediopago-edit [mediopago]="medioPago" (mostrarModal)="mostrarModalEdit(mp.numeroTarjeta)" (update)="recibirEventoEdit()"></mediopago-edit><br>
-          <a href="#" style="color: #F00">Eliminar medio de pago</a>
+          <mediopago-edit [mediopago]="medioPago" (mostrarModal)="mostrarModal(mp.numeroTarjeta)" (update)="recibirEvento()"></mediopago-edit><br>
+          <mediopago-delete [mediopago]="medioPago" (mostrarModal)="mostrarModal(mp.numeroTarjeta)" (delete)="recibirEvento()"></mediopago-delete>
         </div>
       </div>
     </li>

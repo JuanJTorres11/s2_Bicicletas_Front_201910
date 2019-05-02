@@ -6,13 +6,14 @@ import { MediopagoListComponent } from './mediopago-list/mediopago-list.componen
 import { MediopagoAddComponent } from './mediopago-add/mediopago-add.component';
 import { MediopagoDetailComponent } from './mediopago-detail/mediopago-detail.component';
 import { MediopagoEditComponent } from './mediopago-edit/mediopago-edit.component';
+import { MediopagoDeleteComponent } from './mediopago-delete/mediopago-delete.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule
   ],
-  declarations: [MediopagoListComponent, MediopagoAddComponent, MediopagoDetailComponent, MediopagoEditComponent],
+  declarations: [MediopagoListComponent, MediopagoAddComponent, MediopagoDetailComponent, MediopagoEditComponent, MediopagoDeleteComponent],
   bootstrap: [MediopagoListComponent],
   exports: [MediopagoListComponent, MediopagoDetailComponent]
 })
