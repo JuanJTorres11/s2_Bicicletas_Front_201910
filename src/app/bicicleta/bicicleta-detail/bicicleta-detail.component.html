@@ -12,6 +12,12 @@ and open the template in the editor.
 </head>
 <body>
     <br>
+    <form class="form-inline">
+
+        <app-bicicleta-delete [(bicicleta_id)]="bicicletaDetail.id"></app-bicicleta-delete>
+        <i class="material-icons edit-icon" routerLink="/bicicletas/{{bicicletaDetail.id}}/edit">create</i>
+    </form>
+
     <div class="row">
 
         <div class="col-md-6">
@@ -121,26 +127,20 @@ and open the template in the editor.
     <br>
     <br>
     <div>
-            <form class="form-inline">
+        <app-bicicleta-create-resena [bicicleta]="bicicletaDetail" (updateResenas)="updateResenas()"></app-bicicleta-create-resena>
 
-                <app-bicicleta-delete [(bicicleta_id)]="bicicletaDetail.id"></app-bicicleta-delete>
-                <i class="material-icons edit-icon" routerLink="/bicicletas/{{bicicletaDetail.id}}/edit">create</i>
-            </form>
- 
-                <app-bicicleta-create-resena [bicicleta]="bicicletaDetail" (updateResenas)="updateResenas()"></app-bicicleta-create-resena>
+        <app-bicicleta-resena [bicicletaResenas]="bicicletaDetail.resenas"></app-bicicleta-resena>
 
-                <app-bicicleta-resena [bicicletaResenas]="bicicletaDetail.resenas"></app-bicicleta-resena>
+        <br>
+        <br>
+    </div>
 
-                <br>
-                <br>
-     </div>
-
-            <div class="spacer">
-                <hr style="border: 1px solid#C8C8C8;" />
-                <h3>También te puede interesar</h3>
-            </div>
-            <br>
-            <br>
+    <div class="spacer">
+        <hr style="border: 1px solid#C8C8C8;" />
+        <h3>También te puede interesar</h3>
+    </div>
+    <br>
+    <br>
 </body>
 
 </html>

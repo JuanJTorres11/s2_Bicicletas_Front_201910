@@ -136,12 +136,13 @@ export class BicicletaEditComponent implements OnInit {
             });
     }
     
+  
   /**
-   * Cancela la modificacion de la bicicleta
+   * Cancela la creacion de la bicicleta
    */
   cancelEdition(): void {
     this.cancel.emit();
-	       this.router.navigate(['/bicicletas/list']);
+	       this.router.navigate(['./bicicletas/' , this.bicicleta.id]);
  
 	}
 
