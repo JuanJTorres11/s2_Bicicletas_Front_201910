@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { Mediopago } from '../mediopago';
-import { MediopagoService } from '../mediopago.service';
 
 @Component({
   selector: 'mediopago-detail',
@@ -15,7 +14,7 @@ export class MediopagoDetailComponent implements OnInit {
    */
   @Input() mediopago: Mediopago;
 
-  constructor(private mediopagoService: MediopagoService) { }
+  constructor() { }
 
   /**
    * Retorna el tipo de tarjeta

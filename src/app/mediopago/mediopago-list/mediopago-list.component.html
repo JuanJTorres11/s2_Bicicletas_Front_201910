@@ -1,5 +1,8 @@
 <div class="container-fluid">
-  <h1>Medios de Pago</h1>
+  <div class="row">
+    <a (click)="back()" style="align-self: center; cursor: pointer;"><i class="material-icons back-arrow">arrow_back_ios</i></a>
+    <h1>Medios de Pago<mediopago-add (create)="recibirEvento()"></mediopago-add></h1>
+  </div>
   <hr id="separador-titulo">
   <ul class="list-group list-group-flush" style="margin-left: 20px; margin-right: 20px">
     <li class="list-group-item" *ngFor="let mp of mediosPago">
@@ -11,15 +14,14 @@
           </div>
         </div>
         <div class="col-5 text-right">
-          <a id="blue-link" (click)="onSelected(mp.numeroTarjeta)">Ver información</a><br>
-          <a id="blue-link" href="#">Actualizar información</a><br>
-          <a href="#" style="color: #F00">Eliminar medio de pago</a>
+          <a id="blue-link" (click)="mostrarInfoMediopago(mp.numeroTarjeta)">Ver información</a><br>
+          <mediopago-edit [mediopago]="medioPago" (mostrarModal)="mostrarModal(mp.numeroTarjeta)" (update)="recibirEvento()"></mediopago-edit><br>
+          <mediopago-delete [mediopago]="medioPago" (mostrarModal)="mostrarModal(mp.numeroTarjeta)" (delete)="recibirEvento()"></mediopago-delete>
         </div>
       </div>
     </li>
   </ul>
-  <div *ngIf="medioPago">
+  <div *ngIf="mostrarInfo">
     <mediopago-detail [mediopago]="medioPago"></mediopago-detail>
   </div>
 </div>
-

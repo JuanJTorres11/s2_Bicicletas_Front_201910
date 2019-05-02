@@ -1,7 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
+
 import { Mediopago } from '../mediopago';
 import { MediopagoService } from '../mediopago.service';
-import { MediopagoDetailComponent } from '../mediopago-detail/mediopago-detail.component';
 
 @Component({
   selector: 'mediopago-list',
@@ -25,7 +26,14 @@ export class MediopagoListComponent implements OnInit {
    */
   numeroMediopago: number;
 
-  constructor(private mediopagoService: MediopagoService) { }
+  /**
+   * Variable que indica si se muestra la informacion de la tarjeta
+   */
+  mostrarInfo: boolean;
+
+  constructor(private mediopagoService: MediopagoService,
+              private location: Location
+    ) { }
 
   /**
    * Obtiene todos los medios de pago.
@@ -59,7 +67,7 @@ export class MediopagoListComponent implements OnInit {
    * Genera el numero codificado de la tarjeta del medio de pago.
    */
   generarNumeroCodificado(mp: Mediopago): number {
-    var numeroTarjeta: string = String(mp.numeroTarjeta);
+    var numeroTarjeta: string = String(mp.numeroTarjeta).trim();
     mp.numeroCodificado = +numeroTarjeta.substring(numeroTarjeta.length - 4, numeroTarjeta.length);
     return mp.numeroCodificado;
   }
@@ -78,9 +86,28 @@ export class MediopagoListComponent implements OnInit {
       });
   }
 
+  mostrarModal(numeroTarjeta: number) {
+    this.mostrarInfo = false;
+    this.onSelected(numeroTarjeta);
+  }
+
+  recibirEvento() {
+    this.ngOnInit();
+  }
+
+  mostrarInfoMediopago(numeroTarjeta: number) {
+    this.onSelected(numeroTarjeta);
+    this.mostrarInfo = true;
+  }
+
+  back() {
+    this.location.back();
+  }
+
   ngOnInit() {
     this.mediosPago = [];
     this.getMediospago();
+    this.mostrarInfo = false;
   }
 
 }

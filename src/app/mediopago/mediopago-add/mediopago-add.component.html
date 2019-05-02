@@ -1,3 +1,66 @@
-<p>
-  mediopago-add works!
-</p>
+<button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#addModal" style="margin-left: 10px;">Agregar Medio de Pago<i class="material-icons" style="vertical-align:bottom; margin-left: 5px;">add</i></button>
+  
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="addModalLabel">Agregar Medio de Pago</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label class="h5" for="numeroTarjeta">Numero de Tarjeta</label>
+            <input class="form-control" type="number" id="numeroTarjeta" #numeroTarjeta="ngModel"
+            [(ngModel)]="mediopago.numeroTarjeta" placeholder="Ingrese el número de la tarjeta" 
+            name="numeroTarjeta" required>
+          </div>
+
+          <div class="form-group" style="text-align: left">
+            <label class="h5" for="direccion">Dirección</label>
+            <input class="form-control" type="text" id="direccion" #direccion="ngModel" 
+            [(ngModel)]="mediopago.direccion" name="direccion" placeholder="Ingrese la dirección">
+          </div>
+
+          <div class="form-group" style="text-align: left">
+            <label class="h5" for="fechaVencimiento">Fecha de Vencimiento (MM/AA)</label>
+            <input class="form-control" type="text" id="fechaVencimiento" #fechaVencimiento="ngModel" 
+            [(ngModel)]="mediopago.vencimiento" name="fechaVencimiento" placeholder="Ingrese la fecha de vencimiento">
+          </div>
+
+          <div class="form-group">
+            <div class="row">
+              <label class="h5 col-12">Tipo de Tarjeta</label>
+              <div class="form-check form-check-inline col"  style="margin-left: 20px;">
+                <input class="form-check-input" type="radio" name="tipoTarjeta" 
+                (change)="cambiarTipo(Debito)">
+                <img src="https://mensajerosurbanos.com/img/credit-cards/maestro.png">
+              </div>
+              <div class="form-check form-check-inline col">
+                <input class="form-check-input" type="radio" name="tipoTarjeta"
+                (change)="cambiarTipo(VISA)">
+                <img src="https://domiruth.com/vacationtravel/wp-content/uploads/2015/03/visa.png">
+              </div>
+                <div class="form-check form-check-inline col">
+                  <input class="form-check-input" type="radio" name="tipoTarjeta"
+                  (change)="cambiarTipo(MASTERCARD)">
+                  <img src="http://icons.iconarchive.com/icons/designbolts/credit-card-payment/256/Master-Card-Blue-icon.png">
+                </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="h5">Código de Verificacion</label>
+            <input class="form-control" type="number" placeholder="CVV (4 digitos)">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="createMediopago()">Agregar</button>
+      </div>
+    </div>
+  </div>
+</div>
