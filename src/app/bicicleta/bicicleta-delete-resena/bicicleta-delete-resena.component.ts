@@ -37,7 +37,7 @@ export class BicicletaDeleteResenaComponent implements OnInit {
  @Input()resena_id: number;
 
   /**
-  *El id de la bicicleta
+  *El id de la bicicleta que tiene la resena
   */
   @Input()bicicleta_id: number;
 
