@@ -31,7 +31,6 @@ export class BicicletaDeleteResenaComponent implements OnInit {
   
   }
 
-  
   /**
   *El id de la resena
   */
