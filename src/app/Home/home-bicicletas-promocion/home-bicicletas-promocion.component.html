@@ -14,13 +14,18 @@
                                 </a>
                                 <div class="card-body">
                                     <h4 class="card-title">Bicicleta {{bicicleta.marca.nombre}}</h4>
-                                    <p class="precio">$ {{bicicleta.precio}}</p>
 
-                                    <span class="fa fa-star {{(bicicleta.calificacion >= 1) ? 'checked' : ''}}"></span>
-                                    <span class="fa fa-star {{(bicicleta.calificacion >= 2) ? 'checked' : ''}}"></span>
-                                    <span class="fa fa-star {{(bicicleta.calificacion >= 3) ? 'checked' : ''}}"></span>
-                                    <span class="fa fa-star {{(bicicleta.calificacion >= 4) ? 'checked' : ''}}"></span>
-                                    <span class="fa fa-star {{(bicicleta.calificacion >= 5) ? 'checked' : ''}}"></span>
+                                    <form class="form-inline">
+                                        <p class="precioDes">${{bicicleta.precio}}&nbsp;</p>
+                                        <p class="precio"> <s>&nbsp;${{bicicleta.precio}}</s></p>
+                                        
+                                    </form>
+
+                                        <span class="fa fa-star {{(bicicleta.calificacion >= 1) ? 'checked' : ''}}"></span>
+                                        <span class="fa fa-star {{(bicicleta.calificacion >= 2) ? 'checked' : ''}}"></span>
+                                        <span class="fa fa-star {{(bicicleta.calificacion >= 3) ? 'checked' : ''}}"></span>
+                                        <span class="fa fa-star {{(bicicleta.calificacion >= 4) ? 'checked' : ''}}"></span>
+                                        <span class="fa fa-star {{(bicicleta.calificacion >= 5) ? 'checked' : ''}}"></span>
 
 
                                 </div>
@@ -36,73 +41,86 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <div class="row">
                     <div *ngIf="bicicletas.length >=8; else elseBlock">
+                        <div class="row">
+                            <!--  loop-->
+                            <div *ngFor="let bicicleta of bicicletas; let i = index" class="{{ (i >= 4 && i < 8) ? 'col-sm' : '' }}">
+                                <!-- condicional 2-->
+                                <div *ngIf="i >= 4 && i < 8">
+                                    <!-- card -->
+                                    <div class="card h-100">
+                                        <a routerLink="/bicicletas/{{bicicleta.id}}">
+                                            <img class="card-img-top" src="{{bicicleta.album[0]}}" alt="">
+                                        </a>
+                                        <div class="card-body">
+                                            <h4 class="card-title">Bicicleta {{bicicleta.marca.nombre}}</h4>
 
-                        <div *ngFor="let bicicleta of bicicletas; let i = index" class="{{ (i >= 4 && i < 8) ? 'col-sm' : '' }}">
-                            <div *ngIf="i >= 4 && i < 8">
+                                            <form class="form-inline">
+                                                <p class="precioDes">${{bicicleta.precio}}&nbsp;</p>
+                                                <p class="precio"> <s>&nbsp;${{bicicleta.precio}}</s></p>
 
-                                <!-- card -->
-                                <div class="card h-100">
-                                    <a routerLink="/bicicletas/{{bicicleta.id}}">
-                                        <img class="card-img-top" src="{{bicicleta.album[0]}}" alt="">
-                                    </a>
-                                    <div class="card-body">
-                                        <h4 class="card-title">Bicicleta {{bicicleta.marca.nombre}}</h4>
-                                        <p class="precio">$ {{bicicleta.precio}}</p>
+                                            </form>
 
-                                        <span class="fa fa-star {{(bicicleta.calificacion >= 1) ? 'checked' : ''}}"></span>
-                                        <span class="fa fa-star {{(bicicleta.calificacion >= 2) ? 'checked' : ''}}"></span>
-                                        <span class="fa fa-star {{(bicicleta.calificacion >= 3) ? 'checked' : ''}}"></span>
-                                        <span class="fa fa-star {{(bicicleta.calificacion >= 4) ? 'checked' : ''}}"></span>
-                                        <span class="fa fa-star {{(bicicleta.calificacion >= 5) ? 'checked' : ''}}"></span>
+                                            <span class="fa fa-star {{(bicicleta.calificacion >= 1) ? 'checked' : ''}}"></span>
+                                            <span class="fa fa-star {{(bicicleta.calificacion >= 2) ? 'checked' : ''}}"></span>
+                                            <span class="fa fa-star {{(bicicleta.calificacion >= 3) ? 'checked' : ''}}"></span>
+                                            <span class="fa fa-star {{(bicicleta.calificacion >= 4) ? 'checked' : ''}}"></span>
+                                            <span class="fa fa-star {{(bicicleta.calificacion >= 5) ? 'checked' : ''}}"></span>
 
 
+                                        </div>
+                                        <div class="card-footer">
+                                            <a routerLink="/bicicletas/{{bicicleta.id}}" class="btn btn-info" style="margin-right: 5px">Mas info</a>
+                                            <a href="#" class="btn btn-dark">Comprar</a>
+                                        </div>
                                     </div>
-                                    <div class="card-footer">
-                                        <a routerLink="/bicicletas/{{bicicleta.id}}" class="btn btn-info" style="margin-right: 5px">Mas info</a>
-                                        <a href="#" class="btn btn-dark">Comprar</a>
-                                    </div>
+                                    <!-- card end-->
                                 </div>
-                                <!-- card end-->
-
+                                <!-- condicional 2 termina-->
                             </div>
+                            <!-- loop ends-->
                         </div>
                     </div>
                     <ng-template #elseBlock>
-                        <div *ngFor="let bicicleta of bicicletas; let i = index" class="{{ (i < 4) ? 'col-sm' : '' }}">
-                            <div *ngIf="i < 4">
+                        <div class="row">
+                            <div *ngFor="let bicicleta of bicicletas; let i = index" class="{{ (i < 4) ? 'col-sm' : '' }}">
+                                <div *ngIf="i < 4">
 
-                                <!-- card -->
-                                <div class="card h-100">
-                                    <a routerLink="/bicicletas/{{bicicleta.id}}">
-                                        <img class="card-img-top" src="{{bicicleta.album[0]}}" alt="">
-                                    </a>
-                                    <div class="card-body">
-                                        <h4 class="card-title">Bicicleta {{bicicleta.marca.nombre}}</h4>
-                                        <p class="precio">$ {{bicicleta.precio}}</p>
+                                    <!-- card -->
+                                    <div class="card h-100">
+                                        <a routerLink="/bicicletas/{{bicicleta.id}}">
+                                            <img class="card-img-top" src="{{bicicleta.album[0]}}" alt="">
+                                        </a>
+                                        <div class="card-body">
+                                            <h4 class="card-title">Bicicleta {{bicicleta.marca.nombre}}</h4>
 
-                                        <span class="fa fa-star {{(bicicleta.calificacion >= 1) ? 'checked' : ''}}"></span>
-                                        <span class="fa fa-star {{(bicicleta.calificacion >= 2) ? 'checked' : ''}}"></span>
-                                        <span class="fa fa-star {{(bicicleta.calificacion >= 3) ? 'checked' : ''}}"></span>
-                                        <span class="fa fa-star {{(bicicleta.calificacion >= 4) ? 'checked' : ''}}"></span>
-                                        <span class="fa fa-star {{(bicicleta.calificacion >= 5) ? 'checked' : ''}}"></span>
+                                            <form class="form-inline">
+                                                <p class="precioDes">${{bicicleta.precio}}&nbsp;</p>
+                                                <p class="precio"> <s>&nbsp;${{bicicleta.precio}}</s></p>
+
+                                            </form>
+
+                                            <span class="fa fa-star {{(bicicleta.calificacion >= 1) ? 'checked' : ''}}"></span>
+                                            <span class="fa fa-star {{(bicicleta.calificacion >= 2) ? 'checked' : ''}}"></span>
+                                            <span class="fa fa-star {{(bicicleta.calificacion >= 3) ? 'checked' : ''}}"></span>
+                                            <span class="fa fa-star {{(bicicleta.calificacion >= 4) ? 'checked' : ''}}"></span>
+                                            <span class="fa fa-star {{(bicicleta.calificacion >= 5) ? 'checked' : ''}}"></span>
 
 
+                                        </div>
+                                        <div class="card-footer">
+                                            <a routerLink="/bicicletas/{{bicicleta.id}}" class="btn btn-info" style="margin-right: 5px">Mas info</a>
+                                            <a href="#" class="btn btn-dark">Comprar</a>
+                                        </div>
                                     </div>
-                                    <div class="card-footer">
-                                        <a routerLink="/bicicletas/{{bicicleta.id}}" class="btn btn-info" style="margin-right: 5px">Mas info</a>
-                                        <a href="#" class="btn btn-dark">Comprar</a>
-                                    </div>
+                                    <!-- card end-->
                                 </div>
-                                <!-- card end-->
                             </div>
                         </div>
-
                     </ng-template>
                 </div>
             </div>
-        </div>
+        
         <a class="carousel-control-prev" href="#multi_item" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
