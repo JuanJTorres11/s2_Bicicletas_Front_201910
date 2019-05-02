@@ -6,6 +6,8 @@ import {NgbTypeahead} from '@ng-bootstrap/ng-bootstrap';
 import {Observable, Subject, merge} from 'rxjs';
 import {debounceTime, distinctUntilChanged, filter, map} from 'rxjs/operators';
 import {ToastrService} from 'ngx-toastr';
+import * as $ from "jquery";
+
 
 import { Resena } from '../resena';
 import { BicicletaService } from '../bicicleta.service';
