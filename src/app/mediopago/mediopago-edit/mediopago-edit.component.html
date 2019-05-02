@@ -1,3 +1,38 @@
-<p>
-  mediopago-edit works!
-</p>
+<a id="blue-link" data-toggle="modal" data-target="#editModal" (click)="mostrarComponente()">Actualizar Información</a>
+
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editModalLabel">Actualizar información</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group" style="text-align: left">
+            <label for="numeroTarjeta"><b>Numero de Tarjeta</b></label>
+            <input class="form-control" type="text" id="numeroTarjeta" placeholder="************{{mediopago.numeroCodificado}}" readonly>
+          </div>
+
+          <div class="form-group" style="text-align: left">
+            <label for="direccion"><b>Dirección</b></label>
+            <input class="form-control" type="text" id="direccion" value="{{mediopago.direccion}}" 
+            #direccion="ngModel" [(ngModel)]="mediopago.direccion" name="direccion">
+          </div>
+
+          <div class="form-group" style="text-align: left">
+            <label for="fechaVencimiento"><b>Fecha de Vencimiento</b></label>
+            <input class="form-control" type="text" id="fechaVencimiento" value="{{mediopago.vencimiento}}"
+            #fechaVencimiento="ngModel" [(ngModel)]="mediopago.vencimiento" name="fechaVencimiento">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="editMediopago()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

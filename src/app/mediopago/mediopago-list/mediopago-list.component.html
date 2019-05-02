@@ -11,15 +11,14 @@
           </div>
         </div>
         <div class="col-5 text-right">
-          <a id="blue-link" (click)="onSelected(mp.numeroTarjeta)">Ver información</a><br>
-          <a id="blue-link" href="#">Actualizar información</a><br>
+          <a id="blue-link" (click)="mostrarInfoMediopago(mp.numeroTarjeta)">Ver información</a><br>
+          <mediopago-edit [mediopago]="medioPago" (mostrarModal)="mostrarModalEdit(mp.numeroTarjeta)" (update)="recibirEventoEdit()"></mediopago-edit><br>
           <a href="#" style="color: #F00">Eliminar medio de pago</a>
         </div>
       </div>
     </li>
   </ul>
-  <div *ngIf="medioPago">
+  <div *ngIf="mostrarInfo">
     <mediopago-detail [mediopago]="medioPago"></mediopago-detail>
   </div>
 </div>
-

@@ -25,6 +25,11 @@ export class MediopagoListComponent implements OnInit {
    */
   numeroMediopago: number;
 
+  /**
+   * Variable que indica si se muestra la informacion de la tarjeta
+   */
+  mostrarInfo: boolean;
+
   constructor(private mediopagoService: MediopagoService) { }
 
   /**
@@ -78,9 +83,24 @@ export class MediopagoListComponent implements OnInit {
       });
   }
 
+  mostrarModalEdit(numeroTarjeta: number) {
+    this.mostrarInfo = false;
+    this.onSelected(numeroTarjeta);
+  }
+
+  recibirEventoEdit() {
+    this.ngOnInit();
+  }
+
+  mostrarInfoMediopago(numeroTarjeta: number) {
+    this.onSelected(numeroTarjeta);
+    this.mostrarInfo = true;
+  }
+
   ngOnInit() {
     this.mediosPago = [];
     this.getMediospago();
+    this.mostrarInfo = false;
   }
 
 }
