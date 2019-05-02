@@ -46,7 +46,7 @@ export class AuthSignUpComponent implements OnInit {
         if (this.rol == 'Administrador') {
             this.router.navigateByUrl('/');
         }
-        else if (this.rol == 'Comprador') {
+        else if (this.rol == 'comprador') {
             this.comprador = new Comprador();
             this.comprador.nombre = this.nombre;
             this.comprador.login = this.login;
