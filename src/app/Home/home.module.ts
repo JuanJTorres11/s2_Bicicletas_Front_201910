@@ -14,6 +14,7 @@ import {FormsModule} from '@angular/forms';
 
 import {HomeComponent} from './home-main/home.component';
 import {AppRoutingModule} from '../app-routing/app-routing.module';
+import { HomeBicicletasPromocionComponent } from './home-bicicletas-promocion/home-bicicletas-promocion.component';
 
 @NgModule({
     imports: [
@@ -24,7 +25,8 @@ import {AppRoutingModule} from '../app-routing/app-routing.module';
         FormsModule
     ],
     declarations: [
-        HomeComponent
+        HomeComponent,
+        HomeBicicletasPromocionComponent
     ],
    
     bootstrap: [HomeComponent]
