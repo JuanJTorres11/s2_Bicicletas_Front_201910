@@ -111,7 +111,7 @@ export class BicicletaCreateComponent implements OnInit {
    */
   cancelCreation(): void {
     this.cancel.emit();
-	       this.router.navigate(['/bicicletas/list']);
+	       this.router.navigate(['./bicicletas/list']);
  
 	}
 
@@ -123,7 +123,7 @@ export class BicicletaCreateComponent implements OnInit {
             .subscribe(bicicleta => {
                 this.bicicleta.id = bicicleta.id;
  		       this.create.emit();
-                this.router.navigate(['/bicicleta/' + bicicleta.id]);
+                this.router.navigate(['./bicicletas/' , this.bicicleta.id]);
             }, err => {
                 this.toastrService.error(err, 'Error');
             });

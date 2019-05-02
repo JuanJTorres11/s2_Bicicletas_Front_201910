@@ -16,6 +16,8 @@ import {BicicletaCreateComponent} from './bicicleta-create/bicicleta-create.comp
 import {BicletaCreateResenaComponent} from './bicicleta-create-resena/bicicleta-create-resena.component';
 import {BicicletaEditComponent} from './bicicleta-edit/bicicleta-edit.component';
 import { BicicletaEditResenaComponent } from './bicicleta-edit-resena/bicicleta-edit-resena.component';
+import { BicicletaDeleteResenaComponent } from './bicicleta-delete-resena/bicicleta-delete-resena.component';
+import { BicicletaDeleteComponent } from './bicicleta-delete/bicicleta-delete.component';
 
 
 
@@ -35,7 +37,9 @@ import { BicicletaEditResenaComponent } from './bicicleta-edit-resena/bicicleta-
 		BicicletaCreateComponent,
 		BicletaCreateResenaComponent,
 		BicicletaEditComponent,
-		BicicletaEditResenaComponent
+		BicicletaEditResenaComponent,
+		BicicletaDeleteResenaComponent,
+		BicicletaDeleteComponent
     ],
     providers: [BicicletaService],
     exports: [BicicletaListComponent]

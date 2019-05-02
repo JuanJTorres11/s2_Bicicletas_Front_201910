@@ -10,6 +10,10 @@ import { BicicletaDetail } from '../bicicleta-detail';
 import { BicicletaResenaComponent } from '../bicicleta-resena/bicicleta-resena.component';
 import { BicletaCreateResenaComponent } from '../bicicleta-create-resena/bicicleta-create-resena.component';
 
+
+import {Categoria} from '../../categoria/categoria';
+import {Marca} from '../../marca/marca'; 
+
 @Component({
     selector: 'app-bicicleta-detail',
     templateUrl: './bicicleta-detail.component.html',
@@ -129,6 +133,8 @@ export class BicicletaDetailComponent implements OnInit, OnDestroy {
     ngOnInit() {
         this.bicicleta_id = + this.route.snapshot.paramMap.get('id');
         this.bicicletaDetail = new BicicletaDetail();
+		this.bicicletaDetail.categoria = new Categoria;
+		this.bicicletaDetail.marca = new Marca;
         this.getBicicletaDetail();
         this.getOtherBicicletas();
 	 }
