@@ -6,11 +6,12 @@ import {NgbTypeahead} from '@ng-bootstrap/ng-bootstrap';
 import {Observable, Subject, merge} from 'rxjs';
 import {debounceTime, distinctUntilChanged, filter, map} from 'rxjs/operators';
 import {ToastrService} from 'ngx-toastr';
-import * as $ from "jquery";
 
 import { Resena } from '../resena';
 import { BicicletaService } from '../bicicleta.service';
 import { Bicicleta } from '../../bicicleta/bicicleta';
+
+declare var $: any;
 
 @Component({
   selector: 'app-bicicleta-delete-resena',
@@ -26,8 +27,11 @@ export class BicicletaDeleteResenaComponent implements OnInit {
      private router: Router,
      private route: ActivatedRoute
 
-  ) { }
+  ) { 
+  
+  }
 
+  
   /**
   *El id de la resena
   */
@@ -40,9 +44,13 @@ export class BicicletaDeleteResenaComponent implements OnInit {
 
 
   toggle(): void {
+
         $('#eliminar'+this.resena_id).modal();
     }
 
+	hide(): void{
+		$('#'+this.resena_id).modal('hide')
+	}
 
   ngOnInit() {
   }

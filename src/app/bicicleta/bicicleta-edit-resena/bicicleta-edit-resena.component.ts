@@ -6,14 +6,13 @@ import {NgbTypeahead} from '@ng-bootstrap/ng-bootstrap';
 import {Observable, Subject, merge} from 'rxjs';
 import {debounceTime, distinctUntilChanged, filter, map} from 'rxjs/operators';
 import {ToastrService} from 'ngx-toastr';
-import * as $ from "jquery";
 
 
 import { Resena } from '../resena';
 import { BicicletaService } from '../bicicleta.service';
 import { Bicicleta } from '../../bicicleta/bicicleta';
 
-
+declare var $: any;
 
 @Component({
   selector: 'app-bicicleta-edit-resena',
@@ -81,10 +80,12 @@ export class BicicletaEditResenaComponent implements OnInit {
     * Actualiza una resena
     */
     updateResena(): void {
+		console.log("entro a update");
 	      this.bicicletaService.updateResena(this.bicicleta_id, this.resena)
             .subscribe(() => {
 			    this.updateResenas.emit();
                 this.router.navigate(['./bicicletas/', this.bicicleta_id]);
+				this.hide();
                 this.toastrService.success("The review was successfully edited", 'review edition');
             }, err => {
                 this.toastrService.error(err, 'Error');
@@ -96,6 +97,9 @@ export class BicicletaEditResenaComponent implements OnInit {
         $('#'+this.resena_id).modal();
     }
 
+	hide(): void{
+		$('#'+this.resena_id).modal('hide')
+	}
   /**
     * Funcion que incializa el componente
     */
