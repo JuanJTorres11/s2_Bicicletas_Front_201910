@@ -39,6 +39,6 @@ export class HomeBicicletasPromocionComponent implements OnInit {
       this.bicicletas = [];
     }
     this.getBicicletas();
-  }
 
+}
 }
