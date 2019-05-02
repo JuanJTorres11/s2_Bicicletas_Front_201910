@@ -2,9 +2,12 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {Venta} from './venta';
+// import(environment) from '../../../environments/environment';
+// import { environment } from '../../../environments/environment';
+import { environment } from '../../environments/environment.prod';
 //import { Bicicleta } from 'src/app/bicicleta/bicicleta';
 
-const API_URL = "../../assets/";
+const API_URL = environment.apiURL + "/venta";
 const ventas = '/ventas.json';
 
 @Injectable()
@@ -25,14 +28,14 @@ export class VentaService {
     return this.http.post<Venta>(API_URL + ventas, venta);
 }
 
-	// /**
-    // *Retorna el observable del CompradorDetail
-    // * @param id id del comprador a buscar. 
-    // * @returns CompradorDetail
-    // */
-    // getCompradorDetail(id:number): Observable<Venta> {
-    //     return this.http.get<Venta>(API_URL + ventas + '-' + id + '.json');
-    // }
+	 /**
+     *Retorna el observable del CompradorDetail
+     * @param id id del comprador a buscar. 
+     * @returns CompradorDetail
+     */
+     getVenta(id:number): Observable<Venta> {
+         return this.http.get<Venta>(API_URL + ventas + '-' + id + '.json');
+     }
 
         /***
      * Obtiene la lista de ventas

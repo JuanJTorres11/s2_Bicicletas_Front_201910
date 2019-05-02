@@ -1,6 +1,6 @@
 import { Component, OnInit, Input} from '@angular/core';
-import { CompradorService } from '../comprador.service';
 import { ActivatedRoute } from '@angular/router';
+import { CompradorService } from '../comprador.service';
 import { CompradorDetail } from '../compradorDetail';
 
 @Component({
