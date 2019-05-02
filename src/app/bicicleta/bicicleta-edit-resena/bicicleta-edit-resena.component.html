@@ -9,9 +9,10 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <!-- contenido resena -->
-                <form name="post" (ngSubmit)="reviewForm.form.valid && updateResena(reviewForm)" #reviewForm="ngForm" novalidate>
+            <form name="post" (ngSubmit)="reviewForm.form.valid && updateResena(reviewForm)" #reviewForm="ngForm" novalidate>
+
+                <div class="modal-body">
+                    <!-- contenido resena -->
                     <div class="form-group">
                         <label for="inputReferencia4">T&iacute;tulo</label>
                         <input type="text" name="reviewTitle" class="form-control" placeholder="Referencia" id="reviewTitle" [(ngModel)]="resena.titulo"
@@ -44,15 +45,17 @@
                             <div>Ingresa la descripcion de la bicicleta</div>
                         </div>
                     </div>
-                   
-                </form>
-                <!-- contenido resena -->
 
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" >Cancelar</button>
-                <button type="submit" class="btn btn-primary">Guardar cambios</button>
-            </div>
+                    <!-- contenido resena -->
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary" data-dismiss="modal">Guardar cambios</button>
+                </div>
+
+            </form>
+
         </div>
     </div>
 </div>
