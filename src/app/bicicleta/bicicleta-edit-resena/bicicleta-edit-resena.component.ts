@@ -81,11 +81,15 @@ export class BicicletaEditResenaComponent implements OnInit {
     updateResena(): void {
 	      this.bicicletaService.updateResena(this.bicicleta_id, this.resena)
             .subscribe(() => {
-                this.router.navigate(['/bicicletas/list/' + this.bicicleta_id]);
+			    this.updateResenas.emit();
+                this.router.navigate(['./bicicletas/', this.bicicleta_id]);
                 this.toastrService.success("The review was successfully edited", 'review edition');
+            }, err => {
+                this.toastrService.error(err, 'Error');
             });
     }
 
+	
 	toggle(): void {
         $('#'+this.resena_id).modal();
     }
