@@ -1,0 +1,8 @@
+#red-link {
+    color: #F00;
+    cursor: pointer;
+  }
+  
+  #red-link:hover {
+    text-decoration: underline;
+  }

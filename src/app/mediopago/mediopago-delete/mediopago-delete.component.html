@@ -1,0 +1,21 @@
+<a id="red-link" data-toggle="modal" data-target="#deleteModal" (click)="mostrarComponente()">Eliminar medio de pago</a>
+
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModalLabel">Eliminar medio de pago</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="text-align: left">
+        <p>¿Eliminar tarjeta {{getTipo()}} terminada en {{mediopago.numeroCodificado}}?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="deleteMediopago()">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>
