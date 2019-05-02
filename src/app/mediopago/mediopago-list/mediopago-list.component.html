@@ -1,5 +1,8 @@
 <div class="container-fluid">
-  <h1>Medios de Pago</h1>
+  <div class="row">
+    <a (click)="back()" style="align-self: center; cursor: pointer;"><i class="material-icons back-arrow">arrow_back_ios</i></a>
+    <h1>Medios de Pago<mediopago-add (create)="recibirEvento()"></mediopago-add></h1>
+  </div>
   <hr id="separador-titulo">
   <ul class="list-group list-group-flush" style="margin-left: 20px; margin-right: 20px">
     <li class="list-group-item" *ngFor="let mp of mediosPago">

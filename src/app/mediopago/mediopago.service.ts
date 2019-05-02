@@ -56,6 +56,6 @@ export class MediopagoService {
    * @return Medio de pago creado.
    */
   createMediopago(mediopago): Observable<Mediopago> {
-    return this.http.post<Mediopago>(API_URL + mediosPago, mediopago);
+    return this.http.post<Mediopago>(API_URL + '/' + localStorage.getItem('rol') + '/' + localStorage.getItem('id') + '/mediosPago', mediopago);
   }
 }
