@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Bicicleta } from '../../bicicleta/bicicleta';
+import { BicicletaService } from '../../bicicleta/bicicleta.service';
+
 
 @Component({
   selector: 'app-home-bicicletas-promocion',
@@ -7,9 +11,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeBicicletasPromocionComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+  	private bicicletaService: BicicletaService,
+		 private route: ActivatedRoute
+  ) { }
+
+  /**
+     * La lista de Bicicletas que se desean mostrar
+  */
+  @Input() bicicletas: Bicicleta[];
+
+  /**
+   * Obtiene las bicicletas ???
+  */
+  getBicicletas() {
+    this.bicicletaService.getBicicletas()
+      .subscribe(bicicletas => {
+        this.bicicletas = bicicletas;
+        console.log(bicicletas);
+      });
+  }
+
 
   ngOnInit() {
+
+  if(this.bicicletas === undefined) {
+      this.bicicletas = [];
+    }
+    this.getBicicletas();
   }
 
 }
