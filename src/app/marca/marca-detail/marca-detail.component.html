@@ -1,6 +1,12 @@
 <div class="container-fluid">
   <br>
-  <h2>Marca: {{marcaDetail.nombre}}</h2>
+  <h2>
+    <form class="form-inline">
+      Marca: {{marcaDetail.nombre}}
+      <app-marca-delete [(marca_id)]="marcaDetail.id"></app-marca-delete>
+    </form>
+  </h2>
+
   <br>
   <h3>Bicicletas asociadas:</h3>
   <div class="row">

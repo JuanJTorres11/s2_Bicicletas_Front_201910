@@ -47,7 +47,16 @@ export class MarcaService{
      * Actualiza una marca
      * @param marca Marca a actualizar
      */
-    updateMarca(marca): Observable<MarcaDetail>{
+    updateMarca( marca): Observable<MarcaDetail>{
         return this.http.put<MarcaDetail>(API_URL + marcas + '/' + marca.id, marca);
     }
+
+    /**
+    * Elimia una marca
+	* @param marcaId El id de la marca
+    * @returns True si se pudo eliminar, false de lo contrario
+    */
+   deleteMarca(marcaId): Observable<MarcaDetail> {
+    return this.http.delete<MarcaDetail>(API_URL + marcas + '/' + marcaId);
+}
 }
