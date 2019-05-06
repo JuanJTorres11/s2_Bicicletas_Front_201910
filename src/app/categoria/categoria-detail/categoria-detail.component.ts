@@ -5,7 +5,6 @@ import { Location } from '@angular/common';
 import { CategoriaDetail } from '../categoria-detail';
 import { CategoriaService } from '../categoria.service';
 import { Bicicleta } from '../../bicicleta/bicicleta';
-import { balancePreviousStylesIntoKeyframes } from '@angular/animations/browser/src/util';
 
 @Component({
   selector: 'categoria-detail',

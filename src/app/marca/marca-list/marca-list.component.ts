@@ -69,7 +69,7 @@ export class MarcaListComponent implements OnInit {
     }
 
     /**
-    * Shows or hides the create component
+    * Muestra o esconde el componente de editar
     */
    showHideEdit(marca_id: number): void {
     if (!this.showEdit || (this.showEdit && marca_id != this.selectedMarca.id)) {
