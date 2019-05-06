@@ -52,3 +52,12 @@ a.resena-c {
 .checked {
     color: orange;
 }
+
+.edit-icon {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    margin-top: 1px;
+    margin-right: 5px;
+    color: dodgerblue;
+    cursor: pointer;
+}

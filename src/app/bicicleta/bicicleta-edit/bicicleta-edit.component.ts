@@ -17,6 +17,8 @@ import {CategoriaService} from '../../categoria/categoria.service';
 import {Categoria} from '../../categoria/categoria';
 import {Marca} from '../../marca/marca'; 
 
+
+
 @Component({
     selector: 'app-bicicleta-edit',
     templateUrl: './bicicleta-edit.component.html',
@@ -134,12 +136,13 @@ export class BicicletaEditComponent implements OnInit {
             });
     }
     
+  
   /**
-   * Cancela la modificacion de la bicicleta
+   * Cancela la creacion de la bicicleta
    */
   cancelEdition(): void {
     this.cancel.emit();
-	       this.router.navigate(['/bicicletas/list']);
+	       this.router.navigate(['./bicicletas/' , this.bicicleta.id]);
  
 	}
 
@@ -159,6 +162,7 @@ export class BicicletaEditComponent implements OnInit {
             });
     }
 
+	
 
     /**
     * Funcion que incializa el componente

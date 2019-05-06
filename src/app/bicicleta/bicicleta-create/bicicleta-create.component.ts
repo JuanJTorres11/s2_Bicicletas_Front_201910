@@ -111,7 +111,7 @@ export class BicicletaCreateComponent implements OnInit {
    */
   cancelCreation(): void {
     this.cancel.emit();
-	       this.router.navigate(['/bicicletas/list']);
+	       this.router.navigate(['./bicicletas/list']);
  
 	}
 

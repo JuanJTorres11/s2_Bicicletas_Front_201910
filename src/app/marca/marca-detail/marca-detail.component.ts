@@ -15,7 +15,7 @@ import { MarcaDetail } from '../marca-detail';
 })
 export class MarcaDetailComponent implements OnInit {
 
-  /**
+ /**
    * Constructor del componente
    * @param marcaService El servicio de la marca que se comunica con el API
    * @param route La ruta que ayuda a obtener el id de la marca a mostrar
@@ -72,6 +72,5 @@ export class MarcaDetailComponent implements OnInit {
    */
   ngOnDestroy(): void {
     this.loader.unsubscribe();
-  }
-
+}
 }

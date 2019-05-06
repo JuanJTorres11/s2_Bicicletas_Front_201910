@@ -22,7 +22,7 @@
 
                     <tr *ngFor="let r of bicicletaResenas; let i = index">
                         <th>
-                            <p>{{r.titulo}}   {{r.id}}</p>
+                            <p>{{r.titulo}}</p>
                           
                             <app-bicicleta-edit-resena [(resena_id)]="bicicletaResenas[i].id" [(bicicleta_id)]="bicicletaResenas[i].bicicleta.id"></app-bicicleta-edit-resena>
                           

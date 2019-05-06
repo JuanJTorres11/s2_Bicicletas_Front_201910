@@ -8,6 +8,7 @@ import { MarcaDetailComponent } from './marca-detail/marca-detail.component';
 import {AppRoutingModule} from '../app-routing/app-routing.module';
 import { MarcaCreateComponent } from './marca-create/marca-create.component';
 import { MarcaEditComponent } from './marca-edit/marca-edit.component';
+import { MarcaDeleteComponent } from './marca-delete/marca-delete.component';
 
 @NgModule({
     imports: [
@@ -15,7 +16,7 @@ import { MarcaEditComponent } from './marca-edit/marca-edit.component';
         FormsModule,
         AppRoutingModule
     ],
-    declarations: [MarcaListComponent, MarcaDetailComponent, MarcaCreateComponent, MarcaEditComponent],
+    declarations: [MarcaListComponent, MarcaDetailComponent, MarcaCreateComponent, MarcaEditComponent, MarcaDeleteComponent],
     providers:[MarcaService],
     exports: [MarcaListComponent]
 })
