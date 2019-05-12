@@ -17,6 +17,7 @@ import {BicicletaEditComponent} from './bicicleta-edit/bicicleta-edit.component'
 import { BicicletaEditResenaComponent } from './bicicleta-edit-resena/bicicleta-edit-resena.component';
 import { BicicletaDeleteResenaComponent } from './bicicleta-delete-resena/bicicleta-delete-resena.component';
 import { BicicletaDeleteComponent } from './bicicleta-delete/bicicleta-delete.component';
+import { BicicletaFiltersComponent } from './bicicleta-filters/bicicleta-filters.component';
 
 
 
@@ -40,7 +41,8 @@ import { BicicletaDeleteComponent } from './bicicleta-delete/bicicleta-delete.co
 		BicicletaEditComponent,
 		BicicletaEditResenaComponent,
 		BicicletaDeleteResenaComponent,
-		BicicletaDeleteComponent
+		BicicletaDeleteComponent,
+		BicicletaFiltersComponent
     ],
     providers: [BicicletaService],
     exports: [BicicletaListComponent]
