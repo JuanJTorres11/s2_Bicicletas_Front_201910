@@ -11,6 +11,8 @@ import { VendedorDetailComponent } from '../usuarios/vendedores/vendedor-detail/
 import { VendedorEditComponent } from '../usuarios/vendedores/vendedor-edit/vendedor-edit.component';
 import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
+import { NgxPermissionsGuard} from 'ngx-permissions';
+
 
 import { CompradorEditComponent } from '../usuarios/comprador/comprador-edit/comprador-edit.component';
 import { CompradorDetailComponent } from '../usuarios/comprador/comprador-detail/comprador-detail.component';
@@ -47,11 +49,23 @@ const routes: Routes = [
             },
             {
                 path: 'add',
-                component: BicicletaCreateComponent
+                component: BicicletaCreateComponent,
+				canActivate: [NgxPermissionsGuard],
+                data: {
+                    permissions: {
+                        only: ['ADMIN']
+                    }
+                }
             },
             {
                 path: ':id/edit',
-                component: BicicletaEditComponent
+                component: BicicletaEditComponent,
+				canActivate: [NgxPermissionsGuard],
+                data: {
+                    permissions: {
+                        only: ['ADMIN']
+                    }
+                }
             },
             {
                 path: ':id',
