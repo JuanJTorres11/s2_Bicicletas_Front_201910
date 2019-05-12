@@ -1,11 +1,10 @@
-
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {BrowserModule} from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-
+import {NgxPermissionsModule} from 'ngx-permissions';
 
 import {BicicletaService} from './bicicleta.service';
 import {BicicletaListComponent} from './bicicleta-list/bicicleta-list.component';
@@ -28,7 +27,9 @@ import { BicicletaDeleteComponent } from './bicicleta-delete/bicicleta-delete.co
         HttpClientModule,
         CommonModule,
         FormsModule,
-        NgbModule
+        NgbModule,
+		ReactiveFormsModule,
+		NgxPermissionsModule
     ],
     declarations: [
         BicicletaListComponent,

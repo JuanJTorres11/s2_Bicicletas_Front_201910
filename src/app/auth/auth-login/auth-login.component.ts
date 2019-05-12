@@ -37,6 +37,8 @@ export class AuthLoginComponent implements OnInit {
         credenciales.password = this.usuario.password;
 
         if (this.usuario.rol == 'Administrador') {
+	
+			this.toastrService.success('Se inició sesión correctamente');
             this.router.navigateByUrl('/');
         }
 

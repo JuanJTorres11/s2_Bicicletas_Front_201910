@@ -78,6 +78,9 @@
                     <li class="nav-item"><a class="nav-link" (click)="logout()" href="#">Cerrar Sesión</a></li>
                 </ul>
             </div>
+            <div *ngxPermissionsOnly="['ADMIN']">
+                <a class="btn btn-primary my-2 my-sm-0" (click)="logout()" role="button" href="#">Cerrar Sesión</a>
+            </div>
             <div *ngxPermissionsOnly="['COMPRADOR']">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item"><a class="nav-link" href="#">Perfil</a></li>
