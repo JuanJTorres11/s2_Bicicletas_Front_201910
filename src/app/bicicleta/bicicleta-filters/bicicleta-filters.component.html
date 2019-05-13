@@ -25,7 +25,7 @@
         <!-- Menu CATEGORIA with submenu -->
         <a href="#submenu1" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex w-100 justify-content-start align-items-center">
-                <span class="fa fa-dashboard fa-fw mr-3"></span>
+                <span class="fa fa-pie-chart fa-fw mr-3"></span>
                 <span class="menu-collapsed">Categoria</span>
                 <span class="submenu-icon ml-auto"></span>
             </div>
@@ -35,12 +35,12 @@
             <a href="#" class="list-group-item list-group-item-action bg-dark text-white" *ngFor="let categoria of categorias">
                 <span class="menu-collapsed">{{categoria.nombre}}</span>
             </a>
-            
+
         </div>
         <!-- Menu MARCA with submenu -->
         <a href="#submenu2" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex w-100 justify-content-start align-items-center">
-                <span class="fa fa-user fa-fw mr-3"></span>
+                <span class="fa fa-star fa-fw mr-3"></span>
                 <span class="menu-collapsed">Marca</span>
                 <span class="submenu-icon ml-auto"></span>
             </div>
@@ -50,22 +50,52 @@
             <a href="#" class="list-group-item list-group-item-action bg-dark text-white" *ngFor="let marca of marcas">
                 <span class="menu-collapsed">{{marca.nombre}}</span>
             </a>
-            
+
+        </div>
+        <!-- Menu USADA with submenu -->
+        <a href="#submenuUsada" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-start align-items-center">
+                <span class="fa fa-tag fa-fw mr-3"></span>
+                <span class="menu-collapsed">Estado</span>
+                <span class="submenu-icon ml-auto"></span>
+            </div>
+        </a>
+        <!-- Submenu USADA content -->
+        <div id='submenuUsada' class="collapse sidebar-submenu">
+            <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
+                <span class="menu-collapsed">Usada</span>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
+                <span class="menu-collapsed">Nueva</span>
+            </a>
+        </div>
+        <!-- Menu PRECIO with submenu -->
+        <a href="#submenuPrecio" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-start align-items-center">
+                <span class="fa fa-money fa-fw mr-3"></span>
+                <span class="menu-collapsed">Precio</span>
+                <span class="submenu-icon ml-auto"></span>
+            </div>
+        </a>
+        <!-- Submenu PRECIO content -->
+        <div id='submenuPrecio' class="collapse sidebar-submenu">
+            <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
+                <span class="menu-collapsed">$100.000 - $500.000</span>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
+                <span class="menu-collapsed">$500.000 - $1'000.000</span>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
+                <span class="menu-collapsed">$1'000.000 - $5'000.000</span>
+            </a>
+
         </div>
         <!-- Opcion PROMOCION -->
 
         <a href="#" class="bg-dark list-group-item list-group-item-action">
             <div class="d-flex w-100 justify-content-start align-items-center">
-                <span class="fa fa-tasks fa-fw mr-3"></span>
+                <span class="fa fa-percent fa-fw mr-3"></span>
                 <span class="menu-collapsed">Promocion</span>
-            </div>
-        </a>
-        <!-- Opcion USADA -->
-
-        <a href="#" class="bg-dark list-group-item list-group-item-action">
-            <div class="d-flex w-100 justify-content-start align-items-center">
-                <span class="fa fa-tasks fa-fw mr-3"></span>
-                <span class="menu-collapsed">Usada</span>
             </div>
         </a>
 
@@ -77,7 +107,7 @@
         <!-- Menu PRECIO with submenu -->
         <a href="#submenu3" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex w-100 justify-content-start align-items-center">
-                <span class="fa fa-user fa-fw mr-3"></span>
+                <span class="fa fa-money fa-fw mr-3"></span>
                 <span class="menu-collapsed">Precio</span>
                 <span class="submenu-icon ml-auto"></span>
             </div>
@@ -91,26 +121,31 @@
                 <span class="menu-collapsed">Mayor a menor</span>
             </a>
         </div>
-        <a href="#" class="bg-dark list-group-item list-group-item-action">
+        <!-- Menu ODERNAR  Alfabeticamente -->
+        <a href="#submenuAlf" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex w-100 justify-content-start align-items-center">
-                <span class="fa fa-tasks fa-fw mr-3"></span>
+                <span class="fa fa-font fa-fw mr-3"></span>
                 <span class="menu-collapsed">Alfabeticamente</span>
+                <span class="submenu-icon ml-auto"></span>
             </div>
         </a>
+        <!-- Submenu ODERNAR Alfabeticamente -->
+        <div id='submenuAlf' class="collapse sidebar-submenu">
+            <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
+                <span class="menu-collapsed">Ascendentemente</span>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
+                <span class="menu-collapsed">Descendentemente</span>
+            </a>
+        </div>
+        <!-- ODERNAR  Calificacion-->
         <a href="#" class="bg-dark list-group-item list-group-item-action">
             <div class="d-flex w-100 justify-content-start align-items-center">
-                <span class="fa fa-tasks fa-fw mr-3"></span>
+                <span class="fa fa-check-square-o fa-fw mr-3"></span>
                 <span class="menu-collapsed">Calificacion</span>
             </div>
         </a>
-
-
-        <a href="#" class="bg-dark list-group-item list-group-item-action">
-            <div class="d-flex w-100 justify-content-start align-items-center">
-                <span class="fa fa-calendar fa-fw mr-3"></span>
-                <span class="menu-collapsed">Calendar</span>
-            </div>
-        </a>
+        <!-- ODERNAR  ----->
         <a href="#" class="bg-dark list-group-item list-group-item-action">
             <div class="d-flex w-100 justify-content-start align-items-center">
                 <span class="fa fa-envelope-o fa-fw mr-3"></span>
@@ -126,7 +161,7 @@
                 <span class="menu-collapsed">Ayuda</span>
             </div>
         </a>
-       </ul><!-- List Group END-->
+    </ul><!-- List Group END-->
 </div><!-- sidebar-container END -->
 
 <!--https://www.codeply.com/go/3e0RAjccRO/bootstrap-4-collapsing-sidebar-menu-->
