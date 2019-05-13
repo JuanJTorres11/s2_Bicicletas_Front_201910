@@ -1,8 +1,8 @@
-#blue-link {
-    color: dodgerblue;
+#red-link {
+    color: #F00;
     cursor: pointer;
   }
   
-  #blue-link:hover {
+  #red-link:hover {
     text-decoration: underline;
   }

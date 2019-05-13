@@ -49,7 +49,5 @@ export class MarcaEditComponent implements OnInit {
     this.cancel.emit();
 }
   ngOnInit() {
-  }
-
-
+}
 }
