@@ -72,10 +72,8 @@ export class BicicletaFiltersComponent implements OnInit {
 		this.getMarcas();
      }
 
-
- 
-
 }
+
 function SidebarCollapse () {
     $('.menu-collapsed').toggleClass('d-none');
     $('.sidebar-submenu').toggleClass('d-none');

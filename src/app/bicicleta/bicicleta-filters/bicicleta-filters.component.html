@@ -32,15 +32,10 @@
         </a>
         <!-- Submenu CATEGORIA content -->
         <div id='submenu1' class="collapse sidebar-submenu">
-            <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
-                <span class="menu-collapsed">Charts</span>
+            <a href="#" class="list-group-item list-group-item-action bg-dark text-white" *ngFor="let categoria of categorias">
+                <span class="menu-collapsed">{{categoria.nombre}}</span>
             </a>
-            <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
-                <span class="menu-collapsed">Reports</span>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
-                <span class="menu-collapsed">Tables</span>
-            </a>
+            
         </div>
         <!-- Menu MARCA with submenu -->
         <a href="#submenu2" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
@@ -52,12 +47,10 @@
         </a>
         <!-- Submenu MARCA content -->
         <div id='submenu2' class="collapse sidebar-submenu">
-            <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
-                <span class="menu-collapsed">Settings</span>
+            <a href="#" class="list-group-item list-group-item-action bg-dark text-white" *ngFor="let marca of marcas">
+                <span class="menu-collapsed">{{marca.nombre}}</span>
             </a>
-            <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
-                <span class="menu-collapsed">Password</span>
-            </a>
+            
         </div>
         <!-- Opcion PROMOCION -->
 
