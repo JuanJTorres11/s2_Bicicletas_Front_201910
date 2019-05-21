@@ -32,6 +32,12 @@ import { BicicletaEditComponent } from '../bicicleta/bicicleta-edit/bicicleta-ed
 
 import { MarcaEditComponent } from '../marca/marca-edit/marca-edit.component';
 
+import {CompradorCarritoComponent} from '../usuarios/comprador/comprador-carrito/comprador-carrito.component';
+import {CompradorListaDeseosComponent} from '../usuarios/comprador/comprador-lista-deseos/comprador-lista-deseos.component';
+import {CompradorProcesoCompraComponent} from '../usuarios/comprador/comprador-proceso-compra/comprador-proceso-compra.component';
+
+
+
 const routes: Routes = [
 
     {
@@ -49,13 +55,13 @@ const routes: Routes = [
             },
             {
                 path: 'add',
-                component: BicicletaCreateComponent,
-				canActivate: [NgxPermissionsGuard],
-                data: {
-                    permissions: {
-                        only: ['ADMIN']
-                    }
-                }
+                component: BicicletaCreateComponent
+				//canActivate: [NgxPermissionsGuard],
+                //data: {
+                  //  permissions: {
+                    //    only: ['ADMIN']
+                    //}
+               // }
             },
             {
                 path: ':id/edit',
@@ -112,6 +118,10 @@ const routes: Routes = [
             {
                 path: 'edit',
                 component: CompradorEditComponent
+            },
+			{
+                path: ':id/carrito',
+                component: CompradorProcesoCompraComponent
             },
             {
                 path: ':id',
