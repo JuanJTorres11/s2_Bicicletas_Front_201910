@@ -3,6 +3,8 @@
   <h2>
     <form class="form-inline">
       Marca: {{marcaDetail.nombre}}
+      
+      <app-marca-edit [(marca)]="marcaDetail"></app-marca-edit>
       <app-marca-delete [(marca_id)]="marcaDetail.id"></app-marca-delete>
     </form>
   </h2>

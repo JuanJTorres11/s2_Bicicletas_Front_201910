@@ -40,6 +40,12 @@ export class MarcaDetailComponent implements OnInit {
   loader: any;
 
   /**
+    * Shows or hides the edition of an author
+    */
+   showEdit: boolean;
+
+
+  /**
    * El metodo que retorna los detalles de la marca
    * que se quiere ensenar
    */
@@ -75,4 +81,5 @@ export class MarcaDetailComponent implements OnInit {
   ngOnDestroy(): void {
     this.loader.unsubscribe();
 }
+
 }
