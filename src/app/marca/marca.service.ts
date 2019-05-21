@@ -4,9 +4,11 @@ import {Marca} from './marca';
 import {MarcaDetail} from './marca-detail';
 import {Observable} from 'rxjs';
 import { environment } from '../../environments/environment.prod';
+import { Bicicleta } from '../bicicleta/bicicleta';
 
 const API_URL = environment.apiURL;
 const marcas = '/marcas';
+const bicicletas = '/bicicletas';
 
 /**
  * El proveedor de servicios relacionados con las marcas
@@ -59,4 +61,15 @@ export class MarcaService{
    deleteMarca(marcaId): Observable<MarcaDetail> {
     return this.http.delete<MarcaDetail>(API_URL + marcas + '/' + marcaId);
 }
+
+/**
+   * Obtiene las bicicletas de la marca con el nombre dado.
+   * @param nombre Nombre de la marca.
+   * @return Lista de bicicletas de la marca.
+   */
+  getMarcaBicicletas(id: number): Observable<Bicicleta[]> {
+    console.log(API_URL + marcas + '/' + id + bicicletas);
+    return this.http.get<Bicicleta[]>(API_URL + marcas + '/' + id + bicicletas);
+  }
+
 }

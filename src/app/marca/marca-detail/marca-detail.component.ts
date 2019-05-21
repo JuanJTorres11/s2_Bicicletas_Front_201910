@@ -5,6 +5,8 @@ import {Marca} from '../marca';
 import { MarcaService } from '../marca.service';
 import { MarcaDetail } from '../marca-detail';
 
+import { Bicicleta } from '../../bicicleta/bicicleta';
+
 /**
  * El componente para el detalle de una marca
  */
