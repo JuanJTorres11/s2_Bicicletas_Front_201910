@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Comprador } from './comprador';
-import { CompradorDetail } from "./compradorDetail";
+import { CompradorDetail } from "./comprador-detail";
 //import { Bicicleta } from 'src/app/bicicleta/bicicleta';
 import {environment} from '../../../environments/environment';
 

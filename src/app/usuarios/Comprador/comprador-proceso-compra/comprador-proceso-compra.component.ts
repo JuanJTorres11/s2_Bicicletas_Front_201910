@@ -12,4 +12,8 @@ export class CompradorProcesoCompraComponent implements OnInit {
   ngOnInit() {
   }
 
+
+
+
 }
+
