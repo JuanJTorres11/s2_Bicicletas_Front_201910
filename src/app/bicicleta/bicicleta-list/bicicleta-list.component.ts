@@ -1,5 +1,5 @@
 
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, EventEmitter, OnInit, Input} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {Bicicleta} from '../bicicleta';
 import {BicicletaService} from '../bicicleta.service';
@@ -23,10 +23,14 @@ export class BicicletaListComponent implements OnInit {
 	 private route: ActivatedRoute
 	) {}
 
+	searchModel: string;
+
+
     /**
      * La lista de Bicicletas que se desean mostrar
      */
       @Input() bicicletas: Bicicleta[];
+
 
     /**
      * Metodo que retorna todas las bicicletas de la tienda para mostrarlos en la lista
@@ -44,6 +48,58 @@ export class BicicletaListComponent implements OnInit {
 		if(this.bicicletas === undefined){
 		 this.getBicicletas();
 		}
-       
-    }
+
+	}
+
+	sortAlphAsc() {
+	this.bicicletas.sort((t1, t2) => {
+      const name1 = t1.referencia.toLowerCase();
+      const name2 = t2.referencia.toLowerCase();
+      if (name1 > name2) { return 1; }
+      if (name1 < name2) { return -1; }
+      return 0;
+    });
+	}
+
+	sortAlphDesc() {
+	this.bicicletas.sort((t1, t2) => {
+      const name1 = t1.referencia.toLowerCase();
+      const name2 = t2.referencia.toLowerCase();
+      if (name1 > name2) { return -1; }
+      if (name1 < name2) { return 1; }
+      return 0;
+    });
+	}
+
+	sortPrecioAsc() {
+	this.bicicletas.sort((t1, t2) => {
+      const name1 = t1.precio;
+      const name2 = t2.precio;
+      if (name1 > name2) { return 1; }
+      if (name1 < name2) { return -1; }
+      return 0;
+    });
+	}
+
+	sortPrecioDesc() {
+	this.bicicletas.sort((t1, t2) => {
+      const name1 = t1.precio;
+      const name2 = t2.precio;
+      if (name1 > name2) { return -1; }
+      if (name1 < name2) { return 1; }
+      return 0;
+    });
+	}
+	
+	sortCalificacionDesc() {
+	this.bicicletas.sort((t1, t2) => {
+      const name1 = t1.calificacion;
+      const name2 = t2.calificacion;
+      if (name1 > name2) { return 1; }
+      if (name1 < name2) { return -1; }
+      return 0;
+    });
+	}
+
 }
+	
