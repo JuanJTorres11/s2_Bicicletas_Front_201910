@@ -68,7 +68,7 @@ export class CategoriaService {
    * @return Bicicleta creada.
    */
   createCategoriaBicicleta(nombre, bicicleta): Observable<Bicicleta> {
-    return this.http.post<Bicicleta>(API_URL + categorias + '/' + nombre + bicicletas, bicicleta);
+    return this.http.put<Bicicleta>(API_URL + categorias + '/' + nombre + bicicletas, bicicleta);
   }
 
   /**
