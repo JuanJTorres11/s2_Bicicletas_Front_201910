@@ -22,12 +22,13 @@ export class VendedorVentaAddComponent implements OnInit {
    */
   venta:Venta;
   
-  album:string [] = ["prueba1"];
+  foto:string;
 
   /**
    * Crea una nueva venta.
    */
   addVenta () {
+    this.venta.fotos[0] = this.foto;
     this.service.postVendedorVentas(this.id, this.venta).subscribe(ventaBD => {
       this.venta = ventaBD;
     });
@@ -39,5 +40,4 @@ export class VendedorVentaAddComponent implements OnInit {
   ngOnInit() {
     this.id = parseInt(localStorage.getItem('id'));
   }
-
 }
