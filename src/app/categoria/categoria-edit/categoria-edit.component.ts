@@ -39,6 +39,9 @@ export class CategoriaEditComponent implements OnInit {
       .subscribe(c => {
         this.update.emit({nombre: c.nombre});
         this.toastrService.success("La información de la categoría fue actualizada.", "Editar Categoría");
+      },
+      err => {
+        this.toastrService.error(err, "Error");
       })
   }
 
