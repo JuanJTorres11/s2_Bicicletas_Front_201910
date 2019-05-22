@@ -28,6 +28,6 @@ import { VendedorListComponent } from './vendedor-list/vendedor-list.component';
   ],
   bootstrap: [VendedorDetailComponent],
   providers: [VendedorService],
-  exports: [VendedorDetailComponent, VendedorMediospagoComponent, VendedorEditComponent]
+  exports: [VendedorDetailComponent, VendedorMediospagoComponent, VendedorEditComponent, VendedorListComponent]
 })
 export class VendedoresModule { }

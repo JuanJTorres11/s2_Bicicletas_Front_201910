@@ -1,3 +1,22 @@
-<p>
-  vendedor-list works!
-</p>
+<<div class="container-fluid">
+  <div class="col">
+    <table class="table table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th>Identificador</th>
+          <th>Nombre</th>
+          <th>Correo</th>
+          <th>Telefono</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let vendedor of vendedores">
+          <td style="cursor: pointer;">{{vendedor.id}}</td>
+          <td style="cursor: pointer;">{{vendedor.nombre}}</td>
+          <td style="cursor: pointer;">{{vendedor.login}}</td>
+          <td style="cursor: pointer;">{{vendedor.telefono}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
