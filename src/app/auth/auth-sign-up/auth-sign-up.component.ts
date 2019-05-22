@@ -46,7 +46,7 @@ export class AuthSignUpComponent implements OnInit {
         if (this.rol == 'Administrador') {
             this.router.navigateByUrl('/');
         }
-        else if (this.rol == 'comprador') {
+        else if (this.rol == 'Comprador' || this.rol == 'comprador' ||  this.rol == 'COMPRADOR' ) {
             this.comprador = new Comprador();
             this.comprador.nombre = this.nombre;
             this.comprador.login = this.login;
@@ -61,7 +61,7 @@ export class AuthSignUpComponent implements OnInit {
             }
             );
         }
-        else {
+        else if ((this.rol == 'Vendedor' || this.rol == 'vendedor' ||  this.rol == 'VENDEDOR')) {
             this.vendedor = new Vendedor();
             this.vendedor.nombre = this.nombre;
             this.vendedor.login = this.login;

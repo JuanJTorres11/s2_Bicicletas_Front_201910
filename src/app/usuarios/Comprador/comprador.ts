@@ -8,6 +8,7 @@ const tipo:string = 'Comprador';
  export class Comprador extends Usuario
  {
      /**
+      * 
       * Represta al tipo de usuario que corresponde.
       */
     rol = tipo;

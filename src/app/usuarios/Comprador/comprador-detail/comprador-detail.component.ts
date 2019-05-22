@@ -1,5 +1,5 @@
 import { Component, OnInit, Input} from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CompradorService } from '../comprador.service';
 import { CompradorDetail } from '../comprador-detail';
 
@@ -13,16 +13,17 @@ export class CompradorDetailComponent implements OnInit {
     /**
      * The component's constructor
      * @param compradorService The comprador's service
-     * @param route The route element which helps to obtain the comprador's id
+     * @param router The route element which helps to obtain the comprador's id
      * @param toastrService The toastr to show messages to the user
      */
     constructor(
         private compradorService: CompradorService,
-        private route: ActivatedRoute
+        private route: ActivatedRoute,
+        private router: Router
     ) { }
 
     /**
-   * Comprador que se mostrará
+    * El id del author que viene en el path get .../compradores/id
    */
     comprador: CompradorDetail;
 
@@ -35,6 +36,10 @@ export class CompradorDetailComponent implements OnInit {
         this.compradorService.getCompradorDetail(this.id).subscribe((compradorRemoto) => {
           this.comprador = compradorRemoto
         });
+      }
+
+      getMediosPago () {
+        this.router.navigateByUrl('/compradores/mediosPago');
       }
     
       ngOnInit() {

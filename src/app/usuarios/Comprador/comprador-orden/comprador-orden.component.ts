@@ -17,7 +17,7 @@ import { Orden } from '../../../Orden/orden';
 
         id: number;
 
-        ordenesComprador: Orden [];
+        ordenesComprador: Orden[];
 
    /**
    * Obtiene las ordenes del comprador. 
@@ -33,7 +33,7 @@ import { Orden } from '../../../Orden/orden';
    * Redirige al componente de orden.
    */
   redirectOrden() {
-    this.router.navigateByUrl('compradores/' + this.id + 'ordenes/');
+    this.router.navigateByUrl('compradores/' + this.id + '/ordenes');
   }
 
 

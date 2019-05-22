@@ -42,9 +42,9 @@ export class AuthLoginComponent implements OnInit {
             this.router.navigateByUrl('/');
         }
 
-        else if (this.usuario.rol === 'Comprador') {
+        else if (this.usuario.rol == 'Comprador') {
             this.service.getComprador(credenciales).subscribe(compradorBD => {
-                localStorage.setItem('id', compradorBD.toString());
+                localStorage.setItem('id', compradorBD.id.toString());
                 let id = compradorBD.id;
                 localStorage.setItem('nombre', compradorBD.nombre);
                 localStorage.setItem('login', compradorBD.login);

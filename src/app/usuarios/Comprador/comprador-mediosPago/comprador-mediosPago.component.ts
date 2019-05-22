@@ -17,7 +17,7 @@ import { Mediopago } from '../../../mediopago/mediopago';
 
       id: number;
 
-      mediosPago: Mediopago [];
+      mediosPago: Mediopago[];
 
   /**
    * Medios de pago de Comprador
