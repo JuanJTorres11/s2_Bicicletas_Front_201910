@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Mediopago } from '../mediopago';
 import { MediopagoService } from '../mediopago.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'mediopago-delete',
@@ -13,12 +14,16 @@ export class MediopagoDeleteComponent implements OnInit {
   @Output() delete = new EventEmitter();
   @Output() mostrarModal = new EventEmitter();
 
-  constructor(private mediopagoService: MediopagoService) { }
+  constructor(private mediopagoService: MediopagoService,
+              private toastrService: ToastrService) { }
 
   deleteMediopago() {
+    var numero = 0;
+    numero = this.mediopago.numeroCodificado;
     this.mediopagoService.deleteMediopago(this.mediopago.numeroTarjeta)
       .subscribe(mediopago => {
         this.delete.emit();
+        this.toastrService.error("Se eliminó la tarjeta terminada en " + numero + ".", "Eliminado medio de pago");
       });
   }
 

@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Mediopago } from '../mediopago';
 import { MediopagoService } from '../mediopago.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'mediopago-add',
@@ -21,13 +22,19 @@ export class MediopagoAddComponent implements OnInit {
 
   @Output() create = new EventEmitter();
 
-  constructor(private mediopagoService: MediopagoService) { }
+  constructor(private mediopagoService: MediopagoService,
+              private toastrService: ToastrService) { }
 
   createMediopago() {
     this.mediopagoService.createMediopago(this.mediopago)
       .subscribe(mediopago => {
         this.create.emit();
-      })
+        let tipoCredito = this.mediopago.tipoCredito ? " " + this.mediopago.tipoCredito : "";
+        let mensaje = "Se creó la tarjeta " + this.mediopago.tipoTarjeta + tipoCredito + ".";
+        this.toastrService.success(mensaje, "Creación Medio Pago");
+      }, err => {
+        this.toastrService.error(err, "Error");
+      });
   }
 
   cambiarTipo(tipo: String) {

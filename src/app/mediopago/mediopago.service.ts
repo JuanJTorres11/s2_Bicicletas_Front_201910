@@ -38,7 +38,13 @@ export class MediopagoService {
    * @return Informacion actualizada
    */
   updateMediopago(numero: number, mediopago: Mediopago): Observable<Mediopago> {
-    return this.http.put<Mediopago>(API_URL + mediosPago + '/' + numero, mediopago);
+    var medioCreado;
+    this.deleteMediopago(numero).subscribe(() => {
+      this.createMediopago(mediopago).subscribe(mp => {
+        medioCreado = mp;
+      });
+    });
+    return medioCreado;
   }
 
   /**
