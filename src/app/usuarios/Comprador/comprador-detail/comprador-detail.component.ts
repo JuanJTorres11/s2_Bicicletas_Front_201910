@@ -1,7 +1,7 @@
 import { Component, OnInit, Input} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CompradorService } from '../comprador.service';
-import { CompradorDetail } from '../compradorDetail';
+import { CompradorDetail } from '../comprador-detail';
 
 @Component({
     selector: 'app-comprador-detail',
