@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { NgxRolesService } from 'ngx-permissions'
 import 'rxjs/add/operator/catch';
 import { VendedorDetail } from '../usuarios/vendedores/vendedorDetail';
-import { CompradorDetail } from '../usuarios/comprador/compradorDetail';
+import { CompradorDetail } from '../usuarios/comprador/comprador-detail';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Vendedor } from '../usuarios/vendedores/vendedor';

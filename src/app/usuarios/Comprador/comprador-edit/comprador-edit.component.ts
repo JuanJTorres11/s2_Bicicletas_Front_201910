@@ -9,7 +9,7 @@ import {ToastrService} from 'ngx-toastr';
 
 import {CompradorService} from '../comprador.service';
 import {Comprador} from '../comprador';
-import {CompradorDetail} from '../compradorDetail';
+import {CompradorDetail} from '../comprador-detail';
 
 
 @Component({

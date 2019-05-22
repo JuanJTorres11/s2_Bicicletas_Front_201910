@@ -121,7 +121,7 @@ const routes: Routes = [
             },
 			{
                 path: ':id/carrito',
-                component: CompradorProcesoCompraComponent
+                component: CompradorListaDeseosComponent
             },
             {
                 path: ':id',
