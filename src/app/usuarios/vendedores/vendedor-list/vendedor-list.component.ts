@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { VendedorDetail } from '../vendedorDetail';
+import { VendedorService } from '../vendedor.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-vendedor-list',
@@ -7,9 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VendedorListComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private service: VendedorService,
+    private route: ActivatedRoute,
+    private router: Router) { }
 
+  vendedores: VendedorDetail[];
+
+  getVendedores(): void {
+    this.service.getVendedores().subscribe((vendedoresBD) => {
+      this.vendedores = vendedoresBD
+    });
+  }
+
+  /**
+   * Método que se ejecuta cuando se crea el componente
+   */
   ngOnInit() {
+    this.getVendedores();
   }
 
 }
