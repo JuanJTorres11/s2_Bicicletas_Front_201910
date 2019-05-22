@@ -9,14 +9,17 @@ import {AppRoutingModule} from '../app-routing/app-routing.module';
 import { MarcaCreateComponent } from './marca-create/marca-create.component';
 import { MarcaEditComponent } from './marca-edit/marca-edit.component';
 import { MarcaDeleteComponent } from './marca-delete/marca-delete.component';
+import { MarcaBicicletaComponent } from './marca-bicicleta/marca-bicicleta.component';
+import { BicicletaModule } from '../bicicleta/bicicleta.module';
 
 @NgModule({
     imports: [
         CommonModule,
         FormsModule,
-        AppRoutingModule
+        AppRoutingModule,
+        BicicletaModule
     ],
-    declarations: [MarcaListComponent, MarcaDetailComponent, MarcaCreateComponent, MarcaEditComponent, MarcaDeleteComponent],
+    declarations: [MarcaListComponent, MarcaDetailComponent, MarcaCreateComponent, MarcaEditComponent, MarcaDeleteComponent, MarcaBicicletaComponent],
     providers:[MarcaService],
     exports: [MarcaListComponent]
 })
