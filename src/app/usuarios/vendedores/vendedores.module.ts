@@ -9,6 +9,7 @@ import { VendedorService } from './vendedor.service';
 import { BicicletaModule } from '../../bicicleta/bicicleta.module';
 import { FormsModule } from '@angular/forms';
 import { MediopagoModule } from '../../mediopago/mediopago.module';
+import { VendedorListComponent } from './vendedor-list/vendedor-list.component';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { MediopagoModule } from '../../mediopago/mediopago.module';
     VendedorMediospagoComponent,
     VendedorVentaAddComponent,
     VendedorVentaListComponent,
-    VendedorEditComponent
+    VendedorEditComponent,
+    VendedorListComponent
   ],
   bootstrap: [VendedorDetailComponent],
   providers: [VendedorService],
