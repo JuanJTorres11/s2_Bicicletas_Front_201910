@@ -1,5 +1,5 @@
 
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, EventEmitter, OnInit, Input} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {Bicicleta} from '../bicicleta';
 import {BicicletaService} from '../bicicleta.service';
@@ -23,6 +23,9 @@ export class BicicletaListComponent implements OnInit {
 	 private route: ActivatedRoute
 	) {}
 
+	searchModel: string;
+
+
     /**
      * La lista de Bicicletas que se desean mostrar
      */
@@ -44,6 +47,8 @@ export class BicicletaListComponent implements OnInit {
 		if(this.bicicletas === undefined){
 		 this.getBicicletas();
 		}
-       
     }
+
+
 }
+	

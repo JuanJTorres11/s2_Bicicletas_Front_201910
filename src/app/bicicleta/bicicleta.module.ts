@@ -19,6 +19,7 @@ import { BicicletaDeleteResenaComponent } from './bicicleta-delete-resena/bicicl
 import { BicicletaDeleteComponent } from './bicicleta-delete/bicicleta-delete.component';
 import { BicicletaFiltersComponent } from './bicicleta-filters/bicicleta-filters.component';
 
+import {SharedModule} from '../share-module/share-module.module';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { BicicletaFiltersComponent } from './bicicleta-filters/bicicleta-filters
         FormsModule,
         NgbModule,
 		ReactiveFormsModule,
-		NgxPermissionsModule
+		NgxPermissionsModule,
+		SharedModule
     ],
     declarations: [
         BicicletaListComponent,

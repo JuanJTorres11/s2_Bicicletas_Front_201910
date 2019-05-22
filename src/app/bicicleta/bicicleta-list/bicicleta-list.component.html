@@ -5,17 +5,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
 </head>
 <body>
+    <label>Search: <input ng-model="searchText"></label>
     <!-- Bootstrap row -->
-    <div class="row" >
+    <div class="row">
         <div class="col-2 px-1 " id="sticky-sidebar">
             <app-bicicleta-filters></app-bicicleta-filters>
         </div>
-
+  
         <div class="col" id="main">
             <div class="container">
                 <div class="row text-center text-lg-left">
-                    
-                    <div class="col-lg-3 col-md-6 mb-4" *ngFor="let bicicleta of bicicletas">
+
+                    <div class="col-lg-3 col-md-6 mb-4" *ngFor="let bicicleta of bicicletas | listFilterPrecio: 100:850000 | listFilterRefer : 'win'">
                         <br>
                         <div class="card h-100">
                             <a routerLink="/bicicletas/{{bicicleta.id}}">
