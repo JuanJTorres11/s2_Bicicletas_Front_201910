@@ -1,0 +1,110 @@
+<h1 style="margin-left: 10px;">Dashboard</h1>
+
+<div style="margin: 10px;">
+  <div class="row">
+    <!--Ganancias actuales-->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-left-info shadow h-100 py-2">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Ganancias Actuales</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">$80,000</div>
+            </div>
+            <div class="col-auto">
+              <i class="material-icons text-info" style="font-size: 36px;">calendar_today</i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Ganacias del último mes-->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-left-primary shadow h-100 py-2">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Ganancias Último mes</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+            </div>
+            <div class="col-auto">
+              <i class="material-icons text-primary" style="font-size: 36px;">attach_money</i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Ganancias con respecto al último mes-->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div *ngIf="ganancias; else elseTemplate">
+        <div class="card border-left-success shadow h-100 py-2">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Ganancias (Mes actual vs
+                  anterior)
+                </div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">+ $40,000</div>
+              </div>
+              <div class="col-auto">
+                <i class="material-icons text-success" style="font-size: 36px;">trending_up</i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ng-template #elseTemplate>
+        <div class="card border-left-danger shadow h-100 py-2">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Ganancias (Mes actual vs anterior)
+                </div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">- $40,000</div>
+              </div>
+              <div class="col-auto">
+                <i class="material-icons text-danger" style="font-size: 36px;">trending_down</i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+
+    <!--Usuarios registrados-->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-left-dark shadow h-100 py-2">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">Usuarios Registrados</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">864</div>
+            </div>
+            <div class="col-auto">
+              <i class="material-icons text-dark" style="font-size: 36px;">group</i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!--Gráficas-->
+  <div class="card-columns">
+    <!--Pedidos por mes-->
+    <div class="card shadow" style="width: 60vw;">
+      <div class="card-body" style="margin: 10px;">
+        <div id="pedidosPorMes" style="height: 300px; width: 100%;"></div>
+      </div>
+    </div>
+
+    <!--Bicicletas pedidas-->
+
+    <!--Bicicletas por marca-->
+
+    <!--Bicicletas por categoría-->
+  </div>
+</div>
