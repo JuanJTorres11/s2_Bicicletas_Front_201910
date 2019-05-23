@@ -5,6 +5,8 @@ import {Marca} from '../marca';
 import { MarcaService } from '../marca.service';
 import { MarcaDetail } from '../marca-detail';
 
+import { Bicicleta } from '../../bicicleta/bicicleta';
+
 /**
  * El componente para el detalle de una marca
  */
@@ -36,6 +38,12 @@ export class MarcaDetailComponent implements OnInit {
   @Input() marca_id: number;
 
   loader: any;
+
+  /**
+    * Shows or hides the edition of an author
+    */
+   showEdit: boolean;
+
 
   /**
    * El metodo que retorna los detalles de la marca
@@ -73,4 +81,5 @@ export class MarcaDetailComponent implements OnInit {
   ngOnDestroy(): void {
     this.loader.unsubscribe();
 }
+
 }

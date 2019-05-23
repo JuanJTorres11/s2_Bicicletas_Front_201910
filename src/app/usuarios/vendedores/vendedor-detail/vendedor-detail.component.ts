@@ -27,6 +27,8 @@ export class VendedorDetailComponent implements OnInit {
    */
   vendedor: VendedorDetail;
 
+  agregar= false;
+
   /**
    * Identificador que llega en la ruta
    */

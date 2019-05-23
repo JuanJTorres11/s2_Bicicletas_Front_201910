@@ -2,8 +2,10 @@
   <div class="row">
     <a (click)="back()" style="align-self: center; cursor: pointer;"><i class="material-icons back-arrow">arrow_back_ios</i></a>
     <h1>{{categoriaDetail.nombre}}
-      <categoria-edit [nombre]="nombre" (update)="recibirActualizacion($event)"></categoria-edit>
-      <categoria-delete [nombre]="nombre" (eliminado)="recibirEliminacion()"></categoria-delete>
+      <div *ngxPermissionsOnly="['ADMIN']">
+        <categoria-edit [nombre]="nombre" (update)="recibirActualizacion($event)"></categoria-edit>
+        <categoria-delete [nombre]="nombre" (eliminado)="recibirEliminacion()"></categoria-delete>
+      </div>
     </h1>
     <!--<categoria-add-bicicleta></categoria-add-bicicleta>-->
   </div>

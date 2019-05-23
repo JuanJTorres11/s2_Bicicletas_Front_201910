@@ -42,27 +42,13 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">Lista de deseos</a>
             </li>
-
- 
-      
+            <!-- Dropdown -->
 
             <!-- Dropdown -->
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">Crear</a>
-                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" routerLink="bicicletas/add">Crear bicicleta</a>
-                    <a class="dropdown-item" routerLink="/marcas/create">Crear marca</a>
-                </div>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="venta/add">Venta</a>
+
             </li>
-            <!-- Dropdown -->
-
-                        <!-- Dropdown -->
-                        <li class = "nav-item">
-                                <a class="nav-link" routerLink = "venta/add">Venta</a>
-            
-                        </li>
-
 
         </ul>
 
@@ -70,17 +56,16 @@
             <div *ngxPermissionsOnly="['VENDEDOR']">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item"><a class="nav-link" [routerLink]="['vendedores',darIdActual()]">Perfil</a></li>
-                    <li class="nav-item"> <a class="nav-link" [routerLink]="['vendedores','edit']">Configuración</a></li>
+                    <li class="nav-item"> <a class="nav-link" [routerLink]="['vendedores','edit']">Configuración</a>
+                    </li>
                     <li class="nav-item"><a class="nav-link" (click)="logout()" href="#">Cerrar Sesión</a></li>
                 </ul>
-            </div>
-            <div *ngxPermissionsOnly="['ADMIN']">
-                <a class="btn btn-primary my-2 my-sm-0" (click)="logout()" role="button" href="#">Cerrar Sesión</a>
             </div>
             <div *ngxPermissionsOnly="['COMPRADOR']">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item"><a class="nav-link" href="#">Perfil</a></li>
-                    <li class="nav-item"> <a class="nav-link" [routerLink]="['compradores','edit']">Configuración</a></li>
+                    <li class="nav-item"> <a class="nav-link" [routerLink]="['compradores','edit']">Configuración</a>
+                    </li>
                     <li class="nav-item"><a class="nav-link" (click)="logout()" href="#">Cerrar Sesión</a></li>
                 </ul>
             </div>
@@ -88,27 +73,40 @@
                 <a class="btn btn-primary my-2 my-sm-0" routerLink="iniciarSesion" role="button">Iniciar Sesión</a>
                 <a class="btn btn-outline-primary my-2 my-sm-0" routerLink="registrarse" role="button">Registrarse</a>
             </div>
-            
-             <div *ngxPermissionsOnly="['ADMIN']">
+
+            <div *ngxPermissionsOnly="['ADMIN']">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Perfil</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="#">Configuración</a></li>
+                    <!-- Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">Crear</a>
+                        <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" routerLink="bicicletas/add">Crear bicicleta</a>
+                            <a class="dropdown-item" routerLink="/marcas/create">Crear marca</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">Listar</a>
+                        <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" routerLink="vendedores/list">Listar Vendedores</a>
+                            <a class="dropdown-item" href="#">Listar compradores</a>
+                        </div>
+                    </li>
                     <li class="nav-item"><a class="nav-link" (click)="logout()" href="#">Cerrar Sesión</a></li>
                 </ul>
             </div>
-
         </div>
-
     </div>
     <!-- Collapsible content -->
 
 </nav>
 <!-- Routed components go here -->
 <div>
-        <router-outlet></router-outlet>
-        <br>
-        <br>
- </div>
+    <router-outlet></router-outlet>
+    <br>
+    <br>
+</div>
 
 <footer class="footer bg-light" id="footer">
     <div class="container">
