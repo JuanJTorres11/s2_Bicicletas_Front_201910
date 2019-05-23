@@ -15,17 +15,19 @@ export class DashboardComponent implements OnInit {
 
   constructor() { }
 
+  /**
+   * Carga la gráfica de los pedidos por mes
+   */
   pedidosPorMesInit() {
     this.ganancias = true;
     var chart = new CanvasJS.Chart("pedidosPorMes", {
       animationEnabled: true,
       title: {
-        text: "Music Album Sales by Year"
+        text: "Pedidos Por Mes"
       },
       axisY: {
-        title: "Units Sold",
+        title: "Pedidos Realizados",
         valueFormatString: "#0,,.",
-        suffix: "mn",
         stripLines: [{
           value: 3366500,
           label: "Average"
@@ -57,9 +59,8 @@ export class DashboardComponent implements OnInit {
     });
     chart.render();
   }
-}
 
-ngOnInit() {
-
-
+  ngOnInit() {
+    this.pedidosPorMesInit();
+  }
 }

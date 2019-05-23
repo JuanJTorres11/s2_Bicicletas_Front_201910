@@ -36,6 +36,7 @@ import { CompradorCarritoComponent } from '../usuarios/comprador/comprador-carri
 import { CompradorListaDeseosComponent } from '../usuarios/comprador/comprador-lista-deseos/comprador-lista-deseos.component';
 import { CompradorProcesoCompraComponent } from '../usuarios/comprador/comprador-proceso-compra/comprador-proceso-compra.component';
 import { DashboardComponent } from '../usuarios/administrador/dashboard/dashboard.component';
+import { VendedorListComponent } from '../usuarios/vendedores/vendedor-list/vendedor-list.component';
 
 
 
@@ -105,6 +106,10 @@ const routes: Routes = [
             {
                 path: 'mediosPago',
                 component: MediopagoListComponent
+            },
+            {
+                path: 'list',
+                component: VendedorListComponent
             },
             {
                 path: ':id',

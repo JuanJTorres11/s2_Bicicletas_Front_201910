@@ -5,20 +5,208 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
 </head>
 <body>
-    <a (click) ="sortPrecioAsc()" class="btn btn-success">Ordenar</a>
-
-    <label>Search: <input ng-model="searchText"></label>
-    <!-- Bootstrap row -->
+      <!-- Bootstrap row -->
     <div class="row">
         <div class="col-2 px-1 " id="sticky-sidebar">
-            <app-bicicleta-filters></app-bicicleta-filters>
-        </div>
 
+
+            <!-- Sidebar -->
+            <div id="sidebar-container" class="sidebar-expanded d-none d-md-block">
+                <!-- d-* hiddens the Sidebar in smaller devices. Its itens can be kept on the Navbar 'Menu' -->
+                <!-- Bootstrap List Group -->
+                <ul class="list-group">
+                    <li class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
+                        <small>BUSCAR</small>
+                    </li>
+                    <div class="sidebar-search spacer">
+                        <div class="input-group">
+                            <input [(ngModel)]="searchModel" type="text" class="form-control search-menu bg-dark text-white border-dark rounded-0" placeholder="  Search...">
+                            <div class="input-group-append">
+                                <span class="input-group-text bg-dark border-dark rounded-0">
+                                    <i (click)="filtrarReferencia(searchModel)" class="fa fa-search text-white" aria-hidden="true"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- sidebar-search  -->
+                    <!-- Separator with title -->
+                    <li class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
+                        <small>FILTRAR POR</small>
+                    </li>
+                    <!-- /END Separator -->
+                    <!-- Menu CATEGORIA with submenu -->
+                    <a href="#submenu1" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-start align-items-center">
+                            <span class="fa fa-pie-chart fa-fw mr-3"></span>
+                            <span class="menu-collapsed">Categoria</span>
+                            <span class="submenu-icon ml-auto"></span>
+                        </div>
+                    </a>
+                    <!-- Submenu CATEGORIA content  style="background-color: #43464B"-->
+                    <div id='submenu1' class="collapse sidebar-submenu">
+                        <a class="list-group-item list-group-item-action bg-dark text-white" *ngFor="let categoria of categorias" (click)="getBicicletasCategoria(categoria.nombre)">
+                            <span  class="menu-collapsed">{{categoria.nombre}}</span>
+                        </a>
+
+                    </div>
+                    <!-- Menu MARCA with submenu -->
+                    <a href="#submenu2" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-start align-items-center">
+                            <span class="fa fa-star fa-fw mr-3"></span>
+                            <span class="menu-collapsed">Marca</span>
+                            <span class="submenu-icon ml-auto"></span>
+                        </div>
+                    </a>
+                    <!-- Submenu MARCA content -->
+                    <div id='submenu2' class="collapse sidebar-submenu">
+                        <a class="list-group-item list-group-item-action bg-dark text-white" *ngFor="let marca of marcas">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="materialChecked2" unchecked>
+                                <label class="form-check-label" for="materialChecked2">{{marca.nombre}}</label>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Menu USADA with submenu -->
+                    <a href="#submenuUsada" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-start align-items-center">
+                            <span class="fa fa-tag fa-fw mr-3"></span>
+                            <span class="menu-collapsed">Estado</span>
+                            <span class="submenu-icon ml-auto"></span>
+                        </div>
+                    </a>
+                    <!-- Submenu USADA content -->
+                    <div id='submenuUsada' class="collapse sidebar-submenu">
+                        <a class="list-group-item list-group-item-action bg-dark text-white">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="UsadaTrue" [checked]="false" (click)="toggleEstado('UsadaTrue', true)">
+                                <label class="form-check-label" for="UsadaTrue">Usada</label>
+                            </div>
+                        </a>
+                        <a class="list-group-item list-group-item-action bg-dark text-white">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="UsadaFalse" [checked]="false" (click)="toggleEstado('UsadaFalse', false)">
+                                <label class="form-check-label" for="UsadaFalse">Nueva</label>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Menu PRECIO with submenu -->
+                    <a href="#submenuPrecio" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-start align-items-center">
+                            <span class="fa fa-money fa-fw mr-3"></span>
+                            <span class="menu-collapsed">Precio</span>
+                            <span class="submenu-icon ml-auto"></span>
+                        </div>
+                    </a>
+                    <!-- Submenu PRECIO content -->
+                    <div id='submenuPrecio' class="collapse sidebar-submenu">
+                        <a class="list-group-item list-group-item-action bg-dark text-white">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="Precio01" [checked]="false" (click)="togglePrecio('Precio01', 100000, 500000)">
+                                <label class="form-check-label" for="Precio01">$100.000 - $500.000</label>
+                            </div>
+                        </a>
+                        <a class="list-group-item list-group-item-action bg-dark text-white">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="Precio02" [checked]="false" (click)="togglePrecio('Precio02', 500000, 1000000)">
+                                <label class="form-check-label" for="Precio02">$500.000 - $1'000.000</label>
+                            </div>
+
+                        </a>
+                        <a class="list-group-item list-group-item-action bg-dark text-white">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="Precio03" [checked]="false" (click)="togglePrecio('Precio03', 1000000, 5000000)">
+                                <label class="form-check-label" for="Precio03">$1'000.000 - $5'000.000</label>
+                            </div>
+
+                        </a>
+                        <a class="list-group-item list-group-item-action bg-dark text-white">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="Precio04" [checked]="false" (click)="togglePrecio('Precio04', 5000000, 10000000)">
+                                <label class="form-check-label" for="Precio04">$5'000.000-$10'000.000</label>
+                            </div>
+
+                        </a>
+
+                    </div>
+                    <!-- Opcion PROMOCION -->
+
+                    <a href="#" class="bg-dark list-group-item list-group-item-action">
+                        <div class="d-flex w-100 justify-content-start align-items-center">
+                            <span class="fa fa-percent fa-fw mr-3"></span>
+                            <span class="menu-collapsed">Promocion</span>
+                        </div>
+                    </a>
+
+                    <!-- Separator with title -->
+                    <li class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
+                        <small>ORDENAR POR</small>
+                    </li>
+                    <!-- /END Separator -->
+                    <!-- Menu PRECIO with submenu -->
+                    <a href="#submenu3" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-start align-items-center">
+                            <span class="fa fa-money fa-fw mr-3"></span>
+                            <span class="menu-collapsed">Precio</span>
+                            <span class="submenu-icon ml-auto"></span>
+                        </div>
+                    </a>
+                    <!-- Submenu PRECIO content -->
+                    <div id='submenu3' class="collapse sidebar-submenu">
+                        <a (click)="sortPrecioAsc()" class="list-group-item list-group-item-action bg-dark text-white">
+                            <span class="menu-collapsed">Menor a mayor</span>
+                        </a>
+                        <a (click)="sortPrecioDesc()" class="list-group-item list-group-item-action bg-dark text-white">
+                            <span class="menu-collapsed">Mayor a menor</span>
+                        </a>
+                    </div>
+                    <!-- Menu ODERNAR  Alfabeticamente -->
+                    <a href="#submenuAlf" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-start align-items-center">
+                            <span class="fa fa-font fa-fw mr-3"></span>
+                            <span class="menu-collapsed">Alfabeticamente</span>
+                            <span class="submenu-icon ml-auto"></span>
+                        </div>
+                    </a>
+                    <!-- Submenu ODERNAR Alfabeticamente -->
+                    <div id='submenuAlf' class="collapse sidebar-submenu">
+                        <a (click)="sortAlphAsc()" class="list-group-item list-group-item-action bg-dark text-white">
+                            <span class="menu-collapsed">Ascendentemente</span>
+                        </a>
+                        <a (click)="sortAlphDesc()" class="list-group-item list-group-item-action bg-dark text-white">
+                            <span class="menu-collapsed">Descendentemente</span>
+                        </a>
+                    </div>
+                    <!-- ODERNAR  Calificacion-->
+                    <a (click)="sortCalificacionDesc()" class="bg-dark list-group-item list-group-item-action">
+                        <div class="d-flex w-100 justify-content-start align-items-center">
+                            <span class="fa fa-check-square-o fa-fw mr-3"></span>
+                            <span class="menu-collapsed">Calificacion</span>
+                        </div>
+                    </a>
+                    <!-- ODERNAR  ----->
+                    <!-- Separator without title -->
+                    <li class="list-group-item sidebar-separator menu-collapsed"></li>
+                    <!-- /END Separator -->
+                    <a href="#" class="bg-dark list-group-item list-group-item-action">
+                        <div class="d-flex w-100 justify-content-start align-items-center">
+                            <span class="fa fa-question fa-fw mr-3"></span>
+                            <span class="menu-collapsed">Ayuda</span>
+                        </div>
+                    </a>
+                </ul><!-- List Group END-->
+            </div><!-- sidebar-container END -->
+            <!--https://www.codeply.com/go/3e0RAjccRO/bootstrap-4-collapsing-sidebar-menu-->
+
+
+
+        </div>
+        
         <div class="col" id="main">
-            <div class="container">
+
+            <div *ngIf="searchModel.length > 0 ; else elseBlock" class="container">
                 <div class="row text-center text-lg-left">
 
-                    <div class="col-lg-3 col-md-6 mb-4" *ngFor="let bicicleta of bicicletas">
+                    <div class="col-lg-3 col-md-6 mb-4" *ngFor="let bicicleta of bicicletas | listFilterRefer : searchModel">
                         <br>
                         <div class="card h-100">
                             <a routerLink="/bicicletas/{{bicicleta.id}}">
@@ -46,6 +234,43 @@
                     </div>
                 </div>
             </div>
+
+            <ng-template #elseBlock>
+
+                <div class="container">
+                    <div class="row text-center text-lg-left">
+
+                        <div class="col-lg-3 col-md-6 mb-4" *ngFor="let bicicleta of bicicletas">
+                            <br>
+                            <div class="card h-100">
+                                <a routerLink="/bicicletas/{{bicicleta.id}}">
+                                    <img class="card-img-top" src="{{bicicleta.album[0]}}" alt="">
+                                </a>
+                                <div class="card-body">
+                                    <h4 class="card-title">Bicicleta {{bicicleta.referencia}}</h4>
+                                    <p class="precio">$ {{bicicleta.precio}}</p>
+
+                                    <span class="fa fa-star {{(bicicleta.calificacion >= 1) ? 'checked' : ''}}"></span>
+                                    <span class="fa fa-star {{(bicicleta.calificacion >= 2) ? 'checked' : ''}}"></span>
+                                    <span class="fa fa-star {{(bicicleta.calificacion >= 3) ? 'checked' : ''}}"></span>
+                                    <span class="fa fa-star {{(bicicleta.calificacion >= 4) ? 'checked' : ''}}"></span>
+                                    <span class="fa fa-star {{(bicicleta.calificacion >= 5) ? 'checked' : ''}}"></span>
+
+
+                                    <p class="card-text">{{bicicleta.descripcion}}</p>
+                                </div>
+                                <div class="card-footer">
+                                    <a routerLink="/bicicletas/{{bicicleta.id}}" class="btn btn-outline-primary" style="margin-right: 5px">Mas info</a>
+                                    <a href="#" class="btn btn-success">Comprar</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </ng-template> 
+
         </div>
 
     </div>

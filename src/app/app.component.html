@@ -42,19 +42,6 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">Lista de deseos</a>
             </li>
-
-
-
-
-            <!-- Dropdown -->
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">Crear</a>
-                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" routerLink="bicicletas/add">Crear bicicleta</a>
-                    <a class="dropdown-item" routerLink="/marcas/create">Crear marca</a>
-                </div>
-            </li>
             <!-- Dropdown -->
 
             <!-- Dropdown -->
@@ -62,7 +49,6 @@
                 <a class="nav-link" routerLink="venta/add">Venta</a>
 
             </li>
-
 
         </ul>
 
@@ -90,15 +76,30 @@
 
             <div *ngxPermissionsOnly="['ADMIN']">
                 <ul class="navbar-nav mr-auto">
+                    <!-- Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">Crear</a>
+                        <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" routerLink="bicicletas/add">Crear bicicleta</a>
+                            <a class="dropdown-item" routerLink="/marcas/create">Crear marca</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">Listar</a>
+                        <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" routerLink="vendedores/list">Listar Vendedores</a>
+                            <a class="dropdown-item" href="#">Listar compradores</a>
+                        </div>
+                    </li>
                     <li class="nav-item"><a class="nav-link" [routerLink]="['dashboard']" style="margin-right: 10px;"><img
                                 src="http://www.myiconfinder.com/uploads/iconsets/256-256-3f869295130b9549514b440486bfe661-dashboard.png"
                                 class="dashboard" height="28px"></a></li>
                     <li class="nav-item"><a class="nav-link" (click)="logout()" href="#">Cerrar Sesión</a></li>
                 </ul>
             </div>
-
         </div>
-
     </div>
     <!-- Collapsible content -->
 
