@@ -15,7 +15,7 @@ export class CompradorDetailComponent implements OnInit {
      * @param compradorService The comprador's service
      * @param router The route element which helps to obtain the comprador's id
      * @param toastrService The toastr to show messages to the user
-     */
+     */ 
     constructor(
         private compradorService: CompradorService,
         private route: ActivatedRoute,

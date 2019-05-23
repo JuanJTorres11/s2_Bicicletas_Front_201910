@@ -1,0 +1,7 @@
+#dashboard {
+    background-image: url("../assets/Images/dashboard.png");
+}
+
+#dashboard:hover {
+    background-image: url("../assets/Images/dashboardHover.png");
+}

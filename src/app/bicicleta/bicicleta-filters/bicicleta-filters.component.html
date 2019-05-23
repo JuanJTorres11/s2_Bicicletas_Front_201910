@@ -32,8 +32,12 @@
         </a>
         <!-- Submenu CATEGORIA content -->
         <div id='submenu1' class="collapse sidebar-submenu">
-            <a href="#" class="list-group-item list-group-item-action bg-dark text-white" *ngFor="let categoria of categorias">
-                <span class="menu-collapsed">{{categoria.nombre}}</span>
+            <a class="list-group-item list-group-item-action" style="background-color: #43464B" *ngFor="let categoria of categorias">
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="materialChecked2" unchecked>
+                    <label class="form-check-label" for="materialChecked2">{{categoria.nombre}}</label>
+                </div>
+
             </a>
 
         </div>
@@ -46,11 +50,13 @@
             </div>
         </a>
         <!-- Submenu MARCA content -->
-        <div id='submenu2' class="collapse sidebar-submenu">
-            <a href="#" class="list-group-item list-group-item-action bg-dark text-white" *ngFor="let marca of marcas">
-                <span class="menu-collapsed">{{marca.nombre}}</span>
+        <div id='submenu2' class="collapse sidebar-submenu" >
+            <a class="list-group-item list-group-item-action " style="background-color: #43464B" *ngFor="let marca of marcas">
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="materialChecked2" unchecked>
+                    <label class="form-check-label" for="materialChecked2">{{marca.nombre}}</label>
+                </div>
             </a>
-
         </div>
         <!-- Menu USADA with submenu -->
         <a href="#submenuUsada" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">

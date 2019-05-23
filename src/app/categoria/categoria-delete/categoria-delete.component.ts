@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CategoriaService } from '../categoria.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'categoria-delete',
@@ -15,12 +16,15 @@ export class CategoriaDeleteComponent implements OnInit {
 
   @Output() eliminado = new EventEmitter;
 
-  constructor(private categoriaService: CategoriaService) { }
+  constructor(private categoriaService: CategoriaService,
+              private toastr: ToastrService
+    ) { }
 
   deleteCategoria() {
     this.categoriaService.deleteCategoria(this.nombre)
       .subscribe(categoria => {
         this.eliminado.emit();
+        this.toastr.error("Se eliminó la categoria " + this.nombre + ".");
       });
   }
 

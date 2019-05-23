@@ -1,14 +1,17 @@
-<dl>
-  <dt>
-    nombre
-  </dt>
-  <dd>
-    {{compradorDetail.nombre}}
-  </dd>
-  <dt>
-    Correo
-  </dt>
-  <dd>
-    {{compradorDetail.login}}
-  </dd>
-</dl>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-8">
+      <form>
+        <div class="form-group">
+          <label for="login"><b>Nombre</b></label>
+          <input type="text" name="nombre" class="form-control" value="{{comprador.nombre}}" readonly>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="login"><b>Correo</b></label>
+            <input type="email" name="login" class="form-control" value="{{comprador.login}}" readonly>
+          </div>
+         
+        </div>
+      </form>
+</div>

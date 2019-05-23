@@ -32,6 +32,7 @@ import { BicicletaEditComponent } from '../bicicleta/bicicleta-edit/bicicleta-ed
 
 import { MarcaEditComponent } from '../marca/marca-edit/marca-edit.component';
 
+import {CompradorOrdenComponent} from '../usuarios/comprador/comprador-orden/comprador-orden.component';
 import {CompradorCarritoComponent} from '../usuarios/comprador/comprador-carrito/comprador-carrito.component';
 import {CompradorListaDeseosComponent} from '../usuarios/comprador/comprador-lista-deseos/comprador-lista-deseos.component';
 import {CompradorProcesoCompraComponent} from '../usuarios/comprador/comprador-proceso-compra/comprador-proceso-compra.component';
@@ -119,9 +120,13 @@ const routes: Routes = [
                 path: 'edit',
                 component: CompradorEditComponent
             },
+            {
+                path: 'ordenes',
+                component: CompradorOrdenComponent
+            },
 			{
                 path: ':id/carrito',
-                component: CompradorProcesoCompraComponent
+                component: CompradorListaDeseosComponent
             },
             {
                 path: ':id',

@@ -1,3 +1,4 @@
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
     <!-- Navbar brand -->
@@ -43,8 +44,8 @@
                 <a class="nav-link" href="#">Lista de deseos</a>
             </li>
 
- 
-      
+
+
 
             <!-- Dropdown -->
             <li class="nav-item dropdown">
@@ -57,12 +58,6 @@
             </li>
             <!-- Dropdown -->
 
-<!--                         Dropdown 
-                        <li class = "nav-item">
-                                <a class="nav-link" routerLink = "venta/add">Venta</a>
-            
-                        </li>-->
-
 
         </ul>
 
@@ -70,17 +65,16 @@
             <div *ngxPermissionsOnly="['VENDEDOR']">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item"><a class="nav-link" [routerLink]="['vendedores',darIdActual()]">Perfil</a></li>
-                    <li class="nav-item"> <a class="nav-link" [routerLink]="['vendedores','edit']">Configuración</a></li>
+                    <li class="nav-item"> <a class="nav-link" [routerLink]="['vendedores','edit']">Configuración</a>
+                    </li>
                     <li class="nav-item"><a class="nav-link" (click)="logout()" href="#">Cerrar Sesión</a></li>
                 </ul>
             </div>
-            <div *ngxPermissionsOnly="['ADMIN']">
-                <a class="btn btn-primary my-2 my-sm-0" (click)="logout()" role="button" href="#">Cerrar Sesión</a>
-            </div>
             <div *ngxPermissionsOnly="['COMPRADOR']">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item"><a class="nav-link" [routerLink]="['compradores',darIdActual()]">Perfil</a></li>
-                    <li class="nav-item"> <a class="nav-link" [routerLink]="['compradores','edit']">Configuración</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Perfil</a></li>
+                    <li class="nav-item"> <a class="nav-link" [routerLink]="['compradores','edit']">Configuración</a>
+                    </li>
                     <li class="nav-item"><a class="nav-link" (click)="logout()" href="#">Cerrar Sesión</a></li>
                 </ul>
             </div>
@@ -88,10 +82,11 @@
                 <a class="btn btn-primary my-2 my-sm-0" routerLink="iniciarSesion" role="button">Iniciar Sesión</a>
                 <a class="btn btn-outline-primary my-2 my-sm-0" routerLink="registrarse" role="button">Registrarse</a>
             </div>
-            
-             <div *ngxPermissionsOnly="['ADMIN']">
+
+            <div *ngxPermissionsOnly="['ADMIN']">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Perfil</a></li>
+                    <!--<li class="nav-item"><a class="nav-link" href="#"><img id="dashboard"></a></li>-->
+                    <li class="nav-item"><div id="dashboard"></div></li>
                     <li class="nav-item"> <a class="nav-link" href="#">Configuración</a></li>
                     <li class="nav-item"><a class="nav-link" (click)="logout()" href="#">Cerrar Sesión</a></li>
                 </ul>
@@ -105,10 +100,10 @@
 </nav>
 <!-- Routed components go here -->
 <div>
-        <router-outlet></router-outlet>
-        <br>
-        <br>
- </div>
+    <router-outlet></router-outlet>
+    <br>
+    <br>
+</div>
 
 <footer class="footer bg-light" id="footer">
     <div class="container">
@@ -120,3 +115,4 @@
         </p>
     </div>
 </footer>
+

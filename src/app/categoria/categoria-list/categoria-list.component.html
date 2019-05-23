@@ -2,7 +2,7 @@
   <div class="col-md-10">
     <h1>Categorías</h1>
   </div>
-  <div class="col-md" id="agregarCategoriaDiv">
+  <div class="col-md" id="agregarCategoriaDiv" *ngxPermissionsOnly="['ADMIN']">
     <button type="button" class="btn btn-outline-primary" data-toggle="collapse" data-target="#collapse-categoria" aria-expanded="false" aria-controls="collapse-categoria" style="margin-left: 10px;" (click)="mostrarComponenteAgregarCategoria()">Agregar Categoria<i class="material-icons" style="vertical-align:bottom; margin-left: 5px;">add</i></button>
   </div>
 </div>

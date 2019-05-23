@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Comprador } from './comprador';
-import { CompradorDetail } from "./comprador-detail";
+import {CompradorDetail} from "./comprador-detail";
 //import { Bicicleta } from 'src/app/bicicleta/bicicleta';
 import { environment } from '../../../environments/environment';
 
-//const API_URL = environment.apiURL + "/compradores";
-const API_URL = environment.apiURL + "../../assets/";
+const API_URL = environment.apiURL + "/compradores";
+//const API_URL = environment.apiURL + "../../assets/";
 //const carrito = '/carrito.json';
  const compradores = '/compradores';
 //const mediosPago = '/mediosPago.json';
@@ -27,8 +27,7 @@ export class CompradorService {
     * @returns CompradorDetail
     */
     getCompradorDetail(id: number): Observable<CompradorDetail> {
-       // return this.http.get<CompradorDetail>(API_URL + "/" + id);
-        return this.http.get<CompradorDetail>(API_URL + "comprador"+ id + ".json");
+        return this.http.get<CompradorDetail>(API_URL + "/" + id);
     }
 
     /**
