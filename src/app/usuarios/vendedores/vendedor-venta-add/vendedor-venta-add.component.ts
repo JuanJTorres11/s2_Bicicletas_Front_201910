@@ -24,6 +24,8 @@ export class VendedorVentaAddComponent implements OnInit {
    * Representación del objeto venta
    */
   venta:Venta;
+  factura:String;
+  precio:number;
   
   foto= "https://yerkabikes.com/cl/wp-content/uploads/2015/12/Yerka-v2-turquesa-turquoise.png";
 
@@ -32,6 +34,9 @@ export class VendedorVentaAddComponent implements OnInit {
    */
   addVenta () {
     this.venta.fotos[0] = this.foto;
+    this.venta.factura= this.factura;
+    this.venta.precio = this.precio;
+    console.log("la venta es" + this.venta.precio + this.venta.factura);
     this.service.postVendedorVentas(this.id, this.venta).subscribe(ventaBD => {
       this.venta = ventaBD;
     });
@@ -42,5 +47,6 @@ export class VendedorVentaAddComponent implements OnInit {
    */
   ngOnInit() {
     this.id = parseInt(localStorage.getItem('id'));
+    this.venta = new Venta();
   }
 }
