@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { VendedorService } from '../vendedor.service';
 import { Venta } from '../../../Venta/venta';
+import { FormGroup, FormsModule, ReactiveFormsModule  } from '@angular/forms';
 
 @Component({
   selector: 'app-vendedor-venta-add',
@@ -12,6 +13,8 @@ export class VendedorVentaAddComponent implements OnInit {
   constructor(
     private service: VendedorService) { }
 
+    form: FormGroup;
+    
   /**
    * Identificador del vendedor actual
    */
@@ -22,7 +25,7 @@ export class VendedorVentaAddComponent implements OnInit {
    */
   venta:Venta;
   
-  foto:string;
+  foto= "https://yerkabikes.com/cl/wp-content/uploads/2015/12/Yerka-v2-turquesa-turquoise.png";
 
   /**
    * Crea una nueva venta.
