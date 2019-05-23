@@ -27,14 +27,13 @@ export class Venta {
      */
     fotos : String[];
 
-    // /**
-    //  * Objeto bicicleta a vender. 
-    //  */
-    // biciclea : Bicicleta;
+    /**
+    * Objeto bicicleta a vender. 
+    */
+     biciclea : Bicicleta;
     
     /**
      * Atributo que representa el id de una venta. 
      */
     id : number;
-
 }
