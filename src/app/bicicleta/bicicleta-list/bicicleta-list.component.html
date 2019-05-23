@@ -45,7 +45,7 @@
                     <!-- Submenu CATEGORIA content  style="background-color: #43464B"-->
                     <div id='submenu1' class="collapse sidebar-submenu">
                         <a class="list-group-item list-group-item-action bg-dark text-white" *ngFor="let categoria of categorias" (click)="getBicicletasCategoria(categoria.nombre)">
-                            <span  class="menu-collapsed">{{categoria.nombre}}</span>
+                            <span class="menu-collapsed">{{categoria.nombre}}</span>
                         </a>
 
                     </div>
@@ -60,8 +60,8 @@
                     <!-- Submenu MARCA content -->
                     <div id='submenu2' class="collapse sidebar-submenu">
                         <a class="list-group-item list-group-item-action bg-dark text-white" *ngFor="let marca of marcas" (click)="getBicicletasMarca(marca.id)">
-                                <span class="menu-collapsed">{{marca.nombre}}</span>
-                  
+                            <span class="menu-collapsed">{{marca.nombre}}</span>
+
                         </a>
                     </div>
                     <!-- Menu USADA with submenu -->
@@ -89,9 +89,9 @@
                             </div>
                         </a>
 
-     
+
                         <!-- Material checked -->
-     
+
                     </div>
                     <!-- Menu PRECIO with submenu -->
                     <a href="#submenuPrecio" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
@@ -103,7 +103,7 @@
                     </a>
                     <!-- Submenu PRECIO content -->
                     <div id='submenuPrecio' class="collapse sidebar-submenu">
-        
+
                         <a class="list-group-item list-group-item-action bg-dark text-white">
                             <div class="form-check">
                                 <input type="radio" class="form-check-input" id="materialChecked01" (click)="togglePrecio('materialChecked01', 100000, 500000)" name="materialExampleRadios" [checked]="false">
@@ -134,12 +134,19 @@
                     </div>
                     <!-- Opcion PROMOCION -->
 
-                    <a href="#" class="bg-dark list-group-item list-group-item-action">
-                        <div class="d-flex w-100 justify-content-start align-items-center">
+                    <a  class="bg-dark list-group-item list-group-item-action">
+                        <div (click) ="filtrarDesc()" class="d-flex w-100 justify-content-start align-items-center">
                             <span class="fa fa-percent fa-fw mr-3"></span>
                             <span class="menu-collapsed">Promocion</span>
                         </div>
                     </a>
+                    <a class="bg-dark list-group-item list-group-item-action">
+                        <div (click)="getBicicletas()" class="d-flex w-100 justify-content-start align-items-center">
+                            <span class="fa fa-globe fa-fw mr-3"></span>
+                            <span class="menu-collapsed">Ver todas</span>
+                        </div>
+                    </a>
+
 
                     <!-- Separator with title -->
                     <li class="list-group-item sidebar-separator-title text-muted d-flex align-items-center menu-collapsed">
