@@ -45,7 +45,7 @@ export class AuthService {
 
     setRol(rol:string):void {
         this.roleService.flushRoles();
-        if (!rol || rol === 'INVITADO' || rol==="Invitado") {
+        if (rol === undefined || rol === null || rol === 'INVITADO' || rol==="Invitado") {
             this.roleService.addRole('INVITADO', ['']);
         }
         else if (rol === 'ADMIN' || rol ==="Administrador") {
