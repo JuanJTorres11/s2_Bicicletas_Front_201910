@@ -65,6 +65,8 @@ export class BicicletaListComponent implements OnInit {
      */
       @Input() bicicletas: Bicicleta[];
 
+	  @Input() originales: Bicicleta[];
+
 
     /**
      * Metodo que retorna todas las bicicletas de la tienda para mostrarlos en la lista
@@ -74,6 +76,12 @@ export class BicicletaListComponent implements OnInit {
             .subscribe(bicicletas => this.bicicletas = bicicletas);
     }
 
+	 getCopyOfBicicletas(): void {
+	 console.log("era undefined2");
+        this.bicicletaService.getBicicletas()
+            .subscribe(originales => this.originales = originales);
+			
+    }
 
 	/**
     * La lista de todas las categorias
@@ -118,23 +126,30 @@ export class BicicletaListComponent implements OnInit {
      * Metodo que incializa el componente
      */
     ngOnInit() {
+		this.searchModel = "";
 		console.log("IntitBicicletas");
 		if(this.bicicletas === undefined){
 		 this.getBicicletas();
+		
 		}
 
+		if(this.originales === undefined){
+		this.getCopyOfBicicletas();
+		console.log("era undefined");
+		}
 		this.getCategorias();
 		this.getMarcas();
 
-		this.searchModel = "";
+		
  	}
 
 	filtrarUsada(value){
-		this.bicicletas = this.pipeUsada.transform(this.bicicletas, value);
+		this.bicicletas = this.pipeUsada.transform(this.originales, value);
+	
 	}
 
 	filtrarPrecio(value, value2){
-		this.bicicletas = this.pipePrecio.transform(this.bicicletas, value, value2);
+		this.bicicletas = this.pipePrecio.transform(this.originales, value, value2);
 	}
 
 	filtrarReferencia(value){
@@ -201,6 +216,19 @@ export class BicicletaListComponent implements OnInit {
 	  } 
 	  else {
 		this.getBicicletas(); 
+	  }
+  }
+
+
+  toggleEstado2()  { 
+	  var  checkBox = document.getElementById('materialUnchecked') as HTMLInputElement;
+	  console.log( "helllooo" + checkBox.checked );
+	  if (checkBox.checked == true){
+	  console.log( "siiii" );
+	  this.filtrarUsada(false);
+	  } 
+	  else {
+	  console.log( "noooo" );
 	  }
   }
 
