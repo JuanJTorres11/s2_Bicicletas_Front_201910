@@ -1,7 +1,7 @@
-#dashboard {
-    background-image: url("../assets/Images/dashboard.png");
+.dashboard {
+    opacity: 1;
 }
 
-#dashboard:hover {
-    background-image: url("../assets/Images/dashboardHover.png");
+.dashboard:hover {
+    opacity: 0.5;
 }
