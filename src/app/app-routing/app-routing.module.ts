@@ -132,6 +132,10 @@ const routes: Routes = [
             },
             {
                 path: ':id/carrito',
+                component: CompradorCarritoComponent
+            },
+			{
+                path: ':id/listadeseos',
                 component: CompradorListaDeseosComponent
             },
             {
