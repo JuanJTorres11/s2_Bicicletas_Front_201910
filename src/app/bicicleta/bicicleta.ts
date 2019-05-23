@@ -68,6 +68,8 @@ export class Bicicleta{
      * La orden asociada a la bicicleta
      */
     orden : Orden;
+
+	descuento : number;
 	
     
     

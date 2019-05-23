@@ -15,6 +15,7 @@ import {Marca} from '../../marca/marca';
 import {ListFilterUsadaPipe} from '../../share-module/list-filter-usada.pipe'; 
 import {ListFilterReferPipe} from '../../share-module/list-filter-refer.pipe'; 
 import {ListFilterPrecioPipe} from '../../share-module/list-filter-precio.pipe'; 
+import {ListFilterDesPipe} from '../../share-module/list-filter-des.pipe'; 
 
 
 
@@ -30,7 +31,8 @@ declare var $: any;
     styleUrls: ['./bicicleta-list.component.css'],
 	providers : [ListFilterUsadaPipe,
 				ListFilterReferPipe,
-				ListFilterPrecioPipe
+				ListFilterPrecioPipe,
+				ListFilterDesPipe
 				]
 })
 export class BicicletaListComponent implements OnInit {
@@ -50,7 +52,8 @@ export class BicicletaListComponent implements OnInit {
 
 	private pipeUsada: ListFilterUsadaPipe, 
 	private pipeReferencia: ListFilterReferPipe, 
-	private pipePrecio: ListFilterPrecioPipe
+	private pipePrecio: ListFilterPrecioPipe,
+	private pipeDes: ListFilterDesPipe
 
 	) {}
 
@@ -108,6 +111,8 @@ export class BicicletaListComponent implements OnInit {
                 this.toastrService.error(err, 'Error');
             });
     }
+
+
 
     /**
      * Metodo que incializa el componente
@@ -223,19 +228,19 @@ export class BicicletaListComponent implements OnInit {
         console.log(bicis);
       });
   }
-  
 
   /**
    * Obtiene las bicicletas de la marca con el nombre dado.
-   * @param nombreCategoria Nombre de la categoria.
+   * @param nombreMarca Nombre de la marca.
    */
-  getBicicletasMarca(nombreCategoria: string) {
-    //this.marcaService.getCategoriaBicicletas(nombreCategoria)
-      //.subscribe(bicis => {
-        //this.bicicletas = bicis;
-        //console.log(bicis);
-      //});
+  getBicicletasMarca(idMarca: number) {
+    this.marcaService.getMarcaBicicletas(idMarca)
+      .subscribe(b => {
+        this.bicicletas = b;
+      });
   }
+
+  
   
 }
 
