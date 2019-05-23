@@ -59,11 +59,9 @@
                     </a>
                     <!-- Submenu MARCA content -->
                     <div id='submenu2' class="collapse sidebar-submenu">
-                        <a class="list-group-item list-group-item-action bg-dark text-white" *ngFor="let marca of marcas">
-                            <a class="list-group-item list-group-item-action bg-dark text-white" *ngFor="let categoria of categorias" (click)="getBicicletasMarca(marca.id)">
+                        <a class="list-group-item list-group-item-action bg-dark text-white" *ngFor="let marca of marcas" (click)="getBicicletasMarca(marca.id)">
                                 <span class="menu-collapsed">{{marca.nombre}}</span>
-                            </a>
-
+                  
                         </a>
                     </div>
                     <!-- Menu USADA with submenu -->

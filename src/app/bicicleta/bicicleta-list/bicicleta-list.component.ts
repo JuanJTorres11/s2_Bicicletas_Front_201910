@@ -234,9 +234,12 @@ export class BicicletaListComponent implements OnInit {
    * @param nombreMarca Nombre de la marca.
    */
   getBicicletasMarca(idMarca: number) {
+  console.log(idMarca);
+	console.log("entró a dar bikes marca");
     this.marcaService.getMarcaBicicletas(idMarca)
       .subscribe(b => {
         this.bicicletas = b;
+		
       });
   }
 
