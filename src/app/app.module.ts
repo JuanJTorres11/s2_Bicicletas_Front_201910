@@ -23,6 +23,7 @@ import { MediopagoModule } from './mediopago/mediopago.module';
 
 import { CompradorModule } from './usuarios/comprador/comprador.module';
 import { VentaModule } from './venta/venta.module';
+import { AdministradorModule } from './usuarios/administrador/administrador.module';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { VentaModule } from './venta/venta.module';
         CategoriaModule,
         MediopagoModule, 
         CompradorModule, 
-        VentaModule
+        VentaModule,
+        AdministradorModule
 
     ],
     bootstrap: [AppComponent],
