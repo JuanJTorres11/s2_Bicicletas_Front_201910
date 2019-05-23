@@ -15,6 +15,7 @@ import {Marca} from '../../marca/marca';
 import {ListFilterUsadaPipe} from '../../share-module/list-filter-usada.pipe'; 
 import {ListFilterReferPipe} from '../../share-module/list-filter-refer.pipe'; 
 import {ListFilterPrecioPipe} from '../../share-module/list-filter-precio.pipe'; 
+import {ListFilterDesPipe} from '../../share-module/list-filter-des.pipe'; 
 
 
 
@@ -30,7 +31,8 @@ declare var $: any;
     styleUrls: ['./bicicleta-list.component.css'],
 	providers : [ListFilterUsadaPipe,
 				ListFilterReferPipe,
-				ListFilterPrecioPipe
+				ListFilterPrecioPipe,
+				ListFilterDesPipe
 				]
 })
 export class BicicletaListComponent implements OnInit {
@@ -50,7 +52,8 @@ export class BicicletaListComponent implements OnInit {
 
 	private pipeUsada: ListFilterUsadaPipe, 
 	private pipeReferencia: ListFilterReferPipe, 
-	private pipePrecio: ListFilterPrecioPipe
+	private pipePrecio: ListFilterPrecioPipe,
+	private pipeDes: ListFilterDesPipe
 
 	) {}
 
@@ -62,6 +65,8 @@ export class BicicletaListComponent implements OnInit {
      */
       @Input() bicicletas: Bicicleta[];
 
+	  @Input() originales: Bicicleta[];
+
 
     /**
      * Metodo que retorna todas las bicicletas de la tienda para mostrarlos en la lista
@@ -71,6 +76,12 @@ export class BicicletaListComponent implements OnInit {
             .subscribe(bicicletas => this.bicicletas = bicicletas);
     }
 
+	 getCopyOfBicicletas(): void {
+	 console.log("era undefined2");
+        this.bicicletaService.getBicicletas()
+            .subscribe(originales => this.originales = originales);
+			
+    }
 
 	/**
     * La lista de todas las categorias
@@ -109,31 +120,44 @@ export class BicicletaListComponent implements OnInit {
             });
     }
 
+
+
     /**
      * Metodo que incializa el componente
      */
     ngOnInit() {
+		this.searchModel = "";
 		console.log("IntitBicicletas");
 		if(this.bicicletas === undefined){
 		 this.getBicicletas();
+		
 		}
 
+		if(this.originales === undefined){
+		this.getCopyOfBicicletas();
+		console.log("era undefined");
+		}
 		this.getCategorias();
 		this.getMarcas();
 
-		this.searchModel = "";
+		
  	}
 
 	filtrarUsada(value){
-		this.bicicletas = this.pipeUsada.transform(this.bicicletas, value);
+		this.bicicletas = this.pipeUsada.transform(this.originales, value);
+	
 	}
 
 	filtrarPrecio(value, value2){
-		this.bicicletas = this.pipePrecio.transform(this.bicicletas, value, value2);
+		this.bicicletas = this.pipePrecio.transform(this.originales, value, value2);
 	}
 
 	filtrarReferencia(value){
-			this.bicicletas = this.pipeReferencia.transform(this.bicicletas, value);
+			this.bicicletas = this.pipeReferencia.transform(this.originales, value);
+	}
+
+	filtrarDesc(){
+			this.bicicletas = this.pipeDes.transform(this.originales);
 	}
 
 	sortAlphAsc() {
@@ -200,6 +224,19 @@ export class BicicletaListComponent implements OnInit {
   }
 
 
+  toggleEstado2()  { 
+	  var  checkBox = document.getElementById('materialUnchecked') as HTMLInputElement;
+	  console.log( "helllooo" + checkBox.checked );
+	  if (checkBox.checked == true){
+	  console.log( "siiii" );
+	  this.filtrarUsada(false);
+	  } 
+	  else {
+	  console.log( "noooo" );
+	  }
+  }
+
+
   togglePrecio(value, criterio1, criterio2)  { 
 	
 	  var  checkBox = document.getElementById(value) as HTMLInputElement;
@@ -223,19 +260,22 @@ export class BicicletaListComponent implements OnInit {
         console.log(bicis);
       });
   }
-  
 
   /**
    * Obtiene las bicicletas de la marca con el nombre dado.
-   * @param nombreCategoria Nombre de la categoria.
+   * @param nombreMarca Nombre de la marca.
    */
-  getBicicletasMarca(nombreCategoria: string) {
-    //this.marcaService.getCategoriaBicicletas(nombreCategoria)
-      //.subscribe(bicis => {
-        //this.bicicletas = bicis;
-        //console.log(bicis);
-      //});
+  getBicicletasMarca(idMarca: number) {
+  console.log(idMarca);
+	console.log("entró a dar bikes marca");
+    this.marcaService.getMarcaBicicletas(idMarca)
+      .subscribe(b => {
+        this.bicicletas = b;
+		
+      });
   }
+
+  
   
 }
 

@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CompradorService } from '../comprador.service';
 import { Router } from '@angular/router';
-import { Orden } from '../../../Orden/orden';
+import { Orden } from '../../../orden/orden';
 
 @Component({
     selector: 'app-comprador-orden',
@@ -11,38 +11,33 @@ import { Orden } from '../../../Orden/orden';
 
   export class CompradorOrdenComponent implements OnInit {
 
-    constructor(
-        private service: CompradorService,
-        private router: Router) { }
+    constructor(private service: CompradorService) { }
 
-        id: number;
+  @Input()  id: number;
 
-        ordenesComprador: Orden [];
+   ordenesComprador: Orden[];
 
    /**
    * Obtiene las ordenes del comprador. 
    */
-  getOrdenes() {
-    this.service.getCompradorOrden(this.id).subscribe(ordenesCompradorBD => {
+  getOrdenes(idComprador : number) {
+    this.service.getCompradorOrden(idComprador).subscribe(ordenesCompradorBD => {
       this.ordenesComprador = ordenesCompradorBD;
     });
   }
 
-    
-  /**
-   * Redirige al componente de orden.
-   */
-  redirectOrden() {
-    this.router.navigateByUrl('compradores/' + this.id + 'ordenes/');
+  getCompradorOrden() {
+    this.getOrdenes(this.id);
   }
-
 
     /**
    * Método que se ejecuta apenas se crea el componente
    */
   ngOnInit() {
-    this.id = parseInt(localStorage.getItem('id'));
-    this.getOrdenes();
+    if(this.ordenesComprador === undefined) {
+      this.ordenesComprador = [];
+    }
+    this.getCompradorOrden();
   }
 
   }

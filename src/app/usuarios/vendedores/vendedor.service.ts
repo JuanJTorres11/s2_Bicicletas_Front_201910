@@ -3,6 +3,7 @@ import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {VendedorDetail} from "./vendedorDetail"
 import { environment } from '../../../environments/environment';
+import { Venta } from '../../venta/venta';
 
 const API_URL = environment.apiURL + "/vendedores";
 
@@ -68,8 +69,8 @@ export class VendedorService {
      * @param id Identificador del vendedor.
      * @param venta Objeto de la venta a agregar.
      */
-    postVendedorVentas(id:number, venta): Observable<any> {
-        return this.http.get(API_URL + "/" + id + "/ventas", venta);
+    postVendedorVentas(id:number, venta:Venta): Observable<any> {
+        return this.http.post(API_URL + "/" + id + "/ventas", venta);
     }
     
 }

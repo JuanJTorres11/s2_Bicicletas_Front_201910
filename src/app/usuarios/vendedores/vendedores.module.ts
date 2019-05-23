@@ -7,7 +7,7 @@ import { VendedorVentaListComponent } from './vendedor-venta-list/vendedor-venta
 import { VendedorEditComponent } from './vendedor-edit/vendedor-edit.component';
 import { VendedorService } from './vendedor.service';
 import { BicicletaModule } from '../../bicicleta/bicicleta.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MediopagoModule } from '../../mediopago/mediopago.module';
 import { VendedorListComponent } from './vendedor-list/vendedor-list.component';
 
@@ -16,6 +16,7 @@ import { VendedorListComponent } from './vendedor-list/vendedor-list.component';
     CommonModule,
     BicicletaModule,
     FormsModule,
+    ReactiveFormsModule,
     MediopagoModule
   ],
   declarations: [

@@ -12,33 +12,26 @@ import { VendedorEditComponent } from '../usuarios/vendedores/vendedor-edit/vend
 import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
 import { NgxPermissionsGuard } from 'ngx-permissions';
-
-
 import { CompradorEditComponent } from '../usuarios/comprador/comprador-edit/comprador-edit.component';
 import { CompradorDetailComponent } from '../usuarios/comprador/comprador-detail/comprador-detail.component';
 import { VentaCreateComponent } from '../venta/venta-create/venta-create.component';
 import { VentaEditComponent } from '../venta/venta-edit/venta-edit.component';
-
-
 import { OrdenListComponent } from '../orden/orden-list/orden-list.component';
 import { OrdenDetailComponent } from '../orden/orden-detail/orden-detail.component';
-
+import { CompradorOrdenComponent } from '../usuarios/comprador/comprador-orden/comprador-orden.component';
 import { MarcaCreateComponent } from '../marca/marca-create/marca-create.component';
 import { CategoriaListComponent } from '../categoria/categoria-list/categoria-list.component';
 import { CategoriaDetailComponent } from '../categoria/categoria-detail/categoria-detail.component';
 import { MediopagoListComponent } from '../mediopago/mediopago-list/mediopago-list.component';
 import { MediopagoDetailComponent } from '../mediopago/mediopago-detail/mediopago-detail.component';
 import { BicicletaEditComponent } from '../bicicleta/bicicleta-edit/bicicleta-edit.component';
-
 import { MarcaEditComponent } from '../marca/marca-edit/marca-edit.component';
-
 import { CompradorCarritoComponent } from '../usuarios/comprador/comprador-carrito/comprador-carrito.component';
 import { CompradorListaDeseosComponent } from '../usuarios/comprador/comprador-lista-deseos/comprador-lista-deseos.component';
 import { CompradorProcesoCompraComponent } from '../usuarios/comprador/comprador-proceso-compra/comprador-proceso-compra.component';
 import { DashboardComponent } from '../usuarios/administrador/dashboard/dashboard.component';
 import { VendedorListComponent } from '../usuarios/vendedores/vendedor-list/vendedor-list.component';
-
-
+import { VentaReviewComponent } from '../usuarios/administrador/venta-review/venta-review.component';
 
 const routes: Routes = [
 
@@ -46,7 +39,6 @@ const routes: Routes = [
         path: 'home',
         component: HomeComponent
     },
-
 
     {
         path: 'bicicletas',
@@ -119,6 +111,11 @@ const routes: Routes = [
     },
 
     {
+        path: 'ventas',
+        component: VentaReviewComponent
+    },
+
+    {
         path: 'compradores',
         children: [
             {
@@ -127,11 +124,19 @@ const routes: Routes = [
             },
             {
                 path: ':id/carrito',
+                component: CompradorCarritoComponent
+            },
+			{
+                path: ':id/listadeseos',
                 component: CompradorListaDeseosComponent
             },
             {
                 path: ':id',
                 component: CompradorDetailComponent
+            },
+            {
+                path: 'mediosPago',
+                component: MediopagoListComponent
             }
 
         ]
@@ -150,8 +155,6 @@ const routes: Routes = [
             }
         ]
     },
-
-
 
     {
         path: 'marcas',
