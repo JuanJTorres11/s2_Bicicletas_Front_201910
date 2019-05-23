@@ -37,6 +37,7 @@ import { CompradorListaDeseosComponent } from '../usuarios/comprador/comprador-l
 import { CompradorProcesoCompraComponent } from '../usuarios/comprador/comprador-proceso-compra/comprador-proceso-compra.component';
 import { DashboardComponent } from '../usuarios/administrador/dashboard/dashboard.component';
 import { VendedorListComponent } from '../usuarios/vendedores/vendedor-list/vendedor-list.component';
+import { VentaReviewComponent } from '../usuarios/administrador/venta-review/venta-review.component';
 
 
 
@@ -46,7 +47,6 @@ const routes: Routes = [
         path: 'home',
         component: HomeComponent
     },
-
 
     {
         path: 'bicicletas',
@@ -119,6 +119,11 @@ const routes: Routes = [
     },
 
     {
+        path: 'ventas',
+        component: VentaReviewComponent
+    },
+
+    {
         path: 'compradores',
         children: [
             {
@@ -150,8 +155,6 @@ const routes: Routes = [
             }
         ]
     },
-
-
 
     {
         path: 'marcas',
