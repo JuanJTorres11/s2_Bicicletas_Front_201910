@@ -13,8 +13,8 @@
         </div>
         <div class="card-footer">
           <button *ngIf="venta.aprobado" class="btn btn-success">Aprobado</button>
-          <button  *ngIf="venta.aprobado === undefined || venta.aprobado === null" class="btn btn-warning">Pendiente</button >
-          <button  *ngIf="venta.aprobado === false" class="btn btn-danger">Rechazado</button >
+          <button *ngIf="venta.aprobado === undefined || venta.aprobado === null" class="btn btn-warning">Pendiente</button >
+          <button *ngIf="venta.aprobado === false" class="btn btn-danger">Rechazado</button >
         </div>
       </div>
     </div>

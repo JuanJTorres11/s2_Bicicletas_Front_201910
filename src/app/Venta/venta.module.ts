@@ -12,8 +12,6 @@ import {VentaService} from './venta.service';
 import {AppRoutingModule} from '../app-routing/app-routing.module';
 import {VentaCreateComponent} from './venta-create/venta-create.component';
 import {VentaEditComponent} from './venta-edit/venta-edit.component';
-import { VentaReviewComponent } from './venta-review/venta-review.component';
-
 
 
 
@@ -29,7 +27,7 @@ import { VentaReviewComponent } from './venta-review/venta-review.component';
     declarations: [
         // VentaListComponent,
 		VentaCreateComponent, 
-        VentaEditComponent, VentaReviewComponent
+        VentaEditComponent
     ],
     providers: [VentaService],
     // exports: [VentaListComponent]
