@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { NgxPermissionsModule } from 'ngx-permissions';
 
 import { CategoriaListComponent } from './categoria-list/categoria-list.component';
 import { CategoriaAddComponent } from './categoria-add/categoria-add.component';
@@ -11,7 +12,6 @@ import { CategoriaEditComponent } from './categoria-edit/categoria-edit.componen
 
 import { BicicletaModule } from '../bicicleta/bicicleta.module';
 import { CategoriaBicicletaComponent } from './categoria-bicicleta/categoria-bicicleta.component';
-import { CategoriaAddBicicletaComponent } from './categoria-add-bicicleta/categoria-add-bicicleta.component';
 import { CategoriaDeleteComponent } from './categoria-delete/categoria-delete.component';
 
 @NgModule({
@@ -19,9 +19,10 @@ import { CategoriaDeleteComponent } from './categoria-delete/categoria-delete.co
     CommonModule,
     FormsModule,
     RouterModule,
-    BicicletaModule
+    BicicletaModule,
+    NgxPermissionsModule
   ],
-  declarations: [CategoriaListComponent, CategoriaAddComponent, CategoriaDetailComponent, CategoriaEditComponent, CategoriaBicicletaComponent, CategoriaAddBicicletaComponent, CategoriaDeleteComponent],
+  declarations: [CategoriaListComponent, CategoriaAddComponent, CategoriaDetailComponent, CategoriaEditComponent, CategoriaBicicletaComponent, CategoriaDeleteComponent],
   bootstrap: [CategoriaListComponent],
   exports: [ CategoriaListComponent, CategoriaAddComponent ],
   providers: [CategoriaService]

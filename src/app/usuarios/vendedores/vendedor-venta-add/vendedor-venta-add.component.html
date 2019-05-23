@@ -2,58 +2,40 @@
   <div class="inner">
     <form>
       <h3>Subir nueva bicicleta</h3>
-      <div class="form-row">
-        <div class="form-group col-md-8">
-          <div class="spacer">
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-              <ol class="carousel-indicators">
-                <li *ngFor="let img of lbum,let i = index" data-target="#carouselExampleIndicators"
-                  class="{{ (i == 0) ? 'active' : '' }}" attr.data-slide-to="{{i}}"></li>
-              </ol>
-              <div class="carousel-inner">
-                <div *ngFor="let img of album,let i = index"
-                  class="{{ (i == 0) ? 'carousel-item active' : 'carousel-item' }}">
-                  <img class="d-block w-100" src="{{album[i]}}" alt="slide {{i}}">
-                </div>
-              </div>
-              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Anterior</span>
-              </a>
-              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Siguiente</span>
-              </a>
+      <div class="row">
+        <div class="col-md-5">
+          <div id="img" class="carousel slide" data-ride="carousel">
+            <img class="img-fluid" src="https://yerkabikes.com/cl/wp-content/uploads/2015/12/Yerka-v2-turquesa-turquoise.png"
+              alt="Bicicleta" width="230" height="200">
+          </div>
+        </div>
+        <div class="col-md-7">
+          <div class="form-row">
+            <div class="form-group col">
+              <label> Adjuntar foto </label>
+              <input type="url" class="form-control" id="inputfoto" placeholder="Ingrese dirección de la foto"
+                value="{{foto}}">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col">
+              <label> Adjuntar factura </label>
+              <input type="url" class="form-control" id="inputfactura" placeholder="Ingrese dirección de la factura"
+                value="{{venta.factura}}">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col">
+              <label> Precio</label>
+              <input type="number" class="form-control col" id="inputPrecio" min="0" placeholder="Precio"
+                value="{{venta.precio}}">
             </div>
           </div>
         </div>
-        <div class="form-group col-md-4">
-          <label for="inputState">Subir Foto</label>
-          <select id="inputIMG" class="form-control">
-            <option selected>Adjuntar</option>
-            <option>Eliminar</option>
-          </select>
-        </div>
       </div>
-      <div class="form-row">
-        <label for="validatedCustomFile">Adjuntar factura</label>
-        <div class="custom-file">
-          <input type="file" class="custom-file-input" id="validatedCustomFile" required>
-          <label class="custom-file-label" for="validatedCustomFile">Escoger archivo</label>
-          <div class="invalid-feedback">Archivo erroneo</div>
-        </div>
-      </div>
-      <div class="form-row">
-        <label for="exampleFormControlTextarea3">Precio</label>
-        <input class="form-control" id="inputPrecio" placeholder="Precio">
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <button class="btn btn-success" type="submit">Subir</button>
-        </div>
-        <div class="form-group col-md-6">
-          <button class="btn btn-danger" type="submit">Cancelar</button>
-        </div>
+      <div class="form-group row">
+        <button class="btn btn-success" type="submit">Subir</button>
+        <button class="btn btn-danger" type="submit">Cancelar</button>
       </div>
     </form>
   </div>

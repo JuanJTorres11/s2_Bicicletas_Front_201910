@@ -26,6 +26,10 @@ export class VendedorService {
         return this.http.get<VendedorDetail>(API_URL + "/" + id );
     }
 
+    getVendedores() : Observable<VendedorDetail[]> {
+        return this.http.get<VendedorDetail[]>(API_URL);
+      }
+
     /**
      * Actualiza un vendedor
      * @param id Identificador del vendedor a actualizar

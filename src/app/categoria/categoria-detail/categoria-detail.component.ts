@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { NgxPermissionsService } from 'ngx-permissions';
 
 import { CategoriaDetail } from '../categoria-detail';
 import { CategoriaService } from '../categoria.service';
@@ -18,7 +19,8 @@ export class CategoriaDetailComponent implements OnInit {
 
   constructor(private categoriaService: CategoriaService,
               private route: ActivatedRoute,
-              private location: Location
+              private location: Location,
+              private permissionService: NgxPermissionsService
   ) { }
 
   getCategoriaDetail() {

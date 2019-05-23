@@ -4,6 +4,7 @@ import { CommonModule }        from '@angular/common';
 import { ListFilterUsadaPipe } from './list-filter-usada.pipe';
 import { ListFilterReferPipe } from './list-filter-refer.pipe';
 import { ListFilterPrecioPipe } from './list-filter-precio.pipe';
+import { ListFilterDesPipe } from './list-filter-des.pipe';
 
 
 @NgModule({
@@ -14,12 +15,14 @@ import { ListFilterPrecioPipe } from './list-filter-precio.pipe';
   declarations: 
   [ ListFilterUsadaPipe, 
   ListFilterReferPipe,
-  ListFilterPrecioPipe],
+  ListFilterPrecioPipe,
+  ListFilterDesPipe],
 
   exports:      
   [ ListFilterUsadaPipe, 
   ListFilterReferPipe,
-  ListFilterPrecioPipe]
+  ListFilterPrecioPipe,
+  ListFilterDesPipe]
 })
 export class SharedModule {
   

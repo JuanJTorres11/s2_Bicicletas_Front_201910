@@ -43,10 +43,10 @@ export class AuthSignUpComponent implements OnInit {
     * Sign the user up with the selected role
     */
     signUp(): void {
-        if (this.rol == 'Administrador') {
+        if (this.rol === 'Administrador') {
             this.router.navigateByUrl('/');
         }
-        else if (this.rol == 'Comprador') {
+        else if (this.rol === 'Comprador') {
             this.comprador = new Comprador();
             this.comprador.nombre = this.nombre;
             this.comprador.login = this.login;
@@ -61,7 +61,7 @@ export class AuthSignUpComponent implements OnInit {
             }
             );
         }
-        else if ((this.rol == 'Vendedor')) {
+        else {
             this.vendedor = new Vendedor();
             this.vendedor.nombre = this.nombre;
             this.vendedor.login = this.login;
