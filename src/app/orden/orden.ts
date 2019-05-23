@@ -29,4 +29,8 @@ export class Orden {
     //     this.costo=costo;
     //     this.fecha=fecha;
     // }
+
+    getCosto() {
+        return this.costo;
+    }
 }
