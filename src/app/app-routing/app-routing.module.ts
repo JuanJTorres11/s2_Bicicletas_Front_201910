@@ -11,7 +11,7 @@ import { VendedorDetailComponent } from '../usuarios/vendedores/vendedor-detail/
 import { VendedorEditComponent } from '../usuarios/vendedores/vendedor-edit/vendedor-edit.component';
 import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
-import { NgxPermissionsGuard} from 'ngx-permissions';
+import { NgxPermissionsGuard } from 'ngx-permissions';
 
 
 import { CompradorEditComponent } from '../usuarios/comprador/comprador-edit/comprador-edit.component';
@@ -32,9 +32,10 @@ import { BicicletaEditComponent } from '../bicicleta/bicicleta-edit/bicicleta-ed
 
 import { MarcaEditComponent } from '../marca/marca-edit/marca-edit.component';
 
-import {CompradorCarritoComponent} from '../usuarios/comprador/comprador-carrito/comprador-carrito.component';
-import {CompradorListaDeseosComponent} from '../usuarios/comprador/comprador-lista-deseos/comprador-lista-deseos.component';
-import {CompradorProcesoCompraComponent} from '../usuarios/comprador/comprador-proceso-compra/comprador-proceso-compra.component';
+import { CompradorCarritoComponent } from '../usuarios/comprador/comprador-carrito/comprador-carrito.component';
+import { CompradorListaDeseosComponent } from '../usuarios/comprador/comprador-lista-deseos/comprador-lista-deseos.component';
+import { CompradorProcesoCompraComponent } from '../usuarios/comprador/comprador-proceso-compra/comprador-proceso-compra.component';
+import { DashboardComponent } from '../usuarios/administrador/dashboard/dashboard.component';
 import { VendedorListComponent } from '../usuarios/vendedores/vendedor-list/vendedor-list.component';
 
 
@@ -57,17 +58,17 @@ const routes: Routes = [
             {
                 path: 'add',
                 component: BicicletaCreateComponent
-				//canActivate: [NgxPermissionsGuard],
+                //canActivate: [NgxPermissionsGuard],
                 //data: {
-                  //  permissions: {
-                    //    only: ['ADMIN']
-                    //}
-               // }
+                //  permissions: {
+                //    only: ['ADMIN']
+                //}
+                // }
             },
             {
                 path: ':id/edit',
                 component: BicicletaEditComponent,
-				canActivate: [NgxPermissionsGuard],
+                canActivate: [NgxPermissionsGuard],
                 data: {
                     permissions: {
                         only: ['ADMIN']
@@ -124,7 +125,7 @@ const routes: Routes = [
                 path: 'edit',
                 component: CompradorEditComponent
             },
-			{
+            {
                 path: ':id/carrito',
                 component: CompradorListaDeseosComponent
             },
@@ -204,6 +205,10 @@ const routes: Routes = [
             path: ':numeroTarjeta',
             component: MediopagoDetailComponent
         }]
+    },
+    {
+        path: 'dashboard',
+        component: DashboardComponent
     },
     {
         path: '**',
