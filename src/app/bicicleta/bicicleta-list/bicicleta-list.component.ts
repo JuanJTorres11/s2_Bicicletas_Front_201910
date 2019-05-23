@@ -153,7 +153,7 @@ export class BicicletaListComponent implements OnInit {
 	}
 
 	filtrarReferencia(value){
-			this.bicicletas = this.pipeReferencia.transform(this.bicicletas, value);
+			this.bicicletas = this.pipeReferencia.transform(this.originales, value);
 	}
 
 	filtrarDesc(){
