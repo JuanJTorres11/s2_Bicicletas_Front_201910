@@ -20,7 +20,6 @@ import { AuthModule } from './auth/auth.module';
 import { VendedoresModule } from './usuarios/vendedores/vendedores.module';
 import { CategoriaModule } from './categoria/categoria.module';
 import { MediopagoModule } from './mediopago/mediopago.module';
-
 import { CompradorModule } from './usuarios/comprador/comprador.module';
 import { VentaModule } from './venta/venta.module';
 import { AdministradorModule } from './usuarios/administrador/administrador.module';
@@ -57,7 +56,6 @@ import { AdministradorModule } from './usuarios/administrador/administrador.modu
         CompradorModule, 
         VentaModule,
         AdministradorModule
-
     ],
     bootstrap: [AppComponent],
     providers: [

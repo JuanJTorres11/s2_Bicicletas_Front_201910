@@ -12,7 +12,7 @@ export class VentaReviewComponent implements OnInit {
 
 
   constructor(
-    private vendedorService: AdministradorService,
+    private service: AdministradorService,
     private route: ActivatedRoute) { }
 
   /**
@@ -29,23 +29,29 @@ export class VentaReviewComponent implements OnInit {
    * Obtiene las ventas asociadas al vendedor del back.
    */
   getVentas() {
-    this.vendedorService.getVendedorVentas(this.id).subscribe(ventaBD => {
+    this.service.getVentas().subscribe(ventaBD => {
       this.ventas = ventaBD;
     })
   }
 
   aprobar(venta:Venta) {
     venta.aprobado = true;
+    this.service.putVentas(venta);
   }
 
   rechazar(venta:Venta) {
     venta.aprobado = false;
+    this.service.putVentas(venta);
+  }
+
+  putVenta(venta:Venta) {
+    this.service.putVentas(venta).subscribe(ventaBD => {
+    })
   }
   /**
    * Método que se ejecuta cuando se crea el componente.
    */
   ngOnInit() {
-    this.id = parseInt(localStorage.getItem('id'));
     this.getVentas();
   }
 }

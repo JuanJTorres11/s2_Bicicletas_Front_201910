@@ -48,7 +48,6 @@ const routes: Routes = [
         component: HomeComponent
     },
 
-
     {
         path: 'bicicletas',
         children: [
@@ -120,13 +119,8 @@ const routes: Routes = [
     },
 
     {
-        path: 'admin',
-        children: [
-            {
-                path: 'ventas',
-                component: VentaReviewComponent
-            }
-        ]
+        path: 'ventas',
+        component: VentaReviewComponent
     },
 
     {
@@ -161,8 +155,6 @@ const routes: Routes = [
             }
         ]
     },
-
-
 
     {
         path: 'marcas',

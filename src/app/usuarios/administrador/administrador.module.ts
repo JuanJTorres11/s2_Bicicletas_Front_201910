@@ -3,14 +3,14 @@ import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { VentaReviewComponent } from './venta-review/venta-review.component';
 
-
 @NgModule({
   imports: [
     CommonModule
   ],
   declarations: [
     DashboardComponent,
-    VentaReviewComponent],
+    VentaReviewComponent
+  ],
   exports: [
     DashboardComponent,
     VentaReviewComponent

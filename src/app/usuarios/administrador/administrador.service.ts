@@ -22,7 +22,11 @@ export class AdministradorService {
      * Ventas del vendedor con id especificado.
      * @param id Identificador del vendedor del que se quieren recuperar las ventas.
      */
-    getVendedorVentas(id:number):Observable<any> {
-        return this.http.get(API_URL + "/venta");
+    getVentas():Observable<Venta[]> {
+        return this.http.get<Venta[]>(API_URL + "/venta");
     }
+
+    putVentas(venta: Venta):Observable<Venta> {
+        return this.http.put<Venta>(API_URL + "/venta/" + venta.id, venta);
+      }
 }
