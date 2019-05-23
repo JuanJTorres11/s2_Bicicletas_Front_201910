@@ -60,10 +60,10 @@
                     <!-- Submenu MARCA content -->
                     <div id='submenu2' class="collapse sidebar-submenu">
                         <a class="list-group-item list-group-item-action bg-dark text-white" *ngFor="let marca of marcas">
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="materialChecked2" unchecked>
-                                <label class="form-check-label" for="materialChecked2">{{marca.nombre}}</label>
-                            </div>
+                            <a class="list-group-item list-group-item-action bg-dark text-white" *ngFor="let categoria of categorias" (click)="getBicicletasMarca(marca.id)">
+                                <span class="menu-collapsed">{{marca.nombre}}</span>
+                            </a>
+
                         </a>
                     </div>
                     <!-- Menu USADA with submenu -->
@@ -88,6 +88,7 @@
                                 <label class="form-check-label" for="UsadaFalse">Nueva</label>
                             </div>
                         </a>
+                       
                     </div>
                     <!-- Menu PRECIO with submenu -->
                     <a href="#submenuPrecio" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
@@ -115,7 +116,7 @@
                         <a class="list-group-item list-group-item-action bg-dark text-white">
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="Precio03" [checked]="false" (click)="togglePrecio('Precio03', 1000000, 5000000)">
-                                <label class="form-check-label" for="Precio03">$1'000.000 - $5'000.000</label>
+                                <label class="form-check-label" for="Precio03">$1'000.000-$5'000.000</label>
                             </div>
 
                         </a>
