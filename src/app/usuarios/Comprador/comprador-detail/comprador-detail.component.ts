@@ -34,7 +34,8 @@ export class CompradorDetailComponent implements OnInit {
 
     getCompradorDetail(): void {
         this.compradorService.getCompradorDetail(this.id).subscribe((compradorRemoto) => {
-          this.comprador = compradorRemoto
+          this.comprador = compradorRemoto;
+          console.log("el nombre es: " + this.comprador.nombre);
         });
       }
 
@@ -44,7 +45,9 @@ export class CompradorDetailComponent implements OnInit {
     
       ngOnInit() {
         this.id = +this.route.snapshot.paramMap.get('id');
+        console.log("el id es " + this.id);
         if (this.id) {
+          console.log("prueba");
           this.comprador = new CompradorDetail();
           this.getCompradorDetail();
         }
