@@ -156,6 +156,10 @@ export class BicicletaListComponent implements OnInit {
 			this.bicicletas = this.pipeReferencia.transform(this.bicicletas, value);
 	}
 
+	filtrarDesc(){
+			this.bicicletas = this.pipeDes.transform(this.originales);
+	}
+
 	sortAlphAsc() {
 	this.bicicletas.sort((t1, t2) => {
       const name1 = t1.referencia.toLowerCase();
