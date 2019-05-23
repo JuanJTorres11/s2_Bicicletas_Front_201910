@@ -12,6 +12,7 @@ import { CompradorProcesoCompraComponent } from './comprador-proceso-compra/comp
 import { CompradorMediospagoComponent } from './comprador-mediosPago/comprador-mediosPago.component';
 import { CompradorOrdenComponent} from './comprador-orden/comprador-orden.component';
 import { OrdenModule } from '../../orden/orden.module';
+import { MediopagoModule } from '../../mediopago/mediopago.module';
 
 @NgModule({
     imports: [
@@ -19,7 +20,8 @@ import { OrdenModule } from '../../orden/orden.module';
         FormsModule,
         BicicletaModule, 
         OrdenModule, 
-        AppRoutingModule
+        AppRoutingModule,
+        MediopagoModule
     ],
     declarations: [
     CompradorEditComponent, 

@@ -63,7 +63,7 @@ export class CompradorService {
      * Eliminar un comprador
      * @param id Identificador del comprador
      */
-    deleteVendedor(id: number) {
+    deleteComprador(id: number) {
         this.http.delete<CompradorDetail>(API_URL + "/" + id);
     }
 

@@ -39,15 +39,13 @@ export class CompradorDetailComponent implements OnInit {
         });
       }
 
-      getMediosPago () {
+      getMediosPago() {
         this.router.navigateByUrl('/compradores/mediosPago');
       }
     
       ngOnInit() {
         this.id = +this.route.snapshot.paramMap.get('id');
-        console.log("el id es " + this.id);
         if (this.id) {
-          console.log("prueba");
           this.comprador = new CompradorDetail();
           this.getCompradorDetail();
         }

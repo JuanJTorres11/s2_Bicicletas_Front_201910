@@ -42,11 +42,6 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">Lista de deseos</a>
             </li>
-            <!-- Dropdown -->
-            <li class="nav-item">
-                <a class="nav-link" routerLink="venta/add">Venta</a>
-
-            </li>
 
         </ul>
 
@@ -61,7 +56,7 @@
             </div>
             <div *ngxPermissionsOnly="['COMPRADOR']">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Perfil</a></li>
+                    <li class="nav-item"><a class="nav-link" [routerLink]="['compradores',darIdActual()]">Perfil</a></li>
                     <li class="nav-item"> <a class="nav-link" [routerLink]="['compradores','edit']">Configuración</a>
                     </li>
                     <li class="nav-item"><a class="nav-link" (click)="logout()" href="#">Cerrar Sesión</a></li>

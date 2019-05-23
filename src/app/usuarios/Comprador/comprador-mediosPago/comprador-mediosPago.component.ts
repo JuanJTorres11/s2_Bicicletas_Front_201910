@@ -22,11 +22,11 @@ import { Mediopago } from '../../../mediopago/mediopago';
   /**
    * Medios de pago de Comprador
    */
-  getMediosPago() {
-    this.service.getCompradorMediosPago(this.id).subscribe(mediosPagoBD => {
-      this.mediosPago = mediosPagoBD;
-    });
-  }
+  // getMediosPago() {
+  //   this.service.getCompradorMediosPago(this.id).subscribe(mediosPagoBD => {
+  //     this.mediosPago = mediosPagoBD;
+  //   });
+  // }
 
 
     /**

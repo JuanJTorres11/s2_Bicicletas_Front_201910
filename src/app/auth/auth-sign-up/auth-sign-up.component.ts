@@ -61,7 +61,7 @@ export class AuthSignUpComponent implements OnInit {
             }
             );
         }
-        else {
+        else if ((this.rol == 'Vendedor')) {
             this.vendedor = new Vendedor();
             this.vendedor.nombre = this.nombre;
             this.vendedor.login = this.login;

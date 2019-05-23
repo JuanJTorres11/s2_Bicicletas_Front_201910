@@ -124,6 +124,10 @@ const routes: Routes = [
             {
                 path: ':id',
                 component: CompradorDetailComponent
+            },
+            {
+                path: 'mediosPago',
+                component: MediopagoListComponent
             }
 
         ]
