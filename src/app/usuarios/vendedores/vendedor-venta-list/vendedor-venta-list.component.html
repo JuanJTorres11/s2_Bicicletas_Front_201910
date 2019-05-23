@@ -5,16 +5,16 @@
       <div class="card h-100">
         <a href="">
           <!-- routerLink="/ventas/{{venta.id}}" -->
-          <img class="card-img-top" src="{{venta.album[0]}}" alt="">
+          <img class="card-img-top" src="{{venta.fotos[0]}}" alt="Bicicleta">
         </a>
         <div class="card-body">
-          <h4 class="card-title">Venta :{{venta.id}}</h4>
+          <h4 class="card-title">Venta: {{venta.id}}</h4>
+          <h4 class="card-title">$ {{venta.precio}}</h4>
         </div>
         <div class="card-footer">
-          <a *ngIf="venta.aprobado" href="" class="btn btn-success">Aprobado</a>
-          <!-- routerLink="/ventas/{{venta.id}}" -->
-          <a *ngIf="venta.aprobado" href="" class="btn btn-warning">Pendiente</a>
-          <a *ngIf="!venta.aprobado" href="" class="btn btn-danger">Rechazado</a>
+          <button *ngIf="venta.aprobado" class="btn btn-success">Aprobado</button>
+          <button  *ngIf="venta.aprobado === undefined || venta.aprobado === null" class="btn btn-warning">Pendiente</button >
+          <button  *ngIf="venta.aprobado === false" class="btn btn-danger">Rechazado</button >
         </div>
       </div>
     </div>
