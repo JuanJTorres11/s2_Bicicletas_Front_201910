@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment.prod';
-import { Orden } from 'src/app/orden/orden';
-import { OrdenDetail } from 'src/app/orden/orden-detail';
-import { Venta } from 'src/app/Venta/venta';
+import { Orden } from '../../orden/orden';
+import { OrdenDetail } from '../../orden/orden-detail';
+import { Venta } from '../../Venta/venta';
 
 const API_URL = environment.apiURL;
 const ordenes = '/ordenes';

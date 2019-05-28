@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as CanvasJS from '../../../../assets/canvasjs.min';
 import * as $ from "jquery";
 import { AdministradorService } from '../administrador.service';
-import { OrdenDetail } from 'src/app/orden/orden-detail';
+import { OrdenDetail } from '../../../orden/orden-detail';
 
 @Component({
   selector: 'app-dashboard',
