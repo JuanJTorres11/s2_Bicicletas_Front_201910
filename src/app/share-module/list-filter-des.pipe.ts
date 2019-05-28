@@ -4,7 +4,7 @@ import {Bicicleta} from '../bicicleta/bicicleta';
 @Pipe({
   name: 'listFilterDes'
 })
-export class ListFilterDesPipe implements PipeTransform {
+export class ListFilterDesPipe implements PipeTransform { 
 
   
    transform(input: Bicicleta[]){
