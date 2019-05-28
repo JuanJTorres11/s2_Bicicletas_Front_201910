@@ -6,7 +6,7 @@ import {Bicicleta} from '../bicicleta/bicicleta';
 })
 export class ListFilterDesPipe implements PipeTransform {  
 
-  //test
+  //test1
    transform(input: Bicicleta[]){
     var output: Bicicleta[] = [];
 	if(input && input.length){
