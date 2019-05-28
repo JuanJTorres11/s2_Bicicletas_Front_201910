@@ -29,7 +29,7 @@ export class DashboardComponent implements OnInit {
   constructor(private adminService: AdministradorService
   ) { }
 
-  getOrdenes() {
+  getOrdenes() { 
     this.ordenes = [];
     this.adminService.getOrdenes().subscribe(ordenes => {
       this.ordenes = ordenes;
