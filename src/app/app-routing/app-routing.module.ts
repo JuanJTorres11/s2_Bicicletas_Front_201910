@@ -50,12 +50,12 @@ const routes: Routes = [
             {
                 path: 'add',
                 component: BicicletaCreateComponent
-                //canActivate: [NgxPermissionsGuard],
-                //data: {
-                //  permissions: {
-                //    only: ['ADMIN']
-                //}
-                // }
+                canActivate: [NgxPermissionsGuard],
+                data: {
+                  permissions: {
+                    only: ['ADMIN']
+                }
+                 }
             },
             {
                 path: ':id/edit',
