@@ -25,7 +25,7 @@ export class Venta {
      * Atributo que representa un arreglo con las fotos de la bicicleta
      * asociada.
      */
-    fotos : String[];
+    fotos : String[] = new Array(1);
 
     /**
     * Objeto bicicleta a vender. 

@@ -1,0 +1,21 @@
+<div class="container">
+    <h2>Ventas asociadas</h2>
+    <div class="row text-center text-lg-left">
+      <div class="col-lg-3 col-md-6 mb-4" *ngFor="let venta of ventas">
+        <div class="card h-100">
+            <img class="card-img-top" src="{{venta.fotos[0]}}" alt="Bicicleta">
+            <img class="card-img-top" src="{{venta.factura}}" alt="Bicicleta">
+          <div class="card-body">
+            <h4 class="card-title">Venta: {{venta.id}}</h4>
+            <h4 class="card-title">$ {{venta.precio}}</h4>
+          </div>
+          <div class="card-footer">
+              <select class="custom-select" name="aprobado">
+                  <option (click)="aprobar(venta)">Aprobar</option>
+                  <option (click)="rechazar(venta)">Rechazar</option>
+              </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

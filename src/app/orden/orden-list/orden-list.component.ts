@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import { Router } from '@angular/router';
 import {Orden} from '../orden';
 import {OrdenService} from '../orden.service';
@@ -16,7 +16,7 @@ export class OrdenListComponent implements OnInit {
     /**
      * Lista de ordenes
      */
-    ordenes: Orden[];
+    @Input() ordenes: Orden[];
 
     /**
    * Constructor del componente

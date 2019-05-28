@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { VendedorService } from '../vendedor.service';
 import { Venta } from '../../../Venta/venta';
+import { FormGroup, FormsModule, ReactiveFormsModule  } from '@angular/forms';
 
 @Component({
   selector: 'app-vendedor-venta-add',
@@ -12,6 +13,8 @@ export class VendedorVentaAddComponent implements OnInit {
   constructor(
     private service: VendedorService) { }
 
+    form: FormGroup;
+    
   /**
    * Identificador del vendedor actual
    */
@@ -21,14 +24,19 @@ export class VendedorVentaAddComponent implements OnInit {
    * Representación del objeto venta
    */
   venta:Venta;
+  factura:String;
+  precio:number;
   
-  foto:string;
+  foto= "https://yerkabikes.com/cl/wp-content/uploads/2015/12/Yerka-v2-turquesa-turquoise.png";
 
   /**
    * Crea una nueva venta.
    */
   addVenta () {
     this.venta.fotos[0] = this.foto;
+    this.venta.factura= this.factura;
+    this.venta.precio = this.precio;
+    console.log("la venta es" + this.venta.precio + this.venta.factura);
     this.service.postVendedorVentas(this.id, this.venta).subscribe(ventaBD => {
       this.venta = ventaBD;
     });
@@ -39,5 +47,6 @@ export class VendedorVentaAddComponent implements OnInit {
    */
   ngOnInit() {
     this.id = parseInt(localStorage.getItem('id'));
+    this.venta = new Venta();
   }
 }

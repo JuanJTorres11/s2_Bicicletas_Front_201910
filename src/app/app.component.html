@@ -42,13 +42,6 @@
             <li class="nav-item">
                 <a class="nav-link" routerLink="/compradores/1/listadeseos">Lista de deseos</a>
             </li>
-            <!-- Dropdown -->
-
-            <!-- Dropdown -->
-            <li class="nav-item">
-                <a class="nav-link" routerLink="venta/add">Venta</a>
-
-            </li>
 
         </ul>
 
@@ -63,7 +56,7 @@
             </div>
             <div *ngxPermissionsOnly="['COMPRADOR']">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Perfil</a></li>
+                    <li class="nav-item"><a class="nav-link" [routerLink]="['compradores',darIdActual()]">Perfil</a></li>
                     <li class="nav-item"> <a class="nav-link" [routerLink]="['compradores','edit']">Configuración</a>
                     </li>
                     <li class="nav-item"><a class="nav-link" (click)="logout()" href="#">Cerrar Sesión</a></li>
@@ -90,10 +83,12 @@
                             aria-haspopup="true" aria-expanded="false">Listar</a>
                         <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" routerLink="vendedores/list">Listar Vendedores</a>
+                            <a class="dropdown-item" routerLink="ventas">Revisar Ventas</a>
                             <a class="dropdown-item" href="#">Listar compradores</a>
                         </div>
                     </li>
-                    <li class="nav-item"><a class="nav-link" [routerLink]="['dashboard']" style="margin-right: 10px;"><img
+                    <li class="nav-item"><a class="nav-link" [routerLink]="['dashboard']"
+                            style="margin-right: 10px;"><img
                                 src="http://www.myiconfinder.com/uploads/iconsets/256-256-3f869295130b9549514b440486bfe661-dashboard.png"
                                 class="dashboard" height="28px"></a></li>
                     <li class="nav-item"><a class="nav-link" (click)="logout()" href="#">Cerrar Sesión</a></li>

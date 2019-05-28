@@ -1,11 +1,11 @@
 <div class="wrapper">
   <div class="inner">
-    <form>
+    <form name="venta" (ngSubmit)="form.reset()" #venta="ngForm">
       <h3>Subir nueva bicicleta</h3>
       <div class="row">
         <div class="col-md-5">
           <div id="img" class="carousel slide" data-ride="carousel">
-            <img class="img-fluid" src="https://yerkabikes.com/cl/wp-content/uploads/2015/12/Yerka-v2-turquesa-turquoise.png"
+            <img class="img-fluid" src="{{foto}}"
               alt="Bicicleta" width="230" height="200">
           </div>
         </div>
@@ -14,28 +14,27 @@
             <div class="form-group col">
               <label> Adjuntar foto </label>
               <input type="url" class="form-control" id="inputfoto" placeholder="Ingrese dirección de la foto"
-                value="{{foto}}">
+              [(ngModel)]="foto" name="foto">
             </div>
           </div>
           <div class="form-row">
             <div class="form-group col">
               <label> Adjuntar factura </label>
               <input type="url" class="form-control" id="inputfactura" placeholder="Ingrese dirección de la factura"
-                value="{{venta.factura}}">
+              [(ngModel)]="factura" name="factura">
             </div>
           </div>
           <div class="form-row">
             <div class="form-group col">
               <label> Precio</label>
               <input type="number" class="form-control col" id="inputPrecio" min="0" placeholder="Precio"
-                value="{{venta.precio}}">
+              [(ngModel)]="precio" name="precio">
             </div>
           </div>
         </div>
       </div>
       <div class="form-group row">
-        <button class="btn btn-success" type="submit">Subir</button>
-        <button class="btn btn-danger" type="submit">Cancelar</button>
+        <button class="btn btn-success" type="submit" (click)="addVenta()">Subir</button>
       </div>
     </form>
   </div>
