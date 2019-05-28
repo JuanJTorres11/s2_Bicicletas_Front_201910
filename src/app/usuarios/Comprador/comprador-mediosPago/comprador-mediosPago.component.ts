@@ -43,6 +43,6 @@ import { Mediopago } from '../../../mediopago/mediopago';
    */
   ngOnInit() {
     this.id = parseInt(localStorage.getItem('id'));
-    this.getMediosPago();
+    //this.getMediosPago();
   }
   }
